@@ -4,7 +4,7 @@
 <h3 style="font-family: Geneva, Arial, Helvetica, sans-serif; font-weight: bold">马上加入浏览网站和完成任务赚钱！</h3>
 
 <p><img class="rimg-left" src="images/users.png" width="85" height="68" alt="Image" / align="absmiddle" >
-在<? include('sitename.php'); ?>
+在<?php include('sitename.php'); ?>
 ,你可以通过浏览网站和完成任务赚钱．操作很简单，你不需要任何技术，因为你只需要浏览我们提供的网站和完成一些简单的注册任务．你可以通过推荐更多的人加入赚更多的钱，下线提成为50%．我们通过支付宝支付会员，达到<span style="color: #0000FF"><? require ('config.php');
 								$sql = "SELECT * FROM tb_config WHERE item='payment' and howmany='1'";
 								$result = mysql_query($sql);        

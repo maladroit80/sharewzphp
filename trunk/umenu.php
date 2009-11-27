@@ -2,7 +2,7 @@
 	
 	
 	
-<?
+<?php
 
 
 // Si estan definidas las variables de las cookies se procede a mostrar el menu pero no sin antes comprobar que los
@@ -36,7 +36,7 @@ if("$wesk" != "$wask") {
 echo "登陆有误.";
 ?>
 <input type="button" value="Reload Page" onClick="window.location.reload()">
-<?
+<?php
 exit();
 }
 
@@ -55,7 +55,7 @@ if("$wezk" != "$wazk") {
 echo "登陆有误.";
 ?>
 <input type="button" value="Reload Page" onClick="window.location.reload()">
-<?
+<?php
 exit();
 }
 
