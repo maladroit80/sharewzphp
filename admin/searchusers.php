@@ -1,7 +1,11 @@
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
 <b>查找用户</b>
 
 <br><br>
 
+<?php include('config.php')?>
 
 <?
 

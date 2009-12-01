@@ -1,4 +1,11 @@
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
 <b>编辑用户</b>
+
+
+<?php include('funciones.php')?>
+<?php include('config.php')?>
 
 <?
 
