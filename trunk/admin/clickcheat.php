@@ -1,3 +1,6 @@
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
 <b>作弊会员列表</b>
 
 
@@ -8,6 +11,8 @@
 <th>欺骗广告ID</th>
 <th>点击次数</th>
 </tr>
+
+<?php include('config.php')?>
 <? 
 $sql = "SELECT * FROM tb_config WHERE item='cheat'";
 $result = mysql_query($sql);        

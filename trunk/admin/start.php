@@ -1,3 +1,8 @@
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<?php include('config.php')?>
+<?php include('funciones.php')?>
 <?
 
 
@@ -22,7 +27,7 @@ $wask = uc($_COOKIE["usNick"]);
 $wesk = $row['username'];
 
 if("$wesk" != "$wask") {
-echo "µÇÂ½´íÎó.";
+echo "ï¿½ï¿½Â½ï¿½ï¿½ï¿½ï¿½.";
 include('footer2.php');
 ?>
 
@@ -35,7 +40,7 @@ $wazk = uc($_COOKIE["usPass"]);
 $wezk = $row['password'];
 
 if("$wezk" != "$wazk") {
-echo "µÇÂ½´íÎó.";
+echo "ï¿½ï¿½Â½ï¿½ï¿½ï¿½ï¿½.";
 include('footer2.php');
 ?>
 

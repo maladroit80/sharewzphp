@@ -7,8 +7,7 @@
 <script type="text/javascript" src="tablecloth/tablecloth.js"></script>
 
 
-
-
+<?php include('config.php')?>
 
 
 

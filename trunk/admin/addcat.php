@@ -1,6 +1,10 @@
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
 <b>添加广告种类</b><br>
 <br>
 
+<?php include('config.php')?>
 <?
 
 $catname = $_POST["catname"];

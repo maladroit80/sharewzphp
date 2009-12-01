@@ -1,5 +1,10 @@
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
 <b>注册记录管理</b>
 
+<?php include('funciones.php')?>
+<?php include('config.php')?>
 <?
 
 

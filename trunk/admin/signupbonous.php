@@ -1,3 +1,6 @@
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
 <b>允许或者拒绝注册奖励申请</b>
 
 

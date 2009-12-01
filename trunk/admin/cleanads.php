@@ -1,3 +1,6 @@
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
 <b>清理已经完成的广告记录</b>
 <br>
 <br>

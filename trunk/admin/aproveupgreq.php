@@ -1,7 +1,11 @@
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
 <b>允许或者拒绝升级请求</b>
 
+<?php include('config.php')?>
 
-<?
+<?php
 
 if (isset($_GET["id"]))
 {
@@ -91,7 +95,7 @@ if ($option=="deny"){
 <th></th>
 <th></th>
 </tr>
-<?
+<?php
 
 $tabla = mysql_query("SELECT * FROM tb_upgrade ORDER BY id ASC"); // selecciono todos los registros de la tabla usuarios, ordenado por nombre
 
@@ -118,7 +122,7 @@ echo "
 </td>
 </tr>
 
-<?
+<?php
 
 } // fin del bucle de ordenes
 
