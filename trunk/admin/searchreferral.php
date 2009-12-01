@@ -1,6 +1,3 @@
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-</head>
 <b>查找会员下线</b>
 
 <br><br>

@@ -1,6 +1,3 @@
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-</head>
 <b>清除不活跃用户</b><br>
 <br>
 

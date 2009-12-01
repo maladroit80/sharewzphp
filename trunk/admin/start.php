@@ -1,8 +1,3 @@
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-</head>
-<?php include('config.php')?>
-<?php include('funciones.php')?>
 <?
 
 

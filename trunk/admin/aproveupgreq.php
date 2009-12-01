@@ -1,10 +1,3 @@
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-</head>
-<b>允许或者拒绝升级请求</b>
-
-<?php include('config.php')?>
-
 <?php
 
 if (isset($_GET["id"]))

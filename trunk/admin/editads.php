@@ -1,6 +1,3 @@
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-</head>
 <b>编辑点击广告</b>
 
 <?php include('config.php')?>
