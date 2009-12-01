@@ -1,16 +1,16 @@
-<? session_start(); ?>
+<?php session_start(); ?>
 
 
-<? include('header.php'); ?>
+<?php include('header.php'); ?>
         <!-- Pagetitle -->
         <br>
         <h3>
 <img border="0" src="images/orders.gif" align="absmiddle" width="32" height="32"><span style="font-weight: bold">在
-<? include('sitename.php'); ?>
+<?php include('sitename.php'); ?>
 上投放点击广告</span></h3>
 <br>
 
-<?
+<?php
 
 if (isset($_POST["pemail"])) 
 {
@@ -137,7 +137,7 @@ if ($plan==$wop){
 
 ?>
 
-<?
+<?php
 
 $precio=$row["price"];
 if ($bold==1){
@@ -155,7 +155,7 @@ $precio=$row["price"]+2.00+3.00;
 ?>
 
 您的订购已提交， 在我们允许你广告之前，你必须通过支付宝给本站付款
-<?
+<?php
 				echo $precio;
 				?>
 元. <br>
@@ -164,7 +164,7 @@ $precio=$row["price"]+2.00+3.00;
     <tr>
       <td width="391" bgcolor="#FFFFFF"><div align="center">
           <p>本站支付宝：
-              <? include('paypal.php'); ?>
+              <?php include('paypal.php'); ?>
           </p>
       </div></td>
     </tr>
@@ -176,7 +176,7 @@ $precio=$row["price"]+2.00+3.00;
     </tr>
   </table>
 </div>
-<?
+<?php
 }
 require ('config.php');
 $sql = "SELECT * FROM tb_config WHERE item='hits' and howmany='2000'";
@@ -190,7 +190,7 @@ if ($plan==$wop){
 
 ?>
 
-<?
+<?php
 $precio=$row["price"];
 if ($bold==1){
 $precio=$row["price"]+2.00;
@@ -207,7 +207,7 @@ $precio=$row["price"]+2.00+3.00;
 ?>
 
 您的订购已提交， 在我们允许你广告之前，你必须通过支付宝给本站付款
-<?
+<?php
 				echo $precio;
 				?>
 元. <br>
@@ -217,7 +217,7 @@ $precio=$row["price"]+2.00+3.00;
     <tr>
       <td width="391" bgcolor="#FFFFFF"><div align="center">
           <p>本站支付宝：
-              <? include('paypal.php'); ?>
+              <?php include('paypal.php'); ?>
           </p>
       </div></td>
     </tr>
@@ -229,7 +229,7 @@ $precio=$row["price"]+2.00+3.00;
     </tr>
   </table>
 </div>
-<?
+<?php
 }
 require ('config.php');
 $sql = "SELECT * FROM tb_config WHERE item='hits' and howmany='3000'";
@@ -243,7 +243,7 @@ if ($plan==$wop){
 
 ?>
 
-<?
+<?php
 $precio=$row["price"];
 if ($bold==1){
 $precio=$row["price"]+2.00;
@@ -260,7 +260,7 @@ $precio=$row["price"]+2.00+3.00;
 ?>
 
 您的订购已提交， 在我们允许你广告之前，你必须通过支付宝给本站付款
-<?
+<?php
 				echo $precio;
 				?>
 元. <br>
@@ -269,7 +269,7 @@ $precio=$row["price"]+2.00+3.00;
     <tr>
       <td width="391" bgcolor="#FFFFFF"><div align="center">
           <p>本站支付宝：
-              <? include('paypal.php'); ?>
+              <?php include('paypal.php'); ?>
           </p>
       </div></td>
     </tr>
@@ -283,7 +283,7 @@ $precio=$row["price"]+2.00+3.00;
 </div>
 
 
-<?
+<?php
 }
 require ('config.php');
 $sql = "SELECT * FROM tb_config WHERE item='hits' and howmany='5000'";
@@ -297,7 +297,7 @@ if ($plan==$wop){
 
 ?>
 
-<?
+<?php
 $precio=$row["price"];
 if ($bold==1){
 $precio=$row["price"]+2.00;
@@ -314,7 +314,7 @@ $precio=$row["price"]+2.00+3.00;
 ?>
 
 您的订购已提交， 在我们允许你广告之前，你必须通过支付宝给本站付款
-<?
+<?php
 				echo $precio;
 				?>
 元. <br>
@@ -323,7 +323,7 @@ $precio=$row["price"]+2.00+3.00;
     <tr>
       <td width="391" bgcolor="#FFFFFF"><div align="center">
           <p>本站支付宝：
-              <? include('paypal.php'); ?>
+              <?php include('paypal.php'); ?>
           </p>
       </div></td>
     </tr>
@@ -336,7 +336,7 @@ $precio=$row["price"]+2.00+3.00;
   </table>
 </div>
 
-<?
+<?php
 }
 require ('config.php');
 $sql = "SELECT * FROM tb_config WHERE item='hits' and howmany='10000'";
@@ -350,7 +350,7 @@ if ($plan==$wop){
 
 ?>
 
-<?
+<?php
 $precio=$row["price"];
 if ($bold==1){
 $precio=$row["price"]+2.00;
@@ -367,7 +367,7 @@ $precio=$row["price"]+2.00+3.00;
 ?>
 
 您的订购已提交， 在我们允许你广告之前，你必须通过支付宝给本站付款
-<?
+<?php
 				echo $precio;
 				?>
 元. <br>
@@ -376,7 +376,7 @@ $precio=$row["price"]+2.00+3.00;
     <tr>
       <td width="391" bgcolor="#FFFFFF"><div align="center">
           <p>本站支付宝：
-              <? include('paypal.php'); ?>
+              <?php include('paypal.php'); ?>
           </p>
       </div></td>
     </tr>
@@ -393,7 +393,7 @@ $precio=$row["price"]+2.00+3.00;
 
 
 
-<?
+<?php
 }
 require ('config.php');
 $sql = "SELECT * FROM tb_config WHERE item='hits' and howmany='500'";
@@ -407,7 +407,7 @@ if ($plan==$wop){
 
 ?>
 
-<?
+<?php
 $precio=$row["price"];
 if ($bold==1){
 $precio=$row["price"]+2.00;
@@ -424,7 +424,7 @@ $precio=$row["price"]+2.00+3.00;
 ?>
 
 您的订购已提交， 在我们允许你广告之前，你必须通过支付宝给本站付款
-<?
+<?php
 				echo $precio;
 				?>
 元. <br>
@@ -433,7 +433,7 @@ $precio=$row["price"]+2.00+3.00;
     <tr>
       <td width="391" bgcolor="#FFFFFF"><div align="center">
           <p>本站支付宝：
-              <? include('paypal.php'); ?>
+              <?php include('paypal.php'); ?>
           </p>
       </div></td>
     </tr>
@@ -447,7 +447,7 @@ $precio=$row["price"]+2.00+3.00;
 </div>
 
 
-<?
+<?php
 }
 require ('config.php');
 $sql = "SELECT * FROM tb_config WHERE item='hits' and howmany='20000'";
@@ -461,7 +461,7 @@ if ($plan==$wop){
 
 ?>
 
-<?
+<?php
 $precio=$row["price"];
 if ($bold==1){
 $precio=$row["price"]+2.00;
@@ -478,7 +478,7 @@ $precio=$row["price"]+2.00+3.00;
 ?>
 
 您的订购已提交， 在我们允许你广告之前，你必须通过支付宝给本站付款
-<?
+<?php
 				echo $precio;
 				?>
 元. <br>
@@ -487,7 +487,7 @@ $precio=$row["price"]+2.00+3.00;
     <tr>
       <td width="391" bgcolor="#FFFFFF"><div align="center">
           <p>本站支付宝：
-              <? include('paypal.php'); ?>
+              <?php include('paypal.php'); ?>
           </p>
       </div></td>
     </tr>
@@ -500,7 +500,7 @@ $precio=$row["price"]+2.00+3.00;
   </table>
 </div>
 
-<?
+<?php
 }
 require ('config.php');
 $sql = "SELECT * FROM tb_config WHERE item='hits' and howmany='30000'";
@@ -514,7 +514,7 @@ if ($plan==$wop){
 
 ?>
 
-<?
+<?php
 $precio=$row["price"];
 if ($bold==1){
 $precio=$row["price"]+2.00;
@@ -531,7 +531,7 @@ $precio=$row["price"]+2.00+3.00;
 ?>
 
 您的订购已提交， 在我们允许你广告之前，你必须通过支付宝给本站付款
-<?
+<?php
 				echo $precio;
 				?>
 元. <br>
@@ -540,7 +540,7 @@ $precio=$row["price"]+2.00+3.00;
     <tr>
       <td width="391" bgcolor="#FFFFFF"><div align="center">
           <p>本站支付宝：
-              <? include('paypal.php'); ?>
+              <?php include('paypal.php'); ?>
           </p>
       </div></td>
     </tr>
@@ -554,7 +554,7 @@ $precio=$row["price"]+2.00+3.00;
 </div>
 
 
-<?
+<?php
 }
 require ('config.php');
 $sql = "SELECT * FROM tb_config WHERE item='hits' and howmany='50000'";
@@ -568,7 +568,7 @@ if ($plan==$wop){
 
 ?>
 
-<?
+<?php
 $precio=$row["price"];
 if ($bold==1){
 $precio=$row["price"]+2.00;
@@ -584,7 +584,7 @@ $precio=$row["price"]+2.00+3.00;
 
 ?>
 您的订购已提交， 在我们允许你广告之前，你必须通过支付宝给本站付款
-<?
+<?php
 				echo $precio;
 				?>
 元. <br>
@@ -593,7 +593,7 @@ $precio=$row["price"]+2.00+3.00;
     <tr>
       <td width="391" bgcolor="#FFFFFF"><div align="center">
           <p>本站支付宝：
-              <? include('paypal.php'); ?>
+              <?php include('paypal.php'); ?>
           </p>
       </div></td>
     </tr>
@@ -605,7 +605,7 @@ $precio=$row["price"]+2.00+3.00;
     </tr>
   </table>
 </div>
-<?
+<?php
 }
 require ('config.php');
 $sql = "SELECT * FROM tb_config WHERE item='hits' and howmany='100000'";
@@ -619,7 +619,7 @@ if ($plan==$wop){
 
 ?>
 
-<?
+<?php
 $precio=$row["price"];
 if ($bold==1){
 $precio=$row["price"]+2.00;
@@ -636,7 +636,7 @@ $precio=$row["price"]+2.00+3.00;
 ?>
 
 您的订购已提交， 在我们允许你广告之前，你必须通过支付宝给本站付款
-<?
+<?php
 				echo $precio;
 				?>
 元. <br>
@@ -645,7 +645,7 @@ $precio=$row["price"]+2.00+3.00;
     <tr>
       <td width="391" bgcolor="#FFFFFF"><div align="center">
           <p>本站支付宝：
-              <? include('paypal.php'); ?>
+              <?php include('paypal.php'); ?>
           </p>
       </div></td>
     </tr>
@@ -658,25 +658,25 @@ $precio=$row["price"]+2.00+3.00;
   </table>
 </div>
 
-<?
+<?php
 }
 ?>
 </font>
 
 		<!--footer starts here-->
-<? include('footer.php'); ?>
-<?
+<?php include('footer.php'); ?>
+<?php
 exit();
 }
 ?>
 
 
-<ul><li>我们提供<? include('config.php');
+<ul><li>我们提供<?php include('config.php');
 		$sql = "SELECT * FROM tb_config WHERE item='hits' and howmany='1000'";
 		$result = mysql_query($sql);
 		$row = mysql_fetch_array($result);
 
- echo $row["price"]; ?>元每<?
+ echo $row["price"]; ?>元每<?php
 require ('config.php');
 $sql = "SELECT * FROM tb_config WHERE item='hits' and howmany='1000'";
 $result = mysql_query($sql);
@@ -763,7 +763,7 @@ previous=eventobj
     <td width="150" align="left"><p><label>» 选择一个计划</label></p></td>
 <td width="250" align="left"><select name="plan" class="combo" tabindex="4" />
 
-<option value="<?
+<option value="<?php
 require ('config.php');
 $sql = "SELECT * FROM tb_config WHERE item='hits' and howmany='500'";
 $result = mysql_query($sql);
@@ -771,10 +771,10 @@ $row = mysql_fetch_array($result);
 
 echo $row["howmany"];
 
-?>"><?= $row["howmany"] ?> 次会员浏览<?= $row["price"] ?>元</option>
+?>"><?php echo $row["howmany"] ?> 次会员浏览<?php echo $row["price"] ?>元</option>
 
 
-<option value="<?
+<option value="<?php
 
 $sql = "SELECT * FROM tb_config WHERE item='hits' and howmany='1000'";
 $result = mysql_query($sql);
@@ -782,8 +782,8 @@ $row = mysql_fetch_array($result);
 
 echo $row["howmany"];
 
-?>"><?= $row["howmany"] ?> 次会员浏览<?= $row["price"] ?>元</option>
-<option value="<?
+?>"><?php echo $row["howmany"] ?> 次会员浏览<?php echo $row["price"] ?>元</option>
+<option value="<?php
 
 $sql = "SELECT * FROM tb_config WHERE item='hits' and howmany='2000'";
 $result = mysql_query($sql);
@@ -791,8 +791,8 @@ $row = mysql_fetch_array($result);
 
 echo $row["howmany"];
 
-?>"><?= $row["howmany"] ?> 次会员浏览<?= $row["price"] ?>元</option>
-<option value="<?
+?>"><?php echo $row["howmany"] ?> 次会员浏览<?php echo $row["price"] ?>元</option>
+<option value="<?php
 
 $sql = "SELECT * FROM tb_config WHERE item='hits' and howmany='3000'";
 $result = mysql_query($sql);
@@ -800,8 +800,8 @@ $row = mysql_fetch_array($result);
 
 echo $row["howmany"];
 
-?>"><?= $row["howmany"] ?> 次会员浏览<?= $row["price"] ?>元</option>
-<option value="<?
+?>"><?php echo $row["howmany"] ?> 次会员浏览<?php echo $row["price"] ?>元</option>
+<option value="<?php
 
 $sql = "SELECT * FROM tb_config WHERE item='hits' and howmany='5000'";
 $result = mysql_query($sql);
@@ -809,8 +809,8 @@ $row = mysql_fetch_array($result);
 
 echo $row["howmany"];
 
-?>"><?= $row["howmany"] ?> 次会员浏览<?= $row["price"] ?>元</option>
-<option value="<?
+?>"><?php echo $row["howmany"] ?> 次会员浏览<?php echo $row["price"] ?>元</option>
+<option value="<?php
 
 $sql = "SELECT * FROM tb_config WHERE item='hits' and howmany='10000'";
 $result = mysql_query($sql);
@@ -818,7 +818,7 @@ $row = mysql_fetch_array($result);
 
 echo $row["howmany"];
 
-?>"><?= $row["howmany"] ?> 次会员浏览<?= $row["price"] ?>元</option>
+?>"><?php echo $row["howmany"] ?> 次会员浏览<?php echo $row["price"] ?>元</option>
 
 
 
@@ -826,7 +826,7 @@ echo $row["howmany"];
 
 
 
-<option value="<?
+<option value="<?php
 
 $sql = "SELECT * FROM tb_config WHERE item='hits' and howmany='20000'";
 $result = mysql_query($sql);
@@ -834,9 +834,9 @@ $row = mysql_fetch_array($result);
 
 echo $row["howmany"];
 
-?>"><?= $row["howmany"] ?> 次会员浏览<?= $row["price"] ?>元</option>
+?>"><?php echo $row["howmany"] ?> 次会员浏览<?php echo $row["price"] ?>元</option>
 
-<option value="<?
+<option value="<?php
 
 $sql = "SELECT * FROM tb_config WHERE item='hits' and howmany='30000'";
 $result = mysql_query($sql);
@@ -844,9 +844,9 @@ $row = mysql_fetch_array($result);
 
 echo $row["howmany"];
 
-?>"><?= $row["howmany"] ?> 次会员浏览<?= $row["price"] ?>元</option>
+?>"><?php echo $row["howmany"] ?> 次会员浏览<?php echo $row["price"] ?>元</option>
 
-<option value="<?
+<option value="<?php
 
 $sql = "SELECT * FROM tb_config WHERE item='hits' and howmany='50000'";
 $result = mysql_query($sql);
@@ -854,9 +854,9 @@ $row = mysql_fetch_array($result);
 
 echo $row["howmany"];
 
-?>"><?= $row["howmany"] ?> 次会员浏览<?= $row["price"] ?>元</option>
+?>"><?php echo $row["howmany"] ?> 次会员浏览<?php echo $row["price"] ?>元</option>
 
-<option value="<?
+<option value="<?php
 
 $sql = "SELECT * FROM tb_config WHERE item='hits' and howmany='100000'";
 $result = mysql_query($sql);
@@ -864,7 +864,7 @@ $row = mysql_fetch_array($result);
 mysql_close($con);
 echo $row["howmany"];
 
-?>"><?= $row["howmany"] ?> 次会员浏览<?= $row["price"] ?>元</option>
+?>"><?php echo $row["howmany"] ?> 次会员浏览<?php echo $row["price"] ?>元</option>
 
 </select></td>
   </tr>
@@ -891,4 +891,4 @@ echo $row["howmany"];
 
 
 		<!--footer starts here-->
-<? include('footer.php'); ?>
+<?php include('footer.php'); ?>

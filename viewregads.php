@@ -1,13 +1,13 @@
-<? include('header.php'); ?>
+<?php include('header.php'); ?>
 
 <h3 style="color: #009900; font-weight: bold">注册广告 - 注册赚钱</h3>
 <br>
 
 <br>
-<?
+<?php
 
 ?>
-<?
+<?php
 if (isset($_GET["id"]))
 {
 $id=$_GET["id"];
@@ -19,7 +19,7 @@ mysql_close($con);
 ?>
 
 <table width="89%" align="center" cellspacing="1" bgcolor="#009900">
-<? echo "
+<?php echo "
 <tr>
 <th bgcolor=\"#FFFFFF\" class=\"top\"><div align=\"center\"><FONT color=green size=4 face=\"Verdana, Arial, Helvetica, sans-serif\">". $registro["adname"] ."</FONT></div></th>
 </tr>
@@ -39,10 +39,10 @@ mysql_close($con);
 
 <tr>
   <th bgcolor="#FFFFFF" class="top">
-  <form  method="post" action="takeoffers.php?id=<?= $registro["id"] ?>"> 
+  <form  method="post" action="takeoffers.php?id=<?php echo $registro["id"] ?>"> 
     <div align="center">
       <p>
-        在(<?=$registro["adname"]?>)的用户名(<span style="color: #0000FF">建议用本站用户名</span>)
+        在(<?php echo $registro["adname"]?>)的用户名(<span style="color: #0000FF">建议用本站用户名</span>)
                 <input name="regname" type="text" id="regname" size="25" maxlength="100" autocomplete="off">
                 <br><br>
                 <input type="submit" name="Submit" value="完成这个注册" />  
@@ -57,8 +57,8 @@ mysql_close($con);
 </table>
 
 
-<?
+<?php
 }
 ?>
 		<!--footer starts here-->
-<? include('footer.php'); ?>
+<?php include('footer.php'); ?>

@@ -1,4 +1,4 @@
-<? include('header.php'); ?>
+<?php include('header.php'); ?>
 
 <h3 style="font-weight: bold">浏览广告 - 访问网站</h3>
 <br>
@@ -28,13 +28,13 @@
     <td><div align="center"><a href="contact.php">广告位招租</a></div></td>
     </tr>
 </table>
- <?
+ <?php
 require('config.php');
 $tabla = mysql_query("SELECT id FROM tb_ads_categories ORDER BY id ASC"); // selecciono todos los registros de la tabla usuarios, ordenado por nombre
 mysql_close($con);
 while ($registro = mysql_fetch_array($tabla)) { // comienza un bucle que leera todos los registros y ejecutara las ordenes que siguen
 ?>
-    <?
+    <?php
 	$indice = $registro["id"];
 require('config.php');
 $sql = "SELECT * FROM tb_ads_categories WHERE id='$indice'";
@@ -47,7 +47,7 @@ mysql_close($con);
 
 <tr bgcolor="#009900">
 <th width="60%" class="top">
-  <div align="left"><b> <img src="images/attach.png" width="16" height="16" alt="cat sign"  align="absmiddle" /><? echo $row["catname"] ?></b>
+  <div align="left"><b> <img src="images/attach.png" width="16" height="16" alt="cat sign"  align="absmiddle" /><?php echo $row["catname"] ?></b>
   </div></th>
 <th width="12%" class="top">
   <div align="left"><b>会员点击</b></div></th>
@@ -58,9 +58,6 @@ mysql_close($con);
 </tr>
 
 <?php
-
-
-
 /* Pedimos todos los temas iniciales (identificador==0)
 * y los ordenamos por ult_respuesta */
 
@@ -258,7 +255,7 @@ $rowr["id"]="";
 
 
 </div>
-<?
+<?php
 
 
 } // fin del bucle de ordenes
@@ -277,4 +274,4 @@ $rowr["id"]="";
 
 
 		<!--footer starts here-->
-<? include('footer.php'); ?>
+<?php include('footer.php'); ?>

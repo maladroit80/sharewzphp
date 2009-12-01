@@ -1,4 +1,4 @@
-<? 
+<?php 
 session_start();
  include('header.php');
 ?>
@@ -28,7 +28,7 @@ obj.value=obj.value.substring(0,mlength)
 
 
 
-<?
+<?php
 
 if (isset($_POST["sendto"])) {
 require('config.php');
@@ -60,7 +60,7 @@ include('footer.php');
 </font>
 
 
-<?
+<?php
 exit();
 }
 ?>
@@ -71,7 +71,7 @@ exit();
 
 <form method="POST" action="replysms.php">
 
-<? 
+<?php 
 require ('config.php');
 $sendfrom=$_COOKIE["usNick"];
 
@@ -113,4 +113,4 @@ $to=limpiare($_GET["to"]);
 </fieldset>
 </div></div>
 
-<? include('footer.php'); ?>
+<?php include('footer.php'); ?>

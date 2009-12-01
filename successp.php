@@ -1,4 +1,4 @@
-<?
+<?php
 session_start();
 
 if(!isset($_GET['verify'])){ 
@@ -109,7 +109,7 @@ $crok2 = date($time + (24 * 60 * 60));
 
 if($crok1 >= $crok2)
 {
-//echo "Si la hora actual es mayor o igual a la hora en que empezó mas 24 horas, creamos las variables. Terminamos el script y damos un boton para actualizar.<br>";
+//echo "Si la hora actual es mayor o igual a la hora en que empezï¿½ mas 24 horas, creamos las variables. Terminamos el script y damos un boton para actualizar.<br>";
 
 $kok = uc($_COOKIE["usNick"]);
 // Si ya existe una tabla solamente la editamos

@@ -1,7 +1,7 @@
-<?
+<?php
 session_start();
 ?>
-<? include('header.php'); ?>
+<?php include('header.php'); ?>
 
 
 
@@ -9,10 +9,10 @@ session_start();
 
 <br>
 <div align="left"><a href="convert.php?convert=ads"><b>» 转换成广告</b></a><br>
-在<? include('sitename.php'); ?>上打广告
+在<?php include('sitename.php'); ?>上打广告
 <br><br>
 <a href="convert.php?convert=cash"><b>» 通过支付宝得到支付 </b></a><br>
-通过支付宝得到支付，您必须至少赚得<?
+通过支付宝得到支付，您必须至少赚得<?php
 require('config.php');
 $sql = "SELECT * FROM tb_config WHERE item='payment' and howmany='1'";
 $result = mysql_query($sql);
@@ -20,7 +20,7 @@ $row = mysql_fetch_array($result);
 mysql_close($con);
 echo $row["price"]; ?>元.</div>
 <br><br>
-<?
+<?php
 
 if ($_GET["convert"]=="cash")
 {
@@ -182,12 +182,12 @@ echo "<br><center><b>你的广告申请正在处理. 处理时间: 2-7个工作�
 
   <tr>
     <td width="150" align="left"><p><label>» 广告计划</label></p></td>
-    <td width="250" align="left"><?
+    <td width="250" align="left"><?php
 								require('config.php');
 								$sql = "SELECT * FROM tb_config WHERE item='hits' and howmany='1000'";
 								$result = mysql_query($sql);
 								$row = mysql_fetch_array($result);
-								mysql_close($con);?>1000 会员浏览<?= $row["price"] ?>元</td>
+								mysql_close($con);?>1000 会员浏览<?php echo $row["price"] ?>元</td>
   </tr>
   <tr>
     <td width="150" align="left"><p><label>» 验证码 </label></p></td>
@@ -210,7 +210,7 @@ echo "<br><center><b>你的广告申请正在处理. 处理时间: 2-7个工作�
 
 
 
-<?
+<?php
 
 }// final post
 
@@ -229,4 +229,4 @@ echo "<br><center><b>你的广告申请正在处理. 处理时间: 2-7个工作�
 
 
 		<!--footer starts here-->
-<? include('footer.php'); ?>
+<?php include('footer.php'); ?>

@@ -1,4 +1,4 @@
-<?
+<?php
 include('config.php');
 $checkpemail = mysql_query("SELECT id FROM tb_users");
 $pemail_exist = mysql_num_rows($checkpemail);
@@ -63,7 +63,7 @@ mysql_close($con);
 <tr>
 <td>
 <img border="0" src="images/bullet2.gif" width="7" height="7"  align="absmiddle" > 总计点击</td>
-<td><?=$clickserved?></td>
+<td><?php echo $clickserved?></td>
 </tr>
 
 

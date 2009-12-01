@@ -1,4 +1,4 @@
-<?
+<?php
 session_start();
 
 
@@ -61,12 +61,12 @@ mysql_close($con);
 
 <META HTTP-EQUIV="REFRESH" CONTENT="0;URL=members.php">
 
-<?
+<?php
 }
 }
 }else{
 ?>
-<? include('header.php'); ?>
+<?php include('header.php'); ?>
 
 
 
@@ -157,6 +157,6 @@ previous=eventobj
 
 
 
-<? include('footer.php'); ?><?
+<?php include('footer.php'); ?><?php
 }
 ?>

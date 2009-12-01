@@ -1,14 +1,14 @@
-<? 
+<?php 
 session_start();
 ?>
 
 
-<? include('header.php'); ?>
+<?php include('header.php'); ?>
 <h3>
 <img border="0" src="images/msn.jpg" width="74" height="65" align="absmiddle" >联系你的下线</h3>
 <br>
 
-<?
+<?php
  
 
 if (isset($_GET["id"]))
@@ -23,7 +23,7 @@ $option=$_GET["option"];
 ?>
 
 
-<?
+<?php
 
 
 if ($option=="delete"){
@@ -73,7 +73,7 @@ if ($row['account'] =="premium"){
 <th class="top" width="15%">&nbsp;</th>
 <th class="top" width="15%">&nbsp;</th>
 </tr>
-<? require ('config.php');
+<?php require ('config.php');
 $lole=$_COOKIE["usNick"];
 $tabla = mysql_query("SELECT * FROM tb_messenger where sendto='$lole' ORDER BY id DESC"); // selecciono todos los registros de la tabla usuarios, ordenado por nombre
 mysql_close($con);
@@ -96,18 +96,18 @@ echo "
 
 
 ?><div align="center">
-<a href="readsms.php?id=<?= $registro["id"] ?>&option=read" title="Read Message">读取</a>
+<a href="readsms.php?id=<?php echo $registro["id"] ?>&option=read" title="Read Message">读取</a>
 </div>
 </td>
 <td>
 <div align="center">
-<form method="post" action="messenger.php?id=<?= $registro["id"] ?>&option=delete">
+<form method="post" action="messenger.php?id=<?php echo $registro["id"] ?>&option=delete">
 <input type="submit" value="删除" class="button">
 </form></div>
 </td>
 </tr>
 
-<?
+<?php
 
 } // fin del bucle de ordenes
 
@@ -120,4 +120,4 @@ echo "
 
 
 
-<? include('footer.php'); ?>
+<?php include('footer.php'); ?>

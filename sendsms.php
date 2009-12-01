@@ -1,9 +1,9 @@
-<? 
+<?php 
 session_start();
 ?>
 
 
-<? include('header.php'); ?>
+<?php include('header.php'); ?>
 
 <h3 style="font-weight: bold">联系你的下线</h3>
 <br>
@@ -49,7 +49,7 @@ obj.value=obj.value.substring(0,mlength)
 
 
 
-<?
+<?php
 
 if (isset($_POST["sendto"])) {
 
@@ -78,8 +78,8 @@ echo "<br><br>你的信息正确发送.";
 ?>
 </font>
 		<!--footer starts here-->
-<? include('footer.php'); ?>
-<?
+<?php include('footer.php'); ?>
+<?php
 exit();
 }
 ?>
@@ -101,7 +101,7 @@ exit();
 
 
 
-<? 
+<?php 
 require('config.php');
 $sendfrom=$_COOKIE["usNick"];
 $tabla = mysql_query("SELECT * FROM tb_users where referer='$sendfrom' ORDER BY id ASC"); // selecciono todos los registros de la tabla usuarios, ordenado por nombre
@@ -141,4 +141,4 @@ echo "<option value='".$row["username"]."'>".$row["username"]."</option>
 </fieldset>
 </div></div>
 
-<? include('footer.php'); ?>
+<?php include('footer.php'); ?>

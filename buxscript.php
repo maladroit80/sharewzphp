@@ -1,4 +1,4 @@
-<? include('header.php'); ?>
+<?php include('header.php'); ?>
 
 
 
@@ -28,4 +28,4 @@
 						<h3>&nbsp;</h3>
 
 
-<? include('footer.php'); ?>
+<?php include('footer.php'); ?>
