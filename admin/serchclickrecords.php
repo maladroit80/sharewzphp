@@ -1,6 +1,3 @@
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-</head>
 <strong>查看用户点击记录</strong><br>
 <br>
 

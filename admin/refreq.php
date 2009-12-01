@@ -1,7 +1,3 @@
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-</head>
-
 <b>购买下线申请</b>
 
 <?

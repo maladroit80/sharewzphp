@@ -225,38 +225,38 @@ switch($op) {
 
 
 						<!--- op 2 -->
-<?
+<?php
 break;
 	case (2):
 ?>
 
-<? include('editads.php'); ?>
+<?php include('editads.php'); ?>
 
 
 						<!--- op 3 -->
-<?
+<?php
 break;
 	case (3):
 ?>
 
-<? include('messages.php'); ?>
+<?php include('messages.php'); ?>
 
 						<!--- op 4 -->
-<?
+<?php
 break;
 	case (4):
 ?>
 
-<? include('payreq.php'); ?>
+<?php include('payreq.php'); ?>
 
 
 						<!--- op 5 -->
-<?
+<?php
 break;
 	case (5):
 ?>
 
-<? include('buyref.php'); ?>
+<?php include('buyref.php'); ?>
 
 
 
@@ -264,241 +264,241 @@ break;
 
 						<!--- op 6 -->
 
-<?
+<?php
       break;
     case (6):
 ?>
 
-<? include('refreq.php'); ?>
+<?php include('refreq.php'); ?>
 
 						<!--- op 7 -->
 
-<?
+<?php
 break;
 	case (7):
 ?>
 
-<? include('editusers.php'); ?>
+<?php include('editusers.php'); ?>
 
 
 						<!--- op 8 -->
 
-<?
+<?php
 break;
 	case (8):
 ?>
 
-<? 
+<?php 
 //include('prueba.php'); 
 ?>
 						<!--- op 9 -->
 
-<?
+<?php
 break;
 	case (9):
 ?>
 
-<? include('configsite.php'); ?>
+<?php include('configsite.php'); ?>
 
 						<!--- op 10 -->
 
-<?
+<?php
 break;
 	case(10):
 ?>
 
-<? include('aproveadreq.php'); ?>
+<?php include('aproveadreq.php'); ?>
 
 						<!--- op 11 -->
-<?
+<?php
 break;
 	case(11):
 ?>
 
-<? include('aproveupgreq.php'); ?>
+<?php include('aproveupgreq.php'); ?>
 
 						
 						<!--- op 12 -->
-<?
+<?php
 break;
 	case(12):
 ?>
 
-<? include('emails.php'); ?>
+<?php include('emails.php'); ?>
 
 
 						<!--- op 13 -->
 
-<? 
+<?php 
 break;
 	case("13"):
 ?>
 
-<? include('cleanads.php'); ?>
+<?php include('cleanads.php'); ?>
 
 
 						<!--- op 24 -->
 
-<?
+<?php
 break;
 	case(24):
 ?>
 
-<? include('addcat.php'); ?>
+<?php include('addcat.php'); ?>
 
 
 						<!--- op 25 -->
 
-<?
+<?php
 break;
 	case(25):
 ?>
 
-<? include('modifycat.php'); ?>
+<?php include('modifycat.php'); ?>
 
 
 
 
 						<!--- op 26 -->
 
-<?
+<?php
 break;
 	case(26):
 ?>
 
-<? include('addrefset.php'); ?>
+<?php include('addrefset.php'); ?>
 
 
 						<!--- op 27 -->
 
-<?
+<?php
 break;
 	case(27):
 ?>
 
-<? include('modrefset.php'); ?>
+<?php include('modrefset.php'); ?>
 
 
 						<!--- op 28 -->
 
-<?
+<?php
 break;
 	case(28):
 ?>
 
-<? include('addads.php'); ?>
+<?php include('addads.php'); ?>
 
 
 
 						<!--- op 29 -->
 
-<?
+<?php
 break;
 	case(29):
 ?>
 
-<? include('searchusers.php'); ?>
+<?php include('searchusers.php'); ?>
 
 
 
 						<!--- op 30 -->
 
-<?
+<?php
 break;
 	case(30):
 ?>
 
-<? include('searchip.php'); ?>
+<?php include('searchip.php'); ?>
 
 						<!--- op 31 -->
 
-<?
+<?php
 break;
 	case(31):
 ?>
 
-<? include('listpremiums.php'); ?>
+<?php include('listpremiums.php'); ?>
 
 
 
 
                     <!--- op 32 -->
-<?
+<?php
 break;
 	case(32):
 ?>
 
-<? include('addsignupads.php'); ?>
+<?php include('addsignupads.php'); ?>
 
 
 
                    <!--- op 33 -->
-<?
+<?php
 break;
 	case(33):
 ?>
 
-<? include('signuprequest.php'); ?>
+<?php include('signuprequest.php'); ?>
 
 
                    <!--- op 34 -->
-<?
+<?php
 break;
 	case(34):
 ?>
 
-<? include('editsignupads.php'); ?>
+<?php include('editsignupads.php'); ?>
                     <!--- op 35 -->
-<?
+<?php
 break;
 	case(35):
 ?>
 
-<? include('signupbonous.php'); ?>
+<?php include('signupbonous.php'); ?>
 
   <!--- op 36 -->
-<?
+<?php
 break;
 	case(36):
 ?>
 
-<? include('inactive.php'); ?>
+<?php include('inactive.php'); ?>
   <!--- op 37 -->
-<?
+<?php
 break;
 	case(37):
 ?>
 
-<? include('signuprecords.php'); ?>
+<?php include('signuprecords.php'); ?>
 
-<?
+<?php
 break;
 	case(38):
 ?>
 
-<? include('serchclickrecords.php'); ?>
+<?php include('serchclickrecords.php'); ?>
 
-<?
+<?php
 break;
 	case(39):
 ?>
 
-<? include('searchreferral.php'); ?>
+<?php include('searchreferral.php'); ?>
 
-<?
+<?php
 break;
 	case(40):
 ?>
 
-<? include('clickcheat.php'); ?>
+<?php include('clickcheat.php'); ?>
 
-<?
+<?php
 break;
 	case(41):
 ?>
 
-<? include('cheatconfig.php'); ?>
-<?
+<?php include('cheatconfig.php'); ?>
+<?php
 break;
 
 }
