@@ -1,4 +1,4 @@
-<?
+<?php
 session_start();
 
 if ($_POST['email']) {
@@ -60,7 +60,7 @@ mail($destinatari, $subject, $contingut, $desde);
 
 ?>
 
-<?
+<?php
 
 
 }else{
@@ -68,7 +68,7 @@ mail($destinatari, $subject, $contingut, $desde);
 
 
 
-<? include('header.php'); ?>
+<?php include('header.php'); ?>
 <script language="JavaScript1.2">
 
 //Highlight form element- © Dynamic Drive (www.dynamicdrive.com)
@@ -160,7 +160,7 @@ previous=eventobj
 
 
 		<!--footer starts here-->
-<? include('footer.php'); ?>
-<?
+<?php include('footer.php'); ?>
+<?php
 }
 ?>

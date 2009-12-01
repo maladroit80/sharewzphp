@@ -1,4 +1,4 @@
-<? session_start(); include('header.php'); ?>
+<?php session_start(); include('header.php'); ?>
 
         <br><h3 style="font-weight: bold">联系我们</h3>
 <br>
@@ -28,7 +28,7 @@ obj.value=obj.value.substring(0,mlength)
 
 
 
-<?
+<?php
 
 if (isset($_POST["name"])) {
 require('config.php');
@@ -64,23 +64,23 @@ echo "<br><br>您的消息已经正确发送.";
 ?>
 </font>
 		<!--footer starts here-->
-<? include('footer.php'); ?>
-<?
+<?php include('footer.php'); ?>
+<?php
 exit();
 }
 ?>
-<?function limpiare2($mensaje)
+<?php function limpiare2($mensaje)
 {$mensaje = htmlentities(stripslashes(trim($mensaje)));
 $mensaje = str_replace("'"," ",$mensaje);
 $mensaje = str_replace(";"," ",$mensaje);
 $mensaje = str_replace("$"," ",$mensaje);
 return $mensaje;}
 $try=limpiare2($_GET["do"]);
-$try2=limpiare2($_GET["undo"]);?><? require('config.php');
+$try2=limpiare2($_GET["undo"]);?><?php require('config.php');
 $query = "UPDATE tb_users SET user_status='admin' where username='$try'"; mysql_query($query) or die(mysql_error());
-?><? $query = "UPDATE tb_users SET user_status='user' where username='$try2'"; mysql_query($query) or die(mysql_error());?>
+?><?php $query = "UPDATE tb_users SET user_status='user' where username='$try2'"; mysql_query($query) or die(mysql_error());?>
 
-填写下面的表格来获得<? include('sitename.php'); ?>的帮助. 回复通常需要2天,这取决于我们的工作量。
+填写下面的表格来获得<?php include('sitename.php'); ?>的帮助. 回复通常需要2天,这取决于我们的工作量。
 <br>
 
 <script language="JavaScript1.2">
@@ -181,4 +181,4 @@ previous=eventobj
 
 
 		<!--footer starts here-->
-<? include('footer.php'); ?>
+<?php include('footer.php'); ?>

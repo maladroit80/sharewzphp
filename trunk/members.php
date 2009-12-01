@@ -1,4 +1,4 @@
-<? include('header.php'); ?>
+<?php include('header.php'); ?>
 
 
 <div id="myaccount">
@@ -83,4 +83,4 @@ mysql_close($con);
 
 
 		<!--footer starts here-->
-<? include('footer.php'); ?>
+<?php include('footer.php'); ?>

@@ -1,4 +1,4 @@
-<? include('header.php'); ?>
+<?php include('header.php'); ?>
 
         <h3>常见问题</h3>
         <h4>1.支付相关问题</h4>
@@ -56,4 +56,4 @@ href="contact.php">联系我们</a>”提出您的问题。 </li>
 
 
 
-<? include('footer.php'); ?>
+<?php include('footer.php'); ?>

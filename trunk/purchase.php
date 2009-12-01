@@ -1,9 +1,9 @@
-<? include('header.php'); ?>
+<?php include('header.php'); ?>
 
 
 
 
-<?
+<?php
 if (isset($_POST["customer"]))
 {
 
@@ -43,7 +43,7 @@ mysql_close($con);
 ?>
 <br>
 <p align="center">您的定购被提交,在我们确认您的订购前,您必须通过支付宝支付
-  <?
+  <?php
 	require('config.php');
 $sql = "SELECT * FROM tb_refset WHERE howmany='$refset'";
 $result = mysql_query($sql);        
@@ -53,7 +53,7 @@ $precio=$row["price"];
 $description=$row["howmany"];
 ?>
 
-<?= $precio ?> 元.<br>
+<?php echo $precio ?> 元.<br>
 </p>
 <p><div align="center">
 
@@ -61,7 +61,7 @@ $description=$row["howmany"];
     <tr>
       <td width="391" bgcolor="#FFFFFF"><div align="center">
           <p>本站支付宝：
-              <? include('paypal.php'); ?>
+              <?php include('paypal.php'); ?>
           </p>
       </div></td>
     </tr>
@@ -75,7 +75,7 @@ $description=$row["howmany"];
 </div>
 </p>
 <br>
-<?
+<?php
 
 }
 
@@ -88,8 +88,8 @@ $description=$row["howmany"];
 
 <br>
 <p>拉下线是很累的,怎么不让我们来给你拉下线呢?我们有很多会员是没有通过别人的下线连接注册的.</p>
-<p>你可以低价购买<? include('sitename.php'); ?>的下线包,你可以从这些下线中获得很大的收益.
-  <?
+<p>你可以低价购买<?php include('sitename.php'); ?>的下线包,你可以从这些下线中获得很大的收益.
+  <?php
 
 require('config.php');
 $sqld = "SELECT * FROM tb_buyref WHERE customer='admin'";
@@ -102,7 +102,7 @@ mysql_close($con);
 <fieldset>
 <legend>可能性</legend>
 
-<?
+<?php
 require('config.php');
 $tablaa = mysql_query("SELECT * FROM tb_buyref where id='1' ORDER BY id DESC"); // selecciono todos los registros de la tabla ads categories, ordenado por id
 mysql_close($con);
@@ -126,7 +126,7 @@ echo "<p>&nbsp;&nbsp;可出售的组(".$registroa["refnum"] ." 个下线 ): <b>"
 
 
 
-<?
+<?php
 
 $user=uc($_COOKIE["usNick"]);
 require('config.php');
@@ -143,16 +143,16 @@ mysql_close($con);
 
 <form method="post" action="purchase.php">
 
-<p>»客户名: <b><?= $row["username"] ?></b>
-  <input type="hidden" value="<?= $row["username"] ?>" name="customer"></p>
+<p>»客户名: <b><?php echo $row["username"] ?></b>
+  <input type="hidden" value="<?php echo $row["username"] ?>" name="customer"></p>
 
-<p>» 支付宝账户: <b><?= $row["pemail"] ?></b>
-  <input type="hidden" value="<?= $row["pemail"] ?>" name="pemail"></p>
+<p>» 支付宝账户: <b><?php echo $row["pemail"] ?></b>
+  <input type="hidden" value="<?php echo $row["pemail"] ?>" name="pemail"></p>
 <p>» 购买<b> 1 组 </b> 
   <select name="refset" class="combo">
 
 
-<?
+<?php
 require('config.php');
 $tablaa = mysql_query("SELECT * FROM tb_refset ORDER BY id ASC"); // selecciono todos los registros de la tabla ads categories, ordenado por id
 
@@ -181,10 +181,10 @@ $refnum=$registroa["howmany"];
 </form>
 </fieldset>
 </div></div>
-<?
+<?php
 }
 ?>
 
 
 
-<? include('footer.php'); ?>
+<?php include('footer.php'); ?>

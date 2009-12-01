@@ -1,4 +1,4 @@
-<?
+<?php
 
 if(isset($_COOKIE["usNick"]) && isset($_COOKIE["usPass"]))
 {

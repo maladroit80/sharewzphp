@@ -1,6 +1,6 @@
-<? include('header.php'); ?>
+<?php include('header.php'); ?>
 <br>
-<?
+<?php
 require('config.php');
 if (isset($_GET["id"]))
 {
@@ -98,7 +98,7 @@ $user=$_COOKIE["usNick"];
 <th class="top">支付时间</th>
 <th class="top">操作</th>
 </tr>
-<?
+<?php
 require('config.php');
 $user=$_COOKIE["usNick"];
 
@@ -127,16 +127,16 @@ echo $row["paiddate"];
 
 echo "</td><td>";
 ?>
-<?
+<?php
 $status=$row["status"];
 if($status=="pending"|$status=="deny"|$status=="paid")
 {
 ?>
-<form method="post" action="myregads.php?id=<?= $row["id"] ?>&option=Remove">
+<form method="post" action="myregads.php?id=<?php echo $row["id"] ?>&option=Remove">
 <input type="submit" value="删除" class="button">
 </form>
 </td>
-<?
+<?php
 }
 else
 {
@@ -145,7 +145,7 @@ else
 }
 ?>
 </tr>
-<?
+<?php
 }
 ?>
 </table>
@@ -161,7 +161,7 @@ else
     <th class="top">允许</th>
 	<th class="top">拒绝</th>
   </tr>
-  <?
+  <?php
 require('config.php');
 $user=$_COOKIE["usNick"];
 $status="pending";
@@ -187,19 +187,19 @@ echo $row["reqdate"];
 
 echo "</td><td>";
 ?>
-<form method="post" action="myregads.php?id=<?= $row["id"] ?>&option=Approve">
+<form method="post" action="myregads.php?id=<?php echo $row["id"] ?>&option=Approve">
 <input type="submit" value="允许" class="button">
 </form>
 </td><td>
-<form method="post" action="myregads.php?id=<?= $row["id"] ?>&option=Deny">
+<form method="post" action="myregads.php?id=<?php echo $row["id"] ?>&option=Deny">
   <input type="submit" value="拒绝" class="button" />
 </form>
 </td>
 </tr>
-<?
+<?php
 }
 ?>
 </table>
 </div>
 <!--footer starts here-->
-<? include('footer.php'); ?>
+<?php include('footer.php'); ?>

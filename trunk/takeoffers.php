@@ -1,11 +1,11 @@
-<? include('header.php'); ?>
+<?php include('header.php'); ?>
 
 <h3><span style="font-weight: bold">注册广告</span> - <a href="regads.php">注册赚钱</a></h3>
 <br>
 
 <br>
 
-<?
+<?php
 if (isset($_GET["id"]))
 {
 $id=$_GET["id"];
@@ -55,4 +55,4 @@ echo "你提交了这个任务.<br>
 
 
 <!--footer starts here-->
-<? include('footer.php'); ?>
+<?php include('footer.php'); ?>

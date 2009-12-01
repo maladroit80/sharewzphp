@@ -1,4 +1,4 @@
-<? require('config.php');
+<?php require('config.php');
 
 
 $sql = "SELECT * FROM tb_users WHERE username='$user'";
@@ -20,27 +20,27 @@ mysql_close($con);
 <tr>
 <td>
 <img border="0" src="images/bullet2.gif" width="7" height="7"  align="absmiddle" > 广告点击</td>
-<td><? echo $row["visits"]; ?></td>
+<td><?php echo $row["visits"]; ?></td>
 </tr>
 <tr>
 <td>
 <img border="0" src="images/bullet2.gif" width="7" height="7"  align="absmiddle" > 下线个数</td>
-<td><? echo $row["referals"]; ?></td>
+<td><?php echo $row["referals"]; ?></td>
 </tr>
 <tr>
 <td>
 <img border="0" src="images/bullet2.gif" width="7" height="7"  align="absmiddle" > 下线点击</td>
-<td><? echo $row["referalvisits"]; ?></td>
+<td><?php echo $row["referalvisits"]; ?></td>
 </tr>
 <tr>
 <td>
 <img border="0" src="images/bullet2.gif" width="7" height="7"  align="absmiddle" > 帐户余额</td>
-<td><? echo $row["money"]; ?>元</td>
+<td><?php echo $row["money"]; ?>元</td>
 </tr>
 <tr>
 <td>
 <img border="0" src="images/bullet2.gif" width="7" height="7"  align="absmiddle" > 总计支付</td>
-<td><? echo $row["paid"]; ?>元</td>
+<td><?php echo $row["paid"]; ?>元</td>
 </tr>
 
 

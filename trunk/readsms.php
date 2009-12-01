@@ -1,8 +1,8 @@
-<? 
+<?php 
 session_start();
 ?>
 
-<?
+<?php
  include('header.php');
 require ('config.php');
 
@@ -25,19 +25,19 @@ mysql_close($con);
 <fieldset>
 <legend>读取消息</legend>
 
-<form method="POST" action="replysms.php?to=<?= $row["sendfrom"] ?>">
+<form method="POST" action="replysms.php?to=<?php echo $row["sendfrom"] ?>">
 <table width="400" border="0" align="center">
   <tr>
     <td width="150" align="left"><label>日期</label></td>
-    <td width="250" align="left"><? echo $row["date"]; ?></td>
+    <td width="250" align="left"><?php echo $row["date"]; ?></td>
   </tr>
   <tr>
     <td width="150" align="left"><label>从</label></td>
-	<td width="250" align="left"><? echo $row["sendfrom"]; ?></td>
+	<td width="250" align="left"><?php echo $row["sendfrom"]; ?></td>
   </tr>
   <tr>
     <td width="150" align="left"><label>消息</label></td>
-	<td width="250" align="left"><? echo $row["comments"]; ?></td>
+	<td width="250" align="left"><?php echo $row["comments"]; ?></td>
   </tr>
   <tr>
     <td width="150" align="left">&nbsp;</td>
@@ -50,4 +50,4 @@ mysql_close($con);
 </form>
 </fieldset>
 </div></div>
-<? include('footer.php'); ?>
+<?php include('footer.php'); ?>

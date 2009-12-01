@@ -1,11 +1,11 @@
-<?
+<?php
 session_start();
 ?>
-<? include('header.php'); ?>
+<?php include('header.php'); ?>
 
 
 
-<?
+<?php
 
 if(isset($_COOKIE["usNick"]) && isset($_COOKIE["usPass"]))
 {
@@ -14,14 +14,14 @@ if(isset($_COOKIE["usNick"]) && isset($_COOKIE["usPass"]))
 
 <b><a href="#" onClick="window.location.reload()">Reload Page</a></b>
 
-<? include('footer.php'); ?>
+<?php include('footer.php'); ?>
 
 
-<? exit(); } ?>
+<?php exit(); } ?>
 
 
 
-<?
+<?php
 
 
 
@@ -277,11 +277,11 @@ previous=eventobj
   </tr>
   <tr>
     <td width="150" align="left"><p><label>» 推荐人</label></p></td>
-	<td width="250" align="left"><input type="text" size="25" tooltipText="推荐你的会员 " maxlength="15" name="referer" value="<? echo limpiar($_GET["r"]); ?>" autocomplete="off" class="field" value="" tabindex="1" /></td>
+	<td width="250" align="left"><input type="text" size="25" tooltipText="推荐你的会员 " maxlength="15" name="referer" value="<?php echo limpiar($_GET["r"]); ?>" autocomplete="off" class="field" value="" tabindex="1" /></td>
   </tr>
   <tr>
     <td width="150" align="left"><p><label>» 服务条款</label></p></td>
-	<td width="250" align="left"><label class="inline" for="user_terms_of_use">我同意 <? include('sitename.php'); ?> <a href="tos.php">使用条例</a></label></td>
+	<td width="250" align="left"><label class="inline" for="user_terms_of_use">我同意 <?php include('sitename.php'); ?> <a href="tos.php">使用条例</a></label></td>
   </tr>
   <tr>
     <td width="150" align="left"><p><label>» 验证码:</label></p></td>
@@ -301,13 +301,6 @@ previous=eventobj
 </fieldset>
 </div></div>
 
-<?
+<?php
 }
-?>
-
-
-
-
-
-
-<? include('footer.php'); ?>
+include('footer.php'); ?>

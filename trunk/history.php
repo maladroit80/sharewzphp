@@ -1,4 +1,4 @@
-<? include('header.php'); ?>
+<?php include('header.php'); ?>
 <h3 class="pagetitle">
 <img border="0" src="images/history.jpg" width="74" height="65" align="absmiddle" >你的历史</h3>
 <br>
@@ -24,7 +24,7 @@
 </tr>
 
 
-<?
+<?php
 
 $lole=$_COOKIE["usNick"];
 require('config.php');
@@ -99,4 +99,4 @@ echo "</table>";
 
 
 		<!--footer starts here-->
-<? include('footer.php'); ?>
+<?php include('footer.php'); ?>

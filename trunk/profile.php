@@ -1,13 +1,13 @@
-<?
+<?php
 session_start();
 ?>
-<? include('header.php'); ?>
+<?php include('header.php'); ?>
 
 
 <h3>
 <img border="0" src="images/profile.jpg" width="74" height="65" align="absmiddle" ><span style="font-weight: bold">更新个人简历</span></h3>
 <br>
-<?
+<?php
 
 
 
@@ -99,7 +99,7 @@ echo "...";
 
 ?>
 <META HTTP-EQUIV="REFRESH" CONTENT="1;URL=logoutp.php">
-<?
+<?php
 
 }
 
@@ -181,23 +181,23 @@ previous=eventobj
 <table width="400" border="0" align="center">
   <tr>
     <td width="150" align="left"><p><label>» 密码</label></label></p></td>
-    <td width="250" align="left"><input type="password" size="25" maxlength="15" name="password" value="<? echo $row["password"]; ?>" class="field" value="" tabindex="1" /></td>
+    <td width="250" align="left"><input type="password" size="25" maxlength="15" name="password" value="<?php echo $row["password"]; ?>" class="field" value="" tabindex="1" /></td>
   </tr>
   <tr>
     <td width="150" align="left"><p><label>» 重复密码</label></p></td>
-    <td width="250" align="left"><input type="password" size="25" maxlength="15" name="cpassword" value="<? echo $row["password"]; ?>" class="field" value="" tabindex="1" /></td>
+    <td width="250" align="left"><input type="password" size="25" maxlength="15" name="cpassword" value="<?php echo $row["password"]; ?>" class="field" value="" tabindex="1" /></td>
   </tr>
   <tr>
     <td width="150" align="left"><p><label>» 电子邮件</label></p></td>
-    <td width="250" align="left"><input type="text" size="25" maxlength="100" name="email" value="<? echo $row["email"]; ?>" class="field" value="" tabindex="1" /></td>
+    <td width="250" align="left"><input type="text" size="25" maxlength="100" name="email" value="<?php echo $row["email"]; ?>" class="field" value="" tabindex="1" /></td>
   </tr>
   <tr>
     <td width="150" align="left"><p><label>» 支付宝账户</label></p></td>
-    <td width="250" align="left"><input type="text" size="25" maxlength="100" name="pemail" value="<? echo $row["pemail"]; ?>" class="field" value="" tabindex="1" /></td>
+    <td width="250" align="left"><input type="text" size="25" maxlength="100" name="pemail" value="<?php echo $row["pemail"]; ?>" class="field" value="" tabindex="1" /></td>
   </tr>
  <tr>
     <td width="150" align="left"><p><label>» 省份</label></p></td>
-	<td width="250" align="left"><input type="text" size="25" maxlength="100" name="country" autocomplete="off" class="field" value="<? echo $row["country"]; ?>" tabindex="1" /></td>
+	<td width="250" align="left"><input type="text" size="25" maxlength="100" name="country" autocomplete="off" class="field" value="<?php echo $row["country"]; ?>" tabindex="1" /></td>
   </tr>
   <tr>
     <td width="150" align="left"><p><label>» 验证码 </label></p></td>
@@ -218,7 +218,7 @@ previous=eventobj
 </fieldset>
 </div></div>
 
-<?
+<?php
 }
 mysql_close($con);
 ?>
@@ -231,4 +231,4 @@ mysql_close($con);
 
 
 		<!--footer starts here-->
-<? include('footer.php'); ?>
+<?php include('footer.php'); ?>

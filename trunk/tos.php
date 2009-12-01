@@ -1,4 +1,4 @@
-<? include('header.php'); ?>
+<?php include('header.php'); ?>
 
 
 
@@ -19,4 +19,4 @@
 						  <b>责任界限</b><br />
 						  <br />
 					    因各种不可预测的原因，导致本站破产，本站将不承担会员的任何损失。</p>
-						<? include('footer.php'); ?>
+						<?php include('footer.php'); ?>

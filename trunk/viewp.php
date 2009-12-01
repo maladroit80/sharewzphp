@@ -1,4 +1,4 @@
-<?
+<?php
 session_start();
 
 
@@ -45,7 +45,7 @@ echo "Error"; exit();
 
 <meta http-equiv="Expires" content="-1">
 
-<link rel="stylesheet" type="text/css" href="css.css"><title><? include('sitename.php'); ?> | .view .click .make money</title>
+<link rel="stylesheet" type="text/css" href="css.css"><title><?php include('sitename.php'); ?> | .view .click .make money</title>
 
 <script>
 
@@ -86,9 +86,9 @@ success.location.href="successp.php?ad="+document.frm.id.value+"&verify="+docume
 
 			<form name="frm" method="post">
 			
-			<input type="hidden" name="id" value="<? echo $adse ?>">
+			<input type="hidden" name="id" value="<?php echo $adse ?>">
 			
-<input type="hidden" name="verify" value="<? include('thecodero.php'); ?>">
+<input type="hidden" name="verify" value="<?php include('thecodero.php'); ?>">
 			
 			 <table border="0" cellpadding="0" cellspacing="0" width="100%">
 			
@@ -122,7 +122,7 @@ success.location.href="successp.php?ad="+document.frm.id.value+"&verify="+docume
 			
 			 </table>
 			
-			 <iframe src="<? require ('config.php');
+			 <iframe src="<?php require ('config.php');
 $sql = "SELECT * FROM tb_ads WHERE id='$adse'";
 $result = mysql_query($sql);        
 $row = mysql_fetch_array($result);

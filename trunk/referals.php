@@ -1,4 +1,4 @@
-<? include('header.php'); ?>
+<?php include('header.php'); ?>
 
 
 
@@ -11,7 +11,7 @@
 <tr>
 <th class="top"><b>用户名</b></th>
 <th class="top"><b>点击量</th></tr>
-<?
+<?php
 require('config.php');
 $lole=$_COOKIE["usNick"];
 
@@ -44,4 +44,4 @@ echo "</table>";
 
 
 		<!--footer starts here-->
-<? include('footer.php'); ?>
+<?php include('footer.php'); ?>

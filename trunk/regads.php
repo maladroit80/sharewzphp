@@ -1,4 +1,4 @@
-<? include('header.php'); ?>
+<?php include('header.php'); ?>
 
 <h3 style="font-weight: bold; color: #009900">注册广告 - 注册赚钱</h3>
 <p><br>
@@ -46,7 +46,7 @@
 <th width="22%" class="top">
   <div align="left" style="font-size: 18px"><b>剩下数目</b></div></th>
 </tr>
-<? 
+<?php 
 require('config.php');
 $status="yes";
 $tabla = mysql_query("SELECT * FROM tb_signupads WHERE status='$status' and adnum>0 ORDER BY id ASC"); // selecciono todos los registros de la tabla usuarios, ordenado por nombre
@@ -68,4 +68,4 @@ echo "
 
 
 		<!--footer starts here-->
-<? include('footer.php'); ?>
+<?php include('footer.php'); ?>
