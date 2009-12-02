@@ -22,7 +22,7 @@ $clickserved=$tot1;
 mysql_close($con);
 ?>
 
-<table width="100%">
+<table width="100%"  class="nom">
 
 <tr>
 <td>
@@ -68,3 +68,5 @@ mysql_close($con);
 
 
 </table>
+</div>
+</div>

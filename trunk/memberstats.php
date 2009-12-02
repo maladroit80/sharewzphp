@@ -12,10 +12,11 @@ mysql_close($con);
 <div id="navmainlistline">&nbsp;</div>
 
 <fieldset>
-<legend>
-<img border="0" src="images/hourglass_add.png" width="16" height="16"  align="absmiddle"> 账户状态</legend>
-
-<table width="100%">
+<div id="signup">
+          <h3>
+ 账户状态:</h3>
+          <div class="in">
+<table width="100%" class="nom">
 
 <tr>
 <td>
@@ -45,5 +46,6 @@ mysql_close($con);
 
 
 </table>
-
+</div>
+</div>
 </fieldset>
