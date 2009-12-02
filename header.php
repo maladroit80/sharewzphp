@@ -50,7 +50,10 @@ $elref=limpiar($_GET["r"]);
   <div id="row-top"></div>
   <div id="row-center">
   <div id="row-in">
-  1111111
+  <div id="nodemarqee" style="float:left;width:70%;hight:100%">
+  left
+  </div>
+  <div style="float:right">right</div>
   </div>
   </div>
   <div id="row-bottom"></div>
@@ -67,6 +70,24 @@ $elref=limpiar($_GET["r"]);
         break;
       }
     }
+
+
+    var oMarquee = document.getElementById("nodemarqee"); //滚动对象 
+    var iLineHeight = 14; //单行高度，像素 
+    var iLineCount = 6; //实际行数 
+    var iScrollAmount = 1; //每次滚动高度，像素 
+    function run() { 
+    oMarquee.scrollTop += iScrollAmount; 
+    if ( oMarquee.scrollTop == iLineCount * iLineHeight ) 
+    oMarquee.scrollTop = 0; 
+    if ( oMarquee.scrollTop % iLineHeight == 0 ) { 
+    window.setTimeout( "run()", 2000 ); 
+    } else { 
+    window.setTimeout( "run()", 50 ); 
+    } 
+    } 
+    oMarquee.innerHTML += oMarquee.innerHTML; 
+    window.setTimeout( "run()", 2000 ); 
     </script>
   <!-- /TextRow -->
 <div id="navtoplistlinedown">&nbsp;</div>
