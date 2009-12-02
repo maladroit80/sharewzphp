@@ -78,7 +78,7 @@ HTML styles
 .ul-style01 li {margin:0; padding:0;}
 
 .ul-categories {margin:20px 0; padding:0; list-style:none;}
-.ul-categories li {margin:0; padding:0; display:block; float:left; width:270px; margin-right:10px; padding-left:20px; background:url("../images/folder.gif") 0 4px no-repeat;}
+.ul-categories li {margin:0; padding:0; display:block; float:left; width:270px; margin-right:10px; padding-left:20px; background:url("../design/folder.gif") 0 4px no-repeat;}
 
 .table-style01 td {padding:3px 0;}
 
@@ -141,21 +141,18 @@ Page: Homepage
     .date-30 {padding-right:40px; background:url("../images/ico-cal-30.gif") 100% 50% no-repeat;}
     .date-31 {padding-right:40px; background:url("../images/ico-cal-31.gif") 100% 50% no-repeat;}
 
-#search-tabs {position:relative; bottom:-1px; padding-left:260px;}
-#search-tabs ul {margin:0; padding:0; list-style:none;}
-#search-tabs ul li {display:inline; margin:0; padding:0;}
-#search-tabs ul li a {float:left; margin:0; padding:0 0 0 15px; text-align:center; cursor:pointer; font-size:120%;}
-#search-tabs ul li a span {float:left; display:block; padding:0 15px 0 0; line-height:35px; vertical-align:middle; text-decoration:underline;}
-#search-tabs ul li a.active {background:#F0F6FF url("../images/search-active.gif") 0 0 no-repeat; text-decoration:none; color:#2F2F2F; font-weight:bold;}
-#search-tabs ul li a.active span {background:#F0F6FF url("../images/search-active-02.gif") 100% 0 no-repeat; text-decoration:none;}
+#Tablist {position:relative; bottom:-0.5px; padding-left:30px;}
+#Tablist ul {margin:0; padding:0; list-style:none;}
+#Tablist ul li {display:inline; margin:0; padding:0;}
+#Tablist ul li a {float:left; margin:0; padding:0 0 0 15px; text-align:center; cursor:pointer; font-size:120%;}
+#Tablist ul li a span {float:left; display:block; padding:0 15px 0 0; line-height:30px; vertical-align:middle; text-decoration:underline;}
+#Tablist ul li a.active {background:#F0F6FF url("../images/Tablist-active.gif") 0 0 no-repeat; text-decoration:none; color:#2F2F2F; font-weight:bold;}
+#Tablist ul li a.active span {background:#F0F6FF url("../images/Tablist-active-02.gif") 100% 0 no-repeat; text-decoration:none;}
 
-#search-top {width:900px; height:6px; background:#DCEBFF url("../images/search-top.gif") 0 100% no-repeat; font-size:0;}
-#search {background:#DCEBFF url("../images/search.gif") 0 0 repeat-y; overflow:hidden;}
-#search-in {padding:0 0 8px 0; background:url("../images/search-in.gif") 0 0 no-repeat; font-size:120%;}
-#search-bottom {width:900px; height:6px; background:#DCEBFF url("../images/search-bottom.gif") 0 0 no-repeat; font-size:0;}
-
-    #search-input01, #search-input02, #search-input03, #search-input04, #search-input05 {width:500px; padding:3px; border:1px solid #66A6FF;}
-    .search-submit {position:relative; bottom:-7px;}
+#row-top {width:900px; height:6px; background:#DCEBFF url("../images/row-top.gif") 0 100% no-repeat; font-size:0;}
+#row-center {background:#DCEBFF url("../images/row-center.gif") 0 0 repeat-y; overflow:hidden;}
+#row-in {padding:0 0 0 0; background:url("../images/row-in.gif") 0 0 no-repeat; font-size:120%;}
+#row-bottom {width:900px; height:6px; background:#DCEBFF url("../images/row-bottom.gif") 0 0 no-repeat; font-size:0;}
 
 .add {padding-left:20px; background:url("../images/add.gif") 0 1px no-repeat;}
 a:hover.add {color:#6B0;}
