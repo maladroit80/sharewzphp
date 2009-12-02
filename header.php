@@ -33,10 +33,13 @@ $elref=limpiar($_GET["r"]);
     <h1 id="logo"><a href="#"><img src="images/logo.gif" alt="" /></a></h1>
     <hr  class="noscreen"/>
     <!-- Date -->
-    <div class="date date-24">
-      <p class="nom">Today is <strong>Monday, March 24th 2009</strong><br />
-        <span  class="nonhigh"><a href="#">Make Catalogio your homepage</a></span></p>
-    </div>
+    <?php
+      $today = getdate();
+      echo "  <div class='date date-".date("d",$today["mday"])."'>
+              <p class='nom'>Today is <strong>".$today["weekday"].",".$today["month"]." ".date("d",$today["mday"])." ".$today["year"]."</strong><br />
+              <span  class='nonhigh'><a href='#'>Make Catalogio your homepage</a></span></p>
+              </div>" 
+    ?> 
     <!-- /date -->
     <hr class="noscreen" />
   </div>
