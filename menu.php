@@ -1,4 +1,16 @@
-<div id="navtoplist">
+
+<!--<div id="search-tabs" class="box">
+    <ul id="search-type">
+      <li><a href="#s01"><span>首页</span></a></li>
+      <li><a href="#s02"><span>点击赚钱</span></a></li>
+      <li><a href="#s03"><span>发布广告</span></a></li>
+      <li><a href="#s04"><span>留言板</span></a></li>
+      <li><a href="#s05"><span>我的账户</span></a></li>
+      <li><a href="#s06"><span>论坛</span></a></li>
+    </ul>
+  </div>-->
+  
+<div id="Tablist" class="box">  
 <?php 
 
 
@@ -62,9 +74,9 @@ exit();
 }
 
 echo"
-			<ul>
-				<li><a href=\"index.php\">首页</a></li>
-				<li><a href=\"masterads.php\">浏览赚钱</a></li>";
+			<ul id='Tablistdetail'>
+				<li><a href=\"index.php\"><span>首页</span></a></li>
+				<li><a href=\"masterads.php\"><span>浏览赚钱</span></a></li>";
 				
 // ver si es administrador
 require('config.php');
@@ -76,30 +88,17 @@ $administrator = $row['user_status'];
 
 		if($administrator == "admin") {
 
-				echo "<li><a href=\"admin/\" target=\"_blank\">管理</a></li>"; 
+				echo "<li><a href=\"admin/\" target=\"_blank\"><span>管理</span></a></li>"; 
 										}
-echo"            <li><a href=\"regads.php\">注册赚钱</a></li>
-				<li><a href=\"members.php\">我的账户</a></li>
-				<li><a href=\"logout.php\">退出</a></li>
-				<li><a href=\"adver.php\">发布广告</a></li>
-				<li><a href=\"contact.php\">联系我们</a></li>
-				<li><a href=\"http://www.wycy8.cn\" target=_blank>论坛</a></li>
+echo"            <li><a href=\"regads.php\"><span>注册赚钱</span></a></li>
+				<li><a href=\"members.php\"><span>我的账户</span></a></li>
+				<li><a href=\"adver.php\"><span>发布广告</span></a></li>
+				<li><a href=\"contact.php\"><span>联系我们</span></a></li>
+				<li><a href=\"bbs.php\"><span>论坛</span></a></li>
 			</ul>
 			<span class='textsmall'>&nbsp;&nbsp;&nbsp;&nbsp;登录为 </span>
 			<span class='textblue'>".$row['username']."</span>
-			";
-
-if ($row['account'] ==""){
-	echo"
-			
-			<span class='textsmall'>(普通会员)</span>
-"; } else{
-	echo"
-			
-			<span class='textsmall'>(高级会员)</span>
-"; }
-
-}
+			";}
 else
 {
 
@@ -108,17 +107,17 @@ else
 
 
 echo "
-			<ul><li><a href=\"index.php\">首页</a></li>
-				<li><a href=\"masterads.php?r=".$elref."\">浏览赚钱</a></li>
-				<li><a href=\"regads.php?r=".$elref."\">注册赚钱</a></li>
-				<li><a href=\"register.php?r=".$elref."\">注册</a></li>
-				<li><a href=\"login.php?r=".$elref."\">登录</a></li>
-				<li><a href=\"adver.php?r=".$elref."\">发布广告</a></li>
-				<li><a href=\"contact.php?r=".$elref."\">联系我们</a></li>
-				<li><a href=\"http://www.wycy8.cn\" target=_blank>论坛</a></li>
+			<ul id='Tablistdetail'><li><a href=\"index.php\"><span>首页</span></a></li>
+				<li><a href=\"masterads.php?r=".$elref."\"><span>浏览赚钱</span></a></li>
+				<li><a href=\"regads.php?r=".$elref."\"><span>注册赚钱</span></a></li>
+				<li><a href=\"adver.php?r=".$elref."\"><span>发布广告</span></a></li>
+				<li><a href=\"contact.php?r=".$elref."\"><span>联系我们</span></a></li>
+				<li><a href=\"bbs.php?r=".$elref."\"><span>论坛</span></a></li>
 			</ul>
 ";
 }
 ?>
+
+
 
 </div>
