@@ -17,6 +17,8 @@
 <script type="text/javascript" src="js/showdetail.js"></script>
 <link rel="stylesheet" media="screen,projection" type="text/css" href="css/main.css" />
 <link rel="stylesheet" media="print" type="text/css" href="css/print.css" />
+<link rel="stylesheet" type="text/css" media="screen,projection,print" href="./css/main.css" />
+<link rel="stylesheet" type="text/css" media="screen,projection,print" href="./css/print.css" />
 <title>
 <?php include('sitename.php');?>
 ---只要用鼠标点点就可以赚钱！</title>
