@@ -10,10 +10,11 @@
     </ul>
   </div>-->
   
-<div id="Tablist" class="box">  
+<div id="Tablist" class="box" 
+<?php if(strpos($_SERVER["HTTP_USER_AGENT"],"Chrome")) echo "style='bottom:-6px'";
+      else if(strpos($_SERVER["HTTP_USER_AGENT"],"MSIE 7.0")) echo "style='bottom:-1.5px'";
+?>>  
 <?php 
-
-
 // Si estan definidas las variables de las cookies se procede a mostrar el menu pero no sin antes comprobar que los
 // datos de las cookies verdaderamete son del usuario en cuestion.
 

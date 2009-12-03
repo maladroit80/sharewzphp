@@ -75,6 +75,7 @@ $elref=limpiar($_GET["r"]);
       if(Tab.href.indexOf(url)!=-1)
       {
         Tab.setAttribute("class","active");
+        Tab.setAttribute("className","active");
         break;
       }
     }
