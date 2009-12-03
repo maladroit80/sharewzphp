@@ -1,10 +1,9 @@
 <?php
-echo "<ul>
-      <li><a href='#s01'><span>首页</span></a></li>
-      <li><a href='#s02'><span>点击赚钱</span></a></li>
-      <li><a href='#s03'><span>发布广告</span></a></li>
-      <li><a href='#s04'><span>留言板</span></a></li>
-      <li><a href='#s05'><span>我的账户</span></a></li>
-    </ul>
+echo "<a href='#s01'><span>首页<br/></span></a>
+      <a href='#s02'><span>点击赚钱<br/></span></a>
+      <a href='#s03'><span>发布广告<br/></span></a>
+      <a href='#s04'><span>留言板<br/></span></a>
+      <a href='#s05'><span>我的账户<br/></span></a>
+
 "
 ?>

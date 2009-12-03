@@ -32,10 +32,18 @@ $elref=limpiar($_GET["r"]);
     <hr  class="noscreen"/>
     <!-- Date -->
     <?php
+    if(isset($_COOKIE["usNick"]) && isset($_COOKIE["usPass"]))
+    {
+    	$tiplink="<a href='logout.php'>安全退出</a>";
+    }
+    else
+    {
+    	$tiplink="<a href='login.php'>登陆</a>";
+    }
       $today = getdate();
-      echo "  <div class='date date-".date("d",$today["mday"])."'>
-              <p class='nom'>Today is <strong>".$today["weekday"].",".$today["month"]." ".date("d",$today["mday"])." ".$today["year"]."</strong><br />
-              <span  class='nonhigh'><a href='#'>Make Catalogio your homepage</a></span></p>
+      echo "  <div class='date date-".date("d")."'>
+              <p class='nom'>Today is <strong>".$today["weekday"].",".$today["month"]." ".date("jS")." ".$today["year"]."</strong><br />
+              <span  class='nonhigh'>".$tiplink."</span></p>
               </div>" 
     ?> 
     <!-- /date -->
@@ -49,12 +57,12 @@ $elref=limpiar($_GET["r"]);
   <!-- TextRow -->
   <div id="row-top"></div>
   <div id="row-center">
-  <div id="row-in">
-  <div id="nodemarqee" style="float:left;width:70%;hight:100%">
-  left
+  <div id="nodemarqee">
+  <?php include('ulintabs.php');?>
   </div>
-  <div style="float:right">right</div>
-  </div>
+  <div id="userinfo">
+  <?php echo $userstatus;?>
+  </div> 
   </div>
   <div id="row-bottom"></div>
   <script type="text/javascript">
@@ -72,22 +80,30 @@ $elref=limpiar($_GET["r"]);
     }
 
 
-    var oMarquee = document.getElementById("nodemarqee"); //滚动对象 
-    var iLineHeight = 14; //单行高度，像素 
-    var iLineCount = 6; //实际行数 
-    var iScrollAmount = 1; //每次滚动高度，像素 
-    function run() { 
-    oMarquee.scrollTop += iScrollAmount; 
-    if ( oMarquee.scrollTop == iLineCount * iLineHeight ) 
-    oMarquee.scrollTop = 0; 
-    if ( oMarquee.scrollTop % iLineHeight == 0 ) { 
-    window.setTimeout( "run()", 2000 ); 
-    } else { 
-    window.setTimeout( "run()", 50 ); 
-    } 
-    } 
-    oMarquee.innerHTML += oMarquee.innerHTML; 
-    window.setTimeout( "run()", 2000 ); 
+
+
+     var scrollnews = document.getElementById('nodemarqee');
+     var lis = scrollnews.getElementsByTagName('a');
+     var ml = 0;
+     var timer1 = setInterval
+     (function()
+       {
+        var liHeight = lis[0].offsetHeight;
+        var timer2 = setInterval
+        (function()
+          {
+            scrollnews.scrollTop = (++ml);
+            if(ml == liHeight)
+           {
+            clearInterval(timer2);
+            scrollnews.scrollTop = 0;
+            ml = 0;
+            lis[0].parentNode.appendChild(lis[0]);
+           }
+          },1000
+        ); 
+       },3000
+     );
     </script>
   <!-- /TextRow -->
 <div id="navtoplistlinedown">&nbsp;</div>

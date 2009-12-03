@@ -151,8 +151,14 @@ Page: Homepage
 
 #row-top {width:900px; height:6px; background:#DCEBFF url("../images/row-top.gif") 0 100% no-repeat; font-size:0;}
 #row-center {background:#DCEBFF url("../images/row-center.gif") 0 0 repeat-y; overflow:hidden;}
-#row-in {padding:0 0 0 0; background:url("../images/row-in.gif") 0 0 no-repeat; font-size:120%;}
 #row-bottom {width:900px; height:6px; background:#DCEBFF url("../images/row-bottom.gif") 0 0 no-repeat; font-size:0;}
+
+#row-center div{height:20px;}
+#nodemarqee {float:left;width:70%;}
+#nodemarqee a {padding-left:20px;}
+#userinfo {float:right;padding-right:20px;}
+#userinfo a {text-decoration:none;}
+#userinfo a:hover{text-decoration:underline}
 
 .add {padding-left:20px; background:url("../images/add.gif") 0 1px no-repeat;}
 a:hover.add {color:#6B0;}
