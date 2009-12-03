@@ -49,7 +49,7 @@ $wesk = $row['username'];
 if("$wesk" != "$wask") {
 echo "登陆有误.";
 ?>
-<input type="button" value="Reload Page" onClick="window.location.reload()">
+<input type="image" value="重新载入" onClick="window.location.reload()" class="search-submit" src="images/reload-button.gif">
 <?php
 exit();
 }
@@ -68,7 +68,7 @@ $wezk = $row['password'];
 if("$wezk" != "$wazk") {
 echo "登陆错误.";
 ?>
-<input type="button" value="Reload Page" onClick="window.location.reload()">
+<input type="image" value="重新载入" onClick="window.location.reload()" class="search-submit" src="images/reload-button.gif">
 <?php
 exit();
 }
@@ -88,22 +88,35 @@ $administrator = $row['user_status'];
 
 		if($administrator == "admin") {
 
-				echo "<li><a href=\"admin/\" target=\"_blank\"><span>管理</span></a></li>"; 
+		   echo "<li><a href=\"admin/\" target=\"_blank\"><span>管理</span></a></li>"; 
 										}
 echo"            <li><a href=\"regads.php\"><span>注册赚钱</span></a></li>
 				<li><a href=\"members.php\"><span>我的账户</span></a></li>
 				<li><a href=\"adver.php\"><span>发布广告</span></a></li>
 				<li><a href=\"contact.php\"><span>联系我们</span></a></li>
 				<li><a href=\"bbs.php\"><span>论坛</span></a></li>
-			</ul>
-			<span class='textsmall'>&nbsp;&nbsp;&nbsp;&nbsp;登录为 </span>
-			<span class='textblue'>".$row['username']."</span>
-			";}
+			</ul>	
+			";
+       if($administrator=="admin")
+       {
+	        $userstatus="<span>欢迎回来，</span><a href='#'>".$row['username']."</a><span style='color:#f00;'>（管理员）</span>";
+       }
+       else if($row['account'] =="")
+       {
+	        $userstatus="<span>欢迎回来，</span><a href='#'>".$row['username']."</a><span style='color:#808080;'>（会员）</span>";
+       }
+       else
+       {
+       	    $userstatus="<span>欢迎回来，</span><a href='#'>".$row['username']."</a><span style='color:#f00;'>（高级会员）</span>";
+       }				
+			
+}
+		
 else
 {
 
 // funcion para sanitizar variables
-
+$userstatus="<span>欢迎光临，</span><a href='#'>访客</a>";
 
 
 echo "
