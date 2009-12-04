@@ -117,7 +117,11 @@ previous=eventobj
 </script>
 
 
-
+<div id="col-r" class="noprint">
+        <!-- Login -->
+        <div id="signup">
+          <h3>Přihlášení</h3>
+          <div class="in">
 
 
 <form action='login.php' method='POST' onKeyUp="highlight(event)" onClick="highlight(event)">
@@ -149,7 +153,16 @@ previous=eventobj
 				</table>
 </form>
 
-
+</div>
+          <!-- /in -->
+          <div class="in02">
+            <ul class="nom">
+              <li class="ico-reg"><strong><a href="#">注册</a></strong></li>
+              <li class="ico-send"><a href="recoverpwd.php">忘记密码?</a></li>
+            </ul>
+          </div>
+          <!-- /in02 -->
+        </div>
 
 
 <?php
