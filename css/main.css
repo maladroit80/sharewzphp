@@ -95,7 +95,7 @@ LAYOUT
     #page {clear:both; margin:15px 0;}
 
     	#col-l {float:left; width:610px;}
-    	#col-r {float:right; width:280px; overflow:hidden;}
+    	#col-signup {float:right; width:200px; overflow:hidden;}
 
 	#footer {clear:both; border-top:3px solid #EFEFEF;}
 	#footer p {margin-top:7px;}
