@@ -50,7 +50,7 @@ $wesk = $row['username'];
 if("$wesk" != "$wask") {
 echo "登陆有误.";
 ?>
-<input type="image" value="重新载入" onClick="window.location.reload()" class="search-submit" src="images/reload-button.gif">
+<input type="image" value="重新载入" onClick="window.location.reload()" src="images/reload-button.gif">
 <?php
 exit();
 }
@@ -69,7 +69,7 @@ $wezk = $row['password'];
 if("$wezk" != "$wazk") {
 echo "登陆错误.";
 ?>
-<input type="image" value="重新载入" onClick="window.location.reload()" class="search-submit" src="images/reload-button.gif">
+<input type="image" value="重新载入" onClick="window.location.reload()" src="images/reload-button.gif">
 <?php
 exit();
 }
