@@ -1,78 +1,47 @@
 <?php
 session_start();
-
-// Juego de letras para usar
-$letras = 'A1B2C3D4E5F6G7H8I9JKLMNOPQRSTUVWXYZ';
-
-// Configuración tamaño imagen y tamaño fuente
-$ancho_caja = 90;
-$alto_caja = 40;
-$tam_letra = 30;
-$tam_letra_grande = 30;
-// angulo máximo que rota (izq y der) cada letra
-$angmax = 20;
-// Establecer el tipo de contenido
-header("Content-type: image/png");
-
-// Creamos una imagen
-$im = imagecreate($ancho_caja, $alto_caja);
-
-// Creo el color del texto, del texto del fondo y del fondo de la imagen
-$gris = ImageColorAllocate($im, 253, 253, 253);
-$colorLetra = ImageColorAllocate($im, 00, 99, 00);
-$colorLetraFondo = ImageColorAllocate($im, 252, 252, 252);
-
-
-// tipo de letra obtenido en dafont.net
-$fuente = './image2.ttf';
-
-// Calculo el número de líneas que entran
-$caja_texto = imagettfbbox($tam_letra, 0, $fuente , $letras);
-$alto_linea = abs($caja_texto[7]-$caja_texto[1]);
-$num_lineas = intval($alto_caja / $alto_linea)+1;
-
-// Dibujo las letras del fondo
-// Cada letra de escribe de una en una para poder
-// darle una rotación independiente al resto
-$pos = 0;
-for ($i = 0; $i<$num_lineas; $i++) {
-    $x = 0;
-    for ($j = 0; $j<30; $j++) {
-        $texto_linea = $letras[rand(0, strlen($letras)-1)].' ';
-        $caja_texto = imagettfbbox($tam_letra, 0, $fuente , $texto_linea);
-    	imagettftext($im, $tam_letra, rand(-$angmax, $angmax), $x, $alto_linea*$i, $colorLetraFondo, $fuente , $texto_linea);
-        // Posicion x de la siguiente letra
-        $x += $caja_texto[2] - $caja_texto[0];
-    }
+$image = imagecreatetruecolor(70,30);
+$color_Background = imagecolorallocate($image,255,255,255);
+imagefill($image,0,0,$color_Background);
+$key = array(
+'0','1','2','3','4','5','6','7','8','9',
+'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',
+'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z');
+$string = null;
+$char_X = 6;
+$char_Y = 2;
+for($i=0;$i<4;$i++)
+{
+$char_Y = mt_rand(0,12);
+$char = $key[mt_rand(0,61)];
+$string .= $char;
+$color_Char = imagecolorallocate($image,mt_rand(0,230),mt_rand(0,230),mt_rand(0,230));
+imagechar($image,5,$char_X,$char_Y,$char,$color_Char);
+$char_X = $char_X + mt_rand(8,17);
 }
-
-
-// Escribo las tres letras del CAPTCHA
-$res = $letras[rand(0, strlen($letras)-1)];
-$ang1 = rand(-$angmax, $angmax);
-$caja_texto = imagettfbbox($tam_letra_grande, $ang1, $fuente , $res);
-$y1 = abs($caja_texto[7]-$caja_texto[1]);
-$x1 = abs($caja_texto[2]-$caja_texto[0]);
-
-$res .= $letras[rand(0, strlen($letras)-1)]; 
-$ang2 = rand(-$angmax, $angmax);
-$caja_texto = imagettfbbox($tam_letra_grande, $ang2, $fuente , $res[1]);
-$y2 = abs($caja_texto[7]-$caja_texto[1]);
-$x2 = abs($caja_texto[2]-$caja_texto[0]);
-
-$res .= $letras[rand(0, strlen($letras)-1)]; 
-$ang3 = rand(-$angmax, $angmax); 
-$caja_texto = imagettfbbox($tam_letra_grande, $ang3, $fuente , $res[2]);
-$y3 = abs($caja_texto[7]-$caja_texto[1]);
-$x3 = abs($caja_texto[2]-$caja_texto[0]);
-
-imagettftext($im, $tam_letra_grande, $ang1, ($ancho_caja/2)-(($x1+$x2+$x3)/2), $y1+($alto_caja-$y1)/2, $colorLetra, $fuente , $res[0]);
-imagettftext($im, $tam_letra_grande, $ang2, ($ancho_caja/2)-(($x1+$x2+$x3)/2)+($x1), $y2+($alto_caja-$y2)/2, $colorLetra, $fuente , $res[1]);
-imagettftext($im, $tam_letra_grande, $ang3, ($ancho_caja/2)-(($x1+$x2+$x3)/2)+($x1+$x2), $y3+($alto_caja-$y3)/2, $colorLetra, $fuente , $res[2]);
-
-imagepng($im);
-imagedestroy($im);
-imagedestroy($im2);
-
-$_SESSION["texto"] = $res;
-?> 
+$line_X1 = 0;
+$line_Y1 = 0;
+$line_X2 = 0;
+$line_Y2 = 0;
+for($i=0;$i<mt_rand(0,64);$i++)
+{
+$line_X1 = mt_rand(0,58);
+$line_Y1 = mt_rand(0,22);
+$line_X2 = mt_rand(0,58);
+$line_Y2 = mt_rand(0,22);
+$line_X1 = $line_X1;
+$line_Y1 = $line_Y1;
+$line_X2 = $line_X1 + mt_rand(1,8);
+$line_Y2 = $line_Y1 + mt_rand(1,8);
+$color_Line = imagecolorallocate($image,mt_rand(0,230),mt_rand(0,230),mt_rand(0,230));
+imageline($image,$line_X1,$line_Y1,$line_X2,$line_Y2,$color_Line);
+}
+$res=$string;
+$_SESSION['texto'] = $res;
+@header("Expires: -1");
+@header("Cache-Control: no-store, private, post-check=0, pre-check=0, max-age=0", FALSE);
+@header("Pragma: no-cache");
+header('Content-Type: image/jpeg');
+imagepng($image);
+imagedestroy($image);
+?>

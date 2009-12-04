@@ -1,15 +1,3 @@
-
-<!--<div id="search-tabs" class="box">
-    <ul id="search-type">
-      <li><a href="#s01"><span>首页</span></a></li>
-      <li><a href="#s02"><span>点击赚钱</span></a></li>
-      <li><a href="#s03"><span>发布广告</span></a></li>
-      <li><a href="#s04"><span>留言板</span></a></li>
-      <li><a href="#s05"><span>我的账户</span></a></li>
-      <li><a href="#s06"><span>论坛</span></a></li>
-    </ul>
-  </div>-->
-  
 <div id="Tablist" class="box" 
 <?php if(strpos($_SERVER["HTTP_USER_AGENT"],"Chrome")) echo "style='bottom:-6px'";
       else if(strpos($_SERVER["HTTP_USER_AGENT"],"MSIE 7.0")) echo "style='bottom:-1.5px'";
