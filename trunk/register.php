@@ -12,7 +12,9 @@ if(isset($_COOKIE["usNick"]) && isset($_COOKIE["usPass"]))
 
 ?>
 
-<b><a href="#" onClick="window.location.reload()">Reload Page</a></b>
+ <b><a href="logout.php">您已登陆，请安全退出再执行注册操作，或尝试刷新</a></b></br>
+  
+<input type="image" value="重新载入" onClick="window.location.reload()" class="search-submit" src="images/reload-button.gif">
 
 <?php include('footer.php'); ?>
 
@@ -157,7 +159,7 @@ $referer_exist = mysql_num_rows($checkref);
 
 if ($referer_exist<1) {
 // En caso de no existir el referer damos un mensaje de error
-echo "Error: The referer User Doesn't Exists"; include('footer.php');exit();
+echo "错误，你的推荐人不存在"; include('footer.php');exit();
 }else{
 // Si todo parece correcto procedemos con la inserccion
       $sqlz = "SELECT * FROM tb_users WHERE username='$referer'";
