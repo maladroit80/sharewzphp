@@ -164,6 +164,8 @@ previous=eventobj
           <!-- /in02 -->
         </div>
 
+        <hr class="noscreen" />
+        <div id="signup-bottom"></div>
 
 <?php
 }
