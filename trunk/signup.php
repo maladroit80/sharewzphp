@@ -117,10 +117,10 @@ previous=eventobj
 </script>
 
 
-<div id="col-r" class="noprint">
+<div id="col-signup">
         <!-- Login -->
         <div id="signup">
-          <h3>Přihlášení</h3>
+          <h3>登陆易网赚</h3>
           <div class="in">
 
 
@@ -128,26 +128,26 @@ previous=eventobj
 
 <table class="nom">
 				  <tr>
-				    <td align="center" width="50"><label for="inp-user">用户名:</label></td>
-				    <td><input type='text' size='15' maxlength='20' name='username' tooltipText= " 请输入您的用户名 ." autocomplete="off"value="" tabindex="1" /></td>
+				    <td align="center" size='6'><label for="inp-user">用户名:</label></td>
+				    <td><input type='text' size='10' maxlength='20' name='username' tooltipText= " 请输入您的用户名 ." autocomplete="off"value="" tabindex="1" /></td>
 				  	<td></td>
 				  </tr>
 				  <tr>
-				    <td align="center" width="50"><label for="inp-pass" width="50">用密码:</label></td>
-					<td width="250" align="left"><input type='password' size='15' maxlength='20' name='password' tooltipText= " 请输入您的密码  ." autocomplete="off" value="" tabindex="2" /></td>
+				    <td align="center" size='6'><label for="inp-pass" width="50">密码:</label></td>
+					<td size='10' align="left"><input type='password' size='10' maxlength='20' name='password' tooltipText= " 请输入您的密码  ." autocomplete="off" value="" tabindex="2" /></td>
 				  	<td></td>
 				  </tr>
 				  <tr>
-				    <td align="center" width="50"><label for="inp-pass" width="50"> 验证码:</label></td>
-				    <td width="250" align="left"><input type='text' size='3' maxlength='3' name='code' autocomplete="off"   tooltipText= " 请输入验证码  ." class="securitycode" value="" tabindex="3" /></td>
+				    <td align="center" width="50"><label for="inp-pass" size='8'>验证码:</label></td>
+				    <td size='5' align="left"><input type='text' size='3' maxlength='3' name='code' autocomplete="off"   tooltipText= " 请输入验证码  ." class="securitycode" value="" tabindex="3" /></td>
 			  	
 				  </tr>
 				  <tr>
-				  <td width="100" align="right"><img src="image.php?<?php echo $res; ?>" /></td><td></td>
+				  <td width="100" align="center"><img src="image.php?<?php echo $res; ?>" /></td><td></td>
 				  </tr>
                 <tr>
                   <td align="center" width="100"><input type="checkbox" name="" id="inp-remember" />
-                    <label for="inp-remember" title="Remember me for 14 days" class="help">记住登录</label></td>
+                    <label for="inp-remember" title="保存14天" class="help">记住登录</label></td>
                   <td class="t-right"><input type="submit" value="提交登录" class="submit"  tabindex="4" /></td>
                 </tr>
 				</table>
