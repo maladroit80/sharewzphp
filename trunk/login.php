@@ -133,7 +133,7 @@ previous=eventobj
   </tr>
   <tr>
     <td width="150" align="left"><p><label>» 验证码 </label></p></td>
-    <td width="250" align="left"><input type='text' size='3' maxlength='3' name='code' autocomplete="off"   tooltipText= " 请输入验证码  ." class="securitycode" value="" tabindex="3" /></td>
+    <td width="250" align="left"><input type='text' size='4' maxlength='4' name='code' autocomplete="off"   tooltipText= " 请输入验证码  ." class="securitycode" value="" tabindex="3" /></td>
   </tr>
   <tr>
     <td width="150" align="left">&nbsp;</td>
