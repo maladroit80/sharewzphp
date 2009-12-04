@@ -128,37 +128,33 @@ previous=eventobj
 
 <table class="nom">
 				  <tr>
-				    <td align="center" size='6'><label for="inp-user">用户名:</label></td>
-				    <td><input type='text' size='10' maxlength='20' name='username' tooltipText= " 请输入您的用户名 ." autocomplete="off"value="" tabindex="1" /></td>
-				  	<td></td>
+				    <td><label for="inp-user">用户名:</label></td>
+				    <td ><input type='text' style="width: 100px;" size='10' maxlength='20' name='username' autocomplete="off" value="" /></td>
 				  </tr>
 				  <tr>
-				    <td align="center" size='6'><label for="inp-pass" width="50">密码:</label></td>
-					<td size='10' align="left"><input type='password' size='10' maxlength='20' name='password' tooltipText= " 请输入您的密码  ." autocomplete="off" value="" tabindex="2" /></td>
-				  	<td></td>
+				    <td><label for="inp-pass" width="50">密码:</label></td>
+					<td ><input type='password' style="width: 100px;" size='10' maxlength='20' name='password' autocomplete="off" value=""/></td>
 				  </tr>
 				  <tr>
-				    <td align="center" width="50"><label for="inp-pass" size='8'>验证码:</label></td>
-				    <td size='5' align="left"><input type='text' size='3' maxlength='3' name='code' autocomplete="off"   tooltipText= " 请输入验证码  ." class="securitycode" value="" tabindex="3" /></td>
-			  	
+				    <td><label for="inp-pass">验证码:</label></td>
+				    <td ><input type='text' style="width: 100px;" size='3' maxlength='3' name='code' autocomplete="off" class="securitycode" value=""/></td>			  	
 				  </tr>
 				  <tr>
-				  <td width="100" align="center"><img src="image.php?<?php echo $res; ?>" /></td><td></td>
+				  <td align="center" colspan='2'><img src="image.php?<?php echo $res; ?>" /></td>
 				  </tr>
                 <tr>
-                  <td align="center" width="100"><input type="checkbox" name="" id="inp-remember" />
+                  <td align="center" class="smaller"><input type="checkbox" name="" id="inp-remember" />
                     <label for="inp-remember" title="保存14天" class="help">记住登录</label></td>
-                  <td class="t-right"><input type="submit" value="提交登录" class="submit"  tabindex="4" /></td>
+                  <td class="t-right"><input type="image" value="提交登录" src="images/signup-button.gif"/></td>
                 </tr>
 				</table>
 </form>
-
 </div>
           <!-- /in -->
           <div class="in02">
             <ul class="nom">
-              <li class="ico-reg"><strong><a href="#">注册</a></strong></li>
-              <li class="ico-send"><a href="recoverpwd.php">忘记密码?</a></li>
+              <li class="ico-reg" ><strong><a href="#">注册</a></strong></li>
+              <li class="ico-send"><a href="recoverpwd.php" style="padding-right:8px;">忘记密码?</a></li>
             </ul>
           </div>
           <!-- /in02 -->

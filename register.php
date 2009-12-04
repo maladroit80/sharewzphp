@@ -14,7 +14,7 @@ if(isset($_COOKIE["usNick"]) && isset($_COOKIE["usPass"]))
 
  <b><a href="logout.php">您已登陆，请安全退出再执行注册操作，或尝试刷新</a></b></br>
   
-<input type="image" value="重新载入" onClick="window.location.reload()" class="search-submit" src="images/reload-button.gif">
+<input type="image" value="重新载入" onClick="window.location.reload()" src="images/reload-button.gif">
 
 <?php include('footer.php'); ?>
 
