@@ -1,110 +1,177 @@
-<?php include ('header.php');
-
-?>
-	<div id="col-l">
+<?php include ('header.php') ?>
+<div id="page" class="box">
+    <!-- Catalog -->
+    <div class="box">
+      <div id="col-l">
         <div class="title01-top"></div>
         <div class="title01">
           <div class="title01-in">
-            <p class="f-right noprint">
-            <strong>
-            <a href="#" class="add">Submit a Site</a>
-            </strong>
-            </p>
-            <h3 class="ico-list" style="font-family: Geneva, Arial, Helvetica, sans-serif; font-weight: bold">马上加入浏览网站和完成任务赚钱！</h3>
+            <p class="f-right noprint"><strong><a href="#" class="add">Submit a Site</a></strong></p>
+            <h2 class="ico-list">Katalog</h2>
           </div>
         </div>
-        
         <div class="title01-bottom"></div>
         <div class="box">
-
-
-<p><img class="rimg-left" src="images/users.png" width="85" height="68" alt="Image" / align="left" >
-在<?php include('sitename.php'); ?>
-,你可以通过浏览网站和完成任务赚钱．操作很简单，你不需要任何技术，因为你只需要浏览我们提供的网站和完成一些简单的注册任务．你可以通过推荐更多的人加入赚更多的钱，下线提成为50%．我们通过支付宝支付会员，达到<span style="color: #0000FF"><? require ('config.php');
-								$sql = "SELECT * FROM tb_config WHERE item='payment' and howmany='1'";
-								$result = mysql_query($sql);        
-								$row = mysql_fetch_array($result); echo $row["price"];
-								mysql_close($con); ?>元</span>就可以申请支付!<span style="font-weight: bold; color: #FF0000">注意：7月1日前提供0.50元最低支付，7月1日后1.00元支付.<br>
-<a href="payment_proof.php">最近付款图</a></span></p>
-<p align="right"><?php echo "<a href=\"register.php?r=".$elref."\">";?>马上加入!</a></p>
-
+          <dl class="cat">
+            <dt><a href="#">Some Category</a></dt>
+            <dd><a href="#">Category</a>, <a href="#">Category</a>, <a href="#">Category</a>, <a href="#">Category</a></dd>
+            <dt><a href="#">Some Category</a></dt>
+            <dd><a href="#">Category</a>, <a href="#">Category</a>, <a href="#">Category</a>, <a href="#">Category</a></dd>
+            <dt><a href="#">Some Category</a></dt>
+            <dd><a href="#">Category</a>, <a href="#">Category</a>, <a href="#">Category</a>, <a href="#">Category</a></dd>
+            <dt><a href="#">Some Category</a></dt>
+            <dd><a href="#">Category</a>, <a href="#">Category</a>, <a href="#">Category</a>, <a href="#">Category</a></dd>
+            <dt><a href="#">Some Category</a></dt>
+            <dd><a href="#">Category</a>, <a href="#">Category</a>, <a href="#">Category</a>, <a href="#">Category</a></dd>
+            <dt><a href="#">Some Category</a></dt>
+            <dd><a href="#">Category</a>, <a href="#">Category</a>, <a href="#">Category</a>, <a href="#">Category</a></dd>
+            <dt><a href="#">Some Category</a></dt>
+            <dd><a href="#">Category</a>, <a href="#">Category</a>, <a href="#">Category</a>, <a href="#">Category</a></dd>
+          </dl>
+          <dl class="cat f-right">
+            <dt><a href="#">Some Category</a></dt>
+            <dd><a href="#">Category</a>, <a href="#">Category</a>, <a href="#">Category</a>, <a href="#">Category</a></dd>
+            <dt><a href="#">Some Category</a></dt>
+            <dd><a href="#">Category</a>, <a href="#">Category</a>, <a href="#">Category</a>, <a href="#">Category</a></dd>
+            <dt><a href="#">Some Category</a></dt>
+            <dd><a href="#">Category</a>, <a href="#">Category</a>, <a href="#">Category</a>, <a href="#">Category</a></dd>
+            <dt><a href="#">Some Category</a></dt>
+            <dd><a href="#">Category</a>, <a href="#">Category</a>, <a href="#">Category</a>, <a href="#">Category</a></dd>
+            <dt><a href="#">Some Category</a></dt>
+            <dd><a href="#">Category</a>, <a href="#">Category</a>, <a href="#">Category</a>, <a href="#">Category</a></dd>
+            <dt><a href="#">Some Category</a></dt>
+            <dd><a href="#">Category</a>, <a href="#">Category</a>, <a href="#">Category</a>, <a href="#">Category</a></dd>
+            <dt><a href="#">Some Category</a></dt>
+            <dd><a href="#">Category</a>, <a href="#">Category</a>, <a href="#">Category</a>, <a href="#">Category</a></dd>
+          </dl>
         </div>
-
-
-	<div id="col-l">
-        <div class="title01-top"></div>
-        <div class="title01">
-          <div class="title01-in">
-            <p class="f-right noprint">
-            <strong>
-            <a href="#" class="add">Submit a Site</a>
-            </strong>
-            </p>
-            <h3 class="ico-list" style="font-family: Geneva, Arial, Helvetica, sans-serif; font-weight: bold">在这里发布点击广告和任务很便宜！</h3>
-          </div>
+        <!-- /box -->
+        <hr class="noscreen" />
+      </div>
+	
+      
+          <?php include ('signup.php')?>
+            
+        <!-- Tabs -->
+        <div class="tabs-sidebar box">
+          <ul id="switch">
+            <li><a href="#tab-01"><span>Most Recent</span></a></li>
+            <li><a href="#tab-02"><span>Most Viewed</span></a></li>
+          </ul>
         </div>
-        
-        <div class="title01-bottom"></div>
-        <div class="box">
-
-
-
-<p><img class="img-left" src="images/advertiser.jpg" width="85" height="68" alt="Image" / align="left" />在这里打广告给<? include('sitename.php'); ?>的会员浏览是很简单的．我们提供<? 
-								require ('config.php');
-								$sql = "SELECT * FROM tb_config WHERE item='hits' and howmany='1000'";
-								$result = mysql_query($sql);        
-								$row = mysql_fetch_array($result); echo $row["price"]; mysql_close($con);?>元每<? require ('config.php');
-							 	$sql = "SELECT * FROM tb_config WHERE item='hits' and howmany='1000'";
-								$result = mysql_query($sql);        
-								$row = mysql_fetch_array($result);echo $row["howmany"]; mysql_close($con);?>次会员浏览的广告，并且每次浏览会持续30秒．当你提交广告代码后,我们会在24小时内处理您的广告．您想打广告并不需要<?php include ('sitename.php');?>的账户，你只要简单的填写表格并且支付广告费即可．我们不接受非法的、带有色情内容的和病毒的广告．</p>
-<p align="right"><?php echo "<a href=\"adver.php?r=".$elref."\">";?>更多...</a></p>
-
-<table width="598" border="0" cellpadding="2">
-  <tr>
-    <td width="151"><div align="center"><a href="contact.php">广告位招租</a></div></td>
-    <td width="151"><div align="center"><a href="contact.php">广告位招租</a></div></td>
-    <td width="151"><div align="center"><a href="contact.php">广告位招租</a></div></td>
-    <td width="117"><div align="center"><a href="contact.php">广告位招租</a></div></td>
-  </tr>
-  <tr>
-    <td><div align="center"><a href="contact.php">广告位招租</a></div></td>
-  <td><div align="center"><a href="contact.php">广告位招租</a></div></td>
-    <td><div align="center"><a href="contact.php">广告位招租</a></div></td>
-    <td><div align="center"><a href="contact.php">广告位招租</a></div></td>
-  </tr>
-  <tr>
-    <td><div align="center"><a href="contact.php">广告位招租</a></div></td>
-  <td><div align="center"><a href="contact.php">广告位招租</a></div></td>
-    <td><div align="center"><a href="contact.php">广告位招租</a></div></td>
-    <td><div align="center"><a href="contact.php">广告位招租</a></div></td>
-  </tr>
-</table>
-
+        <!-- /tabs-sidebar -->
+        <!-- Most Recent -->
+        <div id="tab-01">
+          <p> <a href="#" class="h-02">Lorem</a>, <a href="#" class="l-02">Ipsum</a>, <a href="#">Dolor</a>, <a href="#" class="h-01">Sit</a>, <a href="#" class="h-02">Amet</a>, <a href="#" class="h-02">Lorem</a>, <a href="#" class="l-02">Ipsum</a>, <a href="#">Dolor</a>, <a href="#" class="h-01">Sit</a>, <a href="#" class="h-02">Amet</a>, <a href="#" class="h-02">Lorem</a>, <a href="#" class="l-02">Ipsum</a>, <a href="#">Dolor</a>, <a href="#" class="h-01">Sit</a>, <a href="#" class="h-02">Amet</a>, <a href="#" class="h-02">Lorem</a>, <a href="#" class="l-02">Ipsum</a>, <a href="#">Dolor</a>, <a href="#" class="h-01">Sit</a>, <a href="#" class="h-02">Amet</a>, <a href="#" class="h-02">Lorem</a>, <a href="#" class="l-02">Ipsum</a>, <a href="#">Dolor</a>, <a href="#" class="h-01">Sit</a>, <a href="#" class="h-02">Amet</a>, <a href="#" class="h-02">Lorem</a> </p>
         </div>
-
-<p>    <?					require ('config.php');
-					$sqlzdu = "SELECT * FROM tb_config WHERE item='referalclick' and howmany='1'";
-					$resultzdu = mysql_query($sqlzdu);        
-					$myrowzdu = mysql_fetch_array($resultzdu);
-					$elprecioref=$myrowzdu["price"];
-
-					$sqlzduz = "SELECT * FROM tb_config WHERE item='click' and howmany='1'";
-					$resultzduz = mysql_query($sqlzduz);        
-					$myrowzduz = mysql_fetch_array($resultzduz);
-					$elprecioa=$myrowzduz["price"];
-
-					$elprecio=$elprecioa*10;
-					$cien=$elprecioref*100*10;
-					$daily=$elprecio+$cien;
-					$monthly=$daily*30;
-					$yearly=$monthly*12;
-					mysql_close($con);
-
-				?>
-    
-
-    
-
-</p>
-
-<?php include ('footer.php'); ?>
+        <!-- Most Viewed -->
+        <div id="tab-02">
+          <p> <a href="#" class="h-02">Lorem</a>, <a href="#" class="l-02">Ipsum</a>, <a href="#">Dolor</a>, <a href="#" class="h-01">Sit</a>, <a href="#" class="h-02">Amet</a>, <a href="#" class="h-02">Lorem</a>, <a href="#" class="l-02">Ipsum</a>, <a href="#">Dolor</a>, <a href="#" class="h-01">Sit</a>, <a href="#" class="h-02">Amet</a>, <a href="#" class="h-02">Lorem</a>, <a href="#" class="l-02">Ipsum</a>, <a href="#">Dolor</a>, <a href="#" class="h-01">Sit</a>, <a href="#" class="h-02">Amet</a>, <a href="#" class="h-02">Lorem</a>, <a href="#" class="l-02">Ipsum</a>, <a href="#">Dolor</a>, <a href="#" class="h-01">Sit</a>, <a href="#" class="h-02">Amet</a>, <a href="#" class="h-02">Lorem</a>, <a href="#" class="l-02">Ipsum</a>, <a href="#">Dolor</a>, <a href="#" class="h-01">Sit</a>, <a href="#" class="h-02">Amet</a>, <a href="#" class="h-02">Lorem</a> </p>
+        </div>
+        <script type="text/javascript">
+            new Control.Tabs('switch');
+            </script>
+        <hr class="noscreen" />
+      </div>
+      <!-- /col-r -->
+    </div>
+    <!-- /box -->
+    <div class="title01-top"></div>
+    <div class="title01">
+      <div class="title01-in">
+        <h3 class="ico-info">Most Recent</h3>
+      </div>
+    </div>
+    <div class="title01-bottom"></div>
+    <div class="box">
+      <div class="col50">
+        <div class="new-link">
+          <p><strong><a href="#">Lorem ipsum dolor sit amete</a></strong> &ndash; <span><a href="#" class="ico-card">Details</a></span> (<a href="#" class="folder">Travel</a>)<br />
+            <span class="high">http://www.server.com/index.php</span></p>
+          <p>Lorem ipsum dolor sit amete, consectetuer adipiscing elit. Integer eget risus a ante gravida suscipit. Maecenas luctus metus. Pellentesque habitant esti.</p>
+          <hr class="noscreen" />
+        </div>
+        <!-- /new-link -->
+        <div class="new-link">
+          <p><strong><a href="#">Lorem ipsum dolor sit amete</a></strong> &ndash; <span><a href="#" class="ico-card">Details</a></span> (<a href="#" class="folder">Travel</a>)<br />
+            <span class="high">http://www.server.com/index.php</span></p>
+          <p>Lorem ipsum dolor sit amete, consectetuer adipiscing elit. Integer eget risus a ante gravida suscipit. Maecenas luctus metus. Pellentesque habitant esti.</p>
+          <hr class="noscreen" />
+        </div>
+        <!-- /new-link -->
+        <div class="new-link">
+          <p><strong><a href="#">Lorem ipsum dolor sit amete</a></strong> &ndash; <span><a href="#" class="ico-card">Details</a></span> (<a href="#" class="folder">Travel</a>)<br />
+            <span class="high">http://www.server.com/index.php</span></p>
+          <p>Lorem ipsum dolor sit amete, consectetuer adipiscing elit. Integer eget risus a ante gravida suscipit. Maecenas luctus metus. Pellentesque habitant esti.</p>
+          <hr class="noscreen" />
+        </div>
+        <!-- /new-link -->
+        <div class="new-link">
+          <p><strong><a href="#">Lorem ipsum dolor sit amete</a></strong> &ndash; <span><a href="#" class="ico-card">Details</a></span> (<a href="#" class="folder">Travel</a>)<br />
+            <span class="high">http://www.server.com/index.php</span></p>
+          <p>Lorem ipsum dolor sit amete, consectetuer adipiscing elit. Integer eget risus a ante gravida suscipit. Maecenas luctus metus. Pellentesque habitant esti.</p>
+          <hr class="noscreen" />
+        </div>
+        <!-- /new-link -->
+        <div class="new-link">
+          <p><strong><a href="#">Lorem ipsum dolor sit amete</a></strong> &ndash; <span><a href="#" class="ico-card">Details</a></span> (<a href="#" class="folder">Travel</a>)<br />
+            <span class="high">http://www.server.com/index.php</span></p>
+          <p>Lorem ipsum dolor sit amete, consectetuer adipiscing elit. Integer eget risus a ante gravida suscipit. Maecenas luctus metus. Pellentesque habitant esti.</p>
+          <hr class="noscreen" />
+        </div>
+        <!-- /new-link -->
+      </div>
+      <!-- /col50 -->
+      <div class="col50 f-right">
+        <div class="new-link">
+          <p><strong><a href="#">Lorem ipsum dolor sit amete</a></strong> &ndash; <span><a href="#" class="ico-card">Details</a></span> (<a href="#" class="folder">Travel</a>)<br />
+            <span class="high">http://www.server.com/index.php</span></p>
+          <p>Lorem ipsum dolor sit amete, consectetuer adipiscing elit. Integer eget risus a ante gravida suscipit. Maecenas luctus metus. Pellentesque habitant esti.</p>
+          <hr class="noscreen" />
+        </div>
+        <!-- /new-link -->
+        <div class="new-link">
+          <p><strong><a href="#">Lorem ipsum dolor sit amete</a></strong> &ndash; <span><a href="#" class="ico-card">Details</a></span> (<a href="#" class="folder">Travel</a>)<br />
+            <span class="high">http://www.server.com/index.php</span></p>
+          <p>Lorem ipsum dolor sit amete, consectetuer adipiscing elit. Integer eget risus a ante gravida suscipit. Maecenas luctus metus. Pellentesque habitant esti.</p>
+          <hr class="noscreen" />
+        </div>
+        <!-- /new-link -->
+        <div class="new-link">
+          <p><strong><a href="#">Lorem ipsum dolor sit amete</a></strong> &ndash; <span><a href="#" class="ico-card">Details</a></span> (<a href="#" class="folder">Travel</a>)<br />
+            <span class="high">http://www.server.com/index.php</span></p>
+          <p>Lorem ipsum dolor sit amete, consectetuer adipiscing elit. Integer eget risus a ante gravida suscipit. Maecenas luctus metus. Pellentesque habitant esti.</p>
+          <hr class="noscreen" />
+        </div>
+        <!-- /new-link -->
+        <div class="new-link">
+          <p><strong><a href="#">Lorem ipsum dolor sit amete</a></strong> &ndash; <span><a href="#" class="ico-card">Details</a></span> (<a href="#" class="folder">Travel</a>)<br />
+            <span class="high">http://www.server.com/index.php</span></p>
+          <p>Lorem ipsum dolor sit amete, consectetuer adipiscing elit. Integer eget risus a ante gravida suscipit. Maecenas luctus metus. Pellentesque habitant esti.</p>
+          <hr class="noscreen" />
+        </div>
+        <!-- /new-link -->
+        <div class="new-link">
+          <p><strong><a href="#">Lorem ipsum dolor sit amete</a></strong> &ndash; <span><a href="#" class="ico-card">Details</a></span> (<a href="#" class="folder">Travel</a>)<br />
+            <span class="high">http://www.server.com/index.php</span></p>
+          <p>Lorem ipsum dolor sit amete, consectetuer adipiscing elit. Integer eget risus a ante gravida suscipit. Maecenas luctus metus. Pellentesque habitant esti.</p>
+          <hr class="noscreen" />
+        </div>
+        <!-- /new-link -->
+      </div>
+      <!-- /col50 -->
+    </div>
+    <!-- /box -->
+    <p class="t-center"><a href="#">Show more &raquo;</a></p>
+  </div>
+  <div id="footer">
+    <hr class="noscreen" />
+    <p class="f-right noprint"><a href="category.html">Categorys</a>, <a href="detail.html">Details</a>, <a href="results.html">Results</a>, <a href="submit.html">Submit</a></p>
+    <p>&copy;&nbsp;2009 <a href="#">Your Company</a><br />
+      <!-- Do you want to remove this backlinks? Look at www.nuviotemplates.com/payment.php -->
+      <span id="copy"><a href="http://www.nuviotemplates.com/">Free web templates</a> by <a href="http://www.qartin.cz/">Qartin</a><br />
+      <span class="smaller">Visit <a href="http://www.88web.org/" title="免费模板下载">免费模板下载</a></span></span></p>
+    <!-- Do you want to remove this backlinks? Look at www.nuviotemplates.com/payment.php -->
+  </div>
+  <!-- /footer -->
+</div>
