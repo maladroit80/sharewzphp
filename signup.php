@@ -60,36 +60,127 @@ previous=eventobj;
 
 </script>
 
+<script type="text/javascript" language="javascript">
 
+function signinAjax()
+{
+ var tip=document.getElementById("signintip");
+ var name=document.getElementById("uname").value;
+ var psw=document.getElementById("upsw").value;
+ var code=document.getElementById("seccode").value;
+ if(name=="")
+ {
+   tip.innerHTML="&nbsp;&nbsp;&nbsp;&nbsp;用户名？";
+   tip.style.display="inline";
+   return;
+ }
+ if(psw=="")
+ {
+   tip.innerHTML="&nbsp;&nbsp;&nbsp;&nbsp;密码？";
+   tip.style.display="inline";
+   return;
+ }
+ if(code=="")
+ {
+   tip.innerHTML="&nbsp;&nbsp;&nbsp;&nbsp;请填写验证码";
+   tip.style.display="inline";
+    return;
+ }
+
+ var xmlHttp;
+xmlHttp=GetXmlHttpObject();
+if (xmlHttp==null)
+  {
+   document.getElementById("btnsub").submit();
+   return;
+  }
+var url="verify.php?name="+name+"&psw="+psw+"&code="+code;
+xmlHttp.open("POST",url,true);
+xmlHttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+xmlHttp.onreadystatechange=stateChanged; 
+xmlHttp.send(url);
+}
+
+
+function stateChanged()
+{
+var tip=document.getElementById("signintip");
+if (xmlHttp.readyState==4)
+{ 
+   if(xmlHttp.responseText=="9")
+   {
+      window.location.reload();
+   }
+   if(xmlHttp.responseText=="1")
+   {
+      tip.innerHTML="&nbsp;&nbsp;&nbsp;&nbsp;用户名密码错误";
+      tip.style.display="inline";
+   }
+    if(xmlHttp.responseText=="2")
+   {
+      tip.innerHTML="&nbsp;&nbsp;&nbsp;&nbsp;验证码错误";
+      tip.style.display="inline";
+   }
+   if(xmlHttp.responseText=="0")
+   {
+      window.location.reload();
+   }
+}
+}
+
+
+function GetXmlHttpObject()
+{
+   try
+   {
+  // Firefox, Opera 8.0+, Safari
+      xmlHttp=new XMLHttpRequest();
+   }
+   catch (e)
+   {
+  // Internet Explorer
+      try
+      {
+        xmlHttp=new ActiveXObject("Msxml2.XMLHTTP");
+      }
+       catch (e)
+      {
+        xmlHttp=new ActiveXObject("Microsoft.XMLHTTP");
+       }
+    }
+   return xmlHttp;
+}
+
+</script>
 
         <!-- Login -->
         <div id="signup">
-          <h3>登陆易网赚</h3>
+          <h3>登陆易网赚<span class="signintip" id="signintip">&nbsp;&nbsp;&nbsp;&nbsp;欢迎登陆网赚网</span></h3>
           <div class="in">
 
 
-<form action='login.php' method='POST' onKeyUp="highlight(event)" onClick="highlight(event)">
+<form action='login.php' method='POST' onKeyUp="highlight(event)" onClick="highlight(event)" >
 
-<table class="nom">
+<table class="nom" id="signuptable">
 				  <tr>
-				    <td><label for="inp-user" >用户名:</label></td>
-				    <td ><input type='text' style="width: 90px;" size='10' maxlength='20' name='username' autocomplete="off" value="" /></td>
+				    <td><label>用户名:</label></td>
+				    <td ><input type='text' style="width: 90px;" size='10' maxlength='20' name='username' value="" id="uname" /></td>
 				  </tr>
 				  <tr>
-				    <td><label for="inp-pass">密码:</label></td>
-					<td ><input type='password' style="width: 90px;" size='10' maxlength='20' name='password' autocomplete="off" value=""/></td>
+				    <td><label>密码:</label></td>
+					<td ><input type='password' style="width: 90px;" size='10' maxlength='20' name='password' autocomplete="off" value="" id="upsw"/></td>
 				  </tr>
 				  <tr>
-				    <td><label for="inp-pass">验证码:</label></td>
-				    <td ><input type='text' style="width: 30px;" size='4' maxlength='4' name='code' autocomplete="off" class="securitycode" value=""/></td>			  	
+				    <td><label>验证码:</label></td>
+				    <td ><input type='text' style="width: 30px;" size='4' maxlength='4' name='code' class="securitycode" value="" id="seccode"/></td>			  	
 				  </tr>
 				  <tr>
-				  <td align="center" colspan='2'><img src="image.php?<?php echo $res; ?>" /><a id="changimg" href="javascript:alert('还没做');">看不清？</a></td>
+				  <td align="center" colspan='2'><img id="seccode" src="image.php" /><a id="changimg" href="javascript:var image=document.getElementById('seccode');image.src=image.src+'?';">看不清？</a></td>
 				  </tr>
                 <tr>
                   <td align="center" class="smaller"><input type="checkbox" name="" id="inp-remember" />
                     <label for="inp-remember" title="保存14天" class="help">记住登录</label></td>
-                  <td class="t-right"><input type="image" value="提交登录" src="images/signup-button.gif"/></td>
+                  <td class="t-right"><input class="btn" type="button" id="btnsub" value="登陆" onclick="signinAjax()"/></td>
                 </tr>
 				</table>
 </form>
