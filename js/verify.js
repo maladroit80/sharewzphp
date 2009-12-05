@@ -1,26 +1,33 @@
-﻿function signin()
+﻿function signinAjax()
 {
- var xmlHttp=null;
  var tip=document.getElementById("signintip");
- var name=document.getElementsByName("username").value;
- var psw=document.getElementsByName("password");
- var code=document.getElementsByName("code");
- if(name==""||psw=="")
+ var name=document.getElementById("uname").value;
+ var psw=document.getElementById("upsw").value;
+ var code=document.getElementById("seccode").value;
+ if(name=="")
  {
-   tip.innerHTML="&nbsp;&nbsp;&nbsp;&nbsp;用户名密码为空";
-   tip.style.display="";
+   tip.innerHTML="&nbsp;&nbsp;&nbsp;&nbsp;用户名？";
+   tip.style.display="inline";
+   return;
+ }
+ if(psw=="")
+ {
+   tip.innerHTML="&nbsp;&nbsp;&nbsp;&nbsp;密码？";
+   tip.style.display="inline";
    return;
  }
  if(code=="")
  {
    tip.innerHTML="&nbsp;&nbsp;&nbsp;&nbsp;请填写验证码";
-   tip.style.display="";
+   tip.style.display="inline";
     return;
  }
+
+ var xmlHttp;
 xmlHttp=GetXmlHttpObject();
 if (xmlHttp==null)
   {
-   document.getElementById("btnsub").submit();
+   document.getElementById("signupform").submit();
    return;
   }
 var url="verify.php?name="+name+"&psw="+psw+"&code="+code;
@@ -32,7 +39,8 @@ xmlHttp.send(url);
 
 
 function stateChanged()
-{ 
+{
+var tip=document.getElementById("signintip");
 if (xmlHttp.readyState==4)
 { 
    if(xmlHttp.responseText=="9")
@@ -41,13 +49,17 @@ if (xmlHttp.readyState==4)
    }
    if(xmlHttp.responseText=="1")
    {
-      tip.innerHTML="&nbsp;&nbsp;&nbsp;&nbsp;用户名或密码错误";
-      tip.style.display="";
+      tip.innerHTML="&nbsp;&nbsp;&nbsp;&nbsp;用户名密码错误";
+      var image=document.getElementById('securitycode');
+      image.src=image.src+'?';
+      tip.style.display="inline";
    }
     if(xmlHttp.responseText=="2")
    {
       tip.innerHTML="&nbsp;&nbsp;&nbsp;&nbsp;验证码错误";
-      tip.style.display="";
+      var image=document.getElementById('securitycode');
+      image.src=image.src+'?';
+      tip.style.display="inline";
    }
    if(xmlHttp.responseText=="0")
    {
