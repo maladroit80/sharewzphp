@@ -114,11 +114,15 @@ if (xmlHttp.readyState==4)
    if(xmlHttp.responseText=="1")
    {
       tip.innerHTML="&nbsp;&nbsp;&nbsp;&nbsp;用户名密码错误";
+      var image=document.getElementById('securitycode');
+      image.src=image.src+'?';
       tip.style.display="inline";
    }
     if(xmlHttp.responseText=="2")
    {
       tip.innerHTML="&nbsp;&nbsp;&nbsp;&nbsp;验证码错误";
+      var image=document.getElementById('securitycode');
+      image.src=image.src+'?';
       tip.style.display="inline";
    }
    if(xmlHttp.responseText=="0")
@@ -175,7 +179,7 @@ function GetXmlHttpObject()
 				    <td ><input type='text' style="width: 30px;" size='4' maxlength='4' name='code' class="securitycode" value="" id="seccode"/></td>			  	
 				  </tr>
 				  <tr>
-				  <td align="center" colspan='2'><img id="seccode" src="image.php" /><a id="changimg" href="javascript:var image=document.getElementById('seccode');image.src=image.src+'?';">看不清？</a></td>
+				  <td align="center" colspan='2'><img id="securitycode" src="image.php" /><a id="changimg" href="javascript:var image=document.getElementById('securitycode');image.src=image.src+'?';">看不清？</a></td>
 				  </tr>
                 <tr>
                   <td align="center" class="smaller"><input type="checkbox" name="" id="inp-remember" />
