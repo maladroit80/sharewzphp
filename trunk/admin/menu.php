@@ -115,4 +115,15 @@
 </li>
 
 
+<!-- -->
+
+<li>
+<b>文章管理</b>
+<ul>
+<li><a href="index.php?op=42">发布文章</a>
+<a href="index.php?op=43">编辑文章</a>
+<a href="index.php?op=44">删除文章</a>
+</ul>
+</li>
+
         </ul>
