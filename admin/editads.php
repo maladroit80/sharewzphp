@@ -22,8 +22,6 @@ $highlight=$_POST["highlight"];
     mysql_query($query) or die(mysql_error());
 
     echo "<font color=\"green\"><b>广告被编辑.</b></font><br><br>";
-
-
 }
 
 if (isset($_GET["id"]))
@@ -38,72 +36,58 @@ if ($option=="edit"){
 ?>
 
 
-<?
+<?php
 
 $tablae = mysql_query("SELECT * FROM tb_ads where id='$id'"); // selecciono todos los registros de la tabla usuarios, ordenado por nombre
 
 while ($registroe = mysql_fetch_array($tablae)) { // comienza un bucle que leera todos los registros y ejecutara las ordenes que siguen
-
-
 ?>
 
 <form method="post" action="index.php?op=2">
 
-序号: <input type="hidden" name="id" value="<?= $registroe["id"] ?>"><?= $registroe["id"] ?><br>
+序号: <input type="hidden" name="id" value="<?php echo $registroe["id"] ?>"><?php echo $registroe["id"] ?><br>
 Account name: 
-<input type="text" name="pname" value="<?= $registroe["paypalname"] ?>">
+<input type="text" name="pname" value="<?php echo $registroe["paypalname"] ?>">
 <br>
 支付宝帐号: 
-<input type="text" name="pemail" value="<?= $registroe["paypalemail"] ?>">
+<input type="text" name="pemail" value="<?php echo $registroe["paypalemail"] ?>">
 <br>
 计划(点击数量): 
-<input type="text" name="plan" value="<?= $registroe["plan"] ?>"><br>
+<input type="text" name="plan" value="<?php echo $registroe["plan"] ?>"><br>
 链接: 
-<input type="text" name="url" value="<?= $registroe["url"] ?>"><br>
+<input type="text" name="url" value="<?php echo $registroe["url"] ?>"><br>
 文本描述: 
-<input type="text" name="description" value="<?= $registroe["description"] ?>"><br>
+<input type="text" name="description" value="<?php echo $registroe["description"] ?>"><br>
 
-分类: [<?= $registroe["category"] ?>]  - 
+分类: [<?php echo $registroe["category"] ?>]  - 
 <select name="category">
 
 
-<?
+<?php
 
 $tablaa = mysql_query("SELECT * FROM tb_ads_categories ORDER BY id ASC"); // selecciono todos los registros de la tabla ads categories, ordenado por id
 
 while ($registroa = mysql_fetch_array($tablaa)) { // comienza un bucle que leera todos los registros y ejecutara las ordenes que siguen
-
-
 echo "
-
 <option value=\"".$registroa["id"] ."\">[". $registroa["id"] ."] - ". $registroa["catname"] ."</option>
-
 ";
 }
 ?>
-
-
-
 </select><br>
 
 粗体: 
-<input type="text" name="bold" value="<?= $registroe["bold"] ?>"><br>
+<input type="text" name="bold" value="<?php echo $registroe["bold"] ?>"><br>
 高亮: 
-<input type="text" name="highlight" value="<?= $registroe["highlight"] ?>"><br>
+<input type="text" name="highlight" value="<?php echo $registroe["highlight"] ?>"><br>
 <br>
 
 <input type="submit" value="保存" class="button">
 
 </form>
 <br><br>
-<?
+<?php
 }
-?>
-
-<?
-
 }
-
 if ($option=="delete"){
 
     //Todo parece correcto procedemos con la inserccion
@@ -112,8 +96,6 @@ if ($option=="delete"){
 
     echo "<font color=\"#cc0000\"><b>广告被删除.</b></font><br><br>";
 }
-
-
 }
 ?>
 
@@ -127,7 +109,7 @@ if ($option=="delete"){
 <th>&nbsp;</th>
 <th>&nbsp;</th>
 </tr>
-<?
+<?php
 
 $tabla = mysql_query("SELECT * FROM tb_ads where tipo='ads' ORDER BY id ASC"); // selecciono todos los registros de la tabla usuarios, ordenado por nombre
 
@@ -146,18 +128,18 @@ echo "
 <td>". $registro["plan"] ."</td>
 <td>";
 ?>
-<form method="post" action="index.php?op=2&id=<?= $registro["id"] ?>&option=edit">
+<form method="post" action="index.php?op=2&id=<?php echo $registro["id"] ?>&option=edit">
 <input type="submit" value="编辑" class="button">
 </form>
 </td>
 <td>
-<form method="post" action="index.php?op=2&id=<?= $registro["id"] ?>&option=delete">
+<form method="post" action="index.php?op=2&id=<?php echo $registro["id"] ?>&option=delete">
 <input type="submit" value="删除" class="button">
 </form>
 </td>
 </tr>
 
-<?
+<?php
 
 } // fin del bucle de ordenes
 

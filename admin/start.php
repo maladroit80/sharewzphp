@@ -51,7 +51,7 @@ $administrator = $row['user_status'];
 
 		if($administrator != "admin") {
 
-echo "<center>No estas autorizado a ver esta pagina.</center>";
+echo "<center>无权访问本页面。</center>";
 include('footer2.php');
 exit();
 		}

@@ -194,7 +194,7 @@ addLoadEvent(sucker_bold);
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
 <body>
 <script type="text/javascript" src="wz_tooltip.js"></script>
-<? include('start.php'); ?>
+<?php include('start.php'); ?>
 
 
 
@@ -202,7 +202,7 @@ addLoadEvent(sucker_bold);
 <!---------------------------- MENU ------------------------------->
 <div id="framecontent">
 <div class="innertube">
-<? include('menu.php'); ?>
+<?php include('menu.php'); ?>
 </div>
 </div>
 <!---------------------------- FIN MENU --------------------------->
@@ -215,13 +215,13 @@ addLoadEvent(sucker_bold);
 
 
 						<!--- op 1 -->
-<?
+<?php
 $op = $_GET["op"];
 switch($op) {
 	case(1):
 ?>
 
-<? include('adreq.php'); ?>
+<?php include('adreq.php'); ?>
 
 
 						<!--- op 2 -->
@@ -500,7 +500,21 @@ break;
 <?php include('cheatconfig.php'); ?>
 <?php
 break;
-
+    case(42):
+?>
+<?php include('addnews.php'); ?>
+<?php
+break;
+    case(43):
+?>
+<?php include('editnews.php'); ?>
+<?php
+break;
+    case(44):
+?>
+<?php include('deletenews.php'); ?>
+<?php
+break;
 }
 ?>
 

@@ -72,9 +72,6 @@
           <p> <a href="#" class="h-02">Lorem</a>, <a href="#" class="l-02">Ipsum</a>, <a href="#">Dolor</a>, <a href="#" class="h-01">Sit</a>, <a href="#" class="h-02">Amet</a>, <a href="#" class="h-02">Lorem</a>, <a href="#" class="l-02">Ipsum</a>, <a href="#">Dolor</a>, <a href="#" class="h-01">Sit</a>, <a href="#" class="h-02">Amet</a>, <a href="#" class="h-02">Lorem</a>, <a href="#" class="l-02">Ipsum</a>, <a href="#">Dolor</a>, <a href="#" class="h-01">Sit</a>, <a href="#" class="h-02">Amet</a>, <a href="#" class="h-02">Lorem</a>, <a href="#" class="l-02">Ipsum</a>, <a href="#">Dolor</a>, <a href="#" class="h-01">Sit</a>, <a href="#" class="h-02">Amet</a>, <a href="#" class="h-02">Lorem</a>, <a href="#" class="l-02">Ipsum</a>, <a href="#">Dolor</a>, <a href="#" class="h-01">Sit</a>, <a href="#" class="h-02">Amet</a>, <a href="#" class="h-02">Lorem</a> </p>
         </div>
         <!-- /Most Viewed -->
-        <script type="text/javascript">
-            new Control.Tabs('switch');
-            </script>
         <hr class="noscreen" />
     </div>
     <!-- /col-signip -->

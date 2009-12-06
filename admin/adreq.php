@@ -1,5 +1,5 @@
 <b>允许或者拒绝广告请求</b>
-<?
+<?php
 
 if (isset($_GET["id"]))
 {
@@ -57,7 +57,7 @@ if ($option=="deny"){
 		<th></th>
 		<th></th>
 	</tr>
-<?
+<?php
 
 $tabla = mysql_query("SELECT * FROM tb_advertisers where tipo!='convert' ORDER BY id ASC"); // selecciono todos los registros de la tabla usuarios, ordenado por nombre
 
@@ -76,24 +76,24 @@ echo "
 <td>". $registro["ip"] ."</td>
 <td>";
 ?>
-<form method="post" action="index.php?op=1&id=<?= $registro["id"] ?>&option=approve">
-<input type="hidden" name="pemail" value="<?= $registro["pemail"] ?>">
-<input type="hidden" name="plan" value="<?= $registro["plan"] ?>">
-<input type="hidden" name="url" value="<?= $registro["url"] ?>">
-<input type="hidden" name="description" value="<?= $registro["description"] ?>">
-<input type="hidden" name="ip" value="<?= $registro["ip"] ?>">
-<input type="hidden" name="bold" value="<?= $registro["bold"] ?>">
-<input type="hidden" name="highlight" value="<?= $registro["highlight"] ?>">
+<form method="post" action="index.php?op=1&id=<?php echo $registro["id"] ?>&option=approve">
+<input type="hidden" name="pemail" value="<?php echo $registro["pemail"] ?>">
+<input type="hidden" name="plan" value="<?php echo $registro["plan"] ?>">
+<input type="hidden" name="url" value="<?php echo $registro["url"] ?>">
+<input type="hidden" name="description" value="<?php echo $registro["description"] ?>">
+<input type="hidden" name="ip" value="<?php echo $registro["ip"] ?>">
+<input type="hidden" name="bold" value="<?php echo $registro["bold"] ?>">
+<input type="hidden" name="highlight" value="<?php echo $registro["highlight"] ?>">
 <input type="submit" value="允许" class="button">
 </form>
 </td><td>
-<form method="post" action="index.php?op=1&id=<?= $registro["id"] ?>&option=deny">
+<form method="post" action="index.php?op=1&id=<?php echo $registro["id"] ?>&option=deny">
 <input type="submit" value="拒绝" class="button">
 </form>
 </td>
 </tr>
 
-<?
+<?php
 
 } // fin del bucle de ordenes
 

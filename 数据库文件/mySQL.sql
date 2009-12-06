@@ -1,24 +1,3 @@
--- phpMyAdmin SQL Dump
--- version 3.1.3.1
--- http://www.phpmyadmin.net
---
--- Host: localhost
--- Generation Time: Nov 27, 2009 at 04:54 AM
--- Server version: 5.1.33
--- PHP Version: 5.2.9
-
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
-
---
--- Database: `ShareWZ`
---
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tb_ads`
---
-
 CREATE TABLE IF NOT EXISTS `tb_ads` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user` varchar(150) NOT NULL DEFAULT '',
@@ -94,12 +73,14 @@ CREATE TABLE IF NOT EXISTS `tb_advertisers` (
   `tipo` varchar(150) NOT NULL DEFAULT '',
   `money` varchar(150) NOT NULL DEFAULT '',
   KEY `id` (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `tb_advertisers`
 --
 
+INSERT INTO `tb_advertisers` (`id`, `pname`, `pemail`, `plan`, `url`, `description`, `category`, `ip`, `bold`, `highlight`, `tipo`, `money`) VALUES
+(1, '', 'jjwwXXX', '500', 'http://', '123456', '', '127.0.0.1', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -251,6 +232,34 @@ INSERT INTO `tb_messenger` (`id`, `sendfrom`, `sendto`, `date`, `comments`, `sta
 (29, 'admin', 'lmmfgdao', '20-04-08 16:30', '&eacute ', 'unread'),
 (30, 'admin', 'refadmin', '20-04-08 16:31', '阿道夫', 'unread'),
 (31, 'admin', 'refadmin', '20-04-08 16:31', '阿道夫', 'unread');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_news`
+--
+
+CREATE TABLE IF NOT EXISTS `tb_news` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `title` char(100) NOT NULL,
+  `url` char(100) DEFAULT NULL,
+  `author` char(20) DEFAULT NULL,
+  `date` char(150) NOT NULL,
+  `counts` int(11) DEFAULT '1',
+  `type` char(20) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='Column information for phpMyAdmin' AUTO_INCREMENT=6 ;
+
+--
+-- Dumping data for table `tb_news`
+--
+
+INSERT INTO `tb_news` (`id`, `title`, `url`, `author`, `date`, `counts`, `type`) VALUES
+(1, '阿斯顿', '阿斯顿', '阿斯顿', '阿斯顿', 1, '啊啊'),
+(2, 'å•Šæ˜¯', '79621105550026.php', 'çˆ±ä»•è¾¾', '1260115076', 1, 'ç»éªŒå¿ƒå¾—'),
+(3, 'å•Šæ˜¯', '04746016020219.php', 'çˆ±ä»•è¾¾', '1260115487', 1, 'ç»éªŒå¿ƒå¾—'),
+(4, 'æ—¥ä½ ', '20062611322900.php', 'ç½šæ¬¾', '09-12-06 16:23', 1, 'ç»éªŒå¿ƒå¾—'),
+(5, 'å•Šå•Š', '06022103196320.php', 'ä»¬æ‰“', '09-12-06 16:32', 1, 'ç»éªŒå¿ƒå¾—');
 
 -- --------------------------------------------------------
 
@@ -426,7 +435,7 @@ CREATE TABLE IF NOT EXISTS `tb_users` (
 --
 
 INSERT INTO `tb_users` (`id`, `username`, `password`, `ip`, `email`, `pemail`, `referer`, `country`, `visits`, `referals`, `referalvisits`, `money`, `paid`, `joindate`, `lastlogdate`, `lastiplog`, `account`, `user_status`) VALUES
-(1, 'admin', '123456', '127.0.0.1', 'admin@wycy8.cn', 'admin@wycy8.cn', '', 'China', '4', '1', '1', '25.006', '10', '1184512264', '1213868124', '125.126.187.192', 'premium', 'admin');
+(1, 'admin', '123456', '127.0.0.1', 'admin@wycy8.cn', 'admin@wycy8.cn', '', 'China', '4', '1', '1', '25.006', '10', '1184512264', '1260116480', '127.0.0.1', 'premium', 'admin');
 
 -- --------------------------------------------------------
 
@@ -444,4 +453,4 @@ CREATE TABLE IF NOT EXISTS `users_online` (
 --
 
 INSERT INTO `users_online` (`visitor`, `lastvisit`) VALUES
-('127.0.0.1', 1259297256);
+('127.0.0.1', 1260116480);

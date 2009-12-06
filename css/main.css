@@ -300,3 +300,6 @@ Others
     
 .relative {position:relative;}
 .signintip {font-size:0.8em;font-weight:normal;color:red;display:none;}
+.tempcolleft {float:left; width:680px;background-color:#f7fcff;}
+.tempcolleft p{font-size:14px;padding:0 25px 0 25px;}
+.temphead {overflow:hidden;text-align:center;}
