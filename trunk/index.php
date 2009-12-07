@@ -5,181 +5,180 @@
     <div class="box">
       <!-- col-1 -->
       <div id="col-l">
-        <div class="title01-top"></div>
-        <div class="title01">
-          <div class="title01-in">
-            <p class="f-right noprint"><strong><a href="#" class="add">Submit a Site</a></strong></p>
-            <h2 class="ico-list">Katalog</h2>
+      	<div class="topleft" sytle="float:left;">
+			<!--左上left table head-->      	
+          <div class="title01338-top"></div>
+		    <div class="title01338">
+		      <div class="title01338-in">
+		      	<p class="f-right noprint"><strong><a href="#" class="add">more...</a></strong></p>
+		        <h3 class="ico-info">今日必做</h3>
+		      </div>
+		    </div>
+		  <div class="title01338-bottom"></div>
+		  <!--/左上left table head-->  
+		  <!--左上left table content-->  
+		  <div class="topleftcontent">
+		  
+		  </div>
+		  <!--/左上left table content-->  
+		  
+      	</div>
+      	<div class="topright" sytle="float:right">
+      		<!--左上right table head-->  
+          <div class="title01338-top"></div>
+		    <div class="title01338">
+		      <div class="title01338-in">
+		      	<p class="f-right noprint"><strong><a href="#" class="add">马上发布</a></strong></p>
+		        <h3 class="ico-info">发布广告</h3>
+		      </div>
+		    </div>
+		  <div class="title01338-bottom"></div>
+		  <!--/左上right table head-->  
+		  <!--左上left table content-->  
+		  <div class="topleftcontent">
+		  
+		  </div>
+		  <!--/左上left table content--> 
+      	</div>
+      
+      
+        <div class="title01690-top" style="clear:both;"></div>
+        <!--head down table head-->
+        <div class="title01690">
+          <div class="title01690-in">
+            <p class="f-right noprint"><strong><a href="#" class="add">马上注册开始赚钱</a></strong></p>
+            <h2 class="ico-list">如何在本站赚钱</h2>
           </div>
         </div>
-        <div class="title01-bottom"></div>
+        <!--/head down left table head-->
+        
+        
+        <!--middle left table content-->
         <div class="box">
           <dl class="cat">
-            <dt><a href="#">Some Category</a></dt>
-            <dd><a href="#">Category</a>, <a href="#">Category</a>, <a href="#">Category</a>, <a href="#">Category</a></dd>
-            <dt><a href="#">Some Category</a></dt>
-            <dd><a href="#">Category</a>, <a href="#">Category</a>, <a href="#">Category</a>, <a href="#">Category</a></dd>
-            <dt><a href="#">Some Category</a></dt>
-            <dd><a href="#">Category</a>, <a href="#">Category</a>, <a href="#">Category</a>, <a href="#">Category</a></dd>
-            <dt><a href="#">Some Category</a></dt>
-            <dd><a href="#">Category</a>, <a href="#">Category</a>, <a href="#">Category</a>, <a href="#">Category</a></dd>
-            <dt><a href="#">Some Category</a></dt>
-            <dd><a href="#">Category</a>, <a href="#">Category</a>, <a href="#">Category</a>, <a href="#">Category</a></dd>
-            <dt><a href="#">Some Category</a></dt>
-            <dd><a href="#">Category</a>, <a href="#">Category</a>, <a href="#">Category</a>, <a href="#">Category</a></dd>
-            <dt><a href="#">Some Category</a></dt>
-            <dd><a href="#">Category</a>, <a href="#">Category</a>, <a href="#">Category</a>, <a href="#">Category</a></dd>
-          </dl>
+			</dl>
           <dl class="cat f-right">
-            <dt><a href="#">Some Category</a></dt>
-            <dd><a href="#">Category</a>, <a href="#">Category</a>, <a href="#">Category</a>, <a href="#">Category</a></dd>
-            <dt><a href="#">Some Category</a></dt>
-            <dd><a href="#">Category</a>, <a href="#">Category</a>, <a href="#">Category</a>, <a href="#">Category</a></dd>
-            <dt><a href="#">Some Category</a></dt>
-            <dd><a href="#">Category</a>, <a href="#">Category</a>, <a href="#">Category</a>, <a href="#">Category</a></dd>
-            <dt><a href="#">Some Category</a></dt>
-            <dd><a href="#">Category</a>, <a href="#">Category</a>, <a href="#">Category</a>, <a href="#">Category</a></dd>
-            <dt><a href="#">Some Category</a></dt>
-            <dd><a href="#">Category</a>, <a href="#">Category</a>, <a href="#">Category</a>, <a href="#">Category</a></dd>
-            <dt><a href="#">Some Category</a></dt>
-            <dd><a href="#">Category</a>, <a href="#">Category</a>, <a href="#">Category</a>, <a href="#">Category</a></dd>
-            <dt><a href="#">Some Category</a></dt>
-            <dd><a href="#">Category</a>, <a href="#">Category</a>, <a href="#">Category</a>, <a href="#">Category</a></dd>
-          </dl>
+			</dl>
         </div>
-        <!-- /box -->
+        <!-- /middle left table content -->
         <hr class="noscreen" />
       </div>
       <!-- /col-1 -->
       <!-- col-signip --> 
       <div id="col-signup">
 	      <?php include ('signup.php')?>    
-        <!-- tabs-sidebar -->
-        <div class="tabs-sidebar box">
-          <ul id="switch">
-            <li><a href="#tab-01"><span>Most Recent</span></a></li>
-            <li><a href="#tab-02"><span>Most Viewed</span></a></li>
-          </ul>
-        </div>
-        <!-- /tabs-sidebar -->
-        <!-- Most Recent -->
-        <div id="tab-01">
-          <p> <a href="#" class="h-02">Lorem</a>, <a href="#" class="l-02">Ipsum</a>, <a href="#">Dolor</a>, <a href="#" class="h-01">Sit</a>, <a href="#" class="h-02">Amet</a>, <a href="#" class="h-02">Lorem</a>, <a href="#" class="l-02">Ipsum</a>, <a href="#">Dolor</a>, <a href="#" class="h-01">Sit</a>, <a href="#" class="h-02">Amet</a>, <a href="#" class="h-02">Lorem</a>, <a href="#" class="l-02">Ipsum</a>, <a href="#">Dolor</a>, <a href="#" class="h-01">Sit</a>, <a href="#" class="h-02">Amet</a>, <a href="#" class="h-02">Lorem</a>, <a href="#" class="l-02">Ipsum</a>, <a href="#">Dolor</a>, <a href="#" class="h-01">Sit</a>, <a href="#" class="h-02">Amet</a>, <a href="#" class="h-02">Lorem</a>, <a href="#" class="l-02">Ipsum</a>, <a href="#">Dolor</a>, <a href="#" class="h-01">Sit</a>, <a href="#" class="h-02">Amet</a>, <a href="#" class="h-02">Lorem</a> </p>
-        </div>
-        <!-- /Most Recent -->
-        <!-- Most Viewed -->
-        <div id="tab-02">
-          <p> <a href="#" class="h-02">Lorem</a>, <a href="#" class="l-02">Ipsum</a>, <a href="#">Dolor</a>, <a href="#" class="h-01">Sit</a>, <a href="#" class="h-02">Amet</a>, <a href="#" class="h-02">Lorem</a>, <a href="#" class="l-02">Ipsum</a>, <a href="#">Dolor</a>, <a href="#" class="h-01">Sit</a>, <a href="#" class="h-02">Amet</a>, <a href="#" class="h-02">Lorem</a>, <a href="#" class="l-02">Ipsum</a>, <a href="#">Dolor</a>, <a href="#" class="h-01">Sit</a>, <a href="#" class="h-02">Amet</a>, <a href="#" class="h-02">Lorem</a>, <a href="#" class="l-02">Ipsum</a>, <a href="#">Dolor</a>, <a href="#" class="h-01">Sit</a>, <a href="#" class="h-02">Amet</a>, <a href="#" class="h-02">Lorem</a>, <a href="#" class="l-02">Ipsum</a>, <a href="#">Dolor</a>, <a href="#" class="h-01">Sit</a>, <a href="#" class="h-02">Amet</a>, <a href="#" class="h-02">Lorem</a> </p>
-        </div>
-        <!-- /Most Viewed -->
-        <hr class="noscreen" />
+        
     </div>
     <!-- /col-signip -->
     </div>    
     <!-- /Up Content -->
     <!-- down content -->
     <div>
-    <div class="title01-top"></div>
-    <div class="title01">
-      <div class="title01-in">
-        <h3 class="ico-info">Most Recent</h3>
-      </div>
+    
+    <div class="middleleft">
+    
+    <!--middle left table head-->
+        <div class="title01690">
+          <div class="title01690-in">
+            <p class="f-right noprint"><strong><a href="#" class="add">马上注册开始赚钱</a></strong></p>
+            <h2 class="ico-list">如何在本站赚钱</h2>
+          </div>
+        </div>
+    <!--/middle left table head-->
+    
     </div>
-    <div class="title01-bottom"></div>
-    <div class="box">
-      <div class="col50">
-        <div class="new-link">
-          <p><strong><a href="#">Lorem ipsum dolor sit amete</a></strong> &ndash; <span><a href="#" class="ico-card">Details</a></span> (<a href="#" class="folder">Travel</a>)<br />
-            <span class="high">http://www.server.com/index.php</span></p>
-          <p>Lorem ipsum dolor sit amete, consectetuer adipiscing elit. Integer eget risus a ante gravida suscipit. Maecenas luctus metus. Pellentesque habitant esti.</p>
-          <hr class="noscreen" />
+    
+    <div class="middleright">
+    
+    <!--middle right table head-->
+        <div class="title01200">
+          <div class="title01200-in">
+          <p class="f-right noprint"><strong><a href="#" class="add">更多</a></strong></p>
+           <h2 class="ico-list">最新支付</h2>
+          </div>
         </div>
-        <!-- /new-link -->
-        <div class="new-link">
-          <p><strong><a href="#">Lorem ipsum dolor sit amete</a></strong> &ndash; <span><a href="#" class="ico-card">Details</a></span> (<a href="#" class="folder">Travel</a>)<br />
-            <span class="high">http://www.server.com/index.php</span></p>
-          <p>Lorem ipsum dolor sit amete, consectetuer adipiscing elit. Integer eget risus a ante gravida suscipit. Maecenas luctus metus. Pellentesque habitant esti.</p>
-          <hr class="noscreen" />
+    <!--/middle right table head-->
+    
+    </div>
+    
+    
+    
+    
+    <div class="bot1">
+    
+    <!--bot1 table head-->
+        <div class="title01225">
+          <div class="title01225-in">
+          <p class="f-right noprint"><strong><a href="#" class="add">更多</a></strong></p>
+           <h2 class="ico-list">网赚心得</h2>
+          </div>
         </div>
-        <!-- /new-link -->
-        <div class="new-link">
-          <p><strong><a href="#">Lorem ipsum dolor sit amete</a></strong> &ndash; <span><a href="#" class="ico-card">Details</a></span> (<a href="#" class="folder">Travel</a>)<br />
-            <span class="high">http://www.server.com/index.php</span></p>
-          <p>Lorem ipsum dolor sit amete, consectetuer adipiscing elit. Integer eget risus a ante gravida suscipit. Maecenas luctus metus. Pellentesque habitant esti.</p>
-          <hr class="noscreen" />
+    <!--/bot1 table head-->
+    
+    </div>
+    <div class="bot2">
+    
+    <!--bot2 table head-->
+        <div class="title01225">
+          <div class="title01225-in">
+          <p class="f-right noprint"><strong><a href="#" class="add">更多</a></strong></p>
+           <h2 class="ico-list">建站心得</h2>
+          </div>
         </div>
-        <!-- /new-link -->
-        <div class="new-link">
-          <p><strong><a href="#">Lorem ipsum dolor sit amete</a></strong> &ndash; <span><a href="#" class="ico-card">Details</a></span> (<a href="#" class="folder">Travel</a>)<br />
-            <span class="high">http://www.server.com/index.php</span></p>
-          <p>Lorem ipsum dolor sit amete, consectetuer adipiscing elit. Integer eget risus a ante gravida suscipit. Maecenas luctus metus. Pellentesque habitant esti.</p>
-          <hr class="noscreen" />
+    <!--/bot2 table head-->
+    
+    </div>
+    <div class="bot3">
+    
+    <!--bot3 table head-->
+        <div class="title01225">
+          <div class="title01225-in">
+          <p class="f-right noprint"><strong><a href="#" class="add">更多</a></strong></p>
+           <h2 class="ico-list">待定模块</h2>
+          </div>
         </div>
-        <!-- /new-link -->
-        <div class="new-link">
-          <p><strong><a href="#">Lorem ipsum dolor sit amete</a></strong> &ndash; <span><a href="#" class="ico-card">Details</a></span> (<a href="#" class="folder">Travel</a>)<br />
-            <span class="high">http://www.server.com/index.php</span></p>
-          <p>Lorem ipsum dolor sit amete, consectetuer adipiscing elit. Integer eget risus a ante gravida suscipit. Maecenas luctus metus. Pellentesque habitant esti.</p>
-          <hr class="noscreen" />
+    <!--/bot3 table head-->
+    
+    </div>
+    <div class="bot4">
+    
+    <!--bot4 table head-->
+        <div class="title01200">
+          <div class="title01200-in">
+           <h2 class="ico-list">广告招商</h2>
+          </div>
         </div>
-        <!-- /new-link -->
-      </div>
-      <!-- /col50 -->
-      <div class="col50 f-right">
-        <div class="new-link">
-          <p><strong><a href="#">Lorem ipsum dolor sit amete</a></strong> &ndash; <span><a href="#" class="ico-card">Details</a></span> (<a href="#" class="folder">Travel</a>)<br />
-            <span class="high">http://www.server.com/index.php</span></p>
-          <p>Lorem ipsum dolor sit amete, consectetuer adipiscing elit. Integer eget risus a ante gravida suscipit. Maecenas luctus metus. Pellentesque habitant esti.</p>
-          <hr class="noscreen" />
-        </div>
-        <!-- /new-link -->
-        <div class="new-link">
-          <p><strong><a href="#">Lorem ipsum dolor sit amete</a></strong> &ndash; <span><a href="#" class="ico-card">Details</a></span> (<a href="#" class="folder">Travel</a>)<br />
-            <span class="high">http://www.server.com/index.php</span></p>
-          <p>Lorem ipsum dolor sit amete, consectetuer adipiscing elit. Integer eget risus a ante gravida suscipit. Maecenas luctus metus. Pellentesque habitant esti.</p>
-          <hr class="noscreen" />
-        </div>
-        <!-- /new-link -->
-        <div class="new-link">
-          <p><strong><a href="#">Lorem ipsum dolor sit amete</a></strong> &ndash; <span><a href="#" class="ico-card">Details</a></span> (<a href="#" class="folder">Travel</a>)<br />
-            <span class="high">http://www.server.com/index.php</span></p>
-          <p>Lorem ipsum dolor sit amete, consectetuer adipiscing elit. Integer eget risus a ante gravida suscipit. Maecenas luctus metus. Pellentesque habitant esti.</p>
-          <hr class="noscreen" />
-        </div>
-        <!-- /new-link -->
-        <div class="new-link">
-          <p><strong><a href="#">Lorem ipsum dolor sit amete</a></strong> &ndash; <span><a href="#" class="ico-card">Details</a></span> (<a href="#" class="folder">Travel</a>)<br />
-            <span class="high">http://www.server.com/index.php</span></p>
-          <p>Lorem ipsum dolor sit amete, consectetuer adipiscing elit. Integer eget risus a ante gravida suscipit. Maecenas luctus metus. Pellentesque habitant esti.</p>
-          <hr class="noscreen" />
-        </div>
-        <!-- /new-link -->
-        <div class="new-link">
-          <p><strong><a href="#">Lorem ipsum dolor sit amete</a></strong> &ndash; <span><a href="#" class="ico-card">Details</a></span> (<a href="#" class="folder">Travel</a>)<br />
-            <span class="high">http://www.server.com/index.php</span></p>
-          <p>Lorem ipsum dolor sit amete, consectetuer adipiscing elit. Integer eget risus a ante gravida suscipit. Maecenas luctus metus. Pellentesque habitant esti.</p>
-          <hr class="noscreen" />
-        </div>
-        <!-- /new-link -->
-      </div>
-      <!-- /col50 -->
+    <!--/bot4 table head-->
+    <ul id="weblinks">
+	<li>
+	<img border="0" src="images/bullet2.gif" width="7" height="7"  align="absmiddle" > <B><a href="http://www.sharewz.cn" target="_blank">共享网赚网</a></B></li>
+	<li>
+	<img border="0" src="images/bullet2.gif" width="7" height="7"  align="absmiddle" > <B><a href="buxscript.php" target="_blank">本站代码出售</a></B></li>
+	<li>
+	<img border="0" src="images/bullet2.gif" width="7" height="7"  align="absmiddle" > <a href="http://www.sharewz.com" target="_blank"><strong>网赚指导</strong></a></li>
+	<li>
+	<img border="0" src="images/bullet2.gif" width="7" height="7"  align="absmiddle" > <a href="http://shop34895911.taobao.com/" target="_blank"><strong>饰品店</strong></a></li>
+	<li>
+	<img border="0" src="images/bullet2.gif" width="7" height="7"  align="absmiddle" > <a href="#">广告位2元/月</a></li>
+	<li>
+	<img border="0" src="images/bullet2.gif" width="7" height="7"  align="absmiddle" > <a href="#">广告位2元/月</a></li>
+	<li>
+	<img border="0" src="images/bullet2.gif" width="7" height="7"  align="absmiddle" > <a href="#">广告位2元/月</a></li>
+	<li>
+	<img border="0" src="images/bullet2.gif" width="7" height="7"  align="absmiddle" > <a href="#">广告位2元/月</a></li>
+	<li>
+	<img border="0" src="images/bullet2.gif" width="7" height="7"  align="absmiddle" > <a href="#">广告位2元/月</a></li>
+	</ul>
+    </div>
+    <div class="advbot1">广告位1(900*60px)</div>
+    <div class="advbot2">广告位2(450*60px)</div>
+    <div class="advbot3">广告位3(438*60px)</div>
+    
+    
     </div>
     <!-- /box -->
-    <p class="t-center"><a href="#">Show more &raquo;</a></p>
   </div>
+<div class="friendlink">友情链接</div>
 </div>
-  <!--/page  -->
-  <!-- footer -->
-  <div id="footer">
-    <hr class="noscreen" />
-    <p class="f-right noprint"><a href="category.html">Categorys</a>, <a href="detail.html">Details</a>, <a href="results.html">Results</a>, <a href="submit.html">Submit</a></p>
-    <p>&copy;&nbsp;2009 <a href="#">Your Company</a><br />
-      <!-- Do you want to remove this backlinks? Look at www.nuviotemplates.com/payment.php -->
-      <span id="copy"><a href="http://www.nuviotemplates.com/">Free web templates</a> by <a href="http://www.qartin.cz/">Qartin</a><br />
-      <span class="smaller">Visit <a href="http://www.88web.org/" title="免费模板下载">免费模板下载</a></span></span></p>
-    <!-- Do you want to remove this backlinks? Look at www.nuviotemplates.com/payment.php -->
-  </div>
-  <!-- /footer -->
 </div>
-</body>
-</html>
+ <?php include('footer.php')?>

@@ -1,11 +1,72 @@
-<?php
+<?php require('config.php');
 if(isset($_COOKIE["usNick"]) && isset($_COOKIE["usPass"]))
 {
-	echo "<div style='border:1px solid #FFCC00;height:228px;'>11111111</div>
-	
-	
-	
-	";
+$sql = "SELECT * FROM tb_users WHERE username='$user'";
+$result = mysql_query($sql);        
+$row = mysql_fetch_array($result);
+mysql_close($con);
+$visit = $row["visits"];
+$refer = $row["referals"];
+$refervisit = $row["referalvisits"];
+$money  = $row["money"];
+$paid  =$row["paid"];
+	echo "<div id='signup'>
+          <h3>登陆易网赚<span class='signintip' id='signintip'>&nbsp;&nbsp;&nbsp;&nbsp;欢迎登陆网赚网</span></h3>
+          <div class='in'>
+
+
+			<form action='login.php' method='POST' onKeyUp='highlight(event)' onClick='highlight(event)' id='signupform'>
+
+			<table width='100%' class='nom'>
+
+			<tr>
+			<td>
+			<img border='0' src='images/bullet2.gif' width='7' height='7'  align='absmiddle' > 广告点击</td>
+			<td> $visit </td>
+			</tr>
+			<tr>
+			<td>
+			<img border='0' src='images/bullet2.gif' width='7' height='7'  align='absmiddle' > 下线个数</td>
+			<td> $refer </td>
+			</tr>
+			<tr>
+			<td>
+			<img border='0' src='images/bullet2.gif' width='7' height='7'  align='absmiddle' > 下线点击</td>
+			<td> $refervisit </td>
+			</tr>
+			<tr>
+			<td>
+			<img border='0' src='images/bullet2.gif' width='7' height='7'  align='absmiddle' > 帐户余额</td>
+			<td> $money </td>
+			</tr>
+			<tr>
+			<td>
+			<img border='0' src='images/bullet2.gif' width='7' height='7'  align='absmiddle' > 总计支付</td>
+			<td> $paid </td>
+			</tr>
+			
+			
+			</table></form>
+</div>
+          <!-- /in -->
+          <div class='in02'>
+            <ul class='nom'>
+              <li class='ico-reg' ><strong><a href='#'>注册</a></strong></li>
+              <li class='ico-send'><a href='recoverpwd.php' style='padding-right:8px;'>忘记密码?</a></li>
+            </ul>
+          </div>
+          <!-- /in02 -->
+        </div>
+
+        <hr class='noscreen' />
+        <div id='signup-bottom'></div>
+      <!-- tabs-sidebar -->
+        <div class='tabs-sidebar box'>
+          <ul id='switch'>
+            <li><a href='#tab-01'><span>站点状态</span></a></li>
+          </ul>
+        </div>";
+
 }
 else
 {
@@ -82,7 +143,7 @@ previous=eventobj;
 				  </tr>
 				  <tr>
 				    <td><label>验证码:</label></td>
-				    <td ><input type='text' style="width: 30px;" size='4' maxlength='4' name='code' class="securitycode" autocomplete="off" value="" id="seccode"/></td>			  	
+				    <td ><input type='text' style="width: 50px;" size='4' maxlength='4' name='code' class="securitycode" autocomplete="off" value="" id="seccode"/></td>			  	
 				  </tr>
 				  <tr>
 				  <td align="center" colspan='2'><img id="securitycode" src="image.php" /><a id="changimg" href="javascript:var image=document.getElementById('securitycode');image.src=image.src+'?';">看不清？</a></td>
@@ -107,6 +168,14 @@ previous=eventobj;
 
         <hr class="noscreen" />
         <div id="signup-bottom"></div>
+      <!-- tabs-sidebar -->
+        <div class="tabs-sidebar box">
+          <ul id="switch">
+            <li><a href="#tab-01"><span>站点状态</span></a></li>
+          </ul>
+        </div>
 <?php
 }
 ?>
+          <?php include ('sitestats.php') 
+          ?>
