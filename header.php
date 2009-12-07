@@ -108,4 +108,3 @@ $elref=limpiar($_GET["r"]);
      );
     </script>
   <!-- /TextRow -->
-<div id="navtoplistlinedown">&nbsp;</div>
