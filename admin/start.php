@@ -22,7 +22,7 @@ $wask = uc($_COOKIE["usNick"]);
 $wesk = $row['username'];
 
 if("$wesk" != "$wask") {
-echo "��½����.";
+echo "无权访问本页面。";
 include('footer2.php');
 ?>
 
@@ -35,7 +35,7 @@ $wazk = uc($_COOKIE["usPass"]);
 $wezk = $row['password'];
 
 if("$wezk" != "$wazk") {
-echo "��½����.";
+echo "无权访问本页面。";
 include('footer2.php');
 ?>
 
