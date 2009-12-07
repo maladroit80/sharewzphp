@@ -515,6 +515,9 @@ break;
 <?php include('deletenews.php'); ?>
 <?php
 break;
+   case(45):
+   	include("editback.php");
+   	break;
 }
 ?>
 
