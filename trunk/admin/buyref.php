@@ -1,4 +1,4 @@
-<?
+<?php
     if (isset($_POST["number"])) {
 
 
@@ -25,7 +25,7 @@ echo "<font color=\"green\"><b>插入到数据库.</b></font><br><br>";
 }
 ?>
 
-没有上线的用户: <b><?
+没有上线的用户: <b><?php
 $checkpemail = mysql_query("SELECT * FROM tb_users WHERE referer=''");
 $pemail_exist = mysql_num_rows($checkpemail);
 
@@ -36,7 +36,7 @@ echo $pemail_exist;
    出售包含
    <select name="refnum">
 
-<?
+<?php
 
 $tablaa = mysql_query("SELECT * FROM tb_buyref where id='1' ORDER BY id ASC"); // selecciono todos los registros de la tabla ads categories, ordenado por id
 

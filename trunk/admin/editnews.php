@@ -1,6 +1,6 @@
 <?php
 require_once("config.php");
-$pagesize=1;
+$pagesize=2;
 //取得记录总数$rs，计算总页数用
 $rs=mysql_query("select count(*) from tb_news");
 $myrow = mysql_fetch_array($rs);
@@ -28,22 +28,25 @@ if ($myrow = mysql_fetch_array($rs))
 {
 $i=0;
 ?>
-　　<table border="0" width="60">
+　　<table border="0" >
 　　<tr>
-　　　<td width="400" text-align="center" >
-　　　　<p >标题</p>
+　　　<td >
+　　　　<p class="edithead" style="width:300px">标题</p>
      </td>
-　　　<td width="80" text-align="center" >
-　　　　<p >发布时间</p>
+　　　<td>
+　　　　<p class="edithead" style="width:100px">发布时间</p>
      </td>
-     <td width="100" text-align="center" >
-　　　　<p>提交人</p>
+     <td>
+　　　　<p class="edithead" style="width:100px">提交人</p>
      </td>
-     <td width="80" text-align="center" >
-　　　　<p >浏览次数</p>
+     <td>
+　　　　<p class="edithead" style="width:150px">浏览次数</p>
      </td>
-     <td width="80" text-align="center" > 
-　　　　<p >类别</p>
+      <td>
+　　　　<p class="edithead" style="width:100px">文件名</p>
+     </td>
+     <td> 
+　　　　<p class="edithead" style="width:150px">类别</p>
      </td>
 　　</tr>
 <?php
@@ -51,8 +54,12 @@ do {
 $i++;
 ?>
 <tr>
-<td width="50%"><?php echo $myrow["title"]?></td>
-<td width="50%"><?php echo $myrow["url"]?></td>
+<td ><a href="http://localhost/ShareWZ/admin/index.php?op=45&&page=<?php echo $page ?>&&name=<?php echo $myrow["url"]?>"><?php echo $myrow["title"]?></a></td>
+<td><?php echo $myrow["date"]?></td>
+<td><?php echo $myrow["author"]?></td>
+<td><?php echo $myrow["counts"]?></td>
+<td><?php echo $myrow["url"]?></td>
+<td><?php echo $myrow["type"]?></td>
 </tr>
 <?php
 }
@@ -61,6 +68,6 @@ echo "</table>";
 }
 echo "<div align='center'>共有".$pages."页(".$page."/".$pages.")";
 for($i=1;$i<=$pages;$i++)
-echo "<a href='editnews.php?page=".$i."'>[".$i ."]</a> ";
+echo "<a href='index.php?op=43&&page=".$i."'>[".$i ."]</a> ";
 echo "</div>";
 ?>
