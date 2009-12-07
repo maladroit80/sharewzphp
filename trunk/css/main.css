@@ -303,3 +303,9 @@ Others
 .tempcolleft {float:left; width:680px;background-color:#f7fcff;}
 .tempcolleft p{font-size:14px;padding:0 25px 0 25px;}
 .temphead {overflow:hidden;text-align:center;}
+
+.articleleft {float:left; width:700px;}
+
+.tipblock {float:left;width:250px;border:1px solid #FFCC00;}
+.tipblock h3{background:url("../images/blockhead.gif") 0 0 no-repeat;;margin:1px;padding-left:10px}
+.tipblock div{border-style:solid;}

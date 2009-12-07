@@ -82,6 +82,7 @@ $administrator = $row['user_status'];
 echo"            <li><a href=\"regads.php\"><span>注册赚钱</span></a></li>
 				<li><a href=\"members.php\"><span>我的账户</span></a></li>
 				<li><a href=\"adver.php\"><span>发布广告</span></a></li>
+				<li><a href=\"article.php?no=index\"><span>经验心得</span></a></li>
 				<li><a href=\"contact.php\"><span>联系我们</span></a></li>
 				<li><a href=\"bbs.php\"><span>论坛</span></a></li>
 			</ul>	
@@ -110,11 +111,12 @@ $userstatus="<span>欢迎光临，</span><a href='#'>访客</a>";
 
 echo "
 			<ul id='Tablistdetail'><li><a href=\"index.php\"><span>首页</span></a></li>
-				<li><a href=\"masterads.php?r=".$elref."\"><span>浏览赚钱</span></a></li>
-				<li><a href=\"regads.php?r=".$elref."\"><span>注册赚钱</span></a></li>
-				<li><a href=\"adver.php?r=".$elref."\"><span>发布广告</span></a></li>
-				<li><a href=\"contact.php?r=".$elref."\"><span>联系我们</span></a></li>
-				<li><a href=\"bbs.php?r=".$elref."\"><span>论坛</span></a></li>
+				<li><a href=\"masterads.php\"><span>浏览赚钱</span></a></li>
+				<li><a href=\"regads.php\"><span>注册赚钱</span></a></li>
+				<li><a href=\"adver.php\"><span>发布广告</span></a></li>
+				<li><a href=\"article.php?no=index\"><span>经验心得</span></a></li>
+				<li><a href=\"contact.php\"><span>联系我们</span></a></li>
+				<li><a href=\"bbs.php\"><span>论坛</span></a></li>
 			</ul>
 ";
 }

@@ -1,21 +1,28 @@
-<?php include ('header.php') ?>
+<?php
+if (!isset($_GET["no"])||strtolower($_GET["no"])=="index")
+{
+include ('header.php');
+?>
 <!-- Page -->
     <!-- Content -->
     <div class="box">
       <!-- col-1 -->
-      <div class="tempcolleft">
-        <div class="temphead">
-          <h1>{newstitle} </h1>
-          <span>{newsdatefrom} </span>
-        </div>
-        <div>
-          <p>{newscontents}</p>
-        </div>
+      <div class="articleleft">
+      <div class="tipblock" style="float:left;">
+        <h3>广告</h3>
+        <div style="height:400px">1</div>
+      </div>
+      <div style="float:right;width:400px;margin-right:30px;height:100px">
+      </div>
+        <div class="tipblock" style="float:right;width:400px;margin-right:30px;margin-top:20px">
+        <h3>广告</h3>
+        <div style="height:280px">1</div>
+      </div>
       </div>
       <!-- /col-1 -->
       <!-- col-signip --> 
       <div id="col-signup">
-	      <?php include ('signup.php')?>    
+	    <?php include ('signup.php')?>    
         <!-- tabs-sidebar -->
         <div class="tabs-sidebar box">
           <ul id="switch">
@@ -40,16 +47,29 @@
     </div>    
     <!-- Content -->
   <!-- footer -->
-  <div id="footer">
-    <hr class="noscreen" />
-    <p class="f-right noprint"><a href="category.html">Categorys</a>, <a href="detail.html">Details</a>, <a href="results.html">Results</a>, <a href="submit.html">Submit</a></p>
-    <p>&copy;&nbsp;2009 <a href="#">Your Company</a><br />
-      <!-- Do you want to remove this backlinks? Look at www.nuviotemplates.com/payment.php -->
-      <span id="copy"><a href="http://www.nuviotemplates.com/">Free web templates</a> by <a href="http://www.qartin.cz/">Qartin</a><br />
-      <span class="smaller">Visit <a href="http://www.88web.org/" title="免费模板下载">免费模板下载</a></span></span></p>
-    <!-- Do you want to remove this backlinks? Look at www.nuviotemplates.com/payment.php -->
-  </div>
+  <?php include("footer.php") ?>;
   <!-- /footer -->
 </div>
 </body>
 </html>
+<?php
+}
+else
+{
+	$node=strtolower($_GET["no"]);
+    if(file_exists("./news/".$node.".php"))
+    {
+    	include("./news/".$node.".php");
+    }
+    else if(file_exists("./news/".$node.".html"))
+    {
+    	include("./news/".$node.".html");
+    }
+    else
+    {
+?>
+<META HTTP-EQUIV="REFRESH" CONTENT="0;URL=article.php?no=index">
+<?php
+}
+}
+?>
