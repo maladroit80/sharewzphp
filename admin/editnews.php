@@ -54,7 +54,7 @@ do {
 $i++;
 ?>
 <tr>
-<td ><a href="http://localhost/ShareWZ/admin/index.php?op=45&&page=<?php echo $page ?>&&name=<?php echo $myrow["url"]?>"><?php echo $myrow["title"]?></a></td>
+<td ><a href="index.php?op=45&&page=<?php echo $page ?>&&name=<?php echo $myrow["url"]?>"><?php echo $myrow["title"]?></a></td>
 <td><?php echo $myrow["date"]?></td>
 <td><?php echo $myrow["author"]?></td>
 <td><?php echo $myrow["counts"]?></td>

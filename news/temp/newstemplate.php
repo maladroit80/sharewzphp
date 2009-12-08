@@ -1,7 +1,7 @@
 <?php include ('header.php') ?>
 <!-- Page -->
     <!-- Content -->
-    <div class="box">
+    <div class="box" style="padding-top:20px">
       <!-- col-1 -->
       <div class="tempcolleft">
         <div class="temphead">
