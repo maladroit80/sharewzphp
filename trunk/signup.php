@@ -51,7 +51,7 @@ $paid  =$row["paid"];
           <!-- /in -->
           <div class='in02'>
             <ul class='nom'>
-              <li class='ico-reg' ><strong><a href='#'>注册</a></strong></li>
+              <li class='ico-reg' ><strong><a href='register.php'>注册</a></strong></li>
               <li class='ico-send'><a href='recoverpwd.php' style='padding-right:8px;'>忘记密码?</a></li>
             </ul>
           </div>

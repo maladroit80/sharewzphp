@@ -5,16 +5,16 @@ include ('header.php');
 ?>
 <!-- Page -->
     <!-- Content -->
-    <div class="box">
+    <div class="box" style="margin-top:20px;">
       <!-- col-1 -->
-      <div class="articleleft">
-      <div class="tipblock" style="float:left;">
+      <div style="float:left;width:700px;">
+      <div class="tipblock" style="float:left;width:250px">
         <h3>广告</h3>
         <div style="height:400px">1</div>
       </div>
-      <div style="float:right;width:400px;margin-right:30px;height:100px">
+      <div style="float:right;width:400px;margin-right:20px;height:100px">
       </div>
-        <div class="tipblock" style="float:right;width:400px;margin-right:30px;margin-top:20px">
+        <div class="tipblock" style="float:right;width:420px;margin-right:20px;margin-top:20px">
         <h3>广告</h3>
         <div style="height:280px">1</div>
       </div>
