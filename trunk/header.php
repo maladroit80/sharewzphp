@@ -11,9 +11,7 @@
 <meta name="rating" content="General" />
 <meta name="revisit-after" content="7 days" />
 <script type="text/javascript" src="js/rounded-corners.js"></script>
-<script type="text/javascript" src="js/form-field-tooltip.js"></script>
 <script type="text/javascript" src="js/prototype.js"></script>
-<script type="text/javascript" src="js/tooltip.js"></script>
 <script type="text/javascript" src="js/showdetail.js"></script>
 <link rel="stylesheet" media="screen,projection" type="text/css" href="css/main.css" />
 <link rel="stylesheet" media="print" type="text/css" href="css/print.css" />
