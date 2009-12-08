@@ -8,4 +8,6 @@ $link = "http://www.easywzw.com/";            // Your Site url
 $con = mysql_connect($bd_host, $bd_usuario, $bd_password);
 mysql_select_db($bd_base, $con);     // Dont Edit
 
+$SetCharacterSetSql = "SET NAMES 'utf8'";
+mysql_query($SetCharacterSetSql, $con) or die(mysql_error());
 ?>
