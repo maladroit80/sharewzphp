@@ -352,8 +352,12 @@ Others
 .tipblock h3{background:url("../images/blockhead.gif");border-top:1px solid #FFCC00;border-left:1px solid #FFCC00;border-right:1px solid #FFCC00;margin:0;}
 .tipblock div{border-bottom:1px solid #FFCC00;border-left:1px solid #FFCC00;border-right:1px solid #FFCC00;}
 
-.browsercontent {float:right;width:680px;border:1px solid #FFCC00;border-top:0;}
-.browser {border:1px solid #FF0000;border-top:0;}
+.browsercontent {float:right;width:680px;}
+.browser {overflow:hidden;border:1px solid #FFCC00;}
 .browserh {height:20px;background:#DCEBFF none repeat scroll 0 0;margin:0;padding:2px;float:left;width:100%;}
 .urlenter {width:80%;margin-left:5px;float:left;}
-.dropbtn {float:right;margin-right:15px;}
+.realbrowser {height:0;overflow:hidden;background:#DCEBFF none repeat scroll 0 0;}
+.dropbtn {float:right;margin-right:15px;margin:1px;}
+.leftbrowser {float:left;width:65%;height:100%;overflow:scroll;margin-left:1px;}
+.rightlink {float:right;width:33%;overflow:scroll;height:100%;margin:1px;}
+

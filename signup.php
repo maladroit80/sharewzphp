@@ -121,9 +121,6 @@ previous=eventobj;
 
 </script>
 
-<script type="text/javascript" language="javascript" src="js/verify.js">
-</script>
-
         <!-- Login -->
         <div id="signup">
           <h3>登陆易网赚<span class="signintip" id="signintip">&nbsp;&nbsp;&nbsp;&nbsp;欢迎登陆网赚网</span></h3>

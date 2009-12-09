@@ -13,11 +13,12 @@
 <script type="text/javascript" src="js/rounded-corners.js"></script>
 <script type="text/javascript" src="js/prototype.js"></script>
 <script type="text/javascript" src="js/showdetail.js"></script>
+<script type="text/javascript" language="javascript" src="js/verify.js"></script>
 <link rel="stylesheet" media="screen,projection" type="text/css" href="css/main.css" />
 <link rel="stylesheet" media="print" type="text/css" href="css/print.css" />
 <title>
 <?php include('sitename.php');?>
----只要用鼠标点点就可以赚钱！</title>
+</title>
 
 </head>
 <body style="margin-top:0px; padding-top:0px;">
