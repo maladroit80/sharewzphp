@@ -8,9 +8,9 @@ $key = array(
 'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',
 'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z');
 $string = null;
-$char_X = 6;
-$char_Y = 2;
-for($i=0;$i<4;$i++)
+$char_X = 15;
+$char_Y = 3;
+for($i=0;$i<3;$i++)
 {
 $char_Y = mt_rand(0,12);
 $char = $key[mt_rand(0,61)];
@@ -23,7 +23,7 @@ $line_X1 = 0;
 $line_Y1 = 0;
 $line_X2 = 0;
 $line_Y2 = 0;
-for($i=0;$i<mt_rand(0,64);$i++)
+for($i=0;$i<mt_rand(0,90);$i++)
 {
 $line_X1 = mt_rand(0,58);
 $line_Y1 = mt_rand(0,22);
@@ -31,8 +31,8 @@ $line_X2 = mt_rand(0,58);
 $line_Y2 = mt_rand(0,22);
 $line_X1 = $line_X1;
 $line_Y1 = $line_Y1;
-$line_X2 = $line_X1 + mt_rand(1,8);
-$line_Y2 = $line_Y1 + mt_rand(1,8);
+$line_X2 = $line_X1 + mt_rand(2,10);
+$line_Y2 = $line_Y1 + mt_rand(2,8);
 $color_Line = imagecolorallocate($image,mt_rand(0,230),mt_rand(0,230),mt_rand(0,230));
 imageline($image,$line_X1,$line_Y1,$line_X2,$line_Y2,$color_Line);
 }
