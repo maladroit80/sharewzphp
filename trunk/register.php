@@ -243,12 +243,18 @@ previous=eventobj
 
 </script>
 
-<div align="center"><div id="form">
-
+<div align="middle">
+<div class="reg_left">
+265*540广告位
+</div>
+<div id="form" style="width:350px;float:left;margin-left:5px;">
 <form action="register.php" method="POST" onKeyUp="highlight(event)" onClick="highlight(event)">
-<fieldset><legend>&nbsp;所有地方都要正确填写&nbsp;</legend>
 
-<table width="400" border="0" align="center">
+
+<table id="reg" width="350" border="0" align="left" style="border-bottom:solid 1px blue;border-right:solid 1px blue;border-top:solid 1px blue;border-left:solid 1px blue;">
+  <tr>
+    <td colspan="2" class="reg_table">欢迎注册易网赚</td>
+  </tr>
   <tr>
     <td width="150" align="left"><p><label>» 用户名</label></p></td>
     <td width="250" align="left"><input type='text' size='15' maxlength='25' name='username' tooltipText="在本站独一无二的用户名" autocomplete="off" value="" tabindex="1" /></td>
@@ -294,14 +300,21 @@ previous=eventobj
     <td width="250" align="left"><img src="image.php?<?php echo $res; ?>" /></td>
   </tr>
   <tr>
-    <td width="150" align="left">&nbsp;</td>
-    <td width="250" align="center"><input type="submit" value="提交" class="submit" tabindex="4" />
+    <td colspan="2" width="250" align="center"><input type="submit" value="注册提交" class="submit" tabindex="4" />
 	</td>
   </tr>
 </table>
 </form>
-</fieldset>
-</div></div>
+
+</div>
+
+<div class="reg_right">
+265*540广告位
+</div>
+<div class="reg_bot">
+900*120广告位
+</div>
+</div>
 
 <?php
 }
