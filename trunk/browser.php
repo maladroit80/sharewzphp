@@ -51,6 +51,7 @@ function move(id,evt){
 function readlink(browser)
 {
    var ul=document.getElementById(browser).getElementsByTagName("ul")[0];
+   ul.innerHTML="";
    var frame=document.getElementById(browser).getElementsByTagName("iframe")[0];
     var doc;
     //IE or FF
@@ -62,12 +63,15 @@ function readlink(browser)
         {   
           doc = frame.contentDocument;
         }
-    var link=doc.getElementsByTagName("a");
-    for(var i=0;i<link.length;i++)
-    {
-      var myElement = document.createElement("<li><a href='"+link[i].href+"'>"+link[i].href+"</a></li>");
-      ul.appendChild(myElement);
-    }
+    var content=doc.body.innerHTML;
+    alert(content);
+//    var myElement;
+//    for(var i=0;i<link.length;i++)
+//    {
+//      myElement += "<li><a href='"+link[i].href+"'>"+link[i].href+"</a></li>";
+//      
+//    }
+//    ul.innerHTML=myElement;
 }
 </script>
 <!-- Page -->
@@ -81,9 +85,8 @@ function readlink(browser)
 <!-- browser1 -->
 <div class="browser">
 <h3 class="browserh"><input class="urlenter" type="text"></input><input class="dropbtn" type="image" src="./images/arrow-down.gif" onclick="move('browser1',event);return false;"></input></h3>
-<br/>
 <div class="realbrowser" id="browser1">
-<iframe src="http://www.163.com" class="leftbrowser"></iframe>
+<iframe src="" class="leftbrowser"></iframe>
 <div class="rightlink">
 <input type="image" src="./images/readlink-button.gif" onclick="readlink('browser1');return false;"></input>
 
