@@ -13,10 +13,14 @@ h5 {font-size:100%;}
 
 p {margin:15px 0;}
 
+
+
 table {margin:15px 0; border-collapse:collapse; border-spacing:0; font-size:100%;}
 table.width100 {width:100%;}
 th {text-align:center; font-weight:bold;}
 th, td {padding:3px 5px;}
+
+
 
 ul, ol {display:block; margin:15px 0 15px 30px;}
 ul ul, ol ol {margin:0; margin-left:20px;}
@@ -75,16 +79,8 @@ Universal
 .topright{margin-bottom:5px;float:right;width:338px;height:230px;}
 .topleftcontent{width:338px;height:185px;border-bottom:solid 1px blue;border-right:solid 1px blue;border-top:solid 1px blue;border-left:solid 1px blue;}
 
-.middleleft{margin-right:5px;margin-bottom:5px;float:left;width:690px;height:350px;border-bottom:solid 1px blue;border-right:solid 1px blue;border-top:solid 1px blue;border-left:solid 1px blue;}
-.middleright{margin-bottom:5px;float:right;width:200px;height:350px;border-bottom:solid 1px blue;border-right:solid 1px blue;border-top:solid 1px blue;border-left:solid 1px blue;}
-.bot1{margin-right:5px;float:left;width:225px;height:350px;border-bottom:solid 1px blue;border-right:solid 1px blue;border-top:solid 1px blue;border-left:solid 1px blue;}
-.bot2{margin-right:5px;float:left;width:225px;height:350px;border-bottom:solid 1px blue;border-right:solid 1px blue;border-top:solid 1px blue;border-left:solid 1px blue;}
-.bot3{margin-right:5px;float:left;width:225px;height:350px;border-bottom:solid 1px blue;border-right:solid 1px blue;border-top:solid 1px blue;border-left:solid 1px blue;}
-.bot4{margin-left:2px;float:left;width:200px;height:350px;border-bottom:solid 1px blue;border-right:solid 1px blue;border-top:solid 1px blue;border-left:solid 1px blue;}
-.advbot1{margin-top:5px;float:left;width:900px;height:60px;border-bottom:solid 1px blue;border-right:solid 1px blue;border-top:solid 1px blue;border-left:solid 1px blue;}
-.advbot2{float:left;margin-right:8px;float:left;width:450px;height:60px;border-bottom:solid 1px blue;border-right:solid 1px blue;border-top:solid 1px blue;border-left:solid 1px blue;}
-.advbot3{float:right;float:left;width:438px;height:60px;border-bottom:solid 1px blue;border-right:solid 1px blue;border-top:solid 1px blue;border-left:solid 1px blue;}
-.friendlink{margin-top:5px;float:left;width:900px;border-bottom:solid 1px blue;border-right:solid 1px blue;border-top:solid 1px blue;border-left:solid 1px blue;}
+
+
 
 /* ----------------------------------------------------------------------------------------------------------
 HTML styles
@@ -360,4 +356,49 @@ Others
 .dropbtn {float:right;margin-right:15px;margin:1px;}
 .leftbrowser {float:left;width:65%;height:100%;overflow:scroll;margin-left:1px;}
 .rightlink {float:right;width:33%;overflow:scroll;height:100%;margin:1px;}
+
+
+
+
+/**************************************************************new websites css(hilary)***********************************/
+
+mem, p{margin:0 0}
+reg, th, td {padding:10px 10px;}
+
+
+/*-----------------------------------------------------------------------------
+index.php styles by hilary
+----------------------------------------------------------------------------*/
+.middleleft{margin-right:5px;margin-bottom:5px;float:left;width:690px;height:350px;border-bottom:solid 1px blue;border-right:solid 1px blue;border-top:solid 1px blue;border-left:solid 1px blue;}
+.middleright{margin-bottom:5px;float:right;width:200px;height:350px;border-bottom:solid 1px blue;border-right:solid 1px blue;border-top:solid 1px blue;border-left:solid 1px blue;}
+.bot1{margin-right:5px;float:left;width:225px;height:350px;border-bottom:solid 1px blue;border-right:solid 1px blue;border-top:solid 1px blue;border-left:solid 1px blue;}
+.bot2{margin-right:5px;float:left;width:225px;height:350px;border-bottom:solid 1px blue;border-right:solid 1px blue;border-top:solid 1px blue;border-left:solid 1px blue;}
+.bot3{margin-right:5px;float:left;width:225px;height:350px;border-bottom:solid 1px blue;border-right:solid 1px blue;border-top:solid 1px blue;border-left:solid 1px blue;}
+.bot4{margin-left:2px;float:left;width:200px;height:350px;border-bottom:solid 1px blue;border-right:solid 1px blue;border-top:solid 1px blue;border-left:solid 1px blue;}
+.advbot1{margin-top:5px;float:left;width:900px;height:60px;border-bottom:solid 1px blue;border-right:solid 1px blue;border-top:solid 1px blue;border-left:solid 1px blue;}
+.advbot2{float:left;margin-right:8px;float:left;width:450px;height:60px;border-bottom:solid 1px blue;border-right:solid 1px blue;border-top:solid 1px blue;border-left:solid 1px blue;}
+.advbot3{float:right;float:left;width:438px;height:60px;border-bottom:solid 1px blue;border-right:solid 1px blue;border-top:solid 1px blue;border-left:solid 1px blue;}
+.friendlink{margin-top:5px;float:left;width:900px;border-bottom:solid 1px blue;border-right:solid 1px blue;border-top:solid 1px blue;border-left:solid 1px blue;}
+
+/*-----------------------------------------------------------------------------
+register.php styles by hilary
+----------------------------------------------------------------------------*/
+.reg_left{margin-top:14px;float:left;width:265px; height:540px; border-bottom:solid 1px blue;border-right:solid 1px blue;border-top:solid 1px blue;border-left:solid 1px blue;}
+.reg_right{margin-top:14px;float:right;width:270px; height:540px; border-bottom:solid 1px blue;border-right:solid 1px blue;border-top:solid 1px blue;border-left:solid 1px blue;}
+.reg_table{color:green;font-weight:bold; font-size:large;text-align:center;height:40px;}
+.reg_bot{clear:both;width:900px;height:120px;border-bottom:solid 1px blue;border-right:solid 1px blue;border-top:solid 1px blue;border-left:solid 1px blue;}
+.reg
+/*-----------------------------------------------------------------------------
+members.php styles by hilary
+----------------------------------------------------------------------------*/
+.mem_left{margin-top:14px;float:left;width:200px;height:600px;border-bottom:solid 1px blue;}
+
+
+
+
+
+
+
+
+
 
