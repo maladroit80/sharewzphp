@@ -358,14 +358,10 @@ Others
 .rightlink {float:right;width:33%;overflow:scroll;height:100%;margin:1px;}
 
 
-
-
 /**************************************************************new websites css(hilary)***********************************/
 
 mem, p{margin:0 0}
-reg, th, td {padding:10px 10px;}
-
-
+#reg td{padding:10px 10px;}
 /*-----------------------------------------------------------------------------
 index.php styles by hilary
 ----------------------------------------------------------------------------*/
@@ -387,18 +383,25 @@ register.php styles by hilary
 .reg_right{margin-top:14px;float:right;width:270px; height:540px; border-bottom:solid 1px blue;border-right:solid 1px blue;border-top:solid 1px blue;border-left:solid 1px blue;}
 .reg_table{color:green;font-weight:bold; font-size:large;text-align:center;height:40px;}
 .reg_bot{clear:both;width:900px;height:120px;border-bottom:solid 1px blue;border-right:solid 1px blue;border-top:solid 1px blue;border-left:solid 1px blue;}
-.reg
+.text_reg{width:150px;height:50px;text-align:left;}
+.fill_reg{width:250px;height:50px;text-align:left;}
 /*-----------------------------------------------------------------------------
 members.php styles by hilary
 ----------------------------------------------------------------------------*/
-.mem_left{margin-top:14px;float:left;width:200px;height:600px;border-bottom:solid 1px blue;}
+.mem_left{margin-top:14px;float:left;width:200px;height:600px;}
 
 
 
+/*-----------------------------------------------------------------------------------
+memberleft.php styles by hilary
+-------------------------------------------------------------------------------------*/
 
-
-
-
-
-
+.channel { width:198px;margin-top:10px;line-height:30px; text-align:center;border-bottom:1px solid #FC0;border-top:1px solid #FC0;border-right:1px solid #FC0;border-left:1px solid #FC0;border-collapse: collapse }
+.channel ul { list-style:none; margin:0px;}
+.channel li { padding-left:8px; text-align:left; }
+.channel a { background:url(../images/arrow2.gif) no-repeat left; padding-left:10px; color:#457a8b; font-size:14px; font-weight:bold; }
+.channel a:link { background:url(../images/arrow2.gif) no-repeat left; padding-left:10px; color: #687733; }
+.channel a:visited { background:url(../images/arrow2.gif) no-repeat left; padding-left:10px; color: #687733; }
+.channel a:hover { background:url(../images/arrow1.gif) no-repeat left; padding-left:10px; color:#78b4c7; }
+.channel a:active { background:url(../images/arrow1.gif) no-repeat left; padding-left:10px; color:#78b4c7; }
 

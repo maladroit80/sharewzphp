@@ -117,12 +117,13 @@ previous=eventobj
 </script>
 
 <div align="center"><div id="form">
-<fieldset>
-<legend>登录</legend>
 
 <form action='login.php' method='POST' onKeyUp="highlight(event)" onClick="highlight(event)">
 
-<table width="400" border="0" align="center">
+<table id="loginin" width="350" border="0" align="center" style="border-bottom:solid 1px blue;border-right:solid 1px blue;border-top:solid 1px blue;border-left:solid 1px blue;">
+  <tr>
+    <td colspan="2" class="reg_table">欢迎登录易网赚</td>
+  </tr>
   <tr>
     <td width="150" align="left"><p><label>» 用户名</label></p></td>
     <td width="250" align="left"><input type='text' size='15' maxlength='25' name='username' tooltipText= " 请输入您的用户名 ." autocomplete="off"value="" tabindex="1" /></td>
@@ -140,19 +141,16 @@ previous=eventobj
     <td width="250" align="left"><img src="image.php?<?php echo $res; ?>" /></td>
   </tr>
 
-  <tr>
-    <td width="150" align="left">&nbsp;</td>
-    <td width="250" align="right"><div align="left">
-  <input type="submit" value="提交" class="submit" tabindex="4" />
-  <br>
-  </p>
+  <tr align="center">
+    <td width="250" colspan="2" align="center">
+  <input type="submit" value="登录提交" class="submit" tabindex="4" />
+  
        <a href="recoverpwd.php">» 忘记密码?</a>
   
-	</div></td>
+	</td>
   </tr>
 </table>
 </form>
-</fieldset>
 </div></div>
 
 
