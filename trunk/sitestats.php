@@ -65,6 +65,11 @@ mysql_close($con);
 <img border="0" src="images/bullet2.gif" width="7" height="7"  align="absmiddle" > 总计点击</td>
 <td><?php echo $clickserved?></td>
 </tr>
+<tr>
+<td>
+<img border="0" src="images/bullet2.gif" width="7" height="7"  align="absmiddle" > 支付比率</td>
+<td>100：1</td>
+</tr>
 
 
 </table>
