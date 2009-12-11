@@ -9,9 +9,6 @@ mysql_close($con);
 
 
 
-<div id="navmainlistline">&nbsp;</div>
-
-<fieldset>
 <div id="signup">
           <h3>
  账户状态:</h3>
@@ -48,4 +45,3 @@ mysql_close($con);
 </table>
 </div>
 </div>
-</fieldset>
