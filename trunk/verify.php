@@ -1,4 +1,19 @@
 <?php
+if($_GET["regpage"])
+{
+	if($_GET["username"])
+	{
+		require('config.php');
+		$username=$_GET["username"];
+		$checkuser = mysql_query("SELECT username FROM tb_users WHERE username='$username'");
+        $username_exist = mysql_num_rows($checkuser);
+	if ($username_exist>0) {
+     echo "该用户名已存在.";
+     }
+	}
+}
+else
+{
 if(isset($_COOKIE["usNick"]) && isset($_COOKIE["usPass"]))
 {
 	echo "9";
@@ -42,5 +57,6 @@ $querybt = "UPDATE tb_users SET lastlogdate='$lastlogdate', lastiplog='$lastip' 
 mysql_query($querybt) or die(mysql_error());
 mysql_close($con);
 echo "0";
+}
 }
 ?>
