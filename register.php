@@ -50,12 +50,11 @@ $cpassword = $_POST["cpassword"];
 $email = $_POST["email"];
 $cemail = $_POST["cemail"];
 $pemail = $_POST["pemail"];
-$country = $_POST["country"];
 
 
 // comprobamos que no haya campos en blanco
 
-if($username==NULL|$password==NULL|$cpassword==NULL|$email==NULL|$cemail==NULL|$pemail==NULL|$country==NULL) {
+if($username==NULL|$password==NULL|$cpassword==NULL|$email==NULL|$cemail==NULL|$pemail==NULL) {
 echo "填写不完整";
 }else{
 
@@ -68,7 +67,7 @@ $cpassword = uc($cpassword);
 $email = limpiar($email);
 $cemail = limpiar($cemail);
 $pemail = limpiar($pemail);
-$country = $country;
+
 
 
 // limitamos el numero de caracteres
@@ -79,7 +78,7 @@ $cpassword=limitatexto($cpassword,15);
 $email=limitatexto($email,100);
 $cemail=limitatexto($cemail,100);
 $pemail=limitatexto($pemail,100);
-$country=limitatexto($country,15);
+
 
 
 // comprobamos que tengan un minimo de caracteres
@@ -179,7 +178,7 @@ $numero=$myrowz["referals"];
 
 $joindate=time();
 $password=passport_encrypt($password,$encryptkey);
-$query = "INSERT INTO tb_users (username, password, ip, email, pemail, referer, country, joindate) VALUES('$username','$password','$laip','$email','$pemail','$referer','$country','$joindate')";
+$query = "INSERT INTO tb_users (username, password, ip, email, pemail, referer, joindate) VALUES('$username','$password','$laip','$email','$pemail','$referer','$joindate')";
 mysql_query($query) or die(mysql_error());
 
 echo "您已经正确注册 <b>$username</b>. 现在您可以 <a href=\"login.php\">登录</a>.";
@@ -241,56 +240,55 @@ previous=eventobj
 }
 }
 
-var name=document.getElementsByName("username")[0].value;
-var psw=document.getElementsByName("password")[0].value;
-var cpsw=document.getElementsByName("seccode")[0].value;
-var mail=document.getElementsByName("username")[0].value;
-var cmail=document.getElementsByName("password")[0].value;
-var paynum=document.getElementsByName("seccode")[0].value;
-var area=document.getElementsByName("username")[0].value;
-var psw=document.getElementsByName("password")[0].value;
-var code=document.getElementsByName("seccode")[0].value;
-var xmlHttp;
-xmlHttp=GetXmlHttpObject();
-if (xmlHttp==null)
-  {
-   document.getElementById("registerform").submit();
-   return;
-  }
-var url="verify.php?name="+name+"&psw="+psw+"&code="+code;
-xmlHttp.open("POST",url,true);
-xmlHttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-xmlHttp.onreadystatechange=stateChanged; 
-xmlHttp.send(url);
+//var name=document.getElementsByName("username")[0].value;
+//var psw=document.getElementsByName("password")[0].value;
+//var cpsw=document.getElementsByName("seccode")[0].value;
+//var mail=document.getElementsByName("username")[0].value;
+//var cmail=document.getElementsByName("password")[0].value;
+//var paynum=document.getElementsByName("seccode")[0].value;
+//var area=document.getElementsByName("username")[0].value;
+//var psw=document.getElementsByName("password")[0].value;
+//var code=document.getElementsByName("seccode")[0].value;
+
+function verify(evt)
+{
+	var xmlHttp;
+	xmlHttp=GetXmlHttpObject();
+	if (xmlHttp==null)
+	  {
+	   return;
+	  }
+	var e = window.event?window.event:evt;
+	var element = e.srcElement?e.srcElement:e.target;
+	if(element.name=="username"&&element.value!="")
+	{
+		var url="verify.php?regpage=true&username="+element.value;
+		xmlHttp.open("POST",url,true);
+		xmlHttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+		xmlHttp.onreadystatechange=stateChanged;
+		xmlHttp.send(url);
+	}
+	else if(element.name=="password"&&element.value!="")
+	{
+		if(element.value.length<6)
+		{
+			var tip=document.getElementById("regtip");
+			tip.innerHTML="密码长度不够，请加强.";
+			tip.style.display="inline";
+		}
+	}
 }
 
 function stateChanged()
 {
-var tip=document.getElementById("signintip");
 if (xmlHttp.readyState==4)
 { 
-   if(xmlHttp.responseText=="9")
-   {
-      window.location.reload();
-   }
-   if(xmlHttp.responseText=="1")
-   {
-      tip.innerHTML="&nbsp;&nbsp;&nbsp;&nbsp;用户名密码错误";
-      var image=document.getElementById('securitycode');
-      image.src=image.src+'?';
-      tip.style.display="inline";
-   }
-    if(xmlHttp.responseText=="2")
-   {
-      tip.innerHTML="&nbsp;&nbsp;&nbsp;&nbsp;验证码错误";
-      var image=document.getElementById('securitycode');
-      image.src=image.src+'?';
-      tip.style.display="inline";
-   }
-   if(xmlHttp.responseText=="0")
-   {
-      window.location.reload();
-   }
+	if(xmlHttp.responseText!="0")
+	{
+	var tip=document.getElementById("regtip");
+	tip.innerHTML=xmlHttp.responseText;
+	tip.style.display="inline";
+	}
 }
 }
 
@@ -315,6 +313,7 @@ function GetXmlHttpObject()
     }
    return xmlHttp;
 }
+
 </script>
 
 <div align="middle">
@@ -329,52 +328,51 @@ function GetXmlHttpObject()
   <tr>
     <td colspan="2" class="reg_table">欢迎注册易网赚</td>
   </tr>
-  <tr>
-    <td width="150" align="left"><p><label>» 用户名</label></p></td>
-    <td width="250" align="left"><input type='text' size='15' maxlength='25' name='username' tooltipText="在本站独一无二的用户名" autocomplete="off" value="" tabindex="1" /></td>
+    <tr>
+    <td colspan="2"><label style="display:none;color:red;" id="regtip"></label></td>
   </tr>
   <tr>
-    <td width="150" align="left"><p><label>» 密码</label></p></td>
-	<td width="250" align="left"><input type="password" size="25" maxlength="15" name="password" tooltipText= "密码必须６－３０位字符长度 ." autocomplete="off" class="field" value="" tabindex="1" /></td>
+    <td width="160" align="left"><p><label>» 用户名</label></p></td>
+    <td width="80" align="left"><input type='text' maxlength='25' name='username' tooltipText="在本站独一无二的用户名" autocomplete="off" value="" tabindex="1" onblur="verify(event)" /></td>
   </tr>
   <tr>
-    <td width="150" align="left"><p><label>» 重复密码</label></p></td>
-	<td width="250" align="left"><input type="password" size="25" maxlength="15" name="cpassword" tooltipText="验证密码" autocomplete="off" class="field" value="" tabindex="1" /></td>
+    <td align="left"><p><label>» 密码</label></p></td>
+	<td align="left"><input type="password"  maxlength="15" name="password" tooltipText= "密码必须６－３０位字符长度 ." autocomplete="off" class="field" value="" tabindex="1" onblur="verify(event)" /></td>
   </tr>
   <tr>
-    <td width="150" align="left"><p><label>» 电子邮件</label></p></td>
-	<td width="250" align="left"><input type="text" size="25" maxlength="100" name="email" tooltipText=" 输入一个有效的电子邮件地址. " autocomplete="off" class="field" value="" tabindex="1" /></td>
+    <td  align="left"><p><label>» 重复密码</label></p></td>
+	<td  align="left"><input type="password" maxlength="15" name="cpassword" tooltipText="验证密码" autocomplete="off" class="field" value="" tabindex="1" onblur="verify(event)" /></td>
   </tr>
   <tr>
-    <td width="150" align="left"><p><label>» 重复电子邮件</label></p></td>
-	<td width="250" align="left"><input type="text" size="25" maxlength="100" name="cemail" tooltipText=" 验证你的电子邮件" autocomplete="off" class="field" value="" tabindex="1" /></td>
+    <td  align="left"><p><label>» 电子邮件</label></p></td>
+	<td  align="left"><input type="text"  maxlength="100" name="email" tooltipText=" 输入一个有效的电子邮件地址. " autocomplete="off" class="field" value="" tabindex="1" onblur="verify(event)" /></td>
   </tr>
   <tr>
-    <td width="150" align="left"><p><label>» 支付宝帐号</label></p></td>
-	<td width="250" align="left"><input type="text" size="25" maxlength="100" name="pemail" tooltipText="你收款的支付宝帐号" autocomplete="off" class="field" value="" tabindex="1" /></td>
+    <td  align="left"><p><label>» 重复电子邮件</label></p></td>
+	<td  align="left"><input type="text"  maxlength="100" name="cemail" tooltipText=" 重复你的电子邮件" autocomplete="off" class="field" value="" tabindex="1" onblur="verify(event)" /></td>
   </tr>
   <tr>
-    <td width="150" align="left"><p><label>» 省份地区</label></p></td>
-	<td width="250" align="left"><input type="text" size="25" maxlength="100" name="country" tooltipText="你的地区 " autocomplete="off" class="field" value="" tabindex="1" /></td>
+    <td align="left"><p><label>» 支付宝帐号</label></p></td>
+	<td  align="left"><input type="text"  maxlength="100" name="pemail" tooltipText="你收款的支付宝帐号" autocomplete="off" class="field" value="" tabindex="1" onblur="verify(event)"/></td>
   </tr>
   <tr>
-    <td width="150" align="left"><p><label>» 推荐人</label></p></td>
-	<td width="250" align="left"><input type="text" size="25" tooltipText="推荐你的会员 " maxlength="15" name="referer" value="<?php echo limpiar($_GET["r"]); ?>" autocomplete="off" class="field" value="" tabindex="1" /></td>
+    <td  align="left"><p><label>» 推荐人</label></p></td>
+	<td  align="left"><input type="text"  tooltipText="推荐你的会员 " maxlength="15" name="referer" value="<?php echo limpiar($_GET["r"]); ?>" autocomplete="off" class="field" value="" tabindex="1" onblur="verify(event)" /></td>
   </tr>
   <tr>
-    <td width="150" align="left"><p><label>» 服务条款</label></p></td>
-	<td width="250" align="left"><label class="inline" for="user_terms_of_use">我同意 <?php include('sitename.php'); ?> <a href="tos.php">的使用条例</a></label></td>
+    <td align="left"><p><label>» 服务条款</label></p></td>
+	<td  align="left"><label class="inline" for="user_terms_of_use">我同意 <?php include('sitename.php'); ?> <a href="tos.php">的使用条例</a></label></td>
   </tr>
   <tr>
-    <td width="150" align="left"><p><label>» 验证码:</label></p></td>
-	<td width="250" align="left"><input type="text" size="5" maxlength="5" tooltipText=" 填入验证码 " name="code" autocomplete="off" class="securitycode" value="" tabindex="1" /></td>
+    <td  align="left"><p><label>» 验证码:</label></p></td>
+	<td  align="left"><input type="text" maxlength="5" tooltipText=" 填入验证码 " name="code" autocomplete="off" class="securitycode" value="" tabindex="1" onblur="verify(event)" /></td>
   </tr>
   <tr>
-    <td width="150" align="left">&nbsp;</td>
-    <td width="250" align="left"><img src="image.php?<?php echo $res; ?>" /></td>
+    <td  align="left">&nbsp;</td>
+    <td  align="left"><img src="image.php?<?php echo $res; ?>" /></td>
   </tr>
   <tr>
-    <td colspan="2" width="250" align="center"><input type="submit" value="注册提交" class="submit" tabindex="4" />
+    <td colspan="2" width="250" align="center"><input type="image" src="./images/submit-button.gif"/>
 	</td>
   </tr>
 </table>
