@@ -77,7 +77,8 @@ function readlink(browser)
 <!-- Page -->
 <div style="padding-top:20px">
 <!-- leftmenu -->
-<div>
+<div class="mem_left" style="margin-top:0px">
+<?php require_once("memberleft.php");?>
 </div>
 <!-- /leftmenu -->
 <!-- content -->
@@ -86,13 +87,13 @@ function readlink(browser)
 <div class="browser">
 <h3 class="browserh"><input class="urlenter" type="text"></input><input class="dropbtn" type="image" src="./images/arrow-down.gif" onclick="move('browser1',event);return false;"></input></h3>
 <div class="realbrowser" id="browser1">
-<iframe src="" class="leftbrowser"></iframe>
+<iframe src="http://www.google.cn" class="leftbrowser"></iframe>
 <div class="rightlink">
 <input type="image" src="./images/readlink-button.gif" onclick="readlink('browser1');return false;"></input>
 
   <ul>
-                <li><a href=\"regads.php\">11111111111111111111111</a></li>
-				<li><a href=\"members.php\">222222222222222222</a></li>
+                <li><a href="http://www.mzke138.cn/surf2.asp?P2CName=P2C_%B1%BE%D5%BE%B9%E3%B8%E6&P2CLink=http://www.mzke138.cn/tuiguang.asp">11111111111111111111111</a></li>
+				<li><a href="http://www.mzke138.cn/surf2.asp?P2CName=P2C_%D0%C2%CC%EC%B5%D8&P2CLink=http://www.baidu.com/s?bs=%CD%F8%D7%AC&f=8&wd=%BF%CD%BC%D2%CD%F8%D7%AC">222222222222222222</a></li>
 				<li><a href=\"adver.php\">3333333333333333333333333</a></li>
 				<li><a href=\"article.php?no=index\">555555555555555555</a></li>
 				<li><a href=\"contact.php\">777777777777777777777</a></li>

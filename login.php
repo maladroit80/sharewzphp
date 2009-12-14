@@ -32,7 +32,7 @@ echo ("密码不能空");
 require('config.php');
 $query = mysql_query("SELECT username,password FROM tb_users WHERE username = '$username'") or die(mysql_error());
 $data = mysql_fetch_array($query);
-if($data['password'] != $password) {
+if(passport_decrypt($data['password'],$encryptkey) != $password) {
 $string="密码错误";
 
 $out = iconv( "UTF-8", "gb2312" , $string); 

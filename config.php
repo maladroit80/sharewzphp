@@ -10,4 +10,6 @@ mysql_select_db($bd_base, $con);     // Dont Edit
 
 $SetCharacterSetSql = "SET NAMES 'utf8'";
 mysql_query($SetCharacterSetSql, $con) or die(mysql_error());
+
+$encryptkey="scyhh";
 ?>
