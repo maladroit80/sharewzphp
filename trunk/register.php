@@ -159,7 +159,7 @@ $referer_exist = mysql_num_rows($checkref);
 
 if ($referer_exist<1) {
 // En caso de no existir el referer damos un mensaje de error
-echo "错误，你的推荐人不存在"; include('footer.php');exit();
+echo "错误，您的推荐人不存在"; include('footer.php');exit();
 }else{
 // Si todo parece correcto procedemos con la inserccion
       $sqlz = "SELECT * FROM tb_users WHERE username='$referer'";
@@ -178,7 +178,7 @@ $numero=$myrowz["referals"];
 // Si todo parece correcto procedemos con la inserccion
 
 $joindate=time();
-
+$password=passport_encrypt($password,$encryptkey);
 $query = "INSERT INTO tb_users (username, password, ip, email, pemail, referer, country, joindate) VALUES('$username','$password','$laip','$email','$pemail','$referer','$country','$joindate')";
 mysql_query($query) or die(mysql_error());
 
@@ -241,6 +241,80 @@ previous=eventobj
 }
 }
 
+var name=document.getElementsByName("username")[0].value;
+var psw=document.getElementsByName("password")[0].value;
+var cpsw=document.getElementsByName("seccode")[0].value;
+var mail=document.getElementsByName("username")[0].value;
+var cmail=document.getElementsByName("password")[0].value;
+var paynum=document.getElementsByName("seccode")[0].value;
+var area=document.getElementsByName("username")[0].value;
+var psw=document.getElementsByName("password")[0].value;
+var code=document.getElementsByName("seccode")[0].value;
+var xmlHttp;
+xmlHttp=GetXmlHttpObject();
+if (xmlHttp==null)
+  {
+   document.getElementById("registerform").submit();
+   return;
+  }
+var url="verify.php?name="+name+"&psw="+psw+"&code="+code;
+xmlHttp.open("POST",url,true);
+xmlHttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+xmlHttp.onreadystatechange=stateChanged; 
+xmlHttp.send(url);
+}
+
+function stateChanged()
+{
+var tip=document.getElementById("signintip");
+if (xmlHttp.readyState==4)
+{ 
+   if(xmlHttp.responseText=="9")
+   {
+      window.location.reload();
+   }
+   if(xmlHttp.responseText=="1")
+   {
+      tip.innerHTML="&nbsp;&nbsp;&nbsp;&nbsp;用户名密码错误";
+      var image=document.getElementById('securitycode');
+      image.src=image.src+'?';
+      tip.style.display="inline";
+   }
+    if(xmlHttp.responseText=="2")
+   {
+      tip.innerHTML="&nbsp;&nbsp;&nbsp;&nbsp;验证码错误";
+      var image=document.getElementById('securitycode');
+      image.src=image.src+'?';
+      tip.style.display="inline";
+   }
+   if(xmlHttp.responseText=="0")
+   {
+      window.location.reload();
+   }
+}
+}
+
+function GetXmlHttpObject()
+{
+   try
+   {
+  // Firefox, Opera 8.0+, Safari
+      xmlHttp=new XMLHttpRequest();
+   }
+   catch (e)
+   {
+  // Internet Explorer
+      try
+      {
+        xmlHttp=new ActiveXObject("Msxml2.XMLHTTP");
+      }
+       catch (e)
+      {
+        xmlHttp=new ActiveXObject("Microsoft.XMLHTTP");
+       }
+    }
+   return xmlHttp;
+}
 </script>
 
 <div align="middle">
@@ -248,7 +322,7 @@ previous=eventobj
 265*540广告位
 </div>
 <div id="form" style="width:350px;float:left;margin-left:5px;">
-<form action="register.php" method="POST" onKeyUp="highlight(event)" onClick="highlight(event)">
+<form action="register.php" method="POST" onKeyUp="highlight(event)" onClick="highlight(event)" id="registerform">
 
 
 <table id="reg" width="350" border="0" align="left" style="border-bottom:solid 1px blue;border-right:solid 1px blue;border-top:solid 1px blue;border-left:solid 1px blue;">
@@ -289,7 +363,7 @@ previous=eventobj
   </tr>
   <tr>
     <td width="150" align="left"><p><label>» 服务条款</label></p></td>
-	<td width="250" align="left"><label class="inline" for="user_terms_of_use">我同意 <?php include('sitename.php'); ?> <a href="tos.php">使用条例</a></label></td>
+	<td width="250" align="left"><label class="inline" for="user_terms_of_use">我同意 <?php include('sitename.php'); ?> <a href="tos.php">的使用条例</a></label></td>
   </tr>
   <tr>
     <td width="150" align="left"><p><label>» 验证码:</label></p></td>

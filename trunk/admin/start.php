@@ -34,7 +34,7 @@ $wazk = uc($_COOKIE["usPass"]);
 
 $wezk = $row['password'];
 
-if("$wezk" != "$wazk") {
+if(strtolower($wezk)!= strtolower($wazk)) {
 echo "无权访问本页面。";
 include('footer2.php');
 ?>

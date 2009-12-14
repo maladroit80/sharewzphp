@@ -55,7 +55,7 @@ $wezk = $row['password'];
 // Se comprueba que el dato de la cookie sea el mismo que el de la tabla, de lo contrario se muestra error, se termina
 // el script y se borra la cookie.
 
-if("$wezk" != "$wazk") {
+if(strtolower($wezk)!= strtolower($wazk)) {
 echo "登陆错误.";
 ?>
 <input type="image" value="重新载入" onClick="window.location.reload()" src="images/reload-button.gif">

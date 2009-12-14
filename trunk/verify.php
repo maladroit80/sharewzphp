@@ -20,7 +20,7 @@ $password=uc($password);
 require('config.php');
 $query = mysql_query("SELECT username,password FROM tb_users WHERE username = '$username'") or die(mysql_error());
 $data = mysql_fetch_array($query);
-if($data['password'] != $password){
+if(passport_decrypt($data['password'],$encryptkey) != $password){
 echo "1";
 }
 else{
