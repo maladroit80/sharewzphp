@@ -34,12 +34,19 @@ if($_GET["regpage"])
 	if($_GET["referer"])
 	{
 		require('config.php');
-		$referer=$_GET["pemail"];
+		$referer=$_GET["referer"];
 		$checkref = mysql_query("SELECT username FROM tb_users WHERE username='$referer'");
         $referer_exist = mysql_num_rows($checkref);
 	if ($referer_exist<1) {
      echo "该推荐人不存在，请核实或不填.";
      }
+	}
+    if($_GET["code"])
+	{
+		if(strtolower($_GET["code"])!= strtolower($_SESSION['texto']))
+		{
+			echo "验证码错误.";
+		}
 	}
 }
 else

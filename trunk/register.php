@@ -346,7 +346,7 @@ if (xmlHttp.readyState==4)
 	else
 	{
 		var tip=document.getElementById("regtip");
-	tip.innerHTML="";
+	    tip.innerHTML="";
 	}
 }
 }
@@ -372,7 +372,11 @@ function GetXmlHttpObject()
     }
    return xmlHttp;
 }
-
+function change()
+{
+	var image=document.getElementById('securitycode');
+	image.src=image.src+"?";
+}
 </script>
 
 <div align="middle">
@@ -427,11 +431,10 @@ function GetXmlHttpObject()
 	<td  align="left"><input type="text" maxlength="5" tooltipText=" 填入验证码 " name="code" autocomplete="off" class="securitycode" value="" tabindex="1" onblur="verify(event)" /></td>
   </tr>
   <tr>
-    <td  align="left">&nbsp;</td>
-    <td  align="left"><img src="image.php?<?php echo $res; ?>" /></td>
+    <td align="center" colspan='2'><img id="securitycode" src="image.php" /><a id="changimg" href="javascript:change()">看不清？</a></td>
   </tr>
   <tr>
-    <td colspan="2" width="250" align="center"><input type="image" src="./images/submit-button.gif"/>
+    <td colspan="2" align="center"><input type="image" src="./images/submit-button.gif" />
 	</td>
   </tr>
 </table>
