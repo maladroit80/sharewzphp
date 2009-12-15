@@ -11,6 +11,36 @@ if($_GET["regpage"])
      echo "该用户名已存在.";
      }
 	}
+	if($_GET["email"])
+	{
+		require('config.php');
+		$email=$_GET["email"];
+		$checkemail = mysql_query("SELECT email FROM tb_users WHERE email='$email'");
+        $email_exist = mysql_num_rows($checkemail);
+	if ($email_exist>0) {
+     echo "该E-mail地址已存在.";
+     }
+	}
+	if($_GET["pemail"])
+	{
+		require('config.php');
+		$pemail=$_GET["pemail"];
+		$checkpemail = mysql_query("SELECT pemail FROM tb_users WHERE pemail='$pemail'");
+        $pemail_exist = mysql_num_rows($checkpemail);
+	if ($pemail_exist>0) {
+     echo "该支付宝已使用，请核实.";
+     }
+	}
+	if($_GET["referer"])
+	{
+		require('config.php');
+		$referer=$_GET["pemail"];
+		$checkref = mysql_query("SELECT username FROM tb_users WHERE username='$referer'");
+        $referer_exist = mysql_num_rows($checkref);
+	if ($referer_exist<1) {
+     echo "该推荐人不存在，请核实或不填.";
+     }
+	}
 }
 else
 {
