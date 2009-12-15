@@ -120,7 +120,13 @@ previous=eventobj;
 }
 
 </script>
-
+<script type="text/javascript">
+function change()
+{
+	var image=document.getElementById('securitycode');
+	image.src=image.src+"?";
+}
+</script>
         <!-- Login -->
         <div id="signup">
           <h3>登陆易网赚<span class="signintip" id="signintip">&nbsp;&nbsp;&nbsp;&nbsp;欢迎登陆网赚网</span></h3>
@@ -143,7 +149,7 @@ previous=eventobj;
 				    <td ><input type='text' style="width: 50px;" size='4' maxlength='4' name='code' class="securitycode" autocomplete="off" value="" id="seccode"/></td>			  	
 				  </tr>
 				  <tr>
-				  <td align="center" colspan='2'><img id="securitycode" src="image.php" /><a id="changimg" href="javascript:var image=document.getElementById('securitycode');image.src=image.src+'?';">看不清？</a></td>
+				  <td align="center" colspan='2'><img id="securitycode" src="image.php" /><a id="changimg" href="javascript:change()">看不清？</a></td>
 				  </tr>
                 <tr>
                   <td align="center" class="smaller"><input type="checkbox" name="" id="inp-remember" />
