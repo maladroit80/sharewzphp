@@ -276,6 +276,61 @@ function verify(evt)
 			tip.innerHTML="密码长度不够，请加强.";
 			tip.style.display="inline";
 		}
+		else
+		{
+			var tip=document.getElementById("regtip");
+			tip.innerHTML="";
+		}
+	}
+	else if(element.name=="cpassword"&&element.value!="")
+	{
+		if(element.value!=document.getElementsByName("password")[0].value)
+		{
+			var tip=document.getElementById("regtip");
+			tip.innerHTML="两次密码不一致.";
+		}
+		else
+		{
+			var tip=document.getElementById("regtip");
+			tip.innerHTML="";
+		}
+	}
+	else if(element.name=="email"&&element.value!="")
+	{
+		var url="verify.php?regpage=true&email="+element.value;
+		xmlHttp.open("POST",url,true);
+		xmlHttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+		xmlHttp.onreadystatechange=stateChanged;
+		xmlHttp.send(url);
+	}
+	else if(element.name=="cemail"&&element.value!="")
+	{
+		if(element.value!=document.getElementsByName("email")[0].value)
+		{
+			var tip=document.getElementById("regtip");
+			tip.innerHTML="请填写正确的邮箱.";
+		}
+		else
+		{
+			var tip=document.getElementById("regtip");
+			tip.innerHTML="";
+		}
+	}
+	else if(element.name=="pemail"&&element.value!="")
+	{
+		var url="verify.php?regpage=true&pemail="+element.value;
+		xmlHttp.open("POST",url,true);
+		xmlHttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+		xmlHttp.onreadystatechange=stateChanged;
+		xmlHttp.send(url);
+	}
+	else if(element.name=="referer"&&element.value!="")
+	{
+		var url="verify.php?regpage=true&referer="+element.value;
+		xmlHttp.open("POST",url,true);
+		xmlHttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+		xmlHttp.onreadystatechange=stateChanged;
+		xmlHttp.send(url);
 	}
 }
 
@@ -287,7 +342,11 @@ if (xmlHttp.readyState==4)
 	{
 	var tip=document.getElementById("regtip");
 	tip.innerHTML=xmlHttp.responseText;
-	tip.style.display="inline";
+	}
+	else
+	{
+		var tip=document.getElementById("regtip");
+	tip.innerHTML="";
 	}
 }
 }
@@ -329,7 +388,7 @@ function GetXmlHttpObject()
     <td colspan="2" class="reg_table">欢迎注册易网赚</td>
   </tr>
     <tr>
-    <td colspan="2"><label style="display:none;color:red;" id="regtip"></label></td>
+    <td colspan="2"><label style="color:red;" id="regtip"></label></td>
   </tr>
   <tr>
     <td width="160" align="left"><p><label>» 用户名</label></p></td>
