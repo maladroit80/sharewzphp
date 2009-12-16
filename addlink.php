@@ -4,6 +4,10 @@
     include("accessdeny.php");
     exit();
 }
+if(isset($_POST["urlpath"]))
+{
+	
+}
 include("header.php");
 ?>
 <!-- Page -->
@@ -50,32 +54,23 @@ function opencommend(){
  } 
  intervalId = window.setInterval(change,10); 
 }
-var clicked=false;
-function cleardescrip()
-{
-	if(!clicked)
-	{
-	var obj = document.getElementsByName("urldescrip")[0];
-	obj.value="";
-	clicked=true;
-	}
-}
+
 </script>
 <div style="float:right;width:685px;">
 
-<form action="link" method="post" enctype="text/plain"> 
+<form action="addlink.php" method="post" enctype="text/plain"> 
 <div class="tipblock" style="float:left;width:670px">
-        <h3>添加网络书签</h3>
+        <h3>添加网络书签<input type="image" src="./images/hsubmit-button.gif" style="padding-left:500px;margin-top:2px;"/></h3>
 <div>
 <table style="margin:0;">
 <tr>
 <td width="80"><p><lable>网址：</lable></p></td>
-<td width="150"><input type='text' name='urlpath' autocomplete="on" id="urlpath" size="50" onfocus="glimmer('spancommend')"/></td>
+<td width="150"><input type='text' name='urlpath' autocomplete="on" id="urlpath" size="50" onfocus="glimmer('spancommend')"/><span style="color:red;">*</span></td>
 <td rowspan="2" align="center" width="250"><span id="spancommend">推荐诚信网站，有机会获得现金奖励，同时推广下线，快点击</span><a href="javascript:opencommend()">推荐给我们</a><td>
 </tr>
 <tr>
 <td><p><lable>网站名称：</lable></p></td>
-<td><input type='text' name='urlname' autocomplete="on" id="urlname" size="10" /></td>
+<td><input type='text' name='urlname' autocomplete="on" id="urlname" size="10" /><span style="color:red;">*</span></td>
 </tr>
 <tr>
 </table>
@@ -98,7 +93,7 @@ function cleardescrip()
 </tr>
 <tr>
 <td><p><lable>描述：</lable></p></td>
-<td><textarea rows="3" cols="40" name="urldescrip" onclick="cleardescrip()" style="font-size:1em">(详细的描述有助于你的链接推广)</textarea></td>
+<td><textarea rows="3" cols="40" name="urldescrip" onclick="cleardescrip()" style="font-size:1em">(详细的描述有助于你的链接推广,250字以内)</textarea></td>
 </tr>
 <tr>
 </table>
@@ -109,11 +104,22 @@ function cleardescrip()
 </div>
  </form>
 </div>
+<script type="text/javascript">
+var clicked=false;
+function cleardescrip()
+{
+	if(!clicked)
+	{
+	var obj = document.getElementsByName("urldescrip")[0];
+	obj.value="";
+	clicked=true;
+	}
+}
+document.body.onload=glimmer('spancommend');
+</script>
 <!-- /content -->
 </div>
 <!-- /Page -->
-
-</div> 
 <?php 
 include_once("footer.php");
 ?>
