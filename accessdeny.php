@@ -9,3 +9,6 @@ include("header.php");
 	      <?php include ('signup.php')?>
  </div>
 </div>
+<?php 
+include_once("footer.php");
+?>
