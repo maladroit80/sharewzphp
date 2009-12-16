@@ -2,6 +2,7 @@
  if(!isset($_COOKIE["usNick"]) || !isset($_COOKIE["usPass"]))
 {
     include("accessdeny.php");
+    exit();
 }
 include("header.php");
 ?>

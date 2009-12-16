@@ -43,12 +43,5 @@
   <a href="http://validator.w3.org/check?uri=referer"></a>
   </div>
 </div>
-<script type="text/javascript">
-var tooltipObj = new DHTMLgoodies_formTooltip();
-tooltipObj.setTooltipPosition('right');
-tooltipObj.setPageBgColor('#EEEEEE');
-tooltipObj.setTooltipCornerSize(10);
-tooltipObj.initFormFieldTooltip();
-</script>
 </body>
 </html>

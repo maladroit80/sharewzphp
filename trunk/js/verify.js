@@ -1,3 +1,29 @@
+var glimmerobj;
+function glimmer(id)  
+{
+  glimmerobj=document.getElementById(id);
+  self.setInterval("delegate()",800);
+ }
+ 
+ function delegate()
+  {
+  glimmerit(glimmerobj);
+  }    
+ 
+  function glimmerit(element)  
+ { 
+  var bg='#';  
+  var color=new Array("A","B","C","D","E","F");  
+  for(var j=1;j<7;j++)  
+  {  
+  var i=Math.round(Math.random()*10);  
+  if(i>=5)  
+  { bg=bg+color[i-5]; }  
+  else  
+  { bg=bg+i; }  
+  }  
+  element.style.color=bg;  
+  }   
 ﻿function signinAjax()
 {
  var tip=document.getElementById("signintip");
