@@ -179,6 +179,4 @@
     <!-- /box -->
   </div>
 <div class="friendlink">友情链接</div>
-</div>
-</div>
  <?php include('footer.php')?>
