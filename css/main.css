@@ -379,9 +379,9 @@ index.php styles by hilary
 /*-----------------------------------------------------------------------------
 register.php styles by hilary
 ----------------------------------------------------------------------------*/
-.reg_left{margin-top:14px;float:left;width:265px; height:540px; border-bottom:solid 1px blue;border-right:solid 1px blue;border-top:solid 1px blue;border-left:solid 1px blue;}
-.reg_right{margin-top:14px;float:right;width:270px; height:540px; border-bottom:solid 1px blue;border-right:solid 1px blue;border-top:solid 1px blue;border-left:solid 1px blue;}
-.reg_table{color:#0067E6;font-weight:bold; font-size:large;text-align:center;height:40px;}
+.reg_left{margin-top:14px;float:left;width:265px; height:540px; border-bottom:solid 1px lightsteelblue;border-right:solid 1px lightsteelblue;border-top:solid 1px lightsteelblue;border-left:solid 1px lightsteelblue;}
+.reg_right{margin-top:14px;float:right;width:270px; height:540px; border-bottom:solid 1px lightsteelblue;border-right:solid 1px lightsteelblue;border-top:solid 1px lightsteelblue;border-left:solid 1px lightsteelblue;}
+.reg_table{color:#0067E6;font-weight:bold; font-size:large;text-align:center;height:20px;}
 .reg_bot{clear:both;width:900px;height:120px;border-bottom:solid 1px blue;border-right:solid 1px blue;border-top:solid 1px blue;border-left:solid 1px blue;}
 .text_reg{width:150px;height:50px;text-align:left;}
 .fill_reg{width:250px;height:50px;text-align:left;}
@@ -404,4 +404,10 @@ memberleft.php styles by hilary
 .channel a:visited { background:url(../images/arrow2.gif) no-repeat left; padding-left:10px; color: #687733; }
 .channel a:hover { background:url(../images/arrow1.gif) no-repeat left; padding-left:10px; color:#78b4c7; }
 .channel a:active { background:url(../images/arrow1.gif) no-repeat left; padding-left:10px; color:#78b4c7; }
+
+
+/*-----------------------------------------------------------------------------------
+contact.php styles by hilary
+-------------------------------------------------------------------------------------*/
+.contact_table{color:black;font-weight:bold; font-size:large;text-align:center;height:20px;}
 

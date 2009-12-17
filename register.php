@@ -387,7 +387,7 @@ function change()
 <form action="register.php" method="POST" onKeyUp="highlight(event)" onClick="highlight(event)" id="registerform">
 
 
-<table id="reg" width="350" border="0" align="left" style="border-bottom:solid 1px blue;border-right:solid 1px blue;border-top:solid 1px blue;border-left:solid 1px blue;">
+<table id="reg" width="350" border="0" align="left" style="border-bottom:solid 1px lightsteelblue;border-right:solid 1px lightsteelblue;border-top:solid 1px lightsteelblue;border-left:solid 1px lightsteelblue;">
   <tr>
     <td colspan="2" class="reg_table">欢迎注册易网赚</td>
   </tr>
@@ -395,39 +395,39 @@ function change()
     <td colspan="2"><label style="color:red;" id="regtip"></label></td>
   </tr>
   <tr>
-    <td width="160" align="left"><p><label>» 用户名</label></p></td>
+    <td width="100" align="right"><p><label>用户名 »</label></p></td>
     <td width="80" align="left"><input type='text' maxlength='25' name='username' tooltipText="在本站独一无二的用户名" autocomplete="off" value="" tabindex="1" onblur="verify(event)" /></td>
   </tr>
   <tr>
-    <td align="left"><p><label>» 密码</label></p></td>
+    <td align="right"><p><label>密码 »</label></p></td>
 	<td align="left"><input type="password"  maxlength="15" name="password" tooltipText= "密码必须６－３０位字符长度 ." autocomplete="off" class="field" value="" tabindex="1" onblur="verify(event)" /></td>
   </tr>
   <tr>
-    <td  align="left"><p><label>» 重复密码</label></p></td>
+    <td  align="right"><p><label>重复密码 »</label></p></td>
 	<td  align="left"><input type="password" maxlength="15" name="cpassword" tooltipText="验证密码" autocomplete="off" class="field" value="" tabindex="1" onblur="verify(event)" /></td>
   </tr>
   <tr>
-    <td  align="left"><p><label>» 电子邮件</label></p></td>
+    <td  align="right"><p><label>电子邮件 »</label></p></td>
 	<td  align="left"><input type="text"  maxlength="100" name="email" tooltipText=" 输入一个有效的电子邮件地址. " autocomplete="off" class="field" value="" tabindex="1" onblur="verify(event)" /></td>
   </tr>
   <tr>
-    <td  align="left"><p><label>» 重复电子邮件</label></p></td>
+    <td  align="right"><p><label>重复电子邮件 »</label></p></td>
 	<td  align="left"><input type="text"  maxlength="100" name="cemail" tooltipText=" 重复你的电子邮件" autocomplete="off" class="field" value="" tabindex="1" onblur="verify(event)" /></td>
   </tr>
   <tr>
-    <td align="left"><p><label>» 支付宝帐号</label></p></td>
+    <td align="right"><p><label>支付宝帐号 »</label></p></td>
 	<td  align="left"><input type="text"  maxlength="100" name="pemail" tooltipText="你收款的支付宝帐号" autocomplete="off" class="field" value="" tabindex="1" onblur="verify(event)"/></td>
   </tr>
   <tr>
-    <td  align="left"><p><label>» 推荐人</label></p></td>
+    <td  align="right"><p><label>推荐人 »</label></p></td>
 	<td  align="left"><input type="text"  tooltipText="推荐你的会员 " maxlength="15" name="referer" value="<?php echo limpiar($_GET["r"]); ?>" autocomplete="off" class="field" value="" tabindex="1" onblur="verify(event)" /></td>
   </tr>
   <tr>
-    <td align="left"><p><label>» 服务条款</label></p></td>
-	<td  align="left"><label class="inline" for="user_terms_of_use">我同意 <?php include('sitename.php'); ?> <a href="tos.php">的使用条例</a></label></td>
+    <td align="right"><p><label>服务条款 »</label></p></td>
+	<td  align="left"><label class="inline" for="user_terms_of_use">我同意<?php include('sitename.php'); ?>的<a href="tos.php">使用条例</a></label></td>
   </tr>
   <tr>
-    <td  align="left"><p><label>» 验证码:</label></p></td>
+    <td  align="right"><p><label>验证码 »</label></p></td>
 	<td  align="left"><input type="text" maxlength="5" tooltipText=" 填入验证码 " name="code" autocomplete="off" class="securitycode" value="" tabindex="1" onblur="verify(event)" /></td>
   </tr>
   <tr>
