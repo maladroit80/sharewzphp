@@ -18,7 +18,7 @@
 						        <p align="center" style="color: #FF0000; font-weight: bold"><span style="font-size: 24px">可以查询和分析会员点击记录</span></p>
 						        <p align="center" style="color: #FF0000; font-weight: bold"><span style="font-size: 24px">可以添加防作弊链接</span></p>
 						        <p class="style13" style="color: #0000FF; font-size: 36px; font-family: &quot;楷体_GB2312&quot;; font-weight: bold">马上开始建立你的点击赚钱网站</p>
-						        <p align="center"><span style="font-size: 36px; color: #009900">联系QQ：400864(<span style="color: #FF3366; font-weight: bold; font-size: 24px">注明购买BUX中文程序</span>)</span><br />
+						        <p align="center"><span style="font-size: 36px; color: #009900">联系QQ：61693737(<span style="color: #FF3366; font-weight: bold; font-size: 24px">注明购买BUX中文程序</span>)</span><br />
                                 </p>
 						      </div>
 					        </div>

@@ -62,23 +62,23 @@ function change()
 
 <form action='login.php' method='POST' onKeyUp="highlight(event)" onClick="highlight(event)">
 
-<table id="loginin" width="350" border="0" align="center" style="border-bottom:solid 1px blue;border-right:solid 1px blue;border-top:solid 1px blue;border-left:solid 1px blue;">
+<table id="loginin" width="350" border="6" align="center" style="BORDER-RIGHT: lightsteelblue 2px solid; BORDER-TOP: lightsteelblue 2px solid; BORDER-LEFT: lightsteelblue 2px solid; BORDER-BOTTOM: lightsteelblue 2px solid;" cellSpacing=0 cellPadding=15 align=center>
   <tr>
     <td colspan="2" class="reg_table">欢迎登录易网赚</td>
   </tr>
-  <tr>
+  <!--<tr>
     <td colspan="2" class="reg_table"><span class="signintip" id="signintip"></span></td>
-  </tr>
+  </tr>-->
   <tr>
-    <td width="150" align="left"><p><label>» 用户名</label></p></td>
+    <td width="150" align="right"><p><label>用户名 »</label></p></td>
     <td width="250" align="left"><input type='text' size='15' maxlength='25' name='username' id="uname" autocomplete="off"value="" tabindex="1" /></td>
   </tr>
   <tr>
-    <td width="150" align="left"><p><label>» 密码</label></p></td>
+    <td width="150" align="right"><p><label>密码 »</label></p></td>
 	<td width="250" align="left"><input type='password' size='15' maxlength='25' name='password' id="upsw" autocomplete="off" value="" tabindex="2" /></td>
   </tr>
   <tr>
-    <td width="150" align="left"><p><label>» 验证码 </label></p></td>
+    <td width="150" align="right"><p><label>验证码 »</label></p></td>
     <td width="250" align="left"><input type='text' size='4' maxlength='4' name='code' autocomplete="off"   id="seccode" class="securitycode" value="" tabindex="3" /></td>
   </tr>
   <tr>

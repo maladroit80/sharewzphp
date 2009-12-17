@@ -6,7 +6,7 @@
         <br>
         <h3>
 <img border="0" src="images/orders.gif" align="absmiddle" width="32" height="32"> <span style="font-weight: bold">在
-<? include('sitename.php'); ?>
+<a href="http://www.easywzw.com"><? include('sitename.php'); ?></a>
 发布注册任务</span></h3>
 <br>
 
@@ -156,13 +156,15 @@ previous=eventobj
 
 
 <div align="center"><div id="form"onKeyUp="highlight(event)" onClick="highlight(event)">
-<fieldset><legend>&nbsp;注册广告任务&nbsp;</legend>
 
 <form method="post" action="adsignup.php">
 
-<table width="400" border="0" align="center">
+<table border="0" align="left" style="margin-left:15px; BORDER-RIGHT:1px solid; BORDER-TOP:  1px solid; BORDER-LEFT: 1px solid; BORDER-BOTTOM:  1px solid;">
   <tr>
-    <td width="150" align="left"><p><label>» 支付宝账户 </label></p></td>
+    <td colspan="2" align="left" class="reg_table">注册广告任务</td>
+  </tr>
+  <tr>
+    <td width="150" align="left">» 支付宝账户 </td>
     <td width="250" align="left"><input type="text" name="paypal" size="25" maxlength="100" autocomplete="off" class="field" value="" tabindex="1" /></td>
   </tr>
   <tr>
@@ -214,12 +216,11 @@ previous=eventobj
 
   <tr>
     <td width="150" align="left">&nbsp;</td>
-    <td width="250" align="center"><input type="submit" value="Submit" class="submit" tabindex="6" />
+    <td width="250" align="center"><input type="submit" value="提交" class="submit" tabindex="6" />
 	</td>
   </tr>
 </table>
 </form>
-</fieldset>
 </div></div>
 
 

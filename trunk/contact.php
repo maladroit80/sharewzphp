@@ -132,35 +132,36 @@ previous=eventobj
 
 <div align="center"><div id="form"onKeyUp="highlight(event)" onClick="highlight(event)">
 
-<fieldset><legend>&nbsp;联系我们&nbsp;</legend>
-
 
 <form method="POST" action="contact.php">
 
-<table width="400" border="0" align="center">
+<table width="400" border="0" align="center" style="border:#A9A9A9  10px groove;">
   <tr>
-    <td width="150" align="left"><p><label>» 你的名字</label></p></td>
+    <td colspan="2" class="contact_table">联系我们</td>
+  </tr>
+  <tr>
+    <td width="150" align="right"><p><label>你的名字 »</label></p></td>
     <td width="250" align="left"><input type="text" name="name" size="25" maxlength="100" autocomplete="off" class="field" value="" tabindex="1" /></td>
   </tr>
   <tr>
-    <td width="150" align="left"><p><label>» 你的电子邮件</label></p></td>
+    <td width="150" align="right"><p><label>你的电子邮件 »</label></p></td>
     <td width="250" align="left"><input type="text" name="email" size="25" maxlength="100" autocomplete="off" class="field" value="" tabindex="2" /></td>
   </tr>
   <tr>
-    <td width="150" align="left"><p><label>» 主题词</label></p></td>
+    <td width="150" align="right"><p><label>主题词 »</label></p></td>
     <td width="250" align="left"><input type="text" name="topic" size="25" maxlength="100" autocomplete="off" class="field" value="" tabindex="3" /></td>
   </tr>
   <tr>
-    <td width="150" align="left"><p><label>» 题目</label></p></td>
+    <td width="150" align="right"><p><label>题目 »</label></p></td>
     <td width="250" align="left"><input type="text" name="subject" size="25" maxlength="100" autocomplete="off" class="field" value="" tabindex="4" /></td>
   </tr>
   <tr>
-    <td width="150" align="left"><p><label>» 内容</label></p></td>
+    <td width="150" align="right"><p><label>您要留言的内容 »</label></p></td>
     <td width="250" align="left">
     <textarea name="comments" rows="7" maxlength="200" onkeyup="return ismaxlength(this)" tabindex="5" cols="20"></textarea></td>
   </tr>
     <tr>
-    <td width="150" align="left"><p><label>» 验证码 </label></p></td>
+    <td width="150" align="right"><p><label>验证码 »</label></p></td>
     <td width="250" align="left"><input type='text' size='3' maxlength='3' name='code' autocomplete="off" class="securitycode" value="" tabindex="6" /></td>
   </tr>
   <tr>
@@ -170,7 +171,7 @@ previous=eventobj
 
   <tr>
     <td width="150" align="left">&nbsp;</td>
-    <td width="250" align="right"><input type="submit" value="发送" class="submit" tabindex="7" />
+    <td width="250" align="left"><input type="submit" value="发送" class="submit" tabindex="7" />
 	</td>
   </tr>
 </table>
