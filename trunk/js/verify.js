@@ -116,3 +116,21 @@ function GetXmlHttpObject()
     }
    return xmlHttp;
 }
+
+function submiturl()
+{
+	if(document.getElementsByName("urlpath")[0].value=="")
+	{
+	   document.getElementById("idurl").style.color="red";
+	    return false;
+	}
+	else if(document.getElementsByName("urlname")[0].value=="")
+	{
+	    document.getElementById("idname").style.color="red";
+	    return false;
+	}
+	else
+	{
+	    return true;
+	}
+}

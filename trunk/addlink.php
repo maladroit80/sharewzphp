@@ -55,21 +55,23 @@ function opencommend(){
  intervalId = window.setInterval(change,10); 
 }
 
+
+
 </script>
 <div style="float:right;width:685px;">
 
-<form action="addlink.php" method="post" enctype="text/plain"> 
+<form action="addlink.php" method="post" enctype="text/plain" onsubmit="return submiturl();"> 
 <div class="tipblock" style="float:left;width:670px">
         <h3>添加网络书签<input type="image" src="./images/hsubmit-button.gif" style="padding-left:500px;margin-top:2px;"/></h3>
 <div>
 <table style="margin:0;">
 <tr>
-<td width="80"><p><lable>网址：</lable></p></td>
+<td width="80"><p><lable id="idurl">网址：</lable></p></td>
 <td width="150"><input type='text' name='urlpath' autocomplete="on" id="urlpath" size="50" onfocus="glimmer('spancommend')"/><span style="color:red;">*</span></td>
 <td rowspan="2" align="center" width="250"><span id="spancommend">推荐诚信网站，有机会获得现金奖励，同时推广下线，快点击</span><a href="javascript:opencommend()">推荐给我们</a><td>
 </tr>
 <tr>
-<td><p><lable>网站名称：</lable></p></td>
+<td><p><lable id="idname">网站名称：</lable></p></td>
 <td><input type='text' name='urlname' autocomplete="on" id="urlname" size="10" /><span style="color:red;">*</span></td>
 </tr>
 <tr>
