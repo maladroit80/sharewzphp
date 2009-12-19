@@ -18,6 +18,7 @@ mysql_close($con);
 	<li><a href="convert.php" >转换现金</a></li>
 	<li><a href="upgrade.php" >升级会员</a></li>
 	<li><a href="purchase.php" >购买下线</a></li>
+	<li><a href="addlink.php" >收藏链接</a></li>
 	<li><a href="adver.php" >发布广告</a></li>
 	<li><a href="logout.php" >退出</a></li>
 	</ul>
