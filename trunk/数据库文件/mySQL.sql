@@ -1,3 +1,23 @@
+
+--
+-- create on 2009.12.19
+--
+
+CREATE TABLE IF NOT EXISTS `tb_commendurl` (
+  `url` varchar(300) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `type` varchar(20) DEFAULT NULL,
+  `description` varchar(5000) DEFAULT NULL,
+  `username` varchar(15) DEFAULT NULL,
+  `status` int(2) DEFAULT NULL,
+  `date` varchar(150) DEFAULT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=65 ;
+
+--
+-- old table
+--
 CREATE TABLE IF NOT EXISTS `tb_ads` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user` varchar(150) NOT NULL DEFAULT '',

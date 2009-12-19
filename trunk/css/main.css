@@ -411,3 +411,9 @@ contact.php styles by hilary
 -------------------------------------------------------------------------------------*/
 .contact_table{color:black;font-weight:bold; font-size:large;text-align:center;height:20px;}
 
+
+/*-----------------------------------------------------------------------------------
+addlink.php styles by Tim
+-------------------------------------------------------------------------------------*/
+.linktable {margin-top:-20px;width: 670px;}
+.linktable p{font-size:120%;font-weight:bold;color:#ff8a00;}

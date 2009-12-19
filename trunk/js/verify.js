@@ -121,16 +121,45 @@ function submiturl()
 {
 	if(document.getElementsByName("urlpath")[0].value=="")
 	{
-	   document.getElementById("idurl").style.color="red";
+	   document.getElementById("addtip").innerHTML="&nbsp;&nbsp;请输入网址.";
 	    return false;
 	}
-	else if(document.getElementsByName("urlname")[0].value=="")
+	else if(document.getElementsByName("urlpath")[0].value!=""&&document.getElementsByName("urlname")[0].value=="")
 	{
-	    document.getElementById("idname").style.color="red";
+	    document.getElementById("addtip").innerHTML="&nbsp;&nbsp;给网站写个名字吧.";
 	    return false;
 	}
 	else
 	{
+		if(getLength(document.getElementsByName("urlname")[0].value)>20)
+		{
+			document.getElementById("addtip").innerHTML="&nbsp;&nbsp;网站名过长.";
+		    return false; 
+		}
+		if(!isurl(document.getElementsByName("urlpath")[0].value)) 
+		{ 
+			document.getElementById("addtip").innerHTML="&nbsp;&nbsp;请输入合法的网址.";
+		    return false; 
+		}  
 	    return true;
 	}
+}
+function getLength(str) {
+    var len = str.length;
+    var reLen = 0;
+    for (var i = 0; i < len; i++) {        
+        if (str.charCodeAt(i) < 27 || str.charCodeAt(i) > 126) {
+            // 全角    
+            reLen += 2;
+        } else {
+            reLen++;
+        }
+    }
+    return reLen;    
+}
+function isurl(s)
+{
+    regExp = /(http[s]?|ftp):\/\/[^\/\.]+?\..+\w$/i;
+    if (s.match(regExp))return true;
+    else return false;   
 }
