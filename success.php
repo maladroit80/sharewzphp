@@ -60,7 +60,7 @@ $wezk = $row['password'];
 // Se comprueba que el dato de la cookie sea el mismo que el de la tabla, de lo contrario se muestra error, se termina
 // el script y se borra la cookie.
 
-if("$wezk" != "$wazk") {
+if(strtolower($wezk) != strtolower($wazk)) {
 echo "登陆错误.";
 exit();
 }

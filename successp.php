@@ -59,7 +59,7 @@ echo "error"; exit();
 // el script y se borra la cookie.
 
 if("$wesk" != "$wask") {
-echo "????.";
+echo "登录错误.";
 exit();
 }
 
@@ -74,8 +74,8 @@ $wezk = $row['password'];
 // Se comprueba que el dato de la cookie sea el mismo que el de la tabla, de lo contrario se muestra error, se termina
 // el script y se borra la cookie.
 
-if("$wezk" != "$wazk") {
-echo "????.";
+if(strtolower($wezk) != strtolower($wazk)) {
+echo "登录错误.";
 exit();
 }
 
