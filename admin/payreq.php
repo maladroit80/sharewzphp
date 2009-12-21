@@ -1,6 +1,7 @@
 
 <b>支付申请</b>
 <?
+			require('config.php');
 if (isset($_GET["id"]))
 {
 
@@ -12,7 +13,6 @@ if ($option=="paid")
 
 
 $username=$_POST["username"];
-
 
 
 $tablae = mysql_query("SELECT * FROM tb_users where username='$username'"); // selecciono todos los registros de la tabla usuarios, ordenado por nombre
@@ -31,10 +31,10 @@ $moneyere= $lolzea + $lolza;
     mysql_query($query) or die(mysql_error());
 
 $eltiempo=time();
-$lafecha=date("d M Y H:i",$eltiempo);
+$lafecha=date("Ymd H:i",$eltiempo);
 
     //Todo parece correcto procedemos con la inserccion
-    $query = "INSERT INTO tb_history (user, date, amount, method, status) VALUES('$username','$lafecha','$lolza','PayPal','Payment Sent')";
+    $query = "INSERT INTO tb_history (user, date, amount, method, status) VALUES('$username','$lafecha','$lolza','支付宝','Payment Sent')";
     mysql_query($query) or die(mysql_error());
 
     //Todo parece correcto procedemos con la inserccion
