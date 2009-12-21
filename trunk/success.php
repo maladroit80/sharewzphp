@@ -45,6 +45,7 @@ $wesk = $row['username'];
 // el script y se borra la cookie.
 
 if("$wesk" != "$wask") {
+echo "$wesk,$wask";
 echo "登录错误.";
 exit();
 }
@@ -61,6 +62,7 @@ $wezk = $row['password'];
 // el script y se borra la cookie.
 
 if(strtolower($wezk) != strtolower($wazk)) {
+echo "$wezk,$wazk";
 echo "登陆错误.";
 exit();
 }
