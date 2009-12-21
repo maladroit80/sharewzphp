@@ -512,12 +512,19 @@ break;
 break;
     case(44):
 ?>
-<?php include('deletenews.php'); ?>
-<?php
-break;
+<?php include('deletenews.php'); 
+   break;
    case(45):
    	include("editback.php");
    	break;
+    case(46):
+   	include("linkmanage.php");
+   	break;
+
+
+
+
+
 }
 ?>
 

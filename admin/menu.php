@@ -97,7 +97,9 @@
 <a href="index.php?op=36">清除不活跃用户</a>
 <a href="index.php?op=30">查找重复IP</a>
 <a href="index.php?op=12">邮件列表</a>
-<a href="index.php?op=31">高级会员列表</a></li>
+<a href="index.php?op=31">高级会员列表</a>
+<a href="index.php?op=46">用户链接</a>
+</li>
 
 </ul>
 </li>
