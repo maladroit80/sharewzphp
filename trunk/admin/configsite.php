@@ -1,4 +1,4 @@
-<?
+<?php
 if (isset($_POST["click"]))
 {
 
@@ -114,7 +114,7 @@ $hits100000=$_POST["hits100000"];
 <form method="post" action="index.php?op=9">
 
 
-<?
+<?php
 $sql = "SELECT * FROM tb_site WHERE id='1'";
 $result = mysql_query($sql);        
 $row = mysql_fetch_array($result);
@@ -125,7 +125,7 @@ $row = mysql_fetch_array($result);
 <tr>
   <th width="200">
 站点名称</th>
-  <td> <input type="text" name="sitename" value="<? echo $row["sitename"]; ?>" 
+  <td> <input type="text" name="sitename" value="<?php echo $row["sitename"]; ?>" 
 
 size="30" maxlength="30">
 </td></tr>
@@ -134,7 +134,7 @@ size="30" maxlength="30">
   <th>
 
 站点支付宝帐号</th>
-  <td> <input type="text" name="sitepp" value="<?
+  <td> <input type="text" name="sitepp" value="<?php
 
 $sql = "SELECT * FROM tb_site WHERE id='1'";
 $result = mysql_query($sql);        
@@ -146,7 +146,7 @@ $row = mysql_fetch_array($result);
 
 
 
-<?
+<?php
 
 $sql = "SELECT * FROM tb_config WHERE item='click' and howmany='1'";
 $result = mysql_query($sql);        
@@ -157,11 +157,11 @@ $row = mysql_fetch_array($result);
 <table>
 <tr>
 <th width="200">每个用户点击价值:</th>
-<td> <input type="text" name="click" value="<? echo $row["price"]; ?>">
+<td> <input type="text" name="click" value="<?php echo $row["price"]; ?>">
   元</td>
 </tr>
 <tr>
-<th width="200">每个下线点击价值</th><td> <input type="text" name="referalclick" value="<?
+<th width="200">每个下线点击价值</th><td> <input type="text" name="referalclick" value="<?php
 
 $sql = "SELECT * FROM tb_config WHERE item='referalclick' and howmany='1'";
 $result = mysql_query($sql);        
@@ -171,7 +171,7 @@ $row = mysql_fetch_array($result);
 元</td>
 </tr>
 <tr>
-<th width="200">最小支付</th><td> <input type="text" name="payment" value="<?
+<th width="200">最小支付</th><td> <input type="text" name="payment" value="<?php
 
 $sql = "SELECT * FROM tb_config WHERE item='payment' and howmany='1'";
 $result = mysql_query($sql);        
@@ -183,7 +183,7 @@ echo $row["price"]; ?>">
 
 <tr>
 <th width="200">升级高级会员价格</th>
-<td> <input type="text" name="upgrade" value="<?
+<td> <input type="text" name="upgrade" value="<?php
 
 $sql = "SELECT * FROM tb_config WHERE item='upgrade' and howmany='1'";
 $result = mysql_query($sql);        
@@ -194,7 +194,7 @@ echo $row["price"]; ?>">
 </tr></table>
 
 
-<?
+<?php
 
 $sql = "SELECT * FROM tb_config WHERE item='premiumclick' and howmany='1'";
 $result = mysql_query($sql);        
@@ -205,12 +205,12 @@ $row = mysql_fetch_array($result);
 <table>
 <tr>
 <th width="200">每个高级会员点击价值:</th>
-<td> <input type="text" name="premiumclick" value="<? echo $row["price"]; ?>">
+<td> <input type="text" name="premiumclick" value="<?php echo $row["price"]; ?>">
   元</td>
 </tr>
 <tr>
 <th width="200">高级会员下线点击价值:</th>
-<td> <input type="text" name="premiumreferalc" value="<?
+<td> <input type="text" name="premiumreferalc" value="<?php
 
 $sql = "SELECT * FROM tb_config WHERE item='premiumreferalc' and howmany='1'";
 $result = mysql_query($sql);        
@@ -229,7 +229,7 @@ echo $row["price"]; ?>">
 <table>
 <tr>
 <th width="200">购买500次点击:</th>
-<td> <input type="text" name="hits500" value="<?
+<td> <input type="text" name="hits500" value="<?php
 
 $sqlfn = "SELECT * FROM tb_config WHERE item='hits' and howmany='500'";
 $resultfn = mysql_query($sqlfn);        
@@ -246,7 +246,7 @@ echo $rowfn["price"];
 
 <tr>
 <th width="200">购买1000次点击:</th>
-<td> <input type="text" name="hits1000" value="<?
+<td> <input type="text" name="hits1000" value="<?php
 
 $sqla = "SELECT * FROM tb_config WHERE item='hits' and howmany='1000'";
 $resulta = mysql_query($sqla);        
@@ -260,7 +260,7 @@ echo $rowa["price"];
 
 <tr>
 <th width="200">购买2000次点击:</th>
-<td> <input type="text" name="hits2000" value="<?
+<td> <input type="text" name="hits2000" value="<?php
 
 $sqled = "SELECT * FROM tb_config WHERE item='hits' and howmany='2000'";
 $resulted = mysql_query($sqled);        
@@ -274,7 +274,7 @@ echo $rowed["price"];
 
 <tr>
 <th width="200">购买3000次点击:</th>
-<td> <input type="text" name="hits3000" value="<?
+<td> <input type="text" name="hits3000" value="<?php
 
 $sqli = "SELECT * FROM tb_config WHERE item='hits' and howmany='3000'";
 $resulti = mysql_query($sqli);        
@@ -288,7 +288,7 @@ echo $rowi["price"];
 
 <tr>
 <th width="200">购买5000次点击:</th>
-<td> <input type="text" name="hits5000" value="<?
+<td> <input type="text" name="hits5000" value="<?php
 
 $sqlo = "SELECT * FROM tb_config WHERE item='hits' and howmany='5000'";
 $resulto = mysql_query($sqlo);        
@@ -302,7 +302,7 @@ echo $rowo["price"];
 
 <tr>
 <th width="200">购买10000次点击:</th>
-<td> <input type="text" name="hits10000" value="<?
+<td> <input type="text" name="hits10000" value="<?php
 
 $sqlu = "SELECT * FROM tb_config WHERE item='hits' and howmany='10000'";
 $resultu = mysql_query($sqlu);        
@@ -317,7 +317,7 @@ echo $rowu["price"];
 
 <tr>
 <th width="200">购买20000次点击:</th>
-<td> <input type="text" name="hits20000" value="<?
+<td> <input type="text" name="hits20000" value="<?php
 
 $sqltt = "SELECT * FROM tb_config WHERE item='hits' and howmany='20000'";
 $resulttt = mysql_query($sqltt);        
@@ -331,7 +331,7 @@ echo $rowtt["price"];
 
 <tr>
 <th width="200">购买30000次点击:</th>
-<td> <input type="text" name="hits30000" value="<?
+<td> <input type="text" name="hits30000" value="<?php
 
 $sqltr = "SELECT * FROM tb_config WHERE item='hits' and howmany='30000'";
 $resulttr = mysql_query($sqltr);        
@@ -345,7 +345,7 @@ echo $rowu["price"];
 
 <tr>
 <th width="200">购买50000次点击:</th>
-<td> <input type="text" name="hits50000" value="<?
+<td> <input type="text" name="hits50000" value="<?php
 
 $sqlft = "SELECT * FROM tb_config WHERE item='hits' and howmany='50000'";
 $resultft = mysql_query($sqlft);        
@@ -359,7 +359,7 @@ echo $rowft["price"];
 
 <tr>
 <th width="200">购买100000次点击:</th>
-<td> <input type="text" name="hits100000" value="<?
+<td> <input type="text" name="hits100000" value="<?php
 
 $sqlot = "SELECT * FROM tb_config WHERE item='hits' and howmany='100000'";
 $resultot = mysql_query($sqlot);        

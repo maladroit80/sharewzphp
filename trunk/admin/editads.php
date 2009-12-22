@@ -1,9 +1,6 @@
 <b>编辑点击广告</b>
 
-<?php include('config.php')?>
-<?
-
-
+<?php include('config.php');
 if (isset($_POST["id"]))
 {
 
@@ -32,11 +29,6 @@ $option=$_GET["option"];
 
 
 if ($option=="edit"){
-
-?>
-
-
-<?php
 
 $tablae = mysql_query("SELECT * FROM tb_ads where id='$id'"); // selecciono todos los registros de la tabla usuarios, ordenado por nombre
 

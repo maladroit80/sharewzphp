@@ -1,6 +1,6 @@
 <b>消息</b>
 
-<?
+<?php
 
 if (isset($_GET["id"]))
 {
@@ -36,7 +36,7 @@ if ($option=="delete")
 <th>IP地址</th>
 <th></th>
 </tr>
-<?
+<?php
 
 $tabla = mysql_query("SELECT * FROM tb_contact ORDER BY id ASC"); // selecciono todos los registros de la tabla usuarios, ordenado por nombre
 
@@ -54,14 +54,14 @@ echo "
 <td>". $registro["ip"] ."</td>
 <td>";
 ?>
-<form method="post" action="index.php?op=3&id=<?= $registro["id"] ?>&option=delete">
+<form method="post" action="index.php?op=3&id=<?php echo $registro["id"] ?>&option=delete">
 <input type="submit" value="删除" class="button">
 </form>
 </td>
 <tr>
 
 
-<?
+<?php
 
 
 } // fin del bucle de ordenes

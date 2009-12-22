@@ -41,8 +41,8 @@
 		  <!--左上left table content-->  
 		  <div class="toprightcontent">
 		  <div style="margin-left:5px;margin-top:5px;margin-right:5px;margin-bottom:5px;">
-		  <p>1.在这里打广告给<? include('sitename.php'); ?>的会员浏览是很简单的．<br>
-  2.我们提供<? 
+		  <p>1.我们保证来自<?php include('sitename.php'); ?>的点击是100%真实有效的<br>
+  2.我们提供<?php 
 								require ('config.php');
 								$sql = "SELECT * FROM tb_config WHERE item='hits' and howmany='1000'";
 								$result = mysql_query($sql);        

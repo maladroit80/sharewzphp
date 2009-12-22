@@ -1,4 +1,4 @@
-<?
+<?php
 
 
 $tablaaa = mysql_query("SELECT * FROM tb_users ORDER BY id ASC"); // selecciono todos los registros de la tabla usuarios, ordenado por nombre

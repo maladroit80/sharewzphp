@@ -21,9 +21,12 @@ $tot1=mysql_result($iqryvar,0,0);
 $clickserved=$tot1;
 mysql_close($con);
 ?>
-
+        <div class="tabs-sidebar box">
+          <ul id="switch">
+            <li><a href="#tab-01"><span style="line-height:30px;">站点状态</span></a></li>
+          </ul>
+        </div>
 <table width="100%"  class="nom_sitestats">
-
 <tr>
 <td>
 <img border="0" src="images/bullet2.gif" width="7" height="7"  align="absmiddle" > 每点击 </td>

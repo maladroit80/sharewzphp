@@ -4,7 +4,7 @@
 <?php include('funciones.php')?>
 <?php include('config.php')?>
 
-<?
+<?php
 
 
 if (isset($_POST["id"]))
@@ -39,9 +39,7 @@ $id=$_GET["id"];
 
 if ($_GET["option"]=="edit")
 {
-?>
 
-<?
 
 $tablae = mysql_query("SELECT * FROM tb_users where id='$id'");
 
@@ -52,65 +50,65 @@ while ($registroe = mysql_fetch_array($tablae))
 <form method="post" action="index.php?op=7">
 
   <p>序号: 
-    <input type="hidden" name="id" value="<?= $registroe["id"] ?>">
-    <?= $registroe["id"] ?>
+    <input type="hidden" name="id" value="<?php echo $registroe["id"] ?>">
+    <?php echo $registroe["id"] ?>
     <br>
 用户名: 
-<input type="text" name="username" value="<?= $registroe["username"] ?>">
+<input type="text" name="username" value="<?php echo $registroe["username"] ?>">
 <br>
 密码: 
-<input type="text" name="password" value="<?= $registroe["password"] ?>">
+<input type="text" name="password" value="<?php echo $registroe["password"] ?>">
 <br>
 上线: 
-<input type="text" name="referer" value="<?= $registroe["referer"] ?>">
+<input type="text" name="referer" value="<?php echo $registroe["referer"] ?>">
 <br>
 电子邮件l: 
-<input type="text" name="email" value="<?= $registroe["email"] ?>">
+<input type="text" name="email" value="<?php echo $registroe["email"] ?>">
 <br>
 支付宝帐号: 
-<input type="text" name="pemail" value="<?= $registroe["pemail"] ?>">
+<input type="text" name="pemail" value="<?php echo $registroe["pemail"] ?>">
 <br>
 省份: 
-<input type="text" name="country" value="<?= $registroe["country"] ?>">
+<input type="text" name="country" value="<?php echo $registroe["country"] ?>">
 <br>
 点击数量: 
-<input type="text" name="vistis" value="<?= $registroe["visits"] ?>">
+<input type="text" name="vistis" value="<?php echo $registroe["visits"] ?>">
 <br>
 下线数量: 
-<input type="text" name="referals" value="<?= $registroe["referals"] ?>">
+<input type="text" name="referals" value="<?php echo $registroe["referals"] ?>">
 <br>
 下线点击数: 
-<input type="text" name="referalvisits" value="<?= $registroe["referalvisits"] ?>">
+<input type="text" name="referalvisits" value="<?php echo $registroe["referalvisits"] ?>">
 <br>
 账户余额: $
-<input type="text" name="money" value="<?= $registroe["money"] ?>">
+<input type="text" name="money" value="<?php echo $registroe["money"] ?>">
 <br>
 组:&nbsp; (
-<?= $registroe["user_status"] ?>
+<?php echo $registroe["user_status"] ?>
 )&nbsp;&nbsp;
 
 <select name="user_status">
   
-					<option value="<?= $registroe["user_status"] ?>"></option>
+					<option value="<?php echo $registroe["user_status"] ?>"></option>
 					  <option value="admin">Admin</option>
 					  <option value="user">User</option>
 </select>
 <br>
 帐户类型: 
-<input type="text" name="account" value="<?= $registroe["account"] ?>">
+<input type="text" name="account" value="<?php echo $registroe["account"] ?>">
 premium-高级会员<br>
 
   IP地址: 
-    <?= $registroe["ip"] ?>
+    <?php echo $registroe["ip"] ?>
     <br>
   注册时间: 
-  <?= $registroe["joindate"] ?>
+  <?php echo $registroe["joindate"] ?>
   <br>
   最后登陆时间: 
-  <?= $registroe["lastlogdate"] ?>
+  <?php echo $registroe["lastlogdate"] ?>
   <br>
   最后登陆IP:
-  <?= $registroe["lastiplog"] ?>
+  <?php echo $registroe["lastiplog"] ?>
   <br>
   
 
@@ -119,13 +117,10 @@ premium-高级会员<br>
   </p>
 </form>
 
-<?
+<?php
 
 }
-?>
 
-
-<?
 }
 
 if ($_GET["option"]=="delete")
@@ -152,7 +147,7 @@ if ($_GET["option"]=="delete")
 <th></th>
 <th></th>
 </tr>
-<?
+<?php
 
 $TAMANO_PAGINA = 50;
 $pagina = limpiar($_GET["pagina"]);
@@ -179,18 +174,18 @@ echo "
 <td>". $registro["money"] ."</td>
 <td>";
 ?>
-<form method="post" action="index.php?op=7&id=<?= $registro["id"] ?>&option=edit">
+<form method="post" action="index.php?op=7&id=<?php echo $registro["id"] ?>&option=edit">
 <input type="submit" value="编辑" class="button">
 </form>
 </td>
 <td>
-<form method="post" action="index.php?op=7&id=<?= $registro["id"] ?>&option=delete">
+<form method="post" action="index.php?op=7&id=<?php echo $registro["id"] ?>&option=delete">
 <input type="submit" value="删除" class="button">
 </form>
 </td>
 </tr>
 
-<?
+<?php
 
 } // fin del bucle de ordenes
 
@@ -199,7 +194,7 @@ echo "
 ?>
 </table>
 
-<?
+<?php
 $uno = limpiar($_GET["pagina"]);
 
 if (empty($uno))

@@ -1,4 +1,4 @@
-<?
+<?php
 if (isset($_POST["adid"]))
 {
 
@@ -33,7 +33,7 @@ $cheatvalue=$_POST["cheatvalue"];
 <table width="589">
 <tr>
 <th width="200">欺骗链接ID号:</th>
-<td> <input type="text" name="adid" value="<?
+<td> <input type="text" name="adid" value="<?php
 
 $sqlfn = "SELECT * FROM tb_config WHERE item='cheat'";
 $resultfn = mysql_query($sqlfn);        
@@ -49,7 +49,7 @@ echo $rowfn["howmany"];
 
 <tr>
 <th width="200">点中欺骗操作类型:</th>
-<td><input type="text" name="cheattype" value="<?
+<td><input type="text" name="cheattype" value="<?php
 echo $rowfn["price"];
 ?>">  
   0--帐户清零 1--帐户扣除</td>
@@ -57,7 +57,7 @@ echo $rowfn["price"];
 
 <tr>
 <th width="200">点中扣除金额:</th>
-<td> <input type="text" name="cheatvalue" value="<?
+<td> <input type="text" name="cheatvalue" value="<?php
 echo $rowfn["signupvalue"];
 ?>">
   元 （欺骗操作类型置1有效） </td>

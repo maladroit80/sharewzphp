@@ -1,6 +1,6 @@
 
 <b>支付申请</b>
-<?
+<?php
 			require('config.php');
 if (isset($_GET["id"]))
 {
@@ -66,7 +66,7 @@ echo "<font color=\"green\"><b>用户信息被更新.</b></font><br><br>";
 <th></th>
 </tr>
 
-<?
+<?php
 
 $tabla = mysql_query("SELECT * FROM tb_payme ORDER BY id ASC"); // selecciono todos los registros de la tabla usuarios, ordenado por nombre
 
@@ -85,15 +85,15 @@ echo "
 ?>
 
 <td>
-<form method="post" action="index.php?op=4&id=<?= $registro["id"] ?>&option=paid">
-<input type="hidden" name="money" value="<?= $registro["money"] ?>">
-<input type="hidden" name="username" value="<?= $registro["username"] ?>">
+<form method="post" action="index.php?op=4&id=<?php echo $registro["id"] ?>&option=paid">
+<input type="hidden" name="money" value="<?php echo $registro["money"] ?>">
+<input type="hidden" name="username" value="<?php echo $registro["username"] ?>">
 <input type="submit" value="支付" class="button">
 </form>
 </td>
 </tr>
 
-<?
+<?php
 
 
 
