@@ -1,6 +1,6 @@
 <b>购买下线申请</b>
 
-<?
+<?php
 
 if (isset($_GET["id"]))
 {
@@ -71,7 +71,7 @@ if ($_GET["option"]=="deny")
 }
 
 ?>
-没有上线的会员数: <b><?
+没有上线的会员数: <b><?php
 $checkpemail = mysql_query("SELECT * FROM tb_users WHERE referer=''");
 $pemail_exist = mysql_num_rows($checkpemail);
 
@@ -91,7 +91,7 @@ echo $pemail_exist;
 <th></th>
 </tr>
 
-<?
+<?php
 
 $tabla = mysql_query("SELECT * FROM tb_buyref where id!='1' ORDER BY id ASC"); // selecciono todos los registros de la tabla usuarios, ordenado por nombre
 
@@ -106,20 +106,20 @@ echo "
 <td>1组". $registro["refset"] ."下线包</td>
 	";
 ?>
-<td><form method="post" action="index.php?op=6&id=<?= $registro["id"] ?>&option=approve">
-<input type="hidden" name="customer" value="<?= $registro["customer"] ?>">
-<input type="hidden" name="id" value="<?= $registro["id"] ?>">
-<input type="hidden" name="refset" value="<?= $registro["refset"] ?>">
+<td><form method="post" action="index.php?op=6&id=<?php echo $registro["id"] ?>&option=approve">
+<input type="hidden" name="customer" value="<?php echo $registro["customer"] ?>">
+<input type="hidden" name="id" value="<?php echo $registro["id"] ?>">
+<input type="hidden" name="refset" value="<?php echo $registro["refset"] ?>">
 <input type="submit" value="允许" class="button">
 </form>
 </td><td>
-<form method="post" action="index.php?op=6&id=<?= $registro["id"] ?>&option=deny">
+<form method="post" action="index.php?op=6&id=<?php echo $registro["id"] ?>&option=deny">
 <input type="submit" value="拒绝" class="button">
 </form>
 </td>
 </tr>
 
-<?
+<?php
 
 } // fin del bucle de ordenes
 

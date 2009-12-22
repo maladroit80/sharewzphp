@@ -2,9 +2,7 @@
 
 <br><br>
 
-<?php include('config.php')?>
-
-<?
+<?php include('config.php');
 
 
 if (isset($_POST["id"]))
@@ -41,9 +39,6 @@ $id=$_GET["id"];
 
 if ($_GET["option"]=="edit")
 {
-?>
-
-<?
 
 $tablae = mysql_query("SELECT * FROM tb_users where id='$id'"); // selecciono todos los registros de la tabla usuarios, ordenado por nombre
 
@@ -55,45 +50,45 @@ while ($registroe = mysql_fetch_array($tablae)) { // comienza un bucle que leera
 <form method="post" action="index.php?op=29">
 
 序号: 
-  <input type="hidden" name="id" value="<?= $registroe["id"] ?>"><?= $registroe["id"] ?><br>
+  <input type="hidden" name="id" value="<?php echo $registroe["id"] ?>"><?php echo $registroe["id"] ?><br>
 用户名: 
-<input type="text" name="username" value="<?= $registroe["username"] ?>"><br>
+<input type="text" name="username" value="<?php echo $registroe["username"] ?>"><br>
 密码: 
-<input type="text" name="password" value="<?= $registroe["password"] ?>"><br>
+<input type="text" name="password" value="<?php echo $registroe["password"] ?>"><br>
 上线: 
-<input type="text" name="referer" value="<?= $registroe["referer"] ?>"><br>
+<input type="text" name="referer" value="<?php echo $registroe["referer"] ?>"><br>
 电子邮件: 
-<input type="text" name="email" value="<?= $registroe["email"] ?>"><br>
+<input type="text" name="email" value="<?php echo $registroe["email"] ?>"><br>
 支付宝帐号: 
-<input type="text" name="pemail" value="<?= $registroe["pemail"] ?>"><br>
+<input type="text" name="pemail" value="<?php echo $registroe["pemail"] ?>"><br>
 省份: 
-<input type="text" name="country" value="<?= $registroe["country"] ?>"><br>
+<input type="text" name="country" value="<?php echo $registroe["country"] ?>"><br>
 点击数: 
-<input type="text" name="vistis" value="<?= $registroe["visits"] ?>"><br>
+<input type="text" name="vistis" value="<?php echo $registroe["visits"] ?>"><br>
 下线数: 
-<input type="text" name="referals" value="<?= $registroe["referals"] ?>"><br>
+<input type="text" name="referals" value="<?php echo $registroe["referals"] ?>"><br>
 下线点击数: 
-<input type="text" name="referalvisits" value="<?= $registroe["referalvisits"] ?>"><br>
+<input type="text" name="referalvisits" value="<?php echo $registroe["referalvisits"] ?>"><br>
 余额: 
-<input type="text" name="money" value="<?= $registroe["money"] ?>">
+<input type="text" name="money" value="<?php echo $registroe["money"] ?>">
 元<br>
-组:&nbsp; (<?= $registroe["user_status"] ?>)&nbsp;&nbsp;
+组:&nbsp; (<?php echo $registroe["user_status"] ?>)&nbsp;&nbsp;
 
 <select name="user_status">
 
-					<option value="<?= $registroe["user_status"] ?>"></option>
+					<option value="<?php echo $registroe["user_status"] ?>"></option>
 					<option value="admin">Admin</option>
 					<option value="user">User</option>
 </select>
 <br>帐户类型: 
-<input type="text" name="account" value="<?= $registroe["account"] ?>">
+<input type="text" name="account" value="<?php echo $registroe["account"] ?>">
 premium-高级会员<br>
 
 
-IP地址: <?= $registroe["ip"] ?><br>
-注册时间: <?= $registroe["joindate"] ?><br>
-最后登陆时间: <?= $registroe["lastlogdate"] ?><br>
-最后登陆IP: <?= $registroe["lastiplog"] ?><br>
+IP地址: <?php echo $registroe["ip"] ?><br>
+注册时间: <?php echo $registroe["joindate"] ?><br>
+最后登陆时间: <?php echo $registroe["lastlogdate"] ?><br>
+最后登陆IP: <?php echo $registroe["lastiplog"] ?><br>
 
 
 
@@ -101,13 +96,10 @@ IP地址: <?= $registroe["ip"] ?><br>
 
 </form>
 
-<?
+<?php
 
 }
-?>
 
-
-<?
 }
 
 if ($_GET["option"]=="delete")
@@ -129,7 +121,7 @@ if ($_GET["option"]=="delete")
 
 
 
-<?
+<?php
 
 $search=$_POST["search"];
 $metode=$_POST["metode"];
@@ -158,7 +150,7 @@ if($_POST['search'])
 <th></th>
 <th></th>
 </tr>
-<?
+<?php
 
           while($cat = mysql_fetch_array($resp)) 
 		  {
@@ -175,12 +167,12 @@ echo "
 <td>". $cat["money"] ."</td>
 <td>";
 ?>
-<form method="post" action="index.php?op=29&id=<?= $cat["id"] ?>&option=edit">
+<form method="post" action="index.php?op=29&id=<?php echo $cat["id"] ?>&option=edit">
 <input type="submit" value="编辑" class="button">
 </form>
 </td>
 <td>
-<form method="post" action="index.php?op=29&id=<?= $cat["id"] ?>&option=delete">
+<form method="post" action="index.php?op=29&id=<?php echo $cat["id"] ?>&option=delete">
 <input type="submit" value="删除" class="button">
 </form>
 </td>
@@ -188,7 +180,7 @@ echo "
 
 
 
-<?
+<?php
 
 
                    }
@@ -196,7 +188,7 @@ echo "
 				   ?>
 </table>  
 	
-<?
+<?php
 }
 }else{
 
@@ -230,6 +222,6 @@ echo "
 
 
 
-<?
+<?php
 }
 ?>

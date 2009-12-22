@@ -6,7 +6,7 @@
 
 
 
-<?
+<?php
 // Insertar Categorias
 
 
@@ -38,10 +38,6 @@ $option=$_GET["option"];
 
 if ($option=="edit"){
 
-?>
-
-
-<?
 
 $tablae = mysql_query("SELECT * FROM tb_ads_categories where id='$id'"); // selecciono todos los registros de la tabla usuarios, ordenado por nombre
 
@@ -53,20 +49,18 @@ while ($registroe = mysql_fetch_array($tablae)) { // comienza un bucle que leera
 <form method="post" action="index.php?op=25">
 
 序号: 
-  <input type="hidden" name="id" value="<?= $registroe["id"] ?>"><?= $registroe["id"] ?><br>
+  <input type="hidden" name="id" value="<?php echo $registroe["id"] ?>"><?php echo $registroe["id"] ?><br>
 分类名称: 
-<input type="text" name="catname" value="<?= $registroe["catname"] ?>"><br>
+<input type="text" name="catname" value="<?php echo $registroe["catname"] ?>"><br>
 <br>
 
 <input type="submit" value="保存" class="button">
 
 </form>
 <br><br>
-<?
+<?php
 }
-?>
 
-<?
 
 }
 
@@ -95,7 +89,7 @@ if ($option=="delete"){
 <th></th>
 <th></th>
 </tr>
-<?
+<?php
 
 $tabla = mysql_query("SELECT * FROM tb_ads_categories ORDER BY id ASC"); // selecciono todos los registros de la tabla usuarios, ordenado por nombre
 
@@ -108,19 +102,19 @@ echo "
 <td>". $registro["catname"] ."</td>
 <td>";
 ?>
-<form method="post" action="index.php?op=25&id=<?= $registro["id"] ?>&option=edit">
+<form method="post" action="index.php?op=25&id=<?php echo $registro["id"] ?>&option=edit">
 <input type="submit" value="编辑" class="button">
 </form>
 </font>
 </td>
 <td>
-<form method="post" action="index.php?op=25&id=<?= $registro["id"] ?>&option=delete">
+<form method="post" action="index.php?op=25&id=<?php echo $registro["id"] ?>&option=delete">
 <input type="submit" value="删除" class="button">
 </form>
 </td>
 </tr>
 
-<?
+<?php
 
 } // fin del bucle de ordenes
 

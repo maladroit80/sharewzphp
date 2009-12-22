@@ -16,7 +16,7 @@ mysql_close($con);
 <table width="100%" class="nom">
 
 <tr>
-<td>
+<td nowrap>
 <img border="0" src="images/bullet2.gif" width="7" height="7"  align="absmiddle" > 广告点击</td>
 <td><?php echo $row["visits"]; ?></td>
 </tr>

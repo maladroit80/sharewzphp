@@ -7,7 +7,7 @@
 
 
 
-<?
+<?php
 
 $username=$_POST["username"];
 if($username!=NULL)
@@ -34,7 +34,7 @@ if($username!=NULL)
 	<th>时间间隔</th>
 	<th>广告序号</th>
 	</tr>
-	<?
+	<?php
 	$providittime=0;
 	while($cat = mysql_fetch_array($resp)) 
 	{
@@ -54,7 +54,7 @@ if($username!=NULL)
 
 	</table>  
 	
-<?
+<?php
 }
 }
 
@@ -74,6 +74,6 @@ else
 
 </form>
 <br><br>
-<?
+<?php
 }
 ?>

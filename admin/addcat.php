@@ -1,7 +1,7 @@
 <b>添加广告种类</b><br>
 <br>
 
-<?
+<?php
 
 $catname = $_POST["catname"];
 $id=$_POST["id"];

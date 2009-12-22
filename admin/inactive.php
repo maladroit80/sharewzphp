@@ -2,7 +2,7 @@
 <br>
 
 
-<?
+<?php
 
 
 if (isset($_POST["id"]))
@@ -38,9 +38,7 @@ $id=$_GET["id"];
 
 if ($_GET["option"]=="edit")
 {
-?>
 
-<?
 
 $tablae = mysql_query("SELECT * FROM tb_users where id='$id'"); // selecciono todos los registros de la tabla usuarios, ordenado por nombre
 
@@ -51,32 +49,32 @@ while ($registroe = mysql_fetch_array($tablae)) { // comienza un bucle que leera
 
 <form method="post" action="index.php?op=29">
 
-Id: <input type="hidden" name="id" value="<?= $registroe["id"] ?>"><?= $registroe["id"] ?><br>
-Username: <input type="text" name="username" value="<?= $registroe["username"] ?>"><br>
-Password: <input type="text" name="password" value="<?= $registroe["password"] ?>"><br>
-Referer: <input type="text" name="referer" value="<?= $registroe["referer"] ?>"><br>
-E-mail: <input type="text" name="email" value="<?= $registroe["email"] ?>"><br>
-Alertpat e-mail: <input type="text" name="pemail" value="<?= $registroe["pemail"] ?>"><br>
-Country: <input type="text" name="country" value="<?= $registroe["country"] ?>"><br>
-Visits: <input type="text" name="vistis" value="<?= $registroe["visits"] ?>"><br>
-Referals: <input type="text" name="referals" value="<?= $registroe["referals"] ?>"><br>
-Referals visits: <input type="text" name="referalvisits" value="<?= $registroe["referalvisits"] ?>"><br>
-Money: $<input type="text" name="money" value="<?= $registroe["money"] ?>"><br>
-Group:&nbsp; (<?= $registroe["user_status"] ?>)&nbsp;&nbsp;
+Id: <input type="hidden" name="id" value="<?php echo $registroe["id"] ?>"><?php echo $registroe["id"] ?><br>
+Username: <input type="text" name="username" value="<?php echo $registroe["username"] ?>"><br>
+Password: <input type="text" name="password" value="<?php echo $registroe["password"] ?>"><br>
+Referer: <input type="text" name="referer" value="<?php echo $registroe["referer"] ?>"><br>
+E-mail: <input type="text" name="email" value="<?php echo $registroe["email"] ?>"><br>
+Alertpat e-mail: <input type="text" name="pemail" value="<?php echo $registroe["pemail"] ?>"><br>
+Country: <input type="text" name="country" value="<?php echo $registroe["country"] ?>"><br>
+Visits: <input type="text" name="vistis" value="<?php echo $registroe["visits"] ?>"><br>
+Referals: <input type="text" name="referals" value="<?php echo $registroe["referals"] ?>"><br>
+Referals visits: <input type="text" name="referalvisits" value="<?php echo $registroe["referalvisits"] ?>"><br>
+Money: $<input type="text" name="money" value="<?php echo $registroe["money"] ?>"><br>
+Group:&nbsp; (<?php echo $registroe["user_status"] ?>)&nbsp;&nbsp;
 
 <select name="user_status">
 
-					<option value="<?= $registroe["user_status"] ?>"></option>
+					<option value="<?php echo $registroe["user_status"] ?>"></option>
 					<option value="admin">Admin</option>
 					<option value="user">User</option>
 </select>
 <br>
 
 
-Ip: <?= $registroe["ip"] ?><br>
-Join date: <?= $registroe["joindate"] ?><br>
-Last log date: <?= $registroe["lastlogdate"] ?><br>
-Last ip log: <?= $registroe["lastiplog"] ?><br>
+Ip: <?php echo $registroe["ip"] ?><br>
+Join date: <?php echo $registroe["joindate"] ?><br>
+Last log date: <?php echo $registroe["lastlogdate"] ?><br>
+Last ip log: <?php echo $registroe["lastiplog"] ?><br>
 
 
 
@@ -84,13 +82,10 @@ Last ip log: <?= $registroe["lastiplog"] ?><br>
 
 </form>
 
-<?
+<?php
 
 }
-?>
 
-
-<?
 }
 
 if ($_GET["option"]=="delete")
@@ -112,7 +107,7 @@ if ($_GET["option"]=="delete")
 
 
 
-<?
+<?php
 $now=time();
 $daysnum=$_POST["daysnum"];
 $daysmax=$now-($daysnum*86400);
@@ -162,6 +157,6 @@ else{
 
 
 
-<?
+<?php
 }
 ?>

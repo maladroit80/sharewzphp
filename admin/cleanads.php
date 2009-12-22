@@ -3,7 +3,7 @@
 <br>
 
 
-<?
+<?php
 if ($_POST){
 
 $tabla5 = mysql_query("SELECT * FROM tb_ads where tipo='ads' ORDER BY id ASC"); // selecciono todos los registros de la tabla usuarios, ordenado por nombre

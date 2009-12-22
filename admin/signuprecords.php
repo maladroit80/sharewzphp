@@ -2,7 +2,7 @@
 
 <?php include('funciones.php')?>
 <?php include('config.php')?>
-<?
+<?php
 
 
 if (isset($_POST["id"]))
@@ -39,7 +39,7 @@ if ($_GET["option"]=="edit")
 {
 ?>
 
-<?
+<?php
 
 $tablae = mysql_query("SELECT * FROM tb_signupusers where id='$id'"); // selecciono todos los registros de la tabla usuarios, ordenado por nombre
 
@@ -50,18 +50,18 @@ while ($registroe = mysql_fetch_array($tablae)) { // comienza un bucle que leera
 
 <form method="post" action="index.php?op=37">
 
-序号: <input type="hidden" name="id" value="<?= $registroe["id"] ?>"><?= $registroe["id"] ?><br>
-广告ID: <input type="hidden" name="adid" value="<?= $registroe["adid"] ?>"><?= $registroe["adid"] ?><br>
-用户名 : <input type="hidden" name="username" value="<?= $registroe["username"] ?>"><?= $registroe["username"] ?><br>
-注册名 : <input type="text" name="regname" value="<?= $registroe["regname"] ?>"><br>
-所有者: <input type="hidden" name="owner" value="<?= $registroe["owner"] ?>"><?= $registroe["owner"] ?><br>
-广告名: <input type="hidden" name="adname" value="<?= $registroe["adname"] ?>"><?= $registroe["adname"] ?><br>
-价值 : <input type="text" name="value" value="<?= $registroe["value"] ?>"><br>
-申请时间: <input type="text" name="adname" value="<?= $registroe["reqdate"] ?>"><br>
-支付时间: <input type="text" name="paiddate" value="<?= $registroe["paiddate"] ?>"><br>
+序号: <input type="hidden" name="id" value="<?php echo $registroe["id"] ?>"><?php echo $registroe["id"] ?><br>
+广告ID: <input type="hidden" name="adid" value="<?php echo $registroe["adid"] ?>"><?php echo $registroe["adid"] ?><br>
+用户名 : <input type="hidden" name="username" value="<?php echo $registroe["username"] ?>"><?php echo $registroe["username"] ?><br>
+注册名 : <input type="text" name="regname" value="<?php echo $registroe["regname"] ?>"><br>
+所有者: <input type="hidden" name="owner" value="<?php echo $registroe["owner"] ?>"><?php echo $registroe["owner"] ?><br>
+广告名: <input type="hidden" name="adname" value="<?php echo $registroe["adname"] ?>"><?php echo $registroe["adname"] ?><br>
+价值 : <input type="text" name="value" value="<?php echo $registroe["value"] ?>"><br>
+申请时间: <input type="text" name="adname" value="<?php echo $registroe["reqdate"] ?>"><br>
+支付时间: <input type="text" name="paiddate" value="<?php echo $registroe["paiddate"] ?>"><br>
 状态 :<select name="status">
 
-					<option value="<?= $registroe["status"] ?>" selected></option>
+					<option value="<?php echo $registroe["status"] ?>" selected></option>
 					<option value="pending">pending</option>
 					<option value="deny">deny</option>
 					<option value="approved">approved</option>
@@ -75,13 +75,13 @@ while ($registroe = mysql_fetch_array($tablae)) { // comienza un bucle que leera
 
 </form>
 
-<?
+<?php
 
 }
 ?>
 
 
-<?
+<?php
 }
 
 if ($_GET["option"]=="delete")
@@ -113,7 +113,7 @@ if ($_GET["option"]=="delete")
 		<th></th>
 		<th></th>
 	</tr>
-<?
+<?php
 
 //Limito la busqueda
 $TAMANO_PAGINA = 50;
@@ -147,18 +147,18 @@ echo "
 <td>". $registro["status"] ."</td>
 <td>";
 ?>
-<form method="post" action="index.php?op=37&id=<?= $registro["id"] ?>&option=edit">
+<form method="post" action="index.php?op=37&id=<?php echo $registro["id"] ?>&option=edit">
 <input type="submit" value="Edit" class="button">
 </form>
 </td>
 <td>
-<form method="post" action="index.php?op=37&id=<?= $registro["id"] ?>&option=delete">
+<form method="post" action="index.php?op=37&id=<?php echo $registro["id"] ?>&option=delete">
 <input type="submit" value="Delete" class="button">
 </form>
 </td>
 </tr>
 
-<?
+<?php
 
 } // fin del bucle de ordenes
 
@@ -167,7 +167,7 @@ echo "
 ?>
 </table>
 
-<?
+<?php
 $uno = limpiar($_GET["pagina"]);
 
 if (empty($uno))

@@ -1,7 +1,7 @@
 <b>修改下线组</b>
 
 
-<?
+<?php
 
 
 if (isset($_POST["id"]))
@@ -42,11 +42,6 @@ $option=$_GET["option"];
 
 
 
-?>
-
-
-<?
-
 
 if ($option=="delete"){
 
@@ -73,7 +68,7 @@ if ($option=="delete"){
 <th>价格</th>
 <th>&nbsp;</th>
 </tr>
-<?
+<?php
 
 $tabla = mysql_query("SELECT * FROM tb_refset ORDER BY id ASC"); // selecciono todos los registros de la tabla usuarios, ordenado por nombre
 
@@ -90,13 +85,13 @@ echo "
 
 
 ?>
-<form method="post" action="index.php?op=27&id=<?= $registro["id"] ?>&howmany=<?= $registro["howmany"] ?>&option=delete">
+<form method="post" action="index.php?op=27&id=<?php echo $registro["id"] ?>&howmany=<?php echo $registro["howmany"] ?>&option=delete">
 <input type="submit" value="删除" class="button">
 </form>
 </td>
 </tr>
 
-<?
+<?php
 
 } // fin del bucle de ordenes
 

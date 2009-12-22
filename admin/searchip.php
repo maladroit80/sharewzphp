@@ -1,4 +1,4 @@
-<?
+<?php
 
 $search=$_POST["search"];
 
@@ -24,7 +24,7 @@ if($_POST['search']){
 <th></th>
 <th></th>
 </tr>
-<?
+<?php
 
                    while($cat = mysql_fetch_array($resp)) {
                   
@@ -40,12 +40,12 @@ echo "
 <td>". $cat["money"] ."</td>
 <td>";
 ?>
-<form method="post" action="index.php?op=29&id=<?= $cat["id"] ?>&option=edit">
+<form method="post" action="index.php?op=29&id=<?php echo  $cat["id"] ?>&option=edit">
 <input type="submit" value="Edit" class="button">
 </form>
 </td>
 <td>
-<form method="post" action="index.php?op=29&id=<?= $cat["id"] ?>&option=delete">
+<form method="post" action="index.php?op=29&id=<?php echo  $cat["id"] ?>&option=delete">
 <input type="submit" value="Delete" class="button">
 </form>
 </td>
@@ -53,7 +53,7 @@ echo "
 
 
 
-<?
+<?php
 
 
                    }
@@ -61,7 +61,7 @@ echo "
 				   ?>
 </table>  
 	
-<?
+<?php
 }
 }else{
 
@@ -89,6 +89,6 @@ echo "
 
 
 
-<?
+<?php
 }
 ?>

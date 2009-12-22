@@ -1,7 +1,7 @@
 <b>允许或者拒绝注册奖励申请</b>
 
 
-<?
+<?php
 
 if (isset($_GET["id"]))
 {
@@ -61,7 +61,7 @@ if ($option=="deny"){
 		<th></th>
 		<th></th>
 	</tr>
-<?
+<?php
 $stats="approved";
 $tabla = mysql_query("SELECT * FROM tb_signupusers where status='$stats' ORDER BY id ASC"); // selecciono todos los registros de la tabla usuarios, ordenado por nombre
 
@@ -78,17 +78,17 @@ echo "
 <td>". $registro["reqdate"] ."</td>
 <td>";
 ?>
-<form method="post" action="index.php?op=35&id=<?= $registro["id"] ?>&option=approve">
+<form method="post" action="index.php?op=35&id=<?php echo $registro["id"]; ?>&option=approve">
 <input type="submit" value="允许" class="button">
 </form>
 </td><td>
-<form method="post" action="index.php?op=35&id=<?= $registro["id"] ?>&option=deny">
+<form method="post" action="index.php?op=35&id=<?php echo $registro["id"]; ?>&option=deny">
 <input type="submit" value="拒绝" class="button">
 </form>
 </td>
 </tr>
 
-<?
+<?php
 
 } // fin del bucle de ordenes
 
