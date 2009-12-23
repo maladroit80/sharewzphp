@@ -9,18 +9,6 @@
 
 <?php include('config.php')?>
 
-
-
-
-
-
-
-
-
-
-
-
-
 <script type="text/javascript">
 
 function setCookie (name, value, path, domain, secure, expires)

@@ -41,20 +41,17 @@
 		  <!--左上left table content-->  
 		  <div class="toprightcontent">
 		  <div style="margin-left:5px;margin-top:5px;margin-right:5px;margin-bottom:5px;">
-		  <p>1.我们保证来自<?php include('sitename.php'); ?>的点击是100%真实有效的<br>
-  2.我们提供<?php 
-								require ('config.php');
-								$sql = "SELECT * FROM tb_config WHERE item='hits' and howmany='1000'";
-								$result = mysql_query($sql);        
-								$row = mysql_fetch_array($result); echo $row["price"]; mysql_close($con);?>元每<? require ('config.php');
-							 	$sql = "SELECT * FROM tb_config WHERE item='hits' and howmany='1000'";
-								$result = mysql_query($sql);        
-								$row = mysql_fetch_array($result);echo $row["howmany"]; mysql_close($con);?>次会员浏览的广告，并且每次浏览会持续30秒．<br>
-  3.当你提交广告代码后,我们会在24小时内处理．<br>
-  4.您想打广告并不需要<?php include ('sitename.php');?>的账户，你只要填写表格并支付费用即可．<br>
-  5.我们不接受非法的、带有色情内容的和病毒的广告．</p>
-<p align="right"><?php echo "<a href=\"adver.php?r=".$elref."\">";?>详细...</a></p>
-</div>
+		  <span class="words">
+		  <font>◆</font>我们保证来自易网赚的点击是100%真实有效的:
+		  <li><span>同用户同IP一天仅有一次有效点击</span></li>
+		  <li><span>每次浏览停留30秒</span></li>
+		  <li><span>每次只允许打开一个窗口</span></li>
+		  <li><span>目前最完善的防作弊机制</span></li>
+          <font>◆</font>我们的广告方便，快捷，合理:
+          <li><span>无需注册，多种广告价位便于您的选择</span></li>
+		  <li><span>我们承诺广告提交24小时内处理</span></li>
+		  <li><span>合理的页面广告布局使您的利益最大化&nbsp;&nbsp;&nbsp;<?php echo "<a href=\"adver.php?r=".$elref."\">";?>详细...</a></span></li></span>
+          </div>
 		  </div>
 		  <!--/左上left table content--> 
       	</div>
