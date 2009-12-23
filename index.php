@@ -44,10 +44,10 @@
 		  <span class="words">
 		  <font>◆</font>我们保证来自易网赚的点击是100%真实有效的:
 		  <li><span>同用户同IP一天仅有一次有效点击</span></li>
-		  <li><span>每次浏览停留30秒</span></li>
-		  <li><span>每次只允许打开一个窗口</span></li>
+		  <li><span>同IP只能注册一次，您可以亲自尝试</span></li>
+		  <li><span>每次浏览停留30秒，只允许一个有效窗口</span></li>
 		  <li><span>目前最完善的防作弊机制</span></li>
-          <font>◆</font>我们的广告方便，快捷，合理:
+          <font>◆</font>点击，注册，页面广告等多种广告模式:
           <li><span>无需注册，多种广告价位便于您的选择</span></li>
 		  <li><span>我们承诺广告提交24小时内处理</span></li>
 		  <li><span>合理的页面广告布局使您的利益最大化&nbsp;&nbsp;&nbsp;<?php echo "<a href=\"adver.php?r=".$elref."\">";?>详细...</a></span></li></span>
