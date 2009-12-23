@@ -1,16 +1,16 @@
-<? session_start(); ?>
+<?php session_start(); ?>
 
 
-<? include('header.php'); ?>
+<?php include('header.php'); ?>
         <!-- Pagetitle -->
         <br>
         <h3>
 <img border="0" src="images/orders.gif" align="absmiddle" width="32" height="32"> <span style="font-weight: bold">在
-<a href="http://www.easywzw.com"><? include('sitename.php'); ?></a>
+<a href="http://www.easywzw.com"><?php include('sitename.php'); ?></a>
 发布注册任务</span></h3>
 <br>
 
-<?
+<?php
 		$owner=uc($_COOKIE["usNick"]);
 		if (isset($_POST["paypal"]))
 		{
@@ -61,7 +61,7 @@
 				if ($precio>0)
 				{
 				?>
-				您的订购已提交， 在我们允许你的广告之前，你必须通过支付报给本站付款 <?
+				您的订购已提交， 在我们允许你的广告之前，你必须通过支付报给本站付款 <?php
 				echo $precio;
 				?> 元.
 			
@@ -71,7 +71,7 @@
                 <tr>
                   <td width="391" bgcolor="#FFFFFF"><div align="center">
                       <p>本站支付宝：
-                          <? include('paypal.php'); ?>
+                          <?php include('paypal.php'); ?>
                       </p>
                   </div></td>
                 </tr>
@@ -83,13 +83,13 @@
                 </tr>
               </table>
 			</div>
-			<?
+			<?php
 			}
 			?>
 			
 					<!--footer starts here-->
-			<? include('footer.php'); ?>
-			<?
+			<?php include('footer.php'); ?>
+			<?php
 			exit();
 			}
 		?>
@@ -227,4 +227,4 @@ previous=eventobj
 
 
 		<!--footer starts here-->
-<? include('footer.php'); ?>
+<?php include('footer.php'); ?>
