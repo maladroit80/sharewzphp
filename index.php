@@ -10,7 +10,7 @@
           <div class="title01338-top"></div>
 		    <div class="title01338">
 		      <div class="title01338-in">
-		      	<p class="f-right noprint"><strong><a href="#" class="add">more...</a></strong></p>
+		      	<p class="f-right noprint"><strong><a href="#" class="add">更多...</a></strong></p>
 		        <h3 class="ico-info">今日必做</h3>
 		      </div>
 		    </div>
@@ -42,12 +42,12 @@
 		  <div class="toprightcontent">
 		  <div style="margin-left:5px;margin-top:5px;margin-right:5px;margin-bottom:5px;">
 		  <span class="words">
-		  <font>◆<span style="font-size:8pt;">我们保证来自易网赚的点击是100%真实有效的:</span></font>
+		  <font>◆<span style="font-size:1.2em;">我们保证来自易网赚的点击是<strong>100%真实有效的</strong>:</span></font><br/>
 		  <li><span>同用户同IP一天仅有一次有效点击</span></li>
 		  <li><span>同IP只能注册一次，您可以亲自尝试</span></li>
 		  <li><span>每次浏览停留30秒，只允许一个有效窗口</span></li>
 		  <li><span>目前最完善的防作弊机制</span></li>
-          <font>◆<span>点击，注册，页面广告等多种广告模式:</span></font>
+          <font>◆<span style="font-size:1.2em;"><strong>点击，注册，页面广告</strong>等多种广告模式:</span></font><br></br>
           <li><span>无需注册，多种广告价位便于您的选择</span></li>
 		  <li><span>我们承诺广告提交24小时内处理</span></li>
 		  <li><span>合理的页面广告布局使您的利益最大化&nbsp;&nbsp;&nbsp;<?php echo "<a href=\"adver.php?r=".$elref."\">";?>详细...</a></span></li></span>
@@ -61,27 +61,44 @@
         <!--head down table head-->
         <div class="title01690">
           <div class="title01690-in">
-            <p class="f-right noprint"><strong><a href="#" class="add">马上注册开始赚钱</a></strong></p>
+            <p class="f-right noprint"><strong><a href="#" class="add">马上开始赚钱</a></strong></p>
             <h2 class="ico-list">如何在本站赚钱</h2>
           </div>
         </div>
-        <!--/head down left table head-->
-        
-        
+        <div class="title01690-bottom"></div>
+        <!--/head down left table head-->        
         <!--middle left table content-->
         <div class="box">
-        <div style="margin-left:50px;margin-top:20px;margin-right:50px;">
-          1.在<? include('sitename.php'); ?>,你可以通过浏览网站和完成任务赚钱．<br>
-2.操作很简单，你不需要任何技术，你只需要浏览网站和完成简单任务．<br>
-3.你可以通过推荐更多的人加入赚更多的钱，下线提成为<span style="color: #333333">50%</span>．<br>
-4.我们通过支付宝支付会员，达到<? require ('config.php');
+        <div class="words" style="margin-left:20px;margin-right:20px;">
+        <li><span>任何<?php include('sitename.php'); ?>的会员都可以在本站赚取现金，只要几秒钟的时间，操作简单，收益明显，<a href="register.php">赶快加入</a>我们。</span></li>
+        <li><span>我们不用多级下线迷惑会员，每个下线点击都给您带来
+        <?php include('config.php');
+		$sql = "SELECT * FROM tb_config WHERE item='referalclick' and howmany='1'";
+		$result = mysql_query($sql);        
+		$row = mysql_fetch_array($result);
+		echo $row["price"]; 
+		mysql_close($con);?>元的下线提成，远超同类网站，财富完全透明。</span></li>
+        <li><span>我们使用支付宝快速转账，轻松达到<?php include('config.php');
 								$sql = "SELECT * FROM tb_config WHERE item='payment' and howmany='1'";
 								$result = mysql_query($sql);        
 								$row = mysql_fetch_array($result); echo $row["price"];
-								mysql_close($con); ?>元就可以申请支付!<br>
-5.升级<a href="upgrade.php" style="color: #333333">高级会员</a>享受100%的下线提成，同时赠送5个下线并享有优先支付权利.<br>
-6.大量的忠实的会员得到了我们的付款<a href="payment_proof.php">点击这里看付款</a>.</p>
-<p align="right"><?php echo "<a href=\"register.php?r=".$elref."\">";?>马上加入!</a></p>
+								mysql_close($con); ?>元即可申请支付！信誉至上！</li></span>
+        <li><span>只需<?php include('config.php');
+								$sql = "SELECT * FROM tb_config WHERE item='upgrade' and howmany='1'";
+								$result = mysql_query($sql);        
+								$row = mysql_fetch_array($result); echo $row["price"];
+								mysql_close($con); ?>元升级成为<a href="upgrade.php">高级会员</a>，享受每点击<?php include('config.php');
+								$sql = "SELECT * FROM tb_config WHERE item='premiumclick' and howmany='1'";
+								$result = mysql_query($sql);        
+								$row = mysql_fetch_array($result); echo $row["price"];
+								mysql_close($con); ?>元，下线每点击<?php include('config.php');
+								$sql = "SELECT * FROM tb_config WHERE item='premiumreferalc' and howmany='1'";
+								$result = mysql_query($sql);        
+								$row = mysql_fetch_array($result); echo $row["price"];
+								mysql_close($con); ?>元提成，同时赠送5个下线并享有优先支付权利。</li></span>
+		<li><span>轻松点击，完成任务，发布您的<a href="adver.php">注册广告</a>，免费发布您自己的推荐链接，<?php include('sitename.php'); ?>给您多样的赚钱模式。</li></span>
+		<li><span>独创的会员链接收藏系统，省去您频繁输入网址的烦恼，<a href="">详情</a>。</li></span>
+		<li><span>强大的返佣系统，优化返佣流程，安全可靠。还等什么？<a href="register.php">马上加入!</a></li></span>
         </div>
         </div>
         <!-- /middle left table content -->

@@ -101,7 +101,7 @@ LAYOUT
 
     #page {clear:both; margin:15px 0;}
 
-    	#col-l {float:left; width:690px; height:445px;border:1px solid #FFCC00; margin-bottom:10px;}
+    	#col-l {float:left; width:690px; height:445px; margin-bottom:10px;}
     	#col-signup {float:right; width:200px; overflow:hidden;}
 
 	#footer {clear:both; border-top:3px solid #EFEFEF;}
