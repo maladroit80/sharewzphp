@@ -392,6 +392,9 @@ function change()
     <td colspan="2" class="reg_table">欢迎注册易网赚</td>
   </tr>
     <tr>
+    <td colspan="2" style="text-align:right;">已经注册？请<a src="登陆易网赚" href="login.php">登陆</a></td>
+  </tr>
+   <tr>
     <td colspan="2"><label style="color:red;" id="regtip"></label></td>
   </tr>
   <tr>
