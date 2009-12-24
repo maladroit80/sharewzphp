@@ -1,11 +1,16 @@
 <?php include('header.php'); ?>
 
 
-<div style="width:600px;margin:0 auto;">
-  <ul>
-    <h1><a href="advertise.php">在本站投放点击广告</a></h1>
-  </ul>
-<span class="words">
+<div style="width:600px;margin:15px auto 15px auto;">
+<div class="title600px-top"></div>
+<div class="title600px">
+<div class="title600px-in">
+<h2 class="ico-info">1. <a href="advertise.php">在本站投放点击广告</a></h2>
+</div>
+</div>
+<div class="title600px-bottom"></div>
+<div class="words">
+<span>
 		  <h2><font>◆</font>简简单单，投放和激活您的点击广告</h2>
 		  <li><span>同用户同IP一天仅有一次有效点击</span></li>
 		  <li><span>每次只允许单窗口浏览，并且须停留30秒以上，足够对浏览者产生潜在的广告效应</span></li>
@@ -17,11 +22,16 @@
 </span>
 <br/>
 <img alt="" src="./images/golden.jpg">
-<br/>
-<ul>
-    <h1><a href="adsignup.php">发布注册广告(必须是<?php include('sitename.php');?>用户)</a></h1>
-  </ul>
-<span class="words">
+</div>
+<div class="title600px-top"></div>
+<div class="title600px">
+<div class="title600px-in">
+<h2 class="ico-info">2. <a href="adsignup.php">发布注册广告(必须是<?php include('sitename.php');?>用户)</a></h2>
+</div>
+</div>
+<div class="title600px-bottom"></div>
+<div class="words">
+<span>
 		  <h2><font>◆</font>发布注册广告，种类繁多，操作简单</h2>
 		  <li><span>您可以在这里放置你的下链接，接给你带来大量下线，为您解决下线的烦恼</span></li>
 		  <li><span>投放您的站点的注册任务广告，带来大量人气</span></li>
@@ -31,11 +41,16 @@
 </span>
 <br/>
 <img alt="" src="./images/dollar.jpg">
-<br/>
-<ul>
-    <h1><a href="adsignup.php">在本站发布页面广告</a></h1>
-  </ul>
-<span class="words">
+</div>
+<div class="title600px-top"></div>
+<div class="title600px">
+<div class="title600px-in">
+<h2 class="ico-info">3. <a href="adsignup.php">在本站发布页面广告</a></h2>
+</div>
+</div>
+<div class="title600px-bottom"></div>
+<div class="words">
+<span>
 		  <h2><font>◆</font>联系我们，在本站放置您的广告，再不为广告烦恼</h2>
 		  <li><span>合理的网站布局，使您的广告效益最大化</span></li>
 		  <li><span>严格控制页面广告数量，绝对保证广告主利益</span></li>
@@ -44,7 +59,8 @@
 		  <li><span>旗帜广告，长栏广告，滚动广告，悬浮广告，链接广告，品种繁多</span></li>
 		  <h4>高品质的页面广告，<a href="advertise.php">机不可失</a></h4>
 </span>
- <div style="text-align: center;">
+</div>
+<div style="text-align: center;">
 <hr>
 <p>禁止发布含有色情、暴力、政治、宗教等非法广告，禁止插入各种病毒、跳转代码等</p>
 </div>

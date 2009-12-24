@@ -282,7 +282,7 @@ Others
 #col-l .title01 p {margin:0;}
 #col-l .title01-bottom {width:690px; height:6px; margin-bottom:10px; background:#FFF5C7 url("../images/title01b-bottom.gif") 0 0 no-repeat; font-size:0;}
 
-.title01338-top {width:338px; height:6px; background:#FFF5C7 url("../images/title01b338-top.gif") 0 100% no-repeat; font-size:0;}
+.title01338-top {width:338px; height:3px; background:#FFF5C7 url("../images/title01b338-top.gif") 0 100% no-repeat; font-size:0;}
 .title01338 {margin:0; background:#FFF5C7 url("../images/title01b338.gif") 0 0 repeat-y;}
 .title01338-in {margin:0; padding:2px 10px; background:url("../images/title01b338-in.gif") 0 0 no-repeat;}
 .title01338 h2, .title01338 h3, .title01338 h4 {margin:0; font-size:120%;}
@@ -423,6 +423,16 @@ addlink.php styles by Timorning
 /*-----------------------------------------------------------------------------------
 words styles by Timorning
 -------------------------------------------------------------------------------------*/
-.words font{color:#FF0000;font-size:8pt;}
+.words {margin-left:20px;}
+.words font{float:left;color:#FF0000;font-size:8pt;padding-left:5px;}
 .words li{margin-left:25px;color:#0067E6;}
 .words span{color:#2F2F2F;}
+
+/*-----------------------------------------------------------------------------------
+words styles by Timorning
+-------------------------------------------------------------------------------------*/
+.title600px-top {width:600px; height:4px; background:#FFF5C7 url("../images/title600px-top.gif") 0 100% no-repeat; font-size:0;}
+.title600px {margin:0; background:#FFF5C7 url("../images/title600px.gif") 0 0 repeat-y;}
+.title600px-in {margin:0; padding:2px 10px; background:url("../images/title600px-in.gif") 0 0 no-repeat;}
+.title600px h2, .title600px h3, .title600px h4 {margin:0; font-size:140%;}
+.title600px-bottom {width:600px; height:4px; margin-bottom:10px; background:#FFF5C7 url("../images/title600px-bottom.gif") 0 0 no-repeat; font-size:0;}
