@@ -685,7 +685,7 @@ mysql_close($con);
 echo $row["howmany"];
 
 ?> 次会员浏览您的广告，且每次浏览最少持续30秒钟.</li>
-<li>站外的浏览是没有限制的，我们将在24小时激活您投放的广告.</li>
+<li>站外的浏览是没有限制的，我们将在24小时内激活您投放的广告.</li>
 <li>禁止发布含有色情、暴力、政治、宗教等非法广告，禁止插入各种病毒、跳转代码等</li>
 <li>如果您的网页存在禁止iframe的脚本，请一定去掉，否则将造成您的广告可重复点击</li>
 <li>每天的点击是唯一的，每个会员24小时内只能浏览您的广告一次.
@@ -734,7 +734,11 @@ eventobj.style.backgroundColor=highlightcolor
 previous=eventobj
 }
 }
-
+function change()
+{
+	var image=document.getElementById('securitycode');
+	image.src=image.src+"?";
+}
 </script>
 
 
@@ -742,7 +746,7 @@ previous=eventobj
 
 
 <div align="center"><div id="form"onKeyUp="highlight(event)" onClick="highlight(event)">
-<fieldset><legend>&nbsp;在这里投放广告&nbsp;</legend>
+<fieldset><legend>&nbsp;在<?php include('sitename.php');?>投放广告&nbsp;</legend>
 
 <form method="post" action="advertise.php">
 
@@ -874,7 +878,7 @@ echo $row["howmany"];
   </tr>
   <tr>
     <td width="150" align="left">&nbsp;</td>
-    <td width="250" align="left"><img src="image.php?<?php echo $res; ?>" /></td>
+    <td width="250" align="left"><img id="securitycode" src="image.php?<?php echo $res; ?>" /><a id="changimg" href="javascript:change()">看不清？</a></td>
   </tr>
 
   <tr>

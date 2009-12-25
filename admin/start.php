@@ -1,4 +1,4 @@
-<?
+<?php
 
 
 
@@ -26,7 +26,7 @@ echo "无权访问本页面。";
 include('footer2.php');
 ?>
 
-<?
+<?php
 exit();
 }
 
@@ -39,7 +39,7 @@ echo "无权访问本页面。";
 include('footer2.php');
 ?>
 
-<?
+<?php
 exit();
 }
 

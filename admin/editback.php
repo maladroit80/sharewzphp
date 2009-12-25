@@ -3,7 +3,6 @@ if($_SERVER['REQUEST_METHOD']=='POST')
 {
 if (isset($_POST["title"])&&isset($_POST["author"])&&isset($_POST["content"])&&isset($_GET["name"]))
 {
-echo "111";
 $title=$_POST["title"];
 $author=$_POST["author"];
 $content=$_POST["content"];

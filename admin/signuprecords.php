@@ -1,5 +1,9 @@
 <b>注册记录管理</b>
-
+<?php if(isset($_GET["view"]))
+           $pagelink='index.php?op=37&view=7';
+      else 
+            $pagelink='index.php?op=37';
+      ?>
 <?php include_once('funciones.php')?>
 <?php include('config.php')?>
 <?php
@@ -48,7 +52,7 @@ while ($registroe = mysql_fetch_array($tablae)) { // comienza un bucle que leera
 
 ?>
 
-<form method="post" action="index.php?op=37">
+<form method="post" action="<?php echo $pagelink;?>">
 
 序号: <input type="hidden" name="id" value="<?php echo $registroe["id"] ?>"><?php echo $registroe["id"] ?><br>
 广告ID: <input type="hidden" name="adid" value="<?php echo $registroe["adid"] ?>"><?php echo $registroe["adid"] ?><br>
@@ -95,7 +99,6 @@ if ($_GET["option"]=="delete")
 }
 
 }
-
 ?>
 <table>
 	<tr>
@@ -115,7 +118,6 @@ if ($_GET["option"]=="delete")
 	</tr>
 <?php
 
-//Limito la busqueda
 $TAMANO_PAGINA = 50;
 
 //examino la p¨¢gina a mostrar y el inicio del registro a mostrar
@@ -127,12 +129,15 @@ if (!$pagina) {
 else {
     $inicio = ($pagina - 1) * $TAMANO_PAGINA;
 } 
-
-$tabla = mysql_query("SELECT * FROM tb_signupusers ORDER BY id ASC limit $inicio,$TAMANO_PAGINA"); // selecciono todos los registros de la tabla usuarios, ordenado por nombre
-
+if(isset($_GET["view"]))
+{
+   $tabla=mysql_query("SELECT * FROM tb_signupusers where TO_DAYS(NOW())-TO_DAYS(reqdate) >7 and status='pending' ORDER BY id ASC limit $inicio,$TAMANO_PAGINA");
+}
+else
+{
+	$tabla = mysql_query("SELECT * FROM tb_signupusers ORDER BY id ASC limit $inicio,$TAMANO_PAGINA"); // selecciono todos los registros de la tabla usuarios, ordenado por nombre
+}
 while ($registro = mysql_fetch_array($tabla)) { // comienza un bucle que leera todos los registros y ejecutara las ordenes que siguen
-
-
 echo "
 <tr>
 <td>". $registro["id"] ."</td>
@@ -147,12 +152,12 @@ echo "
 <td>". $registro["status"] ."</td>
 <td>";
 ?>
-<form method="post" action="index.php?op=37&id=<?php echo $registro["id"] ?>&option=edit">
+<form method="post" action="<?php echo $pagelink?>&id=<?php echo $registro["id"] ?>&option=edit">
 <input type="submit" value="Edit" class="button">
 </form>
 </td>
 <td>
-<form method="post" action="index.php?op=37&id=<?php echo $registro["id"] ?>&option=delete">
+<form method="post" action="<?php echo $pagelink?>&id=<?php echo $registro["id"] ?>&option=delete">
 <input type="submit" value="Delete" class="button">
 </form>
 </td>
@@ -174,7 +179,7 @@ if (empty($uno))
 { 
 $uno = 1;
 $mos = $uno + 1;
-echo "<a href='index.php?op=37&pagina=$mos'><font face=\"verdana\" style=\"font-size:11px;\" color=\"#000000\"><b>Next page</b></font></a> ";
+echo "<a href='".$pagelink."&pagina=$mos'><font face=\"verdana\" style=\"font-size:11px;\" color=\"#000000\"><b>Next page</b></font></a> ";
 } else 
 {
 
@@ -182,11 +187,9 @@ $mos = $uno + 1;
 
 for ($z=$mos;$z<=$mos;$z++)
 {
-echo "<a href='index.php?op=37&pagina=$z'><font face=\"verdana\" style=\"font-size:11px;\" color=\"#000000\"><b>Next page</b></font></a> ";
+echo "<a href='".$pagelink."&pagina=$z'><font face=\"verdana\" style=\"font-size:11px;\" color=\"#000000\"><b>Next page</b></font></a> ";
 
 }
-
-
 
 }
 ?>
