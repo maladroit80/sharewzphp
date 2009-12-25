@@ -6,11 +6,15 @@
         <br>
         <h3>
 <img border="0" src="images/orders.gif" align="absmiddle" width="32" height="32"> <span style="font-weight: bold">在
-<a href="http://www.easywzw.com"><?php include('sitename.php'); ?></a>
+<a href="index.php"><?php include('sitename.php'); ?></a>
 发布注册任务</span></h3>
 <br>
-
-<?php
+<?php 
+if(!isset($_COOKIE["usNick"]) || !isset($_COOKIE["usPass"]))
+{
+    echo "<h2>注册用户才能提交任务广告，请<a href='login.php'>登陆</a>或<a href='register.php'>注册</a></h2>";
+    exit();
+}
 		$owner=uc($_COOKIE["usNick"]);
 		if (isset($_POST["paypal"]))
 		{
@@ -26,15 +30,6 @@
 					exit();
 				}
 			
-			// funcion para sanitizar variables
-				function limpiarez($mensaje)
-				{
-				$mensaje = htmlentities(stripslashes(trim($mensaje)));
-				$mensaje = str_replace("'"," ",$mensaje);
-				$mensaje = str_replace(";"," ",$mensaje);
-				$mensaje = str_replace("$"," ",$mensaje);
-				return $mensaje;
-				}
 			
 				$paypal=$_POST["paypal"];
 				$url=$_POST["url"];
@@ -61,7 +56,7 @@
 				if ($precio>0)
 				{
 				?>
-				您的订购已提交， 在我们允许你的广告之前，你必须通过支付报给本站付款 <?php
+				您的订购已提交， 在我们允许你的广告之前，你必须通过支付宝给本站付款 <?php
 				echo $precio;
 				?> 元.
 			
@@ -104,7 +99,7 @@
 <li>当你为你发布的注册广告支付了广告费用,我们将激活您的广告,会员就可以注册您的广告.</li>
 <li>我们提供的注册广告订购数量最少50个,单价最低0.2元,广告费:数量*单价*1.5.</li>
 <li>会员提交虚假注册，广告主可以拒绝会员的任务奖励申请，会员作弊3次即被删除帐号.</li>
-<li>会员完成注册但是申请奖励被拒绝的情况，可向管理员投诉，广告主恶意拒绝3次即取消该广告.</li>
+<li>会员完成注册但是申请奖励被拒绝的情况，可向管理员投诉，广告主恶意拒绝3次我们有权取消该广告.</li>
 </ul>
 <script language="JavaScript1.2">
 
@@ -148,7 +143,11 @@ eventobj.style.backgroundColor=highlightcolor
 previous=eventobj
 }
 }
-
+function change()
+{
+	var image=document.getElementById('securitycode');
+	image.src=image.src+"?";
+}
 </script>
 
 
@@ -211,7 +210,7 @@ previous=eventobj
   </tr>
   <tr>
     <td width="150" align="left">&nbsp;</td>
-    <td width="250" align="left"><img src="image.php?<?php echo $res; ?>" /></td>
+    <td width="250" align="left"><img id="securitycode" src="image.php?<?php echo $res; ?>" /><a id="changimg" href="javascript:change()">看不清？</a></td>
   </tr>
 
   <tr>

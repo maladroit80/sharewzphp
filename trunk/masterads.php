@@ -1,4 +1,5 @@
-<?php include('header.php'); ?>
+<?php include('header.php');
+?>
 <div style="margin:15px auto 0 auto;width:600px;">
 <div class="title600px-top"></div>
 <div class="title600px">
@@ -33,21 +34,20 @@
     <td><div align="center"><a href="contact.php">广告位招租</a></div></td>
     </tr>
 </table>
- <?php
+<div> 
+<?php
 require('config.php');
 $tabla = mysql_query("SELECT id FROM tb_ads_categories ORDER BY id ASC"); // selecciono todos los registros de la tabla usuarios, ordenado por nombre
 mysql_close($con);
-while ($registro = mysql_fetch_array($tabla)) { // comienza un bucle que leera todos los registros y ejecutara las ordenes que siguen
-?>
-    <?php
-	$indice = $registro["id"];
+while ($registro = mysql_fetch_array($tabla))
+ { // comienza un bucle que leera todos los registros y ejecutara las ordenes que siguen
+$indice = $registro["id"];
 require('config.php');
 $sql = "SELECT * FROM tb_ads_categories WHERE id='$indice'";
 $result = mysql_query($sql);        
 $row = mysql_fetch_array($result);
 mysql_close($con);
 ?>
-<div id="tables">
 <table width="95%" align="center" bordercolor="#009900">
 
 <tr bgcolor="#FFCC00">
@@ -79,9 +79,8 @@ $myrowr = mysql_fetch_array($resultr);
 mysql_close($con);
 $tipr=$myrowr["account"];
 
-
 switch($tipr) {
-    case("premium"):
+case("premium"):
 require('config.php');
 $sql = "SELECT * ";
 $sql.= "FROM tb_ads WHERE tipo='ads' and category='$indice' ORDER BY fechainicia DESC";
@@ -259,24 +258,11 @@ $rowr["id"]="";
 </table>
 
 
-</div>
+
 <?php
-
-
 } // fin del bucle de ordenes
-
-
 ?>
-
-
-
-
-
-
-
-
-
-
-
-		<!--footer starts here-->
+</table>
+</div>
+<!--footer starts here-->
 <?php include('footer.php'); ?>

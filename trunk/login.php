@@ -66,9 +66,9 @@ function change()
   <tr>
     <td colspan="2" class="reg_table">欢迎登录易网赚</td>
   </tr>
-  <!--<tr>
+  <tr>
     <td colspan="2" class="reg_table"><span class="signintip" id="signintip"></span></td>
-  </tr>-->
+  </tr>
   <tr>
     <td width="150" align="right"><p><label>用户名 »</label></p></td>
     <td width="250" align="left"><input type='text' size='15' maxlength='25' name='username' id="uname" autocomplete="off"value="" tabindex="1" /></td>

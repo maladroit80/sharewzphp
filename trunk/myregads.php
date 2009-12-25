@@ -23,14 +23,14 @@ $user=$_COOKIE["usNick"];
 			{
 			$queryz = "DELETE FROM tb_signupusers WHERE id='$id'";
 			mysql_query($queryz) or die(mysql_error());
-			echo "<font color=\"green\"><b>你把自己从这个注册广告删除.<br>谢谢你保持诚实.
+			echo "<font color=\"green\"><b>您已把注册广告删除。<br>感谢您保持诚实。
 			<br><br>";
 			}
-			if($status=="deny"|$status=="paid")
+			if($status=="deny"||$status=="paid")
 			{
 				$queryz = "DELETE FROM tb_signupusers WHERE id='$id'";
 				mysql_query($queryz) or die(mysql_error());
-				echo "<font color=\"green\"><b>你删除这条无用的记录.<br>
+				echo "<font color=\"green\"><b>您已经删除这条无用的记录，感谢您保持活跃。<br>
 			<br><br>";
 			}
 		}
@@ -192,7 +192,7 @@ echo "</td><td>";
 </form>
 </td><td>
 <form method="post" action="myregads.php?id=<?php echo $row["id"] ?>&option=Deny">
-  <input type="submit" value="拒绝" class="button" />
+  <input type="submit" value="拒绝" class="button"/>
 </form>
 </td>
 </tr>

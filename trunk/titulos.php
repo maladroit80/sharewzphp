@@ -1,5 +1,5 @@
 <tr>
-<td bgcolor="<?=$highlight?>">
+<td bgcolor="<?php echo $highlight?>">
 
 
 <?php
@@ -32,7 +32,7 @@ if($crok1 >= $crok2)
 
 
 </td>
-<tD bgcolor="<?php echo $highlight?>">
+<td bgcolor="<?php echo $highlight?>">
 <?php echo $members?> 	 	
 
 </td>

@@ -31,7 +31,7 @@ dl {margin:15px 0;}
 dd {margin-left:30px;}
 
 fieldset {position:relative; margin:15px 0; padding:10px; border:1px solid #CCC;}
-legend {position:absolute; top:-1em; margin:0; padding:3px 6px; background:#6B0; font-size:100%; font-weight:bold; color:#FFF;}
+legend {position:absolute; top:-1em; margin:0; padding:3px 6px; background:#ff6900; font-size:100%; font-weight:bold; color:#FFF;}
 
 abbr, acronym, .help {border-bottom:1px solid #CDA400; cursor:help;}
 del, .del {text-decoration:line-through;}
@@ -104,7 +104,7 @@ LAYOUT
     	#col-l {float:left; width:690px; height:445px; margin-bottom:10px;}
     	#col-signup {float:right; width:200px; overflow:hidden;}
 
-	#footer {clear:both; border-top:3px solid #EFEFEF;}
+	#footer {clear:both; border-top:3px solid #EFEFEF;margin-top:15px;}
 	#footer p {margin-top:7px;}
 
         #copy, #copy a {color:#777;}

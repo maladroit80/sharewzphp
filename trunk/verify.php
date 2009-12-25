@@ -1,10 +1,19 @@
 <?php
+function protectinput($input)
+{
+	if (get_magic_quotes_gpc()) {
+		return stripslashes($input);
+	}
+	else{
+		return mysql_real_escape_string($input);
+}
+}
 if($_GET["regpage"])
 {
 	if($_GET["username"])
 	{
 		require('config.php');
-		$username=$_GET["username"];
+		$username=protectinput($_GET["username"]);
 		$checkuser = mysql_query("SELECT username FROM tb_users WHERE username='$username'");
         $username_exist = mysql_num_rows($checkuser);
 	if ($username_exist>0) {
@@ -14,7 +23,7 @@ if($_GET["regpage"])
 	if($_GET["email"])
 	{
 		require('config.php');
-		$email=$_GET["email"];
+		$email=protectinput($_GET["email"]);
 		$checkemail = mysql_query("SELECT email FROM tb_users WHERE email='$email'");
         $email_exist = mysql_num_rows($checkemail);
 	if ($email_exist>0) {
@@ -24,7 +33,7 @@ if($_GET["regpage"])
 	if($_GET["pemail"])
 	{
 		require('config.php');
-		$pemail=$_GET["pemail"];
+		$pemail=protectinput($_GET["pemail"]);
 		$checkpemail = mysql_query("SELECT pemail FROM tb_users WHERE pemail='$pemail'");
         $pemail_exist = mysql_num_rows($checkpemail);
 	if ($pemail_exist>0) {
@@ -34,7 +43,7 @@ if($_GET["regpage"])
 	if($_GET["referer"])
 	{
 		require('config.php');
-		$referer=$_GET["referer"];
+		$referer=protectinput($_GET["referer"]);
 		$checkref = mysql_query("SELECT username FROM tb_users WHERE username='$referer'");
         $referer_exist = mysql_num_rows($checkref);
 	if ($referer_exist<1) {

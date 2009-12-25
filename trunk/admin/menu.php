@@ -26,6 +26,7 @@
 <a href="index.php?op=34">编辑注册广告</a>
 <a href="index.php?op=35">注册奖励申请</a>
 <a href="index.php?op=37">会员注册记录</a>
+<a href="index.php?op=37&view=7">7天未验证记录</a>
 </li>
 </ul>
 </li>

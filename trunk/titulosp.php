@@ -1,8 +1,8 @@
 <tr>
-<td bgcolor="<?=$highlight?>">
+<td bgcolor="<?php echo $highlight?>">
 
 
-<?
+<?php
 require('config.php');
 $sqle = "SELECT * FROM tb_ads WHERE user='$last' and ident='$id'";
 $resulte = mysql_query($sqle);        
@@ -21,11 +21,11 @@ if($crok1 >= $crok2)
 
 { 
 
-?><?=$bold?><a href="viewp.php?ad=<?=$id?>" target="_blank"><?=$description?></a><?=$boldc?><?
+?><?php echo $bold?><a href="viewp.php?ad=<?php echo $id?>" target="_blank"><?php echo $description ?></a><?php echo $boldc ?><?php
 
 
 
- } else { ?><del><?=$description?><del><? }
+ } else { ?><del><?php echo $description?><del><?php }
 
 
 ?>
@@ -33,14 +33,14 @@ if($crok1 >= $crok2)
 
 
 </td>
-<td bgcolor="<?=$highlight?>">
-<?=$members?> 	 	
+<td bgcolor="<?php echo $highlight?>">
+<?php echo $members?> 	 	
 </td>
-<td bgcolor="<?=$highlight?>">
-<?=$outside?>
+<td bgcolor="<?php echo $highlight?>">
+<?php echo $outside?>
 </td>
-<td bgcolor="<?=$highlight?>">
-<?=$total?>
+<td bgcolor="<?php echo $highlight?>">
+<?php echo $total?>
 </td>
 </tr>
 

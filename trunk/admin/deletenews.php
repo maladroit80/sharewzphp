@@ -1,6 +1,27 @@
 <?php
+if(isset($_POST['del']))
+{
+	if(isset($_GET['name']))
+	{
+		$filename=$_GET['name'];
+		if(file_exists("../news/".$filename)){
+			if(!unlink("../news/".$filename)){
+				echo "删除文件../news/".$filename."失败";
+				exit();
+			}
+			else
+			{
+				include('config.php');
+        		$query ="delete from tb_news where url='".$_GET['name']."'";
+         		mysql_query($query) or die(mysql_error());
+         		echo "<META HTTP-EQUIV='REFRESH' CONTENT='0;URL=index.php?op=44'>";
+			}
+		}			
+		
+	}
+}
 require_once("config.php");
-$pagesize=2;
+$pagesize=50;
 //取得记录总数$rs，计算总页数用
 $rs=mysql_query("select count(*) from tb_news");
 $myrow = mysql_fetch_array($rs);
@@ -29,7 +50,7 @@ if ($myrow = mysql_fetch_array($rs))
 $i=0;
 ?>
 
- <form action="index.php?op=44" method="post" enctype="text/plain">
+
   
 
   　　
@@ -62,22 +83,23 @@ do {
 $i++;
 ?>
 <tr>
-<td name="deletetitle"><a href="index.php?op=45&&page=<?php echo $page ?>&&name=<?php echo $myrow["url"]?>"><?php echo $myrow["title"]?></a></td>
+<td name="deletetitle"><a href="index.php?op=45&page=<?php echo $page ?>&name=<?php echo $myrow["url"]?>"><?php echo $myrow["title"]?></a></td>
 <td><?php echo $myrow["date"]?></td>
 <td><?php echo $myrow["author"]?></td>
 <td><?php echo $myrow["counts"]?></td>
 <td><?php echo $myrow["url"]?></td>
 <td><?php echo $myrow["type"]?></td>
-<td><input type="submit" value="删除"></input></td>
+<form action="index.php?op=44&page=<?php echo $page ?>&name=<?php echo $myrow["url"]?>" method="post">
+<td><input name='del' type="submit" value="删除"></input></td>
+</form>
 </tr>
 <?php
 }
 while ($myrow = mysql_fetch_array($rs));
-echo "</table>
-	</form>";
+echo "</table>";
 }
 echo "<div align='center'>共有".$pages."页(".$page."/".$pages.")";
 for($i=1;$i<=$pages;$i++)
-echo "<a href='index.php?op=43&&page=".$i."'>[".$i ."]</a> ";
+echo "<a href='index.php?op=43&page=".$i."'>[".$i ."]</a> ";
 echo "</div>";
 ?>
