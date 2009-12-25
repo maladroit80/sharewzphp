@@ -1,9 +1,14 @@
 <?php include('header.php'); ?>
-
-<h3 style="font-weight: bold">浏览广告 - 访问网站</h3>
-<br>
-<br>
-<table width="94%" border="0" align="center" cellpadding="0" cellspacing="1" bordercolor="#00CC00" bgcolor="#C1CE97">
+<div style="margin:15px auto 0 auto;width:600px;">
+<div class="title600px-top"></div>
+<div class="title600px">
+<div class="title600px-in">
+<h2 align="center"><a href="advertise.php">浏览广告 - 访问网站</a></h2>
+</div>
+</div>
+<div class="title600px-bottom"></div>
+</div>
+<table width="94%" border="0" align="center" cellpadding="0" cellspacing="1" bordercolor="#FFCC00" bgcolor="#FFCC00">
   <tr bordercolor="#00CC00" bgcolor="#FFFFFF">
     <td  height="80px" colspan="4"><div align="center" style="color: #CC0066; font-size: 24px"  >
       此处放您的广告代码
@@ -45,7 +50,7 @@ mysql_close($con);
 <div id="tables">
 <table width="95%" align="center" bordercolor="#009900">
 
-<tr bgcolor="#009900">
+<tr bgcolor="#FFCC00">
 <th width="60%" class="top">
   <div align="left"><b> <img src="images/attach.png" width="16" height="16" alt="cat sign"  align="absmiddle" /><?php echo $row["catname"] ?></b>
   </div></th>

@@ -1,6 +1,5 @@
 <?php
 
-
 function limitatexto( $texto, $limite ) 
   { 
     if( strlen($texto)>$limite ) 
@@ -10,11 +9,6 @@ function limitatexto( $texto, $limite )
     return $texto; 
  
   } 
-
-
-
-
-
 function mostrarTemplate($tema, $variables)
 {
     //var_dump($variables);
