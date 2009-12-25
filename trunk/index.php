@@ -157,10 +157,7 @@
 			$tabla = mysql_query("SELECT * FROM tb_history ORDER BY id ASC"); 
 			mysql_close($con);
 			while ($row = mysql_fetch_array($tabla)) {
-			
-			
-			
-			
+						
 			echo "<tr><td align='center'>";
 			
 			echo $row["user"];

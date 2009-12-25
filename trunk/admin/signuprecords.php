@@ -1,6 +1,6 @@
 <b>注册记录管理</b>
 
-<?php include('funciones.php')?>
+<?php include_once('funciones.php')?>
 <?php include('config.php')?>
 <?php
 
