@@ -53,7 +53,7 @@ mysql_query($query) or die(mysql_error());
 echo " <font style='font-size:1.2em;'>您提交了这个任务.<br/>
 我们会尽快验证您的广告完成情况.<br/>
 广告主7天未验证，我们将直接给您支付.<br/>
-如果您的任务长时间（7天以上）没有被验证，您可以直接联系管理员.<br/>感谢您对本站的支持.</font>
+如果您的任务长时间（7天以上）没有被验证，您也可以直接联系管理员.<br/>感谢您对本站的支持.</font>
 <br/>
 <span class=\"top\"><a href=\"regads.php\" style=\"font-size: 24px\">继续做注册任务</a></span>
 ";

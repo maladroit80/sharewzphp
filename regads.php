@@ -20,15 +20,14 @@
 <img width="7" height="7" border="0" align="absmiddle" src="images/bullet2.gif"/><span style="margin-left:10px;">每人每个注册任务只可做一次，发现多次提交者立即删除账号，余款不付.</span><br/>
 </div>
 </div>
-
-<tr bgcolor="#666666">
-<th width="51%" bgcolor="#999999" class="top">
-  <div align="left" style="font-size: 18px"><b> </b>
-  注册广告名</div></th>
-<th width="27%" class="top">
-  <div align="left" style="font-size: 18px"><span style="font-weight: bold">奖励(元)</span></div></th>
-<th width="22%" class="top">
-  <div align="left" style="font-size: 18px"><b>剩下数目</b></div></th>
+<div style="width:95%;margin:15px auto 0 auto;border:1px solid #FFCC00;">
+<table width="100%" cellpadding="0">
+<tr>
+<th class="top"> 注册广告名</th>
+<th class="top">奖励(元)</th>
+<th class="top">剩下数目</th>
+<th class="top">广告总数</th>
+<th class="top">备注</th>
 </tr>
 <?php 
 require('config.php');
@@ -38,17 +37,19 @@ mysql_close($con);
 while ($registro = mysql_fetch_array($tabla))
 {
 echo "
-<tr>
-<td><a href=\"viewregads.php?id=".$registro['id']."\"><FONT color=green size=3 face=\"Verdana, Arial, Helvetica, sans-serif\">".$registro['adname']."</font></a></td>
-<td><FONT color=green size=3 face=\"Verdana, Arial, Helvetica, sans-serif\"> ". $registro['value'] ."元</font></td>
-<td><FONT color=green size=3 face=\"Verdana, Arial, Helvetica, sans-serif\">". $registro['adnum'] ."</font></td>
-<tr>
+<tr align='center' style='font-size:1.6em;'>
+<td><a href=\"viewregads.php?id=".$registro['id']."\">".$registro['adname']."</a></td>
+<td>". $registro['value'] ."元</td>
+<td>". $registro['adnum'] ."</td>
+<td>". $registro['allnum'] ."</td>
+<td>有". $registro['score'] ."个会员推荐此任务</td>
+</tr>
 ";
 }
 ?>
 </table>
-
 </div>
+
 
 
 		<!--footer starts here-->

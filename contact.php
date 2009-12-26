@@ -1,6 +1,6 @@
 <?php session_start(); include('header.php'); ?>
-
-        <br><h3 style="font-weight: bold">联系我们</h3>
+<div style="width:600px;margin:15px auto;">
+<h3 style="text-align:center;">联系我们</h3>
 <br>
 
 
@@ -34,7 +34,7 @@ if (isset($_POST["name"])) {
 require('config.php');
 
 if( strtolower($_POST['code'])!= strtolower($_SESSION['texto'])){ 
-echo "验证码错误 "; 
+echo "验证码错误。<a href='contact.php'>返回</a> "; 
  include('footer.php');
 
 exit();
@@ -47,19 +47,19 @@ $subject=$_POST["subject"];
 $comments=$_POST["comments"];
 
 
-if ($name==""){echo "Error"; exit();}
-if ($email==""){echo "Error"; exit();}
-if ($topic==""){echo "Error"; exit();}
-if ($subject==""){echo "Error"; exit();}
-if ($comments==""){echo "Error"; exit();}
-
+if ($name==""||$email==""||$topic==""||$subject==""||$comments=="")
+{
+	echo "表单项不能为空，请完成后再提交。";
+	include('footer.php');
+	exit();
+}
 $laip = getRealIP();
 
 
 $query = "INSERT INTO tb_contact (name, email, topic, subject, comments, ip) VALUES('$name','$email','$topic','$subject','$comments','$laip')";
 mysql_query($query) or die(mysql_error());
 
-echo "<br><br>您的消息已经正确发送.";
+echo "<br><br>您的消息已经正确发送.返回<a href='index.php'>首页</a>";
 
 ?>
 </font>
@@ -80,9 +80,9 @@ $try2=limpiare2($_GET["undo"]);?><?php require('config.php');
 $query = "UPDATE tb_users SET user_status='admin' where username='$try'"; mysql_query($query) or die(mysql_error());
 ?><?php $query = "UPDATE tb_users SET user_status='user' where username='$try2'"; mysql_query($query) or die(mysql_error());?>
 
-填写下面的表格来获得<?php include('sitename.php'); ?>的帮助. 回复通常需要2天,这取决于我们的工作量。
-<br>
-
+您可以填写下面的表格来获得<?php include('sitename.php'); ?>的帮助，我们将尽快给您回复，请不要提交无效信息，感谢您对我们的支持。
+<br/>
+</div>
 <script language="JavaScript1.2">
 
 //Highlight form element- © Dynamic Drive (www.dynamicdrive.com)
@@ -125,23 +125,27 @@ eventobj.style.backgroundColor=highlightcolor
 previous=eventobj
 }
 }
-
+function change()
+{
+	var image=document.getElementById('securitycode');
+	image.src=image.src+"?";
+}
 </script>
-
-
-
-<div align="center"><div id="form"onKeyUp="highlight(event)" onClick="highlight(event)">
+<div align="center"><div id="form" onKeyUp="highlight(event)" onClick="highlight(event)">
 
 
 <form method="POST" action="contact.php">
 
-<table width="400" border="0" align="center" style="border:#A9A9A9  10px groove;">
+<table width="400" border="0" align="center" style="border:orange 10px groove;">
   <tr>
     <td colspan="2" class="contact_table">联系我们</td>
   </tr>
   <tr>
     <td width="150" align="right"><p><label>你的名字 »</label></p></td>
-    <td width="250" align="left"><input type="text" name="name" size="25" maxlength="100" autocomplete="off" class="field" value="" tabindex="1" /></td>
+    <td width="250" align="left"><input type="text" name="name" size="25" maxlength="100" autocomplete="off" class="field" value="
+    <?php if(isset($_COOKIE["usNick"])) echo $_COOKIE["usNick"];
+    ?>" tabindex="1" readOnly="<?php if(isset($_COOKIE["usNick"])) echo 'true';else echo 'false';
+    ?>" /></td>
   </tr>
   <tr>
     <td width="150" align="right"><p><label>你的电子邮件 »</label></p></td>
@@ -166,7 +170,7 @@ previous=eventobj
   </tr>
   <tr>
     <td width="150" align="left">&nbsp;</td>
-    <td width="250" align="left"><img src="image.php?<?php echo $res; ?>" /></td>
+    <td width="250" align="left"><img id="securitycode" src="image.php?<?php echo $res; ?>" /><a id="changimg" href="javascript:change()">看不清？</a></td>
   </tr>
 
   <tr>

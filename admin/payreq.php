@@ -30,8 +30,7 @@ $moneyere= $lolzea + $lolza;
     $query = "UPDATE tb_users SET money='$moneye', paid='$moneyere' where username='$username'";
     mysql_query($query) or die(mysql_error());
 
-$eltiempo=time();
-$lafecha=date("Ymd H:i",$eltiempo);
+$lafecha=date("Y-n-d H:i");
 
     //Todo parece correcto procedemos con la inserccion
     $query = "INSERT INTO tb_history (user, date, amount, method, status) VALUES('$username','$lafecha','$lolza','支付宝','Payment Sent')";

@@ -11,8 +11,7 @@ $option=$_GET["option"];
 
 if ($option=="approve"){
 	 $status="paid";
-	 $eltiempo=time();
-	 $paiddate=date("d M Y H:i",$eltiempo);
+	 $paiddate=date("Y-n-d H:i");
 	 
 	 $query1 = mysql_query("select * from tb_signupusers WHERE id='$id'");
 	 $registro = mysql_fetch_array($query1);
