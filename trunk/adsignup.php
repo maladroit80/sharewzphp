@@ -39,17 +39,15 @@ if(!isset($_COOKIE["usNick"]) || !isset($_COOKIE["usPass"]))
 				$value=$_POST["value"];
 
 			
-			
-				if ($adnum==""){echo "Error"; exit();}
-				if ($value==""){echo "Error"; exit();}
-				if ($paypal==""){echo "Error"; exit();}
-				if ($owner==""){echo "Error"; exit();}
-				if ($url==""){echo "Error"; exit();}
-				if ($instruction==""){echo "Error"; exit();}
-				
+			if($adnum==""||$value==""||$paypal==""||$owner==""||$url==""||$instruction=="")
+			{
+				echo "信息不全，为了您的广告利益，请<a href='adsignup.php'>返回</a>完善您的信息。";
+				include('footer.php');
+				exit();
+			}			
 				require ('config.php');
 				$status="no";
-				$query = "INSERT INTO tb_signupads (owner, paypal, adname, url, adnum, value, instruction, status) VALUES( '$owner', '$paypal', '$adname', '$url', '$adnum', '$value', '$instruction', '$status')";
+				$query = "INSERT INTO tb_signupads (owner, paypal, adname, url, adnum, value, instruction, status, allnum) VALUES( '$owner', '$paypal', '$adname', '$url', '$adnum', '$value', '$instruction', '$status','$adnum')";
 				mysql_query($query) or die(mysql_error());
 				
 				$precio=$adnum*$value*1.5;
@@ -100,6 +98,7 @@ if(!isset($_COOKIE["usNick"]) || !isset($_COOKIE["usPass"]))
 <li>我们提供的注册广告订购数量最少50个,单价最低0.2元,广告费:数量*单价*1.5.</li>
 <li>会员提交虚假注册，广告主可以拒绝会员的任务奖励申请，会员作弊3次即被删除帐号.</li>
 <li>会员完成注册但是申请奖励被拒绝的情况，可向管理员投诉，广告主恶意拒绝3次我们有权取消该广告.</li>
+<li>广告提交以后，广告主可以去“我的账户->注册广告”中查看广告状态及对我们会员注册的有效性进行验证.</li>
 </ul>
 <script language="JavaScript1.2">
 

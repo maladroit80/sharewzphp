@@ -45,7 +45,7 @@ echo "错误"; exit();
 
 <meta http-equiv="Expires" content="-1">
 
-<link rel="stylesheet" type="text/css" href="css.css"><title><?php include('sitename.php'); ?> | .view .click .make money</title>
+<link rel="stylesheet" type="text/css" href="css.css"><title><?php include('sitename.php'); ?> | .浏览赚钱中</title>
 
 <script>
 
@@ -111,8 +111,8 @@ success.location.href="success.php?ad="+document.frm.id.value+"&verify="+documen
 			
 					<td style="border-bottom: 2px solid rgb(51, 51, 51); font-family: Verdana; font-size: 13px; " align="left" valign="middle" width="50%">
 			
-						<STRONG>谢谢您拿出宝贵时间来浏览广告的广告!<BR>
-在下面展示您的广告<A href="advertise.php">2.00元</A>每100</STRONG><strong>次浏览</strong> <br>
+						<STRONG>谢谢您拿出宝贵时间来浏览广告的广告!<BR/>
+您也可以在下面<A href="advertise.php" target="_blank">展示您的广告</A></STRONG><br/>
 			
 				    </td>
 			

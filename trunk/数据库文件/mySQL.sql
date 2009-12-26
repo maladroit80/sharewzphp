@@ -1,5 +1,13 @@
 
 --
+-- create on 2009.12.26 by Timorning
+--
+alter table tb_signupusers add graded tinyint(4) DEFAULT '0';
+alter table tb_signupads add score int(11) DEFAULT '0';
+alter table tb_signupads add gradeuser varchar(150) DEFAULT NULL;
+alter table tb_signupads add gradetime varchar(150) DEFAULT NULL;
+alter table tb_signupads add allnum varchar(150) DEFAULT NULL;
+--
 -- create on 2009.12.19
 --
 
