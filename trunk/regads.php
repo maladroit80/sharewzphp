@@ -3,7 +3,7 @@
 <div class="title600px-top"></div>
 <div class="title600px">
 <div class="title600px-in">
-<h2 align="center"><a href="advertise.php">注册广告 - 注册赚钱</a></h2>
+<h2 align="center"><a href="adsignup.php">注册广告 - 注册赚钱</a></h2>
 </div>
 </div>
 <div class="title600px-bottom"></div>

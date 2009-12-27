@@ -90,15 +90,15 @@ echo"            <li><a href=\"regads.php\"><span>注册赚钱</span></a></li>
 			";
        if($administrator=="admin")
        {
-	        $userstatus="<span>欢迎回来，</span><a href='#'>".$row['username']."</a><span style='color:#f00;'>（管理员）</span>";
+	        $userstatus="<span>欢迎回来，</span><a href='member.php'>".$row['username']."</a><span style='color:#f00;'>（管理员）</span>";
        }
        else if($row['account'] =="")
        {
-	        $userstatus="<span>欢迎回来，</span><a href='#'>".$row['username']."</a><span style='color:#808080;'>（会员）</span>";
+	        $userstatus="<span>欢迎回来，</span><a href='member.php'>".$row['username']."</a><span style='color:#808080;'>（会员）</span><a href='upgrade.php'>【升级】</a>";
        }
        else
        {
-       	    $userstatus="<span>欢迎回来，</span><a href='#'>".$row['username']."</a><span style='color:#f00;'>（高级会员）</span>";
+       	    $userstatus="<span>欢迎回来，</span><a href='member.php'>".$row['username']."</a><span style='color:#f00;'>（高级会员）</span>";
        }				
 			
 }
