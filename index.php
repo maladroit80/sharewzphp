@@ -129,7 +129,7 @@
         </div>
     <!--/middle left table head-->
     <!--middle left table content-->
-    	<div style="border:1px solid #FFCC00;height:92%;">
+    	<div style="height:95%;">
     	<ul>
 		  <li>test</li>
 		  <li>test</li>
@@ -148,7 +148,7 @@
           </div>
         </div>
     <!--/middle right table head-->
-    	<div align="center" style="border:1px solid #FFCC00;height:92%;">
+    	<div align="center" style="height:95%;">
     	<table cellpadding="0">
 			<tr>
 			<th ><b>用户名</b></th>

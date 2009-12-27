@@ -1,16 +1,22 @@
-<?php include('header.php'); ?>
+<?php 
+if(!isset($_COOKIE["usNick"]) && !isset($_COOKIE["usPass"]))
+{
+	include('accessdeny.php');
+	exit();
+}
+
+include_once('header.php'); 
+?>
+
 <div style="margin:15px auto 0 auto;width:600px;">
 <div class="title600px-top"></div>
 <div class="title600px">
 <div class="title600px-in">
-<h2 align="center"><a href="advertise.php">注册广告 - 注册赚钱</a></h2>
+<h2 align="center"><a href="adsignup.php">注册广告 - 注册赚钱</a></h2>
 </div>
 </div>
 <div class="title600px-bottom"></div>
 </div>
-<?php
-
-?>
 <?php
 if (isset($_GET["id"]))
 {
