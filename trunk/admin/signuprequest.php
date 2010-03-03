@@ -8,7 +8,10 @@ $id=$_GET["id"];
 $option=$_GET["option"];
 
 if ($option=="approve"){
+	if($_POST['adtype']=='注册广告')
 	 $status="yes";
+	 else
+	 $status="subyes";
      $query = "UPDATE tb_signupads SET status='$status' WHERE id='$id'";
 	 $resultex = mysql_query($query);
 	 
@@ -38,15 +41,22 @@ if ($option=="deny"){
 		<th>链接</th>
 		<th>数量</th>
 		<th>价值</th>
+		<th>类型</th>
 		<th></th>
 		<th></th>
 	</tr>
 <?php
-$stats="no";
-$tabla = mysql_query("SELECT * FROM tb_signupads where status='$stats' ORDER BY id ASC"); // selecciono todos los registros de la tabla usuarios, ordenado por nombre
+$tabla = mysql_query("SELECT * FROM tb_signupads where status='no' or 'subno'  ORDER BY id ASC"); // selecciono todos los registros de la tabla usuarios, ordenado por nombre
 
 while ($registro = mysql_fetch_array($tabla)) { // comienza un bucle que leera todos los registros y ejecutara las ordenes que siguen
-
+if($registro["status"]=='no')
+{
+	$status='注册广告';
+}
+else
+{
+	$status='下线链接广告';
+}
 
 echo "
 <tr>
@@ -57,14 +67,17 @@ echo "
 <td><a href=\"#\" onmouseover=\"Tip('". $registro["url"] ."')\">注册链接</a></td>
 <td>". $registro["adnum"] ."</td>
 <td>". $registro["value"] ."</td>
+<td>". $status."</td>
 <td>";
 ?>
 <form method="post" action="index.php?op=33&id=<?php echo $registro["id"]; ?>&option=approve">
 <input type="submit" value="允许" class="button">
+<input type="hidden" name="adtype" value="<?=$status ?>"/>
 </form>
 </td><td>
 <form method="post" action="index.php?op=33&id=<?php echo $registro["id"]; ?>&option=deny">
 <input type="submit" value="拒绝" class="button">
+<input type="hidden" name="adtype" value="<?=$status ?>"/>
 </form>
 </td>
 </tr>
