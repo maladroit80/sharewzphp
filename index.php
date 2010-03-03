@@ -98,7 +98,7 @@
 								$result = mysql_query($sql);        
 								$row = mysql_fetch_array($result); echo $row["price"];
 								mysql_close($con); ?>元</strong>提成，同时赠送5个下线并优先支付。</li></span>
-		<li><span>独创的会员<a herf="addlink.php">链接收藏系统</a>，省去您频繁输入网址的烦恼，<a href="">详情</a>。</li></span>
+		<li><span>独创的会员<a href="addlink.php">链接收藏系统</a>，省去您频繁输入网址的烦恼，<a href="">详情</a>。</li></span>
 		<li><span>完善强大的<strong>返佣系统</strong>，优化返佣流程(<a href="#">说明</a>)，记录返佣历史，安全可靠。</li></span>
 		<li><span>轻松点击，完成任务，发布您的<a href="adver.php">注册广告</a>，<strong>免费</strong>发布您自己的推荐链接，轻松发展下线，<?php include('sitename.php'); ?>给您多样的赚钱模式。<a href="register.php">马上加入吧!</a></li></span>
         </div>
