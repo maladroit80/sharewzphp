@@ -46,7 +46,7 @@ if ($option=="deny"){
 		<th></th>
 	</tr>
 <?php
-$tabla = mysql_query("SELECT * FROM tb_signupads where status='no' or 'subno'  ORDER BY id ASC"); // selecciono todos los registros de la tabla usuarios, ordenado por nombre
+$tabla = mysql_query("SELECT * FROM tb_signupads where status='no' or status='subno'  ORDER BY id ASC"); // selecciono todos los registros de la tabla usuarios, ordenado por nombre
 
 while ($registro = mysql_fetch_array($tabla)) { // comienza un bucle que leera todos los registros y ejecutara las ordenes que siguen
 if($registro["status"]=='no')
