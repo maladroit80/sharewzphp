@@ -49,6 +49,37 @@ echo "
 ?>
 </table>
 </div>
+<div style="width:95%;margin:15px auto 0 auto;border:1px solid #FFCC00;">
+<table width="100%" cellpadding="0">
+<tr>
+<th class="top"> 下线链接网站名</th>
+<th class="top">奖励(元)</th>
+<th class="top">剩下数目</th>
+<th class="top">广告总数</th>
+<th class="top">站点说明</th>
+<th class="top">备注</th>
+</tr>
+<?php 
+require('config.php');
+$status="subyes";
+$tabla = mysql_query("SELECT * FROM tb_signupads WHERE status='$status' and adnum>0 ORDER BY id ASC"); // selecciono todos los registros de la tabla usuarios, ordenado por nombre
+mysql_close($con);
+while ($registro = mysql_fetch_array($tabla))
+{
+echo "
+<tr align='center' style='font-size:1.6em;'>
+<td><a href=\"viewregads.php?id=".$registro['id']."\">".$registro['adname']."</a></td>
+<td>". $registro['value'] ."元</td>
+<td>". $registro['adnum'] ."</td>
+<td>". $registro['allnum'] ."</td>
+<td>". $registro['instruction'] ."</td>
+<td>有". $registro['score'] ."个会员推荐此任务</td>
+</tr>
+";
+}
+?>
+</table>
+</div>
 
 
 

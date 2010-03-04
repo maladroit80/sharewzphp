@@ -37,9 +37,9 @@ if(!isset($_COOKIE["usNick"]) || !isset($_COOKIE["usPass"]))
 				$value=$_POST["value"];
 
 			
-			if($adnum==""||$value==""||$paypal==""||$owner==""||$url==""||$instruction=="")
+			if($adnum==""||$value==""||$paypal==""||$owner==""||$url==""||$instruction==""||!is_numeric($value))
 			{
-				echo "信息不全，为了您的广告利益，请<a href='adsignup.php'>返回</a>完善您的信息。";
+				echo "信息不全或不合法，为了您的广告利益，请<a href='adsubuser.php'>返回</a>完善您的信息。";
 				include('footer.php');
 				exit();
 			}
@@ -159,7 +159,7 @@ function change()
 
 <div align="center"><div id="form"onKeyUp="highlight(event)" onClick="highlight(event)">
 
-<form method="post" action="adsignup.php">
+<form method="post" action="adsubuser.php">
 
 <table border="0" align="left" style="margin-left:15px; BORDER-RIGHT:1px solid; BORDER-TOP:  1px solid; BORDER-LEFT: 1px solid; BORDER-BOTTOM:  1px solid;">
   <tr>
@@ -188,7 +188,7 @@ function change()
   </tr>
 <tr>
     <td width="150" align="left"><p><label>» 单个价值</label></p></td>
-    <td width="250" align="left"><input type="text" name="value" size="25" maxlength="3" autocomplete="off" class="field" tabindex="3"/></td>
+    <td width="250" align="left"><input type="text" name="value" size="25" maxlength="3" autocomplete="off" class="field" tabindex="3"/>&nbsp;<label>(如：0.2)</label></td>
   </tr>
   <tr>
     <td width="150" align="left"><p><label>» 站点介绍（可参考您推广的网站）</label></p></td>
