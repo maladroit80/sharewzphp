@@ -1,6 +1,6 @@
 <?php
 require_once("config.php");
-$pagesize=2;
+$pagesize=50;
 //取得记录总数$rs，计算总页数用
 $rs=mysql_query("select count(*) from tb_news");
 $myrow = mysql_fetch_array($rs);
