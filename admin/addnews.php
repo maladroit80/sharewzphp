@@ -1,10 +1,10 @@
 <?php
-if (isset($_POST["title"])&&isset($_POST["author"])&&isset($_POST["content"]))
+if (isset($_POST["title"])&&isset($_POST["author"])&&isset($_POST["adminfck"]))
 {
 
 $title=$_POST["title"];
 $author=$_POST["author"];
-$content=$_POST["content"];
+$content=$_POST["adminfck"];
 $type=$_POST["type"];
 if ($fp = fopen("../news/temp/newstemplate.php", "r")) {
 	$page=fread ($fp,filesize ("../news/temp/newstemplate.php"));
@@ -25,7 +25,7 @@ $query ="INSERT INTO tb_news (id,title,url,author,date, counts, type) VALUES (NU
 
 else
 {
-
+include_once("../fckeditor/fckeditor.php") ;
 ?>
 
 
@@ -36,23 +36,14 @@ else
 <div>
 <lable>标题：</lable><input type="text" name="title" style="width:500px;"></input><br/>
 <lable>作者：</lable><input type="text" name="author" style="width:200px;"></input><br/>
-<input type="hidden" value="" name="content"></input>
-<script type="text/javascript" charset="utf-8" src="./../js/KindEditor.js"></script>
-<script type="text/javascript"> 
-var editor = new KindEditor("editor");
-editor.hiddenName = "content";
-editor.skinPath = "./../editor/skins/default/";
-editor.iconPath = "./../editor/icons/";
-editor.imageAttachPath = "./editor/attached/";
-editor.imageUploadCgi = "./../editor/upload_cgi/upload.php";
-editor.cssPath = "./common.css";
-editor.editorWidth = "800px";
-editor.editorHeight = "400px";
-editor.show();
-function Submit() {
-	editor.data();
-}
-</script>
+<?php
+$oFCKeditor = new FCKeditor('adminfck') ;
+$oFCKeditor->BasePath = '../fckeditor/' ;
+//$oFCKeditor->ToolbarSet = 'MySetting';
+//$oFCKeditor->Value = '<p>This is some <strong>sample text</strong>. You are using <a href="http://www.fckeditor.net/">FCKeditor</a>.</p>' ;
+$oFCKeditor->Create() ;
+?>
+</br>
 <input type=radio name="type" CHECKED value="经验心得">经验心得</input>
 <input type=radio name="type" value="建站交流">建站交流</input>
 <input type=radio name="type" value="通告">通告</input>

@@ -1,11 +1,11 @@
 <?php
 if($_SERVER['REQUEST_METHOD']=='POST') 
 {
-if (isset($_POST["title"])&&isset($_POST["author"])&&isset($_POST["content"])&&isset($_GET["name"]))
+if (isset($_POST["title"])&&isset($_POST["author"])&&isset($_POST["adminfck"])&&isset($_GET["name"]))
 {
 $title=$_POST["title"];
 $author=$_POST["author"];
-$content=$_POST["content"];
+$content=$_POST["adminfck"];
 $type=$_POST["type"];
 $filename=$_POST["name"];
 if(file_exists("../news/".$filename))
@@ -36,38 +36,33 @@ $filename=$_GET["name"];
 if ($fp = fopen("../news/".$filename, "r"))
 {
 	$fcontent=fread ($fp,filesize ("../news/".$filename));
+	preg_match("/<!-- rc -->.*<!-- \/rc -->/si",$fcontent, $matches);
+	$matches[0]=substr($matches[0],14,strlen($matches[0])-30);
 	require_once("config.php");
 	$rs=mysql_query("select * from tb_news where url='".$filename."'");
-	$date=mysql_fetch_array($rs);
+	$data=mysql_fetch_array($rs);
 	mysql_close($con);
-	$pageno=explode('.',$filename);
-	 echo "<script>window.open('../article.php?no=".$pageno[0]."','');</script>";
+	
+	//$pageno=explode('.',$filename);
+	// echo "<script>window.open('../article.php?no=".$pageno[0]."','');</script>";
 }
 else{echo "网页不存在！"; 
 exit();
 }
+include_once("../fckeditor/fckeditor.php");
 ?>
 <form action='index.php?op=45&&page=<?php echo $_GET["page"]?>&&name=<?php echo $_GET["name"]?>' method='POST'>
 <div>
-<lable>标题：</lable><input type="text" name="title" style="width:500px;" value="<?php echo $date["title"]?>"></input><br/>
-<lable>作者：</lable><input type="text" name="author" style="width:200px;" value="<?php echo $date["author"]?>"></input><br/>
-<input type="hidden" value="" name="content"></input>
-<script type="text/javascript" charset="utf-8" src="./../js/KindEditor.js"></script>
-<script type="text/javascript"> 
-var editor = new KindEditor("editor");
-editor.hiddenName = "content";
-editor.skinPath = "./../editor/skins/default/";
-editor.iconPath = "./../editor/icons/";
-editor.imageAttachPath = "./editor/attached/";
-editor.imageUploadCgi = "./../editor/upload_cgi/upload.php";
-editor.cssPath = "./common.css";
-editor.editorWidth = "800px";
-editor.editorHeight = "400px";
-editor.show();
-function Submit() {
-	editor.data();
-}
-</script>
+<lable>标题：</lable><input type="text" name="title" style="width:500px;" value="<?php echo $data["title"]?>"></input><br/>
+<lable>作者：</lable><input type="text" name="author" style="width:200px;" value="<?php echo $data["author"]?>"></input><br/>
+<?php
+$oFCKeditor = new FCKeditor('adminfck') ;
+$oFCKeditor->BasePath = '../fckeditor/' ;
+//$oFCKeditor->ToolbarSet = 'MySetting';
+$oFCKeditor->Value = $matches[0];
+$oFCKeditor->Create() ;
+?>
+</br>
 <input type=radio name="type" CHECKED value="经验心得">经验心得</input>
 <input type=radio name="type" value="建站交流">建站交流</input>
 <input type=radio name="type" value="通告">通告</input>

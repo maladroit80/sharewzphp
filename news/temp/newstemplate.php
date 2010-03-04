@@ -9,7 +9,7 @@
           <span>{newsdatefrom} </span>
         </div>
         <div>
-          <p>{newscontents}</p>
+          <!-- rc --><p>{newscontents}</p><!-- rc -->
         </div>
       </div>
       <!-- /col-1 -->
