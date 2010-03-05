@@ -4,13 +4,13 @@ if (isset($_POST["title"])&&isset($_POST["author"])&&isset($_POST["adminfck"]))
 
 $title=$_POST["title"];
 $author=$_POST["author"];
-$content=$_POST["adminfck"];
+$content=stripslashes($_POST["adminfck"]);
 $type=$_POST["type"];
 if ($fp = fopen("../news/temp/newstemplate.php", "r")) {
 	$page=fread ($fp,filesize ("../news/temp/newstemplate.php"));
 	fclose($fp);
 	$page=str_replace ("{newstitle}",$title,$page);
-	$page=str_replace ("{newsdatefrom}",$author,$page);
+	$page=str_replace ("{newsdatefrom}",$author.'('.date("y-m-d H:i").')',$page);
 	$page=str_replace ("{newscontents}",$content,$page);
 }
 $filename=str_shuffle(date("YmdHis"));
@@ -39,6 +39,7 @@ include_once("../fckeditor/fckeditor.php") ;
 <?php
 $oFCKeditor = new FCKeditor('adminfck') ;
 $oFCKeditor->BasePath = '../fckeditor/' ;
+$oFCKeditor->Height='500';
 //$oFCKeditor->ToolbarSet = 'MySetting';
 //$oFCKeditor->Value = '<p>This is some <strong>sample text</strong>. You are using <a href="http://www.fckeditor.net/">FCKeditor</a>.</p>' ;
 $oFCKeditor->Create() ;
