@@ -5,9 +5,9 @@ if (isset($_POST["title"])&&isset($_POST["author"])&&isset($_POST["adminfck"])&&
 {
 $title=$_POST["title"];
 $author=$_POST["author"];
-$content=$_POST["adminfck"];
+$content=stripslashes($_POST["adminfck"]);
 $type=$_POST["type"];
-$filename=$_POST["name"];
+$filename=$_GET["name"];
 if(file_exists("../news/".$filename))
 {
 	if(!unlink("../news/".$filename))
