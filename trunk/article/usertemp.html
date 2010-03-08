@@ -1,0 +1,165 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="ENTER DESCRIPTION HERE" />
+<meta name="keywords" content="ENTER KEYWORDS SEPARATED BY COMMAS" />
+<meta name="owner" content="ENTER THE SITE OWNER NAME" />
+<meta name="copyright" content="ENTER SITE COPYRIGHT INFO" />
+<meta name="author" content="ENTER THE AUTHOR INFO" />
+<meta name="rating" content="General" />
+<meta name="revisit-after" content="7 days" />
+<link rel="stylesheet" media="screen,projection" type="text/css" href="../css/main.css" />
+<title></title>
+
+</head>
+<body style="margin-top:0px; padding-top:0px;">
+<div id="main">
+  <div id="header">
+    <h1 id="logo"><a href="#"><img src="../images/logo.gif" alt="" /></a></h1>
+    <hr  class="noscreen"/>
+  </div>
+  <div id="navtoplistlineup">&nbsp;</div>
+  <!-- /header -->
+  <!-- Tabs -->
+  <div id="Tablist" class="box" style='bottom:-1.5px'>  
+			<ul id='Tablistdetail'>
+				<li><a href="../index.php"><span>首页</span></a></li>
+				<li><a href="../masterads.php"><span>浏览赚钱</span></a></li><li><a href="admin/" target="_blank"><span>管理</span></a></li>            <li><a href="regads.php"><span>注册赚钱</span></a></li>
+				<li><a href="../members.php"><span>我的账户</span></a></li>
+				<li><a href="../adver.php"><span>发布广告</span></a></li>
+				<li><a href="../article.php?no=index"><span>经验心得</span></a></li>
+				<li><a href="../contact.php"><span>联系我们</span></a></li>
+				<li><a href="../bbs.php"><span>论坛</span></a></li>
+			</ul>	
+</div><!--/Tabs-->
+  <!-- TextRow -->
+  <div id="row-top"></div>
+  <div id="row-center">
+  <div id="nodemarqee">
+      <a href='#s02'><span>点击赚钱<br/></span></a>
+      <a href='#s03'><span>发布广告<br/></span></a>
+      <a href='#s04'><span>留言板<br/></span></a>
+      <a href='#s05'><span>我的账户<br/></span></a>
+  </div>
+  <div id="userinfo">
+  <a href='../login.php'>登陆</a>
+  </div>
+  <div id="row-bottom"></div>
+  <script type="text/javascript">
+    var getUL=document.getElementById("Tablistdetail");
+    var Tabs=getUL.getElementsByTagName("a");
+    var url=window.location.toString();
+    for(var n=0;n<Tabs.length;n++)
+    {
+      var Tab=Tabs[n];
+      var linkurl=Tab.href.split("?",1);
+      if(url.indexOf(linkurl)!=-1)
+      {
+        Tab.setAttribute("class","active");
+        Tab.setAttribute("className","active");
+        break;
+      }
+    }
+
+
+
+
+     var scrollnews = document.getElementById('nodemarqee');
+     var lis = scrollnews.getElementsByTagName('a');
+     var ml = 0;
+     var timer1 = setInterval
+     (function()
+       {
+        var liHeight = lis[0].offsetHeight;
+        var timer2 = setInterval
+        (function()
+          {
+            scrollnews.scrollTop = (++ml);
+            if(ml == liHeight)
+           {
+            clearInterval(timer2);
+            scrollnews.scrollTop = 0;
+            ml = 0;
+            lis[0].parentNode.appendChild(lis[0]);
+           }
+          },1000
+        ); 
+       },3000
+     );
+    </script>
+  <!-- /TextRow --><!-- Page -->
+<div id="page" class="box">
+    <ul id="weblinks">
+	<li>
+	<img border="0" src="../images/bullet2.gif" width="7" height="7"  align="absmiddle" > <B><a href="http://www.sharewz.cn" target="_blank">共享网赚网</a></B></li>
+	<li>
+	<img border="0" src="../images/bullet2.gif" width="7" height="7"  align="absmiddle" > <B><a href="buxscript.php" target="_blank">本站代码出售</a></B></li>
+	<li>
+	<img border="0" src="../images/bullet2.gif" width="7" height="7"  align="absmiddle" > <a href="http://www.sharewz.com" target="_blank"><strong>网赚指导</strong></a></li>
+	<li>
+	<img border="0" src="../images/bullet2.gif" width="7" height="7"  align="absmiddle" > <a href="http://shop34895911.taobao.com/" target="_blank"><strong>饰品店</strong></a></li>
+	<li>
+	<img border="0" src="../images/bullet2.gif" width="7" height="7"  align="absmiddle" > <a href="#">广告位2元/月</a></li>
+	<li>
+	<img border="0" src="../images/bullet2.gif" width="7" height="7"  align="absmiddle" > <a href="#">广告位2元/月</a></li>
+	<li>
+	<img border="0" src="../images/bullet2.gif" width="7" height="7"  align="absmiddle" > <a href="#">广告位2元/月</a></li>
+	<li>
+	<img border="0" src="../images/bullet2.gif" width="7" height="7"  align="absmiddle" > <a href="#">广告位2元/月</a></li>
+	<li>
+	<img border="0" src="../images/bullet2.gif" width="7" height="7"  align="absmiddle" > <a href="#">广告位2元/月</a></li>
+	</ul>
+    </div>
+    <div class="advbot1">广告位1(900*60px)</div>
+    <div class="advbot2">广告位2(450*60px)</div>
+    <div class="advbot3">广告位3(438*60px)</div>
+  </div>
+<div class="friendlink">友情链接</div>
+ <div id="footer">
+<p>&copy; 2008 <a href="index.php">sitename1有限公司</a> 版权所有<a href="tos.php"></a> | <a href="privacy.php">隐私</a> | <a href="tos.php">条款</a> | <a href="faq.php">帮助</a> | <a href="payment_proof.php">付款证明</a>  | <a href="contact.php">联系我们</a> 客服邮箱<span style="font-family: Geneva, Arial, Helvetica, sans-serif">:<span style="font-family: Arial, Helvetica, sans-serif; color: #FF0000">masteradsnet@gmail.com</span></span>
+<table align="center" width="100%" cellpadding="0">
+  <tr bgcolor="#dcebff">
+    <td height="5" colspan="8"><div align="left"></div></td>
+  </tr>
+  <tr>
+    <td><div align="center" style="font-size: 12px; color: #000000"><a href="http://www.googlebux.cn/honest/bank/paypal.html">PP网银教程</a></div></td>
+    <td><div align="center" style="font-size: 12px; color: #000000"><a href="http://googlebux.cn/buxscript.php">Googlebux程序</a></div></td>
+    <td><div align="center" style="font-size: 12px; color: #000000"><a href="http://www.googlebux.cn/honest/bank/alertpay.html">AP网银教程</a></div></td>
+    <td><div align="center" style="font-size: 12px; color: #000000"><a href="buxscript.php">Masterads程序</a></div></td>
+    <td><div align="center" style="font-size: 12px; color: #000000"><a href="http://www.googlebux.cn/honest/script.html" target="_blank">中英bux程序</a></div></td>
+    <td><div align="center" style="font-size: 12px; color: #000000"> <a href="buxscript.php">Masterads程序</a></div></td>
+    <td><div align="center" style="font-size: 12px; color: #000000"><a href="http://www.googlebux.cn/honest/script.html" target="_blank">中英bux程序</a></div></td>
+    <td><div align="center" style="font-size: 12px; color: #000000"><a href="contact.php">友情链接</a></div></td>
+  </tr>
+  <tr>
+    <td><div align="center" style="font-size: 12px; color: #000000"><a href="contact.php">友情链接</a></div></td>
+    <td><div align="center" style="font-size: 12px; color: #000000"><a href="contact.php">友情链接</a></div></td>
+    <td><div align="center" style="font-size: 12px; color: #000000"><a href="contact.php">友情链接</a></div></td>
+    <td><div align="center" style="font-size: 12px; color: #000000"><a href="contact.php">友情链接</a></div></td>
+    <td><div align="center" style="font-size: 12px; color: #000000"><a href="contact.php">友情链接</a></div></td>
+    <td><div align="center" style="font-size: 12px; color: #000000"><a href="contact.php">友情链接</a></div></td>
+    <td><div align="center" style="font-size: 12px; color: #000000"><a href="contact.php">友情链接</a></div></td>
+    <td><div align="center" style="font-size: 12px; color: #000000"><a href="contact.php">友情链接</a></div></td>
+  </tr>
+  <tr>
+    <td><div align="center" style="font-size: 12px; color: #000000"><a href="contact.php">友情链接</a></div></td>
+    <td><div align="center" style="font-size: 12px; color: #000000"><a href="contact.php">友情链接</a></div></td>
+    <td><div align="center" style="font-size: 12px; color: #000000"><a href="contact.php">友情链接</a></div></td>
+    <td><div align="center" style="font-size: 12px; color: #000000"><a href="contact.php">友情链接</a></div></td>
+    <td><div align="center" style="font-size: 12px; color: #000000"><a href="contact.php">友情链接</a></div></td>
+    <td><div align="center" style="font-size: 12px; color: #000000"><a href="contact.php">友情链接</a></div></td>
+    <td><div align="center" style="font-size: 12px; color: #000000"><a href="contact.php">友情链接</a></div></td>
+    <td><div align="center" style="font-size: 12px; color: #000000"><a href="contact.php">友情链接</a></div></td>
+  </tr>
+  <tr bgcolor="#dcebff">
+    <td height="4" colspan="8"><div align="center" style="font-size: 12px; color: #000000"></div>      </td>
+    </tr>
+</table>
+<p><br>
+  <a href="http://validator.w3.org/check?uri=referer"></a>
+  </div>
+</div>
+</body>
+</html>
