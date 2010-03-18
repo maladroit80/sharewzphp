@@ -502,8 +502,8 @@ break;
 ?>
 <?php include('deletenews.php'); 
    break;
-   case(45):
-   	include("editback.php");
+   case(55):
+   	include("addbacksite.php");
    	break;
     case(46):
    	include("linkmanage.php");
