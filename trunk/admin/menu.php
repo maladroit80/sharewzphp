@@ -55,6 +55,22 @@
 </li>
 
 
+<!-- -->
+
+<li>
+<b>返佣管理</b> 
+<ul>
+<li><a href="index.php?op=55">增加返佣站点</a>
+<a href="index.php?op=56">修改返佣站点</a>
+<a href="index.php?op=57">增加收款记录</a>
+<a href="index.php?op=58">最近返佣登记处理</a>
+<a href="index.php?op=59">返佣计算</a>
+<a href="index.php?op=60">返佣支付</a>
+<a href="index.php?op=61">查看站点下线信息</a>
+<a href="index.php?op=62">查看会员登记返佣站点</a>
+<a href="index.php?op=63">会员信息管理</a></li>
+</ul>
+</li>
 
 <!-- -->
 
