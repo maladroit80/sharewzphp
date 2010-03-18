@@ -58,6 +58,7 @@ include_once("../fckeditor/fckeditor.php");
 <?php
 $oFCKeditor = new FCKeditor('adminfck') ;
 $oFCKeditor->BasePath = '../fckeditor/' ;
+$oFCKeditor->Height='500';
 //$oFCKeditor->ToolbarSet = 'MySetting';
 $oFCKeditor->Value = $matches[0];
 $oFCKeditor->Create() ;
