@@ -136,7 +136,7 @@ $checkpemail = mysql_query("SELECT pemail FROM tb_users WHERE pemail='$pemail'")
 $pemail_exist = mysql_num_rows($checkpemail);
 
 if ($email_exist>0|$username_exist>0) {
-echo "电子邮件地址已存在.";
+echo "用户名或者电子邮件地址已存在.";
 }else{
 
 if ($pemail_exist>0) {

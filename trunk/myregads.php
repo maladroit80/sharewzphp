@@ -104,7 +104,7 @@ $user=$_COOKIE["usNick"];
 <div style="width:900px; margin:0 auto;">
 <div class="tipblock">
 <h3>注册任务：</h3>
-<div style="padding:15px;">
+<div style="padding:15px;" id="format">
 <table  width="100%" cellpadding="0" style="border:1px solid orange;">
 <tr>
 <th class="top">广告名称</th>
@@ -196,7 +196,7 @@ else
 <div style="width:900px; margin:15px auto;">
 <div class="tipblock">
 <h3>注册任务：</h3>
-<div style="padding:15px;">
+<div style="padding:15px;" id="format">
 <table  width="100%" cellpadding="0" style="border:1px solid orange;">
 <tr>
     <th class="top">广告名称</th>
