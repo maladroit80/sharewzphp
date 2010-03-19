@@ -342,7 +342,7 @@ Others
 .temphead {overflow:hidden;text-align:center;}
 
 .tipblock h3{background:url("../images/blockhead.gif");border-top:1px solid #FFCC00;border-left:1px solid #FFCC00;border-right:1px solid #FFCC00;margin:0;padding-left:10px;}
-.tipblock div{border-bottom:1px solid #FFCC00;border-left:1px solid #FFCC00;border-right:1px solid #FFCC00;}
+.tipblock #format{border-bottom:1px solid #FFCC00;border-left:1px solid #FFCC00;border-right:1px solid #FFCC00;}
 
 .browsercontent {float:right;width:680px;}
 .browser {overflow:hidden;border:1px solid #FFCC00;}

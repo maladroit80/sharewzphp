@@ -96,8 +96,8 @@ function opencommend(){
 
 <form action="addlink.php" method="POST" onsubmit="return submiturl();"> 
 <div class="tipblock" style="float:left;width:670px">
-        <h3>添加网络书签<span id="addtip" style="color:red;display: inline-block;width:200px;font-weight:normal;" ></span><input type="image" src="./images/hsubmit-button.gif" style="margin-left:300px;margin-top:2px;"/></h3>
-<div>
+<h3>添加网络书签<span id="addtip" style="color:red;display: inline-block;width:200px;font-weight:normal;" ></span><input type="image" src="./images/hsubmit-button.gif" style="margin-left:300px;margin-top:2px;"/></h3>
+<div id="format">
 <table style="margin:0;">
 <tr>
 <td width="80"><p><lable>网址：</lable></p></td>
@@ -141,7 +141,7 @@ function opencommend(){
 </form>
 <div class="tipblock" style="float:left;width:670px;padding-top:20px;">
 <h3>请选择适量的网址打开，贪多小心死机哦</h3>
-<div>
+<div id="format">
 <?php
 include("config.php");
 $username=$_COOKIE["usNick"];

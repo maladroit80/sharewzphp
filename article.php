@@ -10,13 +10,13 @@ include ('header.php');
       <div style="float:left;width:700px;">
       <div class="tipblock" style="float:left;width:250px">
         <h3>广告</h3>
-        <div style="height:400px">1</div>
+        <div style="height:400px" id="format">1</div>
       </div>
       <div style="float:right;width:400px;margin-right:20px;height:100px">
       </div>
         <div class="tipblock" style="float:right;width:420px;margin-right:20px;margin-top:20px">
         <h3>广告</h3>
-        <div style="height:280px">1</div>
+        <div style="height:280px" id="format">1</div>
       </div>
       </div>
       <!-- /col-1 -->
@@ -31,9 +31,6 @@ include ('header.php');
   <!-- footer -->
   <?php include("footer.php") ?>;
   <!-- /footer -->
-</div>
-</body>
-</html>
 <?php
 }
 else

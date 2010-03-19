@@ -1,4 +1,8 @@
-
+--
+-- create on 2010.3.19 by Timorning
+--
+alter table tb_news add origin varchar(11) NOT NULL;
+alter table tb_news add content blob NOT NULL;
 --
 -- create on 2009.12.26 by Timorning
 --
