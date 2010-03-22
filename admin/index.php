@@ -505,8 +505,8 @@ break;
    case(55):
    	include("addbacksite.php");
    	break;
-    case(46):
-   	include("linkmanage.php");
+    case(56):
+   	include("editbacksite.php");
    	break;
 
 
