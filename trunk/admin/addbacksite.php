@@ -3,35 +3,37 @@
 <br>
 
 <?
-$id=$_POST["id"];
-$user = $_POST["user"];
-$tipo = $_POST["tipo"];
-$plan = $_POST["plan"];
-$url = $_POST["url"];
-$description = $_POST["description"];
-$category = $_POST["category"];
+$sitename=$_POST["sitename"];
+$siteid=$_POST["siteid"];
+$clickvalue = $_POST["clickvalue"];
+$moneyunit = $_POST["moneyunit"];
+$referearnpercent = $_POST["referearnpercent"];
+$backpercent = $_POST["backpercent"];
+$minpay = $_POST["minpay"];
+$paymethod = $_POST["paymethod"];
+$maxrefernumber = $_POST["maxrefernumber"];
+$nowrefernumber = $_POST["nowrefernumber"];
+$backnumber = $_POST["backnumber"];
+$sitestatus = $_POST["sitestatus"];
+$sitecategory = $_POST["sitecategory"];
+$referlink = $_POST["referlink"];
+$helplink = $_POST["helplink"];
+$sitecomment = $_POST["sitecomment"];
+$sitetime = $_POST["sitetime"];
 
 
+//$sql = "SELECT select max(site_id) from  FROM tb_back_site WHERE id='1'";
+//$result = mysql_query($sql);   
 
-
-if($url==NULL) {
+if($siteid==NULL) {
 }else{
-
-
-// sanitizamos las variables
-
-//$user = limpiar($user);
-//$tipo = limpiar($tipo);
-//$plan = limpiar($plan);
-//$url = limpiar($url);
-//$description = limpiar($description);
-//$category = limpiar($category);
-
-
-$query = "INSERT INTO tb_ads (user, tipo, plan, url, description, category) VALUES( 'admin', 'ads', '1000', '$url', '$description', '$category')";
+$query = "INSERT INTO tb_back_site (  site_name, click_value, site_money_unit, refer_earn_per, back_percent," .
+		"min_pay,site_pay_method,max_refer_number,now_refer_number,back_number,site_status,site_category,refer_link,help_link,site_comment,site_time) VALUES(" .
+		"'$sitename', '$clickvalue', '$moneyunit', '$referearnpercent', '$backpercent', '$minpay', '$paymethod', '$maxrefernumber', " .
+		"'$nowrefernumber', '$backnumber', '$sitestatus', '$sitecategory', '$referlink', '$helplink', '$sitecomment', '$sitetime')";
 mysql_query($query) or die(mysql_error());
 
-echo "广告被添加..";
+echo "恭喜成功添加网赚站点";
 
 
 }
@@ -48,14 +50,10 @@ echo "广告被添加..";
 <th width="150">站点id:</th>
 <td><input type="text" size="25" maxlength="100" name="siteid" autocomplete="off" value="<?php
 
-$sql = "SELECT select max(site_id) from  FROM tb_back_site WHERE id='1'";
-$result = mysql_query($sql);        
-//$row = mysql_fetch_array($result);
-
- //echo $row["sitepp"]; 
- if ($result = 0){
- echo "0";}
- else {echo $result+1;}
+$sql = "SELECT max(site_id) FROM tb_back_site";
+$result = mysql_query($sql); 
+$row = mysql_fetch_array($result);
+echo $row[0]+ 1;
  ?>"></td>
 </tr>
 <tr>
@@ -68,11 +66,12 @@ $result = mysql_query($sql);
   <th width="150">货币单位:</th>
   <td>
 <select name='moneyunit'>
-<option value="title">人民币</option>
+<option value="￥">人民币</option>
 
-<option value="content">美元</option>
+<option value="$">美元</option>
 </select>
-</td></tr>
+</td>
+</tr>
 <tr>
   <th width="150">下线提成比例:</th>
   <td><input type="text" size="25" maxlength="100" name="referearnpercent" autocomplete="off"></td></tr>
@@ -81,9 +80,9 @@ $result = mysql_query($sql);
   <td>
 
 <select name='backpercent'>
-<option value="title">50%</option>
-
-<option value="content">70%</option>
+<option value="0.5">50%</option>
+<option value="0.7">70%</option>
+<option value="1.0">100%</option>
 </select>
 </td></tr>
 <tr>
@@ -97,19 +96,19 @@ $result = mysql_query($sql);
   <td><input type="text" size="25" maxlength="100" name="maxrefernumber" autocomplete="off"></td></tr>
 <tr>
   <th width="150">当前下线人数:</th>
-  <td><input type="text" size="25" maxlength="100" name="nowrefernumber" autocomplete="off"></td></tr>
+  <td><input type="text" size="25" maxlength="100" name="nowrefernumber" autocomplete="off" value="0"></td></tr>
 <tr>
   <th width="150">返佣次数:</th>
-  <td><input type="text" size="25" maxlength="100" name="backnumber" autocomplete="off"></td></tr>
+  <td><input type="text" size="25" maxlength="100" name="backnumber" autocomplete="off" value="0"></td></tr>
 <tr>
   <th width="150">站点状态:</th>
   <td>
 
-<select name='backpercent'>
-<option value="title">金钻推荐</option>
-<option value="title">银钻推荐</option>
-<option value="title">铜钻推荐</option>
-<option value="content">推荐</option>
+<select name='sitestatus'>
+<option value="金钻推荐">金钻推荐</option>
+<option value="银钻推荐">银钻推荐</option>
+<option value="铜钻推荐">铜钻推荐</option>
+<option value="推荐">推荐</option>
 </select>
 </td></tr>
 <tr>
@@ -117,16 +116,16 @@ $result = mysql_query($sql);
   <td><input type="text" size="25" maxlength="100" name="sitecategory" autocomplete="off"></td></tr>
 <tr>
   <th width="150">下线链接:</th>
-  <td><input type="text" size="25" maxlength="100" name="referlink" autocomplete="off"></td></tr>
+  <td><input type="text" size="25" maxlength="100" name="referlink" autocomplete="off" value="http://"></td></tr>
 <tr>
   <th width="150">教程链接:</th>
-  <td><input type="text" size="25" maxlength="100" name="helplink" autocomplete="off"></td></tr>
+  <td><input type="text" size="25" maxlength="100" name="helplink" autocomplete="off" value="http://"></td></tr>
 <tr>
   <th width="150">站点说明:</th>
-  <td><input type="text" size="25" maxlength="100" name="sitecomment" autocomplete="off"></td></tr>
+  <td><input type="text" size="25" maxlength="100" name="sitecomment" autocomplete="off" value="注意推荐人为本站ID【easywzw】"></td></tr>
 <tr>
   <th width="150">加入时间:</th>
-  <td><input type="text" size="25" maxlength="100" name="sitetime" autocomplete="off" value="<?php echo date("l   dS   of   F   Y   h:i:s   A"); ?>"></td></tr>
+  <td><input type="text" size="25" maxlength="100" name="sitetime" autocomplete="off" value="<?php echo date("Y-n-j"); ?>"></td></tr>
 
 <tr><td></td><td>
 <input type="submit" value="添加" class="button"></td></tr></table>
