@@ -5,16 +5,54 @@ if(!isset($_COOKIE["usNick"]) || !isset($_COOKIE["usPass"]))
     exit();
 }
 $title=isset($_POST['title'])?$_POST['title']:'';
-$content=isset($_POST['userfck'])?$_POST['userfck']:'';;
+$content=isset($_POST['userfck'])?stripslashes($_POST['userfck']):'';
+$postboardtype=isset($_POST['boardtype'])?$_POST['boardtype']:'';
+if(isset($_POST['original']))
+{
+	if($_POST['original']=='1')
+		$isoriginal=true;
+	else if($_POST['original']=='0')
+		$isoriginal=false;
+	else
+		$isoriginal='';
+}
+
 if($_SERVER['REQUEST_METHOD'] == 'POST')
 {
-	if(isset($_POST['sub'])&&$_POST['title']!=''&&$_POST['original']!=''&&$_POST['boardtype']!=''&&$_POST['userfck']!='')
+	if($_POST['title']==''||$isoriginal===''||$_POST['boardtype']==''||$_POST['userfck']=='')
 	{
-		echo '<b>请填写完整的文章信息</b></br>';
+		echo '<br/><div style="text-align:center;color:red"  ><b>请填写完整的文章信息</b></br></div>';
 	}
 	else
 	{
-		
+		include('config.php');
+		$author=$_COOKIE["usNick"];
+		$sql = "SELECT * FROM tb_users WHERE username='$author'";
+		$result = mysql_query($sql);        
+		$row = mysql_fetch_array($result);
+		$userid=$row['id'];
+		$fileid=$userid.str_shuffle(date("YmdHis"));
+		$original=$isoriginal?'1':'0';
+		$query ="INSERT INTO tb_news (id,title,url,author,date, counts, type, origin, content) VALUES (NULL, '".$title." ', '".$fileid." ', '".$author."', '".date("y-m-d H:i")." ', '1', '".$postboardtype."','".$original."','".mysql_escape_string($content)."');";
+ 		mysql_query($query) or die(mysql_error());
+ 		echo '<br/><div style="text-align:center"><b>文章发布成功</b>&nbsp; <input id="clock" size="3" readonly="readonly" style="border: medium none ; padding: 0pt; font-size: 12pt;" type="text"/></br></div>';
+ 		echo '<script>
+				var x = 5
+				var y = 1
+				function startClock(){
+				if(x!=="Done"){
+				x = x-y
+				document.getElementById("clock").value = x
+				setTimeout("startClock()", 1000)
+				}
+				if(x==0){
+				x="Done";
+				location.href="members.php";
+				}}
+				window.onload=startClock();
+				</script>';
+		include("footer.php");
+		exit();
 	}
 }
 $boardTypes=array(
@@ -35,18 +73,18 @@ $boardTypes=array(
 		<li>请根据您的文章内容正确选择文章分类，以保证更多的站友看到您的文章.</li>
 		</ul>
       <h3>发布文章</h3>
-      <div id="format" style="height:650px">
-      	<div>
-      	
-  		<form action="addboard.php" method="post" enctype="text/plain">
-      	<lable>标题：</lable><input type="text" name="title" style="width:500px;" value="<?=$title ?>"></input><br/><br/> 	
-  		<input type="radio" checked="checked" name="original" value="original">原创</input><input type="radio" name="original" value="copy">转贴</input>
+      <div id="format">
+      	<div>    	
+  		<form action="addboard.php" method="post">
+      	<lable>标题：</lable><input type="text" name="title" style="width:500px;" value="<?=$title ?>"></input><br/><br/> 
+  		<input type="radio" <?php if($isoriginal===true) echo 'checked="checked"'; ?> name="original" value="1">原创</input><input type="radio" <?php if($isoriginal===false) echo 'checked="checked"'; ?> name="original" value="0">转贴</input>
   		&nbsp; <lable>分类：</lable>
   		<select name="boardtype" size="1">
   		<?php 
   		foreach($boardTypes as $key=>$boardType)
   		{
-  			echo '<option value="'.$key.'">'.$boardType.'</option>';
+  			$isselect=$key==$postboardtype?'selected="selected"':'';
+  			echo '<option value="'.$key.'"'.$isselect.'>'.$boardType.'</option>';
   		}
   		?>
   		</select>

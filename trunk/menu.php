@@ -83,22 +83,22 @@ $administrator = $row['user_status'];
 echo"            <li><a href=\"regads.php\"><span>注册赚钱</span></a></li>
 				<li><a href=\"members.php\"><span>我的账户</span></a></li>
 				<li><a href=\"adver.php\"><span>发布广告</span></a></li>
-				<li><a href=\"article.php?no=index\"><span>经验心得</span></a></li>
+				<li><a href=\"article.php\"><span>经验心得</span></a></li>
 				<li><a href=\"contact.php\"><span>联系我们</span></a></li>
 				<li><a href=\"bbs.php\"><span>论坛</span></a></li>
 			</ul>	
 			";
        if($administrator=="admin")
        {
-	        $userstatus="<span>欢迎回来，</span><a href='member.php'>".$row['username']."</a><span style='color:#f00;'>（管理员）</span>";
+	        $userstatus="<span>欢迎回来，</span><a href='members.php'>".$row['username']."</a><span style='color:#f00;'>（管理员）</span>";
        }
        else if($row['account'] =="")
        {
-	        $userstatus="<span>欢迎回来，</span><a href='member.php'>".$row['username']."</a><span style='color:#808080;'>（会员）</span><a href='upgrade.php'>【升级】</a>";
+	        $userstatus="<span>欢迎回来，</span><a href='members.php'>".$row['username']."</a><span style='color:#808080;'>（会员）</span><a href='upgrade.php'>【升级】</a>";
        }
        else
        {
-       	    $userstatus="<span>欢迎回来，</span><a href='member.php'>".$row['username']."</a><span style='color:#f00;'>（高级会员）</span>";
+       	    $userstatus="<span>欢迎回来，</span><a href='members.php'>".$row['username']."</a><span style='color:#f00;'>（高级会员）</span>";
        }				
 			
 }
@@ -115,7 +115,7 @@ echo "
 				<li><a href=\"masterads.php\"><span>浏览赚钱</span></a></li>
 				<li><a href=\"regads.php\"><span>注册赚钱</span></a></li>
 				<li><a href=\"adver.php\"><span>发布广告</span></a></li>
-				<li><a href=\"article.php?no=index\"><span>经验心得</span></a></li>
+				<li><a href=\"article.php\"><span>经验心得</span></a></li>
 				<li><a href=\"contact.php\"><span>联系我们</span></a></li>
 				<li><a href=\"bbs.php\"><span>论坛</span></a></li>
 			</ul>

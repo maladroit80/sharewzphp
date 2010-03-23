@@ -1,5 +1,5 @@
 <?php
-if (!isset($_GET["no"])||strtolower($_GET["no"])=="index")
+if (!isset($_GET["no"]))
 {
 include ('header.php');
 ?>
@@ -46,9 +46,31 @@ else
     }
     else
     {
+    	require('config.php');
+    	$htmlarticles=mysql_query("SELECT * FROM tb_news WHERE url='$node'");
+    	if(mysql_num_rows($htmlarticles)>0)
+    	{
+    		$htmlarticle=mysql_fetch_array($htmlarticles);
+    		$title=$htmlarticle['title'];
+    		$author=$htmlarticle['author'];
+    		$content=$htmlarticle['content'];
+    		$date=$htmlarticle['date'];
+    		if ($fp = fopen("article/usertemp.html", "r")) {
+			$page=fread ($fp,filesize ("article/usertemp.html"));
+			fclose($fp);
+			$page=str_replace ("{newstitle}",$title,$page);
+			$page=str_replace ("{newsdatefrom}",$author.'('.$date.')',$page);
+			$page=str_replace ("{newscontents}",$content,$page);
+			echo $page;
+			}
+    	}
+    	else
+    	{
 ?>
-<META HTTP-EQUIV="REFRESH" CONTENT="0;URL=article.php?no=index">
+<META HTTP-EQUIV="REFRESH" CONTENT="0;URL=article.php">
 <?php
-}
-}
+    	}
+    }
+}  
 ?>
+
