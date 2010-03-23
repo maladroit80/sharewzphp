@@ -1,8 +1,4 @@
---
--- create on 2010.3.19 by Timorning
---
-alter table tb_news add origin varchar(11) NOT NULL;
-alter table tb_news add content blob NOT NULL;
+
 --
 -- create on 2009.12.26 by Timorning
 --
@@ -60,9 +56,9 @@ INSERT INTO `tb_ads` (`id`, `user`, `ip`, `tipo`, `visitime`, `ident`, `fechaini
 (2, 'admin', '', 'visit', '1213866487', '1', '', '', '', '', '', '', '', '', '', '0', '0', '0'),
 (4, 'admin', '', 'visit', '1213866845', '3', '', '', '', '', '', '', '', '', '', '0', '0', '0'),
 (6, 'admin', '', 'visit', '1213867110', '5', '', '', '', '', '', '', '', '', '', '0', '0', '0'),
-(9, 'admin', '', 'ads', '', '', '', '', '', '1000', '', '', 'http://www.ehusoft.com', 'ehusoft', '2', '0', '0', '0'),
-(8, 'admin', '', 'ads', '', '', '', '', '', '1000', '', '', 'http://www.wycy8.cn', 'wycy8', '1', '0', '0', '0'),
-(11, 'admin', '', 'ads', '', '', '', '', '', '1000', '', '', 'http://www.ehuwang.com', 'ehuwang', '3', '0', '0', '0');
+(9, 'admin', '', 'ads', '', '', '', '', '', '1000', '', '', 'http://www.sharewz.com', 'ehusoft', '2', '0', '0', '0'),
+(8, 'admin', '', 'ads', '', '', '', '', '', '1000', '', '', 'http://www.sharewz.com', 'wycy8', '1', '0', '0', '0'),
+(11, 'admin', '', 'ads', '', '', '', '', '', '1000', '', '', 'http://www.sharewz.com', 'ehuwang', '3', '0', '0', '0');
 
 -- --------------------------------------------------------
 
@@ -262,8 +258,8 @@ CREATE TABLE IF NOT EXISTS `tb_messenger` (
 INSERT INTO `tb_messenger` (`id`, `sendfrom`, `sendto`, `date`, `comments`, `status`) VALUES
 (23, 'refadmin', 'admin', '09-01-08 03:24', 'hola mi amor', 'read'),
 (29, 'admin', 'lmmfgdao', '20-04-08 16:30', '&eacute ', 'unread'),
-(30, 'admin', 'refadmin', '20-04-08 16:31', '阿道夫', 'unread'),
-(31, 'admin', 'refadmin', '20-04-08 16:31', '阿道夫', 'unread');
+(30, 'admin', 'refadmin', '20-04-08 16:31', '阿道�?, 'unread'),
+(31, 'admin', 'refadmin', '20-04-08 16:31', '阿道�?, 'unread');
 
 -- --------------------------------------------------------
 
@@ -287,11 +283,11 @@ CREATE TABLE IF NOT EXISTS `tb_news` (
 --
 
 INSERT INTO `tb_news` (`id`, `title`, `url`, `author`, `date`, `counts`, `type`) VALUES
-(1, '阿斯顿', '阿斯顿', '阿斯顿', '阿斯顿', 1, '啊啊'),
-(2, 'å•Šæ˜¯', '79621105550026.php', 'çˆ±ä»•è¾¾', '1260115076', 1, 'ç»éªŒå¿ƒå¾—'),
-(3, 'å•Šæ˜¯', '04746016020219.php', 'çˆ±ä»•è¾¾', '1260115487', 1, 'ç»éªŒå¿ƒå¾—'),
-(4, 'æ—¥ä½ ', '20062611322900.php', 'ç½šæ¬¾', '09-12-06 16:23', 1, 'ç»éªŒå¿ƒå¾—'),
-(5, 'å•Šå•Š', '06022103196320.php', 'ä»¬æ‰“', '09-12-06 16:32', 1, 'ç»éªŒå¿ƒå¾—');
+(1, '阿斯�?, '阿斯�?, '阿斯�?, '阿斯�?, 1, '啊啊'),
+(2, 'å•Šæ˜�?, '79621105550026.php', 'çˆ±ä»•è¾�?, '1260115076', 1, 'ç»éªŒå¿ƒå¾�?),
+(3, 'å•Šæ˜�?, '04746016020219.php', 'çˆ±ä»•è¾�?, '1260115487', 1, 'ç»éªŒå¿ƒå¾�?),
+(4, 'æ—¥ä�?', '20062611322900.php', 'ç½šæ¬¾', '09-12-06 16:23', 1, 'ç»éªŒå¿ƒå¾�?),
+(5, 'å•Šå•�?, '06022103196320.php', 'ä»¬æ‰�?, '09-12-06 16:32', 1, 'ç»éªŒå¿ƒå¾�?);
 
 -- --------------------------------------------------------
 
@@ -486,3 +482,71 @@ CREATE TABLE IF NOT EXISTS `users_online` (
 
 INSERT INTO `users_online` (`visitor`, `lastvisit`) VALUES
 ('127.0.0.1', 1260116480);
+
+
+-- ----------------add by hilary(2010/03/18)----------------
+
+--
+-- Table structure for table `tb_back_common`
+--
+
+CREATE TABLE IF NOT EXISTS `tb_back_common` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(150) NOT NULL DEFAULT '',
+  `backname` varchar(150) NOT NULL DEFAULT '',
+  `site_id` int(11),
+  `site_name` varchar(150),
+  `last_click` int(11),
+  `pay_click` int(11),
+  `current_click` int(11),
+  `last_back` varchar(150),
+  `pay_back` varchar(150),
+  `current_back` varchar(150),
+  `site_reg_status` varchar(150),
+  `pay_status` varchar(150),
+  `back_time` varchar(35),
+  `site_reg_time` varchar(35),
+  KEY `id` (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- ---------------add by hilary(2010/03/18)-----------------
+--
+-- Table structure for table `tb_site`
+--
+
+CREATE TABLE IF NOT EXISTS `tb_back_site` (
+  `site_id` int(11) NOT NULL AUTO_INCREMENT,
+  `site_name` varchar(150) NOT NULL DEFAULT '',
+  `click_value` float(10),
+  `site_money_unit` varchar(50),
+  `refer_earn_per` float(10),
+  `back_percent` float(10),
+  `min_pay` float(10),
+  `site_pay_method` varchar(100),
+  `max_refer_number` int(11),
+  `now_refer_number` int(11),
+  `back_number` int(11),
+  `site_status` varchar(150),
+  `site_category` varchar(150),
+  `refer_link` varchar(150),
+  `help_link` varchar(150),
+  `site_comment` varchar(500),
+  `site_time` varchar(35),
+  KEY `site_id` (`site_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- ---------------add by hilary(2010/03/23)-----------------
+--
+-- Table structure for table `tb_payproof`
+--
+
+CREATE TABLE IF NOT EXISTS `tb_payproof` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `site_id` int(11),
+  `site_name` varchar(150),
+  `pay_number` int(10),
+  `now_pay_sum` float(50),
+  `all_pay_sum` float(10),
+  `pay_time` varchar(35),
+  KEY `id` (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
