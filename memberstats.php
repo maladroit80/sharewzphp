@@ -1,4 +1,4 @@
-<?php require('config.php');
+<?php require("config.php");
 
 
 $sql = "SELECT * FROM tb_users WHERE username='$user'";

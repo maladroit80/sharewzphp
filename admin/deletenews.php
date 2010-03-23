@@ -44,7 +44,7 @@ $page=1;
 //计算记录偏移量
 $offset=$pagesize*($page - 1);
 //读取指定记录数
-$rs=mysql_query("select * from tb_news order by date desc limit $offset,$pagesize");
+$rs=mysql_query("select * from tb_news where origin='3' order by date desc limit $offset,$pagesize");
 if ($myrow = mysql_fetch_array($rs))
 {
 $i=0;

@@ -17,7 +17,7 @@ $filename=str_shuffle(date("YmdHis"));
 $path="./../news/".$filename.".php";
 file_put_contents("$path",$page);
 include('config.php');
-$query ="INSERT INTO tb_news (id,title,url,author,date, counts, type) VALUES (NULL, '".$title." ', '".$filename.".php"." ', '".$author."', '".date("y-m-d H:i")." ', '1', '".$type."');";
+$query ="INSERT INTO tb_news (id,title,url,author,date, counts, type, origin) VALUES (NULL, '".$title." ', '".$filename.".php"." ', '".$author."', '".date("y-m-d H:i")." ', '1', '".$type."', '3');";
  mysql_query($query) or die(mysql_error());
  echo "成功发布";
 }

@@ -1,5 +1,5 @@
 <?php
-require ('config.php');
+require("config.php");
 $lole=$_COOKIE["usNick"];
 $check_messages = mysql_query("SELECT * FROM tb_messenger WHERE sendto='$lole' and status='unread'");
 $messages = mysql_num_rows($check_messages);
@@ -20,6 +20,7 @@ mysql_close($con);
 	<li><a href="purchase.php" >购买下线</a></li>
 	<li><a href="addlink.php" >收藏链接</a></li>
 	<li><a href="adver.php" >发布广告</a></li>
+	<li><a href="myarticle.php" >我的文章</a></li>
 	<li><a href="logout.php" >退出</a></li>
 	</ul>
 	
