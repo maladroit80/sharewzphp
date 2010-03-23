@@ -508,6 +508,18 @@ break;
     case(56):
    	include("editbacksite.php");
    	break;
+    case(57):
+   	include("editpayproof.php");
+   	break;
+    case(571):
+   	include("addpayproof.php");
+   	break;
+    case(572):
+   	include("payproof.php");
+   	break;
+    case(58):
+   	include("applyback.php");
+   	break;
 
 
 

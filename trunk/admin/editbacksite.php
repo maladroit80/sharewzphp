@@ -117,7 +117,7 @@ if ($option=="delete"){
 
 <table cellspacing="0" cellpadding="0">
 <tr>
-<th>站点</th>
+<th>站点id</th>
 <th>站点名</th>
 <th>点击值</th>
 <th>货币单位</th>
