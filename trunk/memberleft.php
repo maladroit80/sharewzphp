@@ -23,6 +23,5 @@ mysql_close($con);
 	<li><a href="myarticle.php" >我的文章</a></li>
 	<li><a href="logout.php" >退出</a></li>
 	</ul>
-	
 	</div>
   

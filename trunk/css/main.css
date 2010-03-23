@@ -402,8 +402,8 @@ memberleft.php styles by hilary
 .channel ul { list-style:none; margin:0px;}
 .channel li { padding-left:8px; text-align:left; }
 .channel a { background:url(../images/arrow2.gif) no-repeat left; padding-left:10px; color:#457a8b; font-size:14px; font-weight:bold; }
-.channel a:link { background:url(../images/arrow2.gif) no-repeat left; padding-left:10px; color: #687733; }
-.channel a:visited { background:url(../images/arrow2.gif) no-repeat left; padding-left:10px; color: #687733; }
+.channel a:link { background:url(../images/arrow2.gif) no-repeat left; padding-left:10px; color: #0067E6; }
+.channel a:visited { background:url(../images/arrow2.gif) no-repeat left; padding-left:10px; color: #0067E6; }
 .channel a:hover { background:url(../images/arrow1.gif) no-repeat left; padding-left:10px; color:#78b4c7; }
 .channel a:active { background:url(../images/arrow1.gif) no-repeat left; padding-left:10px; color:#78b4c7; }
 
