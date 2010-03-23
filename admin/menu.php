@@ -62,7 +62,7 @@
 <ul>
 <li><a href="index.php?op=55">增加返佣站点</a>
 <a href="index.php?op=56">修改返佣站点</a>
-<a href="index.php?op=57">增加收款记录</a>
+<a href="index.php?op=57">增加修改收款记录</a>
 <a href="index.php?op=58">最近返佣登记处理</a>
 <a href="index.php?op=59">返佣计算</a>
 <a href="index.php?op=60">返佣支付</a>
