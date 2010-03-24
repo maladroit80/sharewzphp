@@ -550,3 +550,21 @@ CREATE TABLE IF NOT EXISTS `tb_payproof` (
   `pay_time` varchar(35),
   KEY `id` (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- ---------------add by hilary(2010/03/24)-----------------
+--
+-- Table structure for table `tb_payproof`
+--
+
+CREATE TABLE IF NOT EXISTS `tb_back_account` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` int(11),
+  `zhifubao` varchar(150),
+  `realname` varchar(150),
+  `back_account` varchar(150),
+  `now_back_sum` float(50),
+  `all_back_sum` float(10),
+  `back_pay_number` int(10),
+  `back_pay_time` varchar(35),
+  KEY `id` (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
