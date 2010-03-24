@@ -520,6 +520,16 @@ break;
     case(58):
    	include("applyback.php");
    	break;
+    case(59):
+   	include("backsitelist.php");
+   	break;
+    case(591):
+   	include("calcback.php");
+   	break;
+    case(592):
+   	include("calcprocess.php");
+   	break;
+   	
 
 
 
