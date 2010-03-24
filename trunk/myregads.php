@@ -1,5 +1,4 @@
 <?php include('header.php'); ?>
-<br>
 <?php
 require('config.php');
 if (isset($_GET["id"]))
@@ -100,10 +99,13 @@ $user=$_COOKIE["usNick"];
 	
 }
 ?>
+<div class="mem_left">
+<?php include('memberleft.php')?>
+</div>
+<div class="box" style="margin-top:20px;">
 <!-- 注册任务 -->
-<div style="width:900px; margin:0 auto;">
-<div class="tipblock">
-<h3>注册任务：</h3>
+<div class="tipblock" style="float:left;width:670px;margin-left:20px">
+<h3>我完成的注册任务：</h3>
 <div style="padding:15px;" id="format">
 <table  width="100%" cellpadding="0" style="border:1px solid orange;">
 <tr>
@@ -189,13 +191,11 @@ else
 </table>
 </div>
 </div>
-</div>
 <!-- /注册任务 -->
 
 <!-- 投放广告 -->
-<div style="width:900px; margin:15px auto;">
-<div class="tipblock">
-<h3>注册任务：</h3>
+<div class="tipblock" style="float:left;width:670px;margin-left:20px;margin-top:20px">
+<h3>我发布的注册任务：</h3>
 <div style="padding:15px;" id="format">
 <table  width="100%" cellpadding="0" style="border:1px solid orange;">
 <tr>
@@ -248,7 +248,7 @@ echo "</td><td align='center'>";
 </table>
 </div>
 </div>
-</div>
 <!-- /投放广告 -->
+</div>
 <!--footer starts here-->
 <?php include('footer.php'); ?>
