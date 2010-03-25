@@ -67,7 +67,6 @@ $nowbacksum = $row1["now_back_sum"]+ $payback;
 	 mysql_query($query1) or die(mysql_error());
 }
 
-if(isset($_GET["option"])){
     //Todo parece correcto procedemos con la inserccion
     $query = "UPDATE tb_back_common SET last_click='$currentclick', pay_click='$payclick', current_click='$currentclick', last_back='$newcurrent_back', pay_back='$payback', current_back='$newcurrent_back', pay_status='等待返佣', back_time='$backtime' where id='$id'";
     mysql_query($query) or die(mysql_error());
@@ -75,7 +74,6 @@ if(isset($_GET["option"])){
     echo "<font color=\"green\"><b>返佣计算成功.</b></font><br><br>";
     echo "结果由来：本期点击数*下线提成*返佣比例*点击值*汇率<br>";
     echo "$payclick*$backper*$referper*$clickvalue*$payunit";
-}
 }
 ?>
 <table style="width:50%;">
