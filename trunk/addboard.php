@@ -37,7 +37,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
  		mysql_query($query) or die(mysql_error());
  		echo '<br/><div style="text-align:center"><b>文章发布成功</b>&nbsp; <input id="clock" size="3" readonly="readonly" style="border: medium none ; padding: 0pt; font-size: 12pt;" type="text"/></br></div>';
  		echo '<script>
-				var x = 5
+				var x = 4
 				var y = 1
 				function startClock(){
 				if(x!=="Done"){
