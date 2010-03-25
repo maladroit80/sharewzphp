@@ -575,8 +575,6 @@ CREATE TABLE IF NOT EXISTS `tb_back_account` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` int(11),
   `zhifubao` varchar(150),
-  `realname` varchar(150),
-  `back_account` varchar(150),
   `now_back_sum` float(50),
   `all_back_sum` float(10),
   `back_pay_number` int(10),
