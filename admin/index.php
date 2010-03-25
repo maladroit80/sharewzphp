@@ -529,6 +529,9 @@ break;
     case(592):
    	include("calcprocess.php");
    	break;
+    case(60):
+   	include("payback.php");
+   	break;
    	
 
 
