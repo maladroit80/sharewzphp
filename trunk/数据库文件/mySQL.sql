@@ -1,4 +1,19 @@
+--
+-- create on 2010.3.25 by Timorning
+--
 
+CREATE TABLE IF NOT EXISTS `tb_news` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `title` char(100) NOT NULL,
+  `url` char(100) DEFAULT NULL,
+  `author` char(20) DEFAULT NULL,
+  `date` char(150) NOT NULL,
+  `counts` int(11) DEFAULT '1',
+  `type` char(20) DEFAULT NULL,
+  `origin` varchar(11) NOT NULL,
+  `content` blob NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='Column information for phpMyAdmin' AUTO_INCREMENT=36 ;
 --
 -- create on 2009.12.26 by Timorning
 --
