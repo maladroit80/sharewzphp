@@ -1,12 +1,23 @@
-<b>计算返佣</b>
-<br>
-<br>
+
 
 
 
 <?
 $siteid=$_GET["siteid"];
+$sitename=$_GET["sitename"];
+$sql = mysql_query("select * from tb_back_site where site_id='$siteid'");
+$row = mysql_fetch_array($sql);
+$backnumber = $row["back_number"]+1;
+$query1 = "UPDATE tb_back_site SET back_number='$backnumber' where site_id='$siteid'";
+	 mysql_query($query1) or die(mysql_error());
+
+$backtime = date("y-m-d H:i");
+$query1 = "UPDATE tb_back_common SET pay_status='成功返佣',back_time='$backtime' where site_id='$siteid'";
+	 mysql_query($query1) or die(mysql_error());
 ?>
+<b>返佣计算成功【<?php echo $sitename ?>】</b>
+<br>
+<br>
 <table cellspacing="0" cellpadding="0">
 <tr>
 <th>编号</th>
@@ -24,10 +35,6 @@ $siteid=$_GET["siteid"];
 <th>返佣状态</th>
 <th>返佣时间</th>
 <th>登记返佣时间</th>
-<th>请输入最新点击数</th>
-<th>请输入平均点击值</th>
-<th>&nbsp;</th>
-<th>&nbsp;</th>
 </tr>
 
 <?php
@@ -56,16 +63,6 @@ echo "
 <td>". $registro["site_reg_time"] ."</td>
 <td>";
 ?>
-<form method="post" action="index.php?op=592&id=<?php echo $registro["id"] ?>&siteid=<?php echo $registro["site_id"] ?>&lastclick=<?php echo $registro["last_click"] ?>&lastback=<?php echo $registro["last_back"] ?>&sitename=<?php echo $registro["site_name"] ?>&backname=<?php echo $registro["backname"] ?>&username=<?php echo $registro["username"] ?>">
-<input style="width:50px;" type="text" name="currentclick" />
-</td>
-<td>
-<input style="width:50px;" type="text" name="clickvalue" />
-</td>
-<td>
-<input type="submit" value="计算返佣" class="button">
-</form>
-</td>
 </tr>
 
 <?php
@@ -73,7 +70,13 @@ echo "
 } // fin del bucle de ordenes
 
 
-
 ?>
+<tr>
+<td colspan="15" style="text-align:center;">
+<form method="post" action="index.php?op=59">
+<input type="submit" value="返回继续统计返佣" class="button">
+</form>
+</td>
+</tr>
 </table>
 

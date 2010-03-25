@@ -11,16 +11,15 @@ $lastback=$_GET["lastback"];
 $currentclick=$_POST["currentclick"];
 $value=$_POST["clickvalue"];
 
-
 $sql=mysql_query("SELECT * FROM tb_back_site where site_id='$siteid'");
 $row=mysql_fetch_array($sql);
 
 $sql1=mysql_query("SELECT * FROM tb_back_account where username='$username'");
 $row1=mysql_fetch_array($sql1);
 
-if($currentclick<$row["last_click"])
+if($currentclick<$row["last_click"] | $currentclick==0 |$currentclick==null )
 {
-	echo "输入有误";
+	echo "【请注意必须输入最新点击数，以保证正常计算】";
 }
 else{
 if($value==null)
@@ -43,13 +42,32 @@ $backtime = date("y-m-d H:i");
 $backper = $row["back_percent"];
 $referper = $row["refer_earn_per"];
 
+
 //add money to the back accout
 $sql1=mysql_query("SELECT * FROM tb_back_account where username='$username'");
 $row1=mysql_fetch_array($sql1);
-$backaccount = $row1["back_account"]+ $payback;
-$query1 = "UPDATE tb_back_account SET back_account='$backaccount' where username='$username'";
- mysql_query($query1) or die(mysql_error());
+ $numrow = mysql_num_rows($sql1);//
  
+ 
+ 
+//select * from tb_users
+$sql2=mysql_query("SELECT * FROM tb_users where username='$username'");
+$row2=mysql_fetch_array($sql2);
+$zhifubao = $row2["pemail"];
+$nowbacksum = $row1["now_back_sum"]+ $payback;
+
+ if($numrow==0)
+{ 
+	$query1 = "INSERT INTO tb_back_account (username, zhifubao, now_back_sum," .
+		"all_back_sum,back_pay_number,back_pay_time) VALUES(" .
+		"'$username', '$zhifubao', '$nowbacksum', '0', '0', '$backtime')";
+	 mysql_query($query1) or die(mysql_error());
+}else{
+	$query1 = "UPDATE tb_back_account SET zhifubao='$zhifubao',now_back_sum='$nowbacksum' where username='$username'";
+	 mysql_query($query1) or die(mysql_error());
+}
+
+if(isset($_GET["option"])){
     //Todo parece correcto procedemos con la inserccion
     $query = "UPDATE tb_back_common SET last_click='$currentclick', pay_click='$payclick', current_click='$currentclick', last_back='$newcurrent_back', pay_back='$payback', current_back='$newcurrent_back', pay_status='等待返佣', back_time='$backtime' where id='$id'";
     mysql_query($query) or die(mysql_error());
@@ -58,8 +76,26 @@ $query1 = "UPDATE tb_back_account SET back_account='$backaccount' where username
     echo "结果由来：本期点击数*下线提成*返佣比例*点击值*汇率<br>";
     echo "$payclick*$backper*$referper*$clickvalue*$payunit";
 }
+}
 ?>
-
+<table style="width:50%;">
+<tr>
+<th>
+提示
+</th>
+<th>
+操作
+</th>
+</tr>
+<tr>
+<td>返佣完毕请点击此按钮确认</td>
+<td style="text-align:center;">
+<form method="post" action="index.php?op=591&siteid=<?php echo $siteid ?>&sitename=<?php echo $sitename ?>">
+<input type="submit" value="点击完成此站本次返佣" class="button" />
+</form>
+</td>
+</tr>
+</table>
 <table cellspacing="0" cellpadding="0">
 <tr>
 <th>编号</th>
@@ -84,7 +120,7 @@ $query1 = "UPDATE tb_back_account SET back_account='$backaccount' where username
 
 <?php
 
-$tabla = mysql_query("SELECT * FROM tb_back_common where site_id='$siteid' ORDER BY site_id ASC"); // selecciono todos los registros de la tabla usuarios, ordenado por nombre
+$tabla = mysql_query("SELECT * FROM tb_back_common where site_id='$siteid' ORDER BY site_reg_status ASC"); // selecciono todos los registros de la tabla usuarios, ordenado por nombre
 
 while ($registro = mysql_fetch_array($tabla)) { // comienza un bucle que leera todos los registros y ejecutara las ordenes que siguen
 
@@ -119,6 +155,7 @@ echo "
 </form>
 </td>
 </tr>
+
 
 <?php
 
