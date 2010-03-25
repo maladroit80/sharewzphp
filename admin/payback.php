@@ -22,7 +22,7 @@ while ($registroe = mysql_fetch_array($tablae)) { // comienza un bucle que leera
 
 $nowpaysum = 0;
 $backpaynumber = $paynumber+1;
-$allbacksum = $registroe["all_back_back"]+$registroe["now_back_sum"];
+$allbacksum = $registroe["all_back_sum"]+$registroe["now_back_sum"];
 
 $lafecha=date("Y-n-d H:i");
 
@@ -41,7 +41,7 @@ echo "<font color=\"green\"><b>成功支付</b></font><br><br>";
 
 ?>
 
-当你给会员支付后就点击支付按钮.
+点击支付按钮支付.
 <br>
 <br>
 <table>
@@ -49,7 +49,7 @@ echo "<font color=\"green\"><b>成功支付</b></font><br><br>";
 <th>序号</th>
 <th>用户名</th>
 <th>支付宝</th>
-<th>付款数额</th>
+<th>本次返佣额</th>
 <th>总返佣额</th>
 <th>支付次数</th>
 <th></th>
