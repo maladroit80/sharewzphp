@@ -8,10 +8,10 @@ include ('header.php');
     <div class="box" style="margin-top:20px;">
       <!-- col-1 -->
       <div style="float:left;width:700px;">
-      <div class="tipblock" style="float:left;width:200px">
-        <h3>最近更新</h3>
-        <div style="height:400px" id="format">
-        <ul style="list-style-type:none">
+      <div class="tipblock" style="float:left;width:200px;">
+        <h3>最近推荐</h3>
+        <div style="padding:5px 5px" id="format">
+        <div>
         <?php
         require('config.php');
         function cut_str($sourcestr,$cutlength)
@@ -55,29 +55,61 @@ include ('header.php');
    		 return $returnstr;
 	
 		}
-    	$articles=mysql_query("SELECT * FROM tb_news LIMIT 0 , 10");
+    	$articles=mysql_query("SELECT * FROM tb_news order by date desc LIMIT 0 , 20");
     	if ($myrow = mysql_fetch_array($articles))
     	{
     		do {
-    			$a="去掉HTML 及PHP 的标记。 StripSlashes: 去掉反斜线字符。 strlen: 取得字符串长度。 strrpos: 寻找字符串中某字符最后出现处。";
-    			if(strlen($a)>20)
-    			{
-    				$a=cut_str($a,13).'...';
-    			}
-    			echo '<li><a title="'.$myrow['title'].'" target="_blank" href="./article/'.$myrow["url"].'.html">'.$a.'</a></li>';
+    			$a=$myrow['title'];
+    			$a=cut_str($a,11);
+    			echo '<li style="list-style-type:none;"><a title="'.$myrow['title'].'" target="_blank" href="./article/'.$myrow["url"].'.html">'.$a.'</a></li>';
     		}
     		while($myrow = mysql_fetch_array($articles));
     	}
         ?>
-        </ul>
+        </div>
 		</div>
       </div>
-      <div style="float:right;width:400px;margin-right:20px;height:100px">
-      </div>
-        <div class="tipblock" style="float:right;width:460px;margin-right:20px;margin-top:20px">
-        <h3>广告</h3>
-        <div style="height:280px" id="format">1</div>
-      </div>
+		<div style="float:right;width:460px;margin-right:20px;">
+			<!--左上left table head-->      	
+          <div class="title01460-top"></div>
+		    <div class="title01460">
+		      <div class="title01460-in">
+		        <h3 class="ico-info">文章</h3>
+		      </div>
+		    </div>
+		  <div class="title01460-bottom">
+		  </div>
+		  <!--/左上left table head-->  
+		  <!--左上left table content-->  
+		  <div class="articlecontent">
+        <?php
+        require('config.php');
+    	$articles=mysql_query("SELECT * FROM tb_news order by date desc LIMIT 0 , 10");
+    	if ($myart = mysql_fetch_array($articles))
+    	{
+    		do {
+    			$mytitle=$myart['title'];
+    			$mytitle=cut_str($mytitle,50);
+    			$content=cut_str(strip_tags($myart['content']),100);
+?>
+		<div>
+ 		<h3><a target="_blank" href="./article/<?=$myart["url"] ?>.html" title="<?=$myart['title'] ?>"><?=$mytitle ?></a></h3>               	
+		<p><?=$content ?></p>                   
+		<div>                    
+		<span style="color:#0067E6"><?php if($myart['author']=='admin') echo 'march-autumn'; else echo $myart['author']; ?></span> 
+		发布于 <?=$myart['date'] ?> 
+		<span>&nbsp;</span> <span><a href="./article/<?=$myart["url"] ?>.html">
+		阅读(<span><?=$myart['counts'] ?></span>)</a></span></div>
+		</div>
+		<hr style="border:1px dotted #0067E6;">
+<?php
+    		}
+    		while($myart = mysql_fetch_array($articles));
+    	}
+       ?>
+		 </div>
+		  <!--/左上left table content-->  		  
+      	</div>
       </div>
       <!-- /col-1 -->
       <!-- col-signip --> 
@@ -98,10 +130,13 @@ else
 	$node=strtolower($_GET["no"]);
     if(file_exists("./news/".$node.".php"))
     {
+    	require('config.php');
+    	mysql_query("update tb_news set counts=counts+1 where url='$node'") or die(mysql_error());
     	include("./news/".$node.".php");
     }
     else if(file_exists("./news/".$node.".html"))
     {
+    	mysql_query("update tb_news set counts=counts+1 where url='$node'") or die(mysql_error());
     	include("./news/".$node.".html");
     }
     else
@@ -110,6 +145,7 @@ else
     	$htmlarticles=mysql_query("SELECT * FROM tb_news WHERE url='$node'");
     	if(mysql_num_rows($htmlarticles)>0)
     	{
+    		mysql_query("update tb_news set counts=counts+1 where url='$node'") or die(mysql_error());
     		$htmlarticle=mysql_fetch_array($htmlarticles);
     		$title=$htmlarticle['title'];
     		$author=$htmlarticle['author'];

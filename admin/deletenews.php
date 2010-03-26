@@ -3,7 +3,7 @@ if(isset($_POST['del']))
 {
 	if(isset($_GET['name']))
 	{
-		$filename=$_GET['name'];
+		$filename=$_GET['name'].".php";
 		if(file_exists("../news/".$filename)){
 			if(!unlink("../news/".$filename)){
 				echo "删除文件../news/".$filename."失败";

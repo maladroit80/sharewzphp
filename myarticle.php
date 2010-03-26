@@ -23,7 +23,7 @@ if(!isset($_COOKIE["usNick"]) || !isset($_COOKIE["usPass"]))
 		);
 $author=$_COOKIE["usNick"];
 require("config.php");
-$pagesize=2;
+$pagesize=20;
 //取得记录总数$rs，计算总页数用
 $rs=mysql_query("select count(*) from tb_news where author='$author' and origin<>'3'");
 $myrow = mysql_fetch_array($rs);
