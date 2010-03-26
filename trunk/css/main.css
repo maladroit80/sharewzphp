@@ -287,7 +287,14 @@ Others
 .title01338-in {margin:0; padding:2px 10px; background:url("../images/title01b338-in.gif") 0 0 no-repeat;}
 .title01338 h2, .title01338 h3, .title01338 h4 {margin:0; font-size:120%;}
 .title01338 p {margin:0;}
-.title01338-bottom {width:338px; height:2px;  background:#FFF5C7 url("../images/title01b338-bottom.gif") 0 0 no-repeat; font-size:0;}
+.title01338-bottom {width:338px; height:2px;  background:#FFF5C7 url("../images/title01460-bottom.gif") 0 0 no-repeat; font-size:0;}
+
+.title01460-top {width:460px; height:3px; background:#FFF5C7 url("../images/title01460-top.gif") 0 100% no-repeat; font-size:0;}
+.title01460 {margin:0; background:#FFF5C7 url("../images/title01460.gif") 0 0 repeat-y;}
+.title01460-in {margin:0; padding:2px 10px; background:url("../images/title01460-in.gif") 0 0 no-repeat;}
+.title01460 h2, .title01460 h3, .title01460 h4 {margin:0; font-size:120%;}
+.title01460 p {margin:0;}
+.title01460-bottom {width:460px; height:2px;  background:#FFF5C7 url("../images/title01460-bottom.gif") 0 0 no-repeat; font-size:0;}
 
 .title01690-top {width:690px; height:6px; background:#FFF5C7 url("../images/title01b690-top.gif") 0 100% no-repeat; font-size:0;}
 .title01690 {margin:0; background:#FFF5C7 url("../images/title01b690.gif") 0 0 repeat-y;}
@@ -363,6 +370,8 @@ index.php styles by hilary
 ----------------------------------------------------------------------------*/
 .topleft{margin-right:5px;margin-bottom:5px;float:left;width:338px;height:230px;}
 .topleftcontent{width:336px;height:185px;border:1px solid #FFCC00;}
+
+.articlecontent{width:460px;}
 
 .topright{margin-bottom:5px;float:right;width:338px;height:230px;}
 .toprightcontent{width:336px;height:185px;border:1px solid #FFCC00;}

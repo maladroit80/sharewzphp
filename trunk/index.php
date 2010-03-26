@@ -24,8 +24,7 @@
 		  <li>test</li>
 		  </ul>
 		  </div>
-		  <!--/左上left table content-->  
-		  
+		  <!--/左上left table content-->  		  
       	</div>
       	<div class="topright" sytle="float:right">
       		<!--左上right table head-->  
