@@ -14,7 +14,6 @@ if ($option=="paid")
 
 $username=$_POST["username"];
 $paynumber=$_POST["backpaynumber"];
-$username=$_POST["username"];
 
 
 $tablae = mysql_query("SELECT * FROM tb_back_account where username='$username'"); // selecciono todos los registros de la tabla usuarios, ordenado por nombre
@@ -23,6 +22,7 @@ while ($registroe = mysql_fetch_array($tablae)) { // comienza un bucle que leera
 $nowpaysum = 0;
 $backpaynumber = $paynumber+1;
 $allbacksum = $registroe["all_back_sum"]+$registroe["now_back_sum"];
+$nowbacksum = $registroe["now_back_sum"];
 
 $lafecha=date("Y-n-d H:i");
 
@@ -32,7 +32,20 @@ $lafecha=date("Y-n-d H:i");
 
 
 echo "<font color=\"green\"><b>成功支付</b></font><br><br>";
+$sql = mysql_query("SELECT max(pay_number) FROM tb_backpay_history where username='$username'");
+$row = mysql_fetch_array($sql);
 
+if($row[0]==null)
+{
+	$zhifunumber = 1;
+}else
+{
+	$zhifunumber = $row[0]+1;
+}
+$query = "INSERT INTO tb_backpay_history (username, pay_number,pay_sum,pay_time) VALUES('$username', '$zhifunumber', '$nowbacksum','$lafecha')";
+mysql_query($query) or die(mysql_error());
+
+echo "<font color=\"green\"><b>成功为用户'$username'添加一条支付记录</b></font><br><br>";
 }
 
 }
@@ -40,8 +53,18 @@ echo "<font color=\"green\"><b>成功支付</b></font><br><br>";
 }
 
 ?>
+<?php
 
-点击支付按钮支付.
+$sql1 = mysql_query("SELECT * FROM tb_common where itemid='leastpay'"); // selecciono todos los registros de la tabla usuarios, ordenado por nombre
+$row1 = mysql_fetch_array($sql1);
+?>
+
+<br>
+当前支付最低额为<?php echo $row1["value"]?>元，需要更改请重新设定：<br>
+<form method="post" action="index.php?op=601&category=leastpay">
+<input type="text" name="leastpay">
+<input type="submit" value="设定" class="button">
+</form>
 <br>
 <br>
 <table>

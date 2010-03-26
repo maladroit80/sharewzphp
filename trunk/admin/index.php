@@ -538,6 +538,9 @@ break;
     case(60):
    	include("payback.php");
    	break;
+    case(601):
+   	include("common.php");
+   	break;
     case(61):
    	include("memberbacksite.php");
    	break;
