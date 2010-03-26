@@ -86,6 +86,7 @@ echo"            <li><a href=\"regads.php\"><span>注册赚钱</span></a></li>
 				<li><a href=\"article.php\"><span>经验心得</span></a></li>
 				<li><a href=\"contact.php\"><span>联系我们</span></a></li>
 				<li><a href=\"bbs.php\"><span>论坛</span></a></li>
+				<li><a href=\"back.php\"><span>本站返佣项目</span></a></li>
 			</ul>	
 			";
        if($administrator=="admin")
