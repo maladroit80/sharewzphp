@@ -581,3 +581,53 @@ CREATE TABLE IF NOT EXISTS `tb_back_account` (
   `back_pay_time` varchar(35),
   KEY `id` (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+
+
+-- ---------------add by hilary(2010/03/26)-----------------
+--
+-- Table structure for table `tb_backpay_history`
+--
+
+CREATE TABLE IF NOT EXISTS `tb_backpay_history` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(50),
+  `pay_number` int(50),
+  `pay_sum` float(50),
+  `pay_time` varchar(35),
+  KEY `id` (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- ---------------add by hilary(2010/03/26)-----------------
+--
+-- Table structure for table `tb_common`
+--
+
+CREATE TABLE IF NOT EXISTS `tb_common` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `itemid` varchar(50),
+  `value` varchar(150),
+  `time` varchar(35),
+  KEY `id` (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+
+INSERT INTO `tb_common` (`id`, `itemid`, `value`, `time`) VALUES
+(1, 'leastpay', '0.2', '2010/03/26');
+
+
+-- ---------------add by hilary(2010/03/26)-----------------
+--
+-- Table structure for table `tb_back_history`
+--
+
+CREATE TABLE IF NOT EXISTS `tb_back_history` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(11),
+  `site_id` int(11),
+  `site_name` varchar(50),
+  `now_back_sum` float(10),
+  `back_number` int(10),
+  `time` varchar(35),
+  KEY `id` (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
