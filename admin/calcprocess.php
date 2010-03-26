@@ -6,6 +6,7 @@ $siteid=$_GET["siteid"];
 $sitename=$_GET["sitename"];
 $username=$_GET["username"];
 $backname=$_GET["backname"];
+$payback=$_GET["payback"];
 $lastclick=$_GET["lastclick"];
 $lastback=$_GET["lastback"];
 $currentclick=$_POST["currentclick"];
@@ -73,7 +74,18 @@ $nowbacksum = $row1["now_back_sum"]+ $payback;
 
     echo "<font color=\"green\"><b>返佣计算成功.</b></font><br><br>";
     echo "结果由来：本期点击数*下线提成*返佣比例*点击值*汇率<br>";
-    echo "$payclick*$backper*$referper*$clickvalue*$payunit";
+    echo "$payclick*$backper*$referper*$clickvalue*$payunit<br>";
+    
+    $sql3 = mysql_query("select * from tb_back_site where site_id='$siteid'");
+    $row3 = mysql_fetch_array($sql3);
+    $backnumber = $row["back_number"];
+    $date = date("Y-n-d H:i");
+	$query = "INSERT INTO tb_back_history (username, site_id,site_name,pay_sum,back_number,time) VALUES('$username', '$siteid', '$sitename','$payback','$backnumber','$date')";
+	mysql_query($query) or die(mysql_error());
+	
+	echo "<font color=\"green\"><b>成功为用户'$username'添加一条返佣记录</b></font><br><br>";
+    
+    
 }
 ?>
 <table style="width:50%;">
@@ -86,7 +98,7 @@ $nowbacksum = $row1["now_back_sum"]+ $payback;
 </th>
 </tr>
 <tr>
-<td>返佣完毕请点击此按钮确认</td>
+<td>统计完所有会员返佣数据后请务必点击此按钮确认</td>
 <td style="text-align:center;">
 <form method="post" action="index.php?op=591&siteid=<?php echo $siteid ?>&sitename=<?php echo $sitename ?>">
 <input type="submit" value="点击完成此站本次返佣" class="button" />
@@ -142,7 +154,7 @@ echo "
 <td>". $registro["site_reg_time"] ."</td>
 <td>";
 ?>
-<form method="post" action="index.php?op=592&id=<?php echo $registro["id"] ?>&siteid=<?php echo $registro["site_id"] ?>&lastclick=<?php echo $registro["last_click"] ?>&lastback=<?php echo $registro["last_back"] ?>&sitename=<?php echo $registro["site_name"] ?>&backname=<?php echo $registro["backname"] ?>&username=<?php echo $registro["username"] ?>">
+<form method="post" action="index.php?op=592&id=<?php echo $registro["id"] ?>&payback=<?php echo $registro["pay_back"] ?>&siteid=<?php echo $registro["site_id"] ?>&lastclick=<?php echo $registro["last_click"] ?>&lastback=<?php echo $registro["last_back"] ?>&sitename=<?php echo $registro["site_name"] ?>&backname=<?php echo $registro["backname"] ?>&username=<?php echo $registro["username"] ?>">
 <input style="width:50px;" type="text" name="currentclick" />
 </td>
 <td>
