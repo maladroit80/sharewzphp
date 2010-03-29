@@ -35,13 +35,7 @@ echo "<font color=\"green\"><b>成功支付</b></font><br><br>";
 $sql = mysql_query("SELECT max(pay_number) FROM tb_backpay_history where username='$username'");
 $row = mysql_fetch_array($sql);
 
-if($row[0]==null)
-{
-	$zhifunumber = 1;
-}else
-{
 	$zhifunumber = $row[0]+1;
-}
 $query = "INSERT INTO tb_backpay_history (username, pay_number,pay_sum,pay_time) VALUES('$username', '$zhifunumber', '$nowbacksum','$lafecha')";
 mysql_query($query) or die(mysql_error());
 
