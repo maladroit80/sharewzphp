@@ -78,7 +78,7 @@ $nowbacksum = $row1["now_back_sum"]+ $payback;
     
     $sql3 = mysql_query("select * from tb_back_site where site_id='$siteid'");
     $row3 = mysql_fetch_array($sql3);
-    $backnumber = $row["back_number"];
+    $backnumber = $row["back_number"]+1;
     $date = date("Y-n-d H:i");
 	$query = "INSERT INTO tb_back_history (username, site_id,site_name,pay_sum,back_number,time) VALUES('$username', '$siteid', '$sitename','$payback','$backnumber','$date')";
 	mysql_query($query) or die(mysql_error());
