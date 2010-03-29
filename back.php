@@ -1,62 +1,183 @@
 <?php include('header.php'); ?>
 <?php
 require ('config.php');
-$lole=$_COOKIE["usNick"];
-$check_messages = mysql_query("SELECT * FROM tb_messenger WHERE sendto='$lole' and status='unread'");
-$messages = mysql_num_rows($check_messages);
-mysql_close($con);
 ?>
 <div class="mem_left">
-<?php include('memberleft.php')?>
+<?php include('memberbackleft.php')?>
 </div>
 <div align="center">
-    <table width="564" style="border-collapse: collapse" bordercolor="#111111" cellpadding="0" cellspacing="0">
+    <table width="600" style="border-collapse: collapse" bordercolor="#111111" cellpadding="0" cellspacing="0">
       <tr bgcolor="#FFFFFF">
-        <td colspan="3">
-        <div align="center"><a href="http://www.sharewz.com/" target="_blank"><img src="images/yuming.gif" width="468" height="60" border="0" /></a></div></td>
-        </tr>
+      <td>
+      </tr>
+      <tr bgcolor="#FFFFFF" id="sitemenu">
+		<td><a href="sites_available.php" >可做站点</a></td>
+		<td><a href="sites_joined.php" >已做站点</a></td>
+		<td><a href="sites_notavailable.php" >受限站点</a></td>
+		<td><a href="sites_paid.php" >收款站点</a></td>
+		<td><a href="sites_scam.php" >停止推荐</a></td>
+      </tr>
+      <tr bgcolor="#FFFFFF">
+        <td height="10">&nbsp;</td>
+      </tr>
+      <tr bgcolor="#FFFFFF">
+        <td colspan="5" height="">
+		   	<div class="sitestatus">
+		    
+		    <!--bot1 table head-->
+		        <div class="title01225">
+		          <div class="title01225-in">
+		           <h2 class="ico-list">站点状态</h2>
+		          </div>
+		        </div>
+		    <!--/bot1 table head-->
+		    	<div id="back_sitestatus">
+				  <table width="100%">
+				    <tr>
+				      <td>最低支付</td>
+				    </tr>
+				    <tr>
+				      <td><font color="blue"><?php include('config.php');
+								$result =mysql_query("SELECT * FROM tb_common WHERE itemid='leastpay'");
+								$row = mysql_fetch_array($result); echo $row["value"];?>&nbsp;元</font></td>
+				    </tr>
+				    <tr>
+				      <td>有效站点数量</td>
+				    </tr>
+				    <tr>
+				      <td><font color="blue"><?php include('config.php');
+								$result =mysql_query("SELECT * FROM tb_back_site WHERE site_status!='停止'");
+								$row = mysql_num_rows($result); echo $row; ?>&nbsp;个</font></td>
+				    </tr>
+				    <tr>
+				      <td>返佣支付总额</td>
+				    </tr>   
+				    <tr>
+				      <td><font color="blue"><?php include('config.php');
+								$result =mysql_query("SELECT sum(all_back_sum) FROM tb_back_account");
+								$row = mysql_fetch_array($result); 
+								$sum = number_format($row[0], 2);
+								echo $sum;?>&nbsp;元</font></td>
+				    </tr> 
+				    <tr>
+				      <td>支付次数</td>
+				    </tr>   
+				    <tr>
+				      <td><font color="blue"><?php include('config.php');
+								$result =mysql_query("SELECT max(pay_number) FROM tb_backpay_history");
+								$row = mysql_fetch_array($result); 
+								echo $row[0]; ?>&nbsp;次</font></td>
+				    </tr>  
+				    <tr>
+				      <td>返佣次数</td>
+				    </tr>   
+				    <tr>
+				      <td><font color="blue"><?php include('config.php');
+								$result =mysql_query("SELECT max(back_pay_number) FROM tb_back_account");
+								$row = mysql_fetch_array($result); 
+								echo $row[0];
+								 ?>&nbsp;次</font></td>
+				    </tr>     
+				  </table>
+				</div>
+		    </div>
+        	<div class="paid">
+    
+		    <!--bot1 table head-->
+		        <div class="title01225">
+		          <div class="title01225-in">
+		          <p class="f-right noprint"><strong><a href="#" class="add">更多</a></strong></p>
+		           <h2 class="ico-list">最新支付</h2>
+		          </div>
+		        </div>
+		    <!--/bot1 table head-->
+    			
+		    	<div id="back_paid">
+				
+					  <table>
+					  
+					<th>用户名</th>
+					<th>金额</th>
+					<th>时间</th> 			
+					<?php
+					
+					$tabla = mysql_query("SELECT * FROM tb_backpay_history ORDER BY pay_time desc"); 
+					while ($registro = mysql_fetch_array($tabla)) { 
+					$temptime = $registro["pay_time"];
+					$backtime = explode(" ", $temptime);
+					echo "
+					<tr align='center'>
+					<td><font color='blue'>". $registro["username"] ."</font></td>
+					<td>". $registro["pay_sum"] ."&nbsp;元</td>
+					<td>". $backtime[0] ."</td>
+					</tr>";
+					?>
+					  
+					<?php
+					} // fin del bucle de ordenes
+					?>
+					</table>
+  
+		    	</div>
+    		</div>
+	        <div class="back">
+	    
+		    <!--bot1 table head-->
+		        <div class="title01225">
+		          <div class="title01225-in">
+		          <p class="f-right noprint"><strong><a href="#" class="add">更多</a></strong></p>
+		           <h2 class="ico-list">最新返佣</h2>
+		          </div>
+		        </div>
+		    <!--/bot1 table head-->
+	    			<div id="back_paid">
+				
+					  <table>
+					  
+					<th>用户名</th>
+					<th>金额</th>
+					<th>时间</th> 			
+					<?php
+					
+					$tabla = mysql_query("SELECT * FROM tb_back_history ORDER BY time desc"); 
+					while ($registro = mysql_fetch_array($tabla)) { 
+					$temptime = $registro["time"];
+					$backtime = explode(" ", $temptime);
+					echo "
+					<tr align='center'>
+					<td><font color='blue'>". $registro["username"] ."</font></td>
+					<td>". $registro["pay_sum"] ."&nbsp;元</td>
+					<td>". $backtime[0] ."</td>
+					</tr>";
+					?>
+					  
+					<?php
+					} // fin del bucle de ordenes
+					?>
+					</table>
+					  
+							    	</div>
+	    	</div>
+    	</td>
+      </tr>
+      <tr bgcolor="#FFFFFF">
+        <td height="28" colspan="5"><div align="center"><a href="contact.php">黄金广告位50元/月</a></div></td>
+      </tr>
+      <tr><td colspan="5">
+      <table style="width:100%;">
+      <tr bgcolor="#FFFFFF" id="sitemenu">
+		<td><a href="sites_notavailable.php" >累计点击排名</a></td>
+		<td><a href="sites_notavailable.php" >累计返佣排名</a></td>
+		<td colspan="2"><a href="sites_notavailable.php" >登记返佣站点数量排名</a></td>
+      </tr></table>
+      </td></tr>
       <tr bgcolor="#FFFFFF">
         <td height="28">&nbsp;</td>
         <td height="28">&nbsp;</td>
         <td height="28">&nbsp;</td>
       </tr>
       <tr bgcolor="#FFFFFF">
-        <td height="28" colspan="3"><div align="center"><a href="contact.php">黄金广告位50元/月</a></div></td>
-        </tr>
-      <tr bgcolor="#FFFFFF">
-        <td height="28">&nbsp;</td>
-        <td height="28">&nbsp;</td>
-        <td height="28">&nbsp;</td>
-      </tr>
-      <tr bgcolor="#E8E8E8">
-        <td height="28"><div align="left" style="font-size: 18px">
-          <div align="left"><span class="links" style="font-size: 16px"><a href="buxscript.php" class="title"><img src="images/icon_user.gif" width="16" align="absmiddle" /><span style="color: #0067E6; font-size: 14px">本站程序</span></a></span></div>
-        </div></td>
-        <td height="28"><div align="left"><a href="regads.php" class="title"><img src="images/icon_user.gif" width="16" align="absmiddle" /><span style="color: #0067E6">注册赚钱</span></a>
-        </div></td>
-        <td height="28"><div align="left"><a href="myregads.php" class="title"><img src="images/icon_user.gif" width="16" align="absmiddle" /><span style="color: #0067E6">你的注册广告</span></a></div></td>
-      </tr>
-      <tr bgcolor="#E8E8E8">
-        <td width="162">          <p class="links" align="left"><a href="profile.php" class="title"><img src="images/icon_user.gif" width="16" align="absmiddle" /><span style="color: #0067E6">你的简历</span></a></p></td>
-        <td width="162">          <p class="links" align="left"> <a href="history.php" class="title"><img border="0" src="images/date.png" width="16" align="absmiddle" /><span style="color: #0067E6">你的历史</span></a></p></td>
-        <td width="238" bgcolor="#E8E8E8">          <p class="links" align="left"> <a href="messenger.php" class="title"><img border="0" src="images/email_delete.png" width="16" align="absmiddle" /><span style="color: #0067E6">你的消息 (<?php echo $messages ?>)</span></a></p></td>
-      </tr>
-      <tr bgcolor="#E8E8E8">
-        <td>          <p class="links" align="left"> <a href="referals.php" class="title"><img border="0" src="images/database_gear.png" width="16" align="absmiddle" /><span style="color: #0067E6">你的下线</span></a></p></td>
-        <td>          <p class="links" align="left"> <a href="convert.php" class="title"><img border="0" src="images/cog_go.png" width="16" align="absmiddle" /><span style="color: #0067E6">转换现金</span></a></p></td>
-        <td bgcolor="#E8E8E8">          <p class="links" align="left"> <a href="upgrade.php" class="title"><img border="0" src="images/coins_add.png" width="16" align="absmiddle" /><span style="color: #0067E6">升级会员</span></a></p></td>
-      </tr>
-      <tr bgcolor="#E8E8E8">
-        <td>          <p class="links" align="left"> <a href="purchase.php" class="title"><img border="0" src="images/database_key.png" width="16" align="absmiddle" /><span style="color: #0067E6">购买下线</span></a></p></td>
-        <td>          <p class="links" align="left"> <a href="adver.php" class="title"><img border="0" src="images/transmit.png" width="16" align="absmiddle" /><span style="color: #0067E6">发布广告</span></a></p></td>
-        <td>          <p class="links" align="left"> <a href="logout.php" class="title"><img border="0" src="images/lock_open.png" width="16" align="absmiddle" /><span style="color: #0067E6">退出</span></a></p></td>
-        </tr>
-      <tr>
-        <td colspan="3">
-         </td>
-        </tr>
-      <tr>
-        <th colspan="4" class="top"></th>
+        <td height="28" colspan="5"><div align="center"><a href="contact.php">黄金广告位50元/月</a></div></td>
       </tr>
     </table>
 </div>
