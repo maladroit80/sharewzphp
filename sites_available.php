@@ -59,15 +59,15 @@ require ('config.php');
                             </td>
                         </tr> 			
 					<?php
-					$tabla = mysql_query("SELECT * FROM  tb_back_site where site_status!='停止' and site_id not in (select site_id from tb_back_common where username='$user') ORDER BY site_time desc"); 
+					$tabla = mysql_query("SELECT * FROM  tb_back_site where site_status!='停止' and now_refer_number!=max_refer_number and site_id not in (select site_id from tb_back_common where username='$user') ORDER BY site_time desc"); 
 					while ($registro = mysql_fetch_array($tabla)) { 
 					echo "
 					<tr>
 					<td style='background-color: #FAFAFA;text-align:center;height:30px;'>". $registro["site_id"] ."</td>
 					<td style='background-color: #FAFAFA;text-align:center;'><a target='_blank' href='". $registro["refer_link"] ."'>". $registro["site_name"] ."</a></td>
 					<td style='background-color: #FAFAFA;text-align:center;'>". $registro["site_money_unit"] ."". $registro["click_value"] ."</td>
-					<td style='background-color: #FAFAFA;text-align:center;'>". $registro["refer_earn_per"] ."</td>
-					<td style='background-color: #FAFAFA;text-align:center;'>". $registro["back_percent"] ."</td>
+					<td style='background-color: #FAFAFA;text-align:center;'>". $registro["refer_earn_per"]*100 ."%</td>
+					<td style='background-color: #FAFAFA;text-align:center;'>". $registro["back_percent"]*100 ."%</td>
 					<td style='background-color: #FAFAFA;text-align:center;'>". $registro["site_money_unit"] ."". $registro["min_pay"] ."</td>
 					<td style='background-color: #FAFAFA;text-align:center;'>". $registro["site_pay_method"] ."</td>
 					<td style='background-color: #FAFAFA;text-align:center;'><font color='red'>". $registro["now_refer_number"] ."</font>/". $registro["max_refer_number"] ."</td>
