@@ -76,6 +76,12 @@ if ($option=="delete"){
     mysql_query($queryz) or die(mysql_error());
 
     echo "<font color=\"#cc0000\"><b>记录被删除.</b></font><br><br>";
+    
+			$sql = mysql_query("select * from tb_back_site where id = '$id'");
+			$result = mysql_fetch_array($sql);
+			$refernumber = $result["now_refer_number"]-1;
+    $sql1 = "UPDATE tb_back_site SET now_refer_number = '$refernumber' where site_id='$siteid'";
+    mysql_query($sql1) or die(mysql_error());
 }
 }
 ?>
