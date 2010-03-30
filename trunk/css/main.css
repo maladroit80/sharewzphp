@@ -445,3 +445,27 @@ words styles by Timorning
 .title600px-in {margin:0; padding:2px 10px; background:url("../images/title600px-in.gif") 0 0 no-repeat;}
 .title600px h2, .title600px h3, .title600px h4 {margin:0; font-size:140%;}
 .title600px-bottom {width:600px; height:4px; margin-bottom:10px; background:#FFF5C7 url("../images/title600px-bottom.gif") 0 0 no-repeat; font-size:0;}
+
+
+/*-----------------------------------------------------------------------------------
+back.php styles by hilary
+-------------------------------------------------------------------------------------*/
+#sitemenu td{width:20%;text-align:center;border:1px solid #FFCC00;}
+
+#sitemenu td a { background:url(../images/arrow2.gif) no-repeat left; padding-left:10px; color:#457a8b; font-size:14px; font-weight:bold; }
+#sitemenu td a:link { background:url(../images/arrow2.gif) no-repeat left; padding-left:10px; color: #0067E6; }
+#sitemenu td a:visited { background:url(../images/arrow2.gif) no-repeat left; padding-left:10px; color: #0067E6; }
+#sitemenu td a:hover { background:url(../images/arrow1.gif) no-repeat left; padding-left:10px; color:#78b4c7; }
+#sitemenu td a:active { background:url(../images/arrow1.gif) no-repeat left; padding-left:10px; color:#78b4c7; }
+
+.back{margin-right:5px;float:left;width:220px;height:350px;border:1px solid #FFCC00;}
+
+.paid{margin-right:5px;float:left;width:220px;height:350px;border:1px solid #FFCC00;}
+
+
+.sitestatus{margin-right:5px;float:left;width:120px;height:350px;border:1px solid #FFCC00;}
+
+#back_sitestatus {margin:0; padding:2px 10px;text-align:center;}
+#back_sitestatus table tr{border-bottom-color:#999999;border-bottom-style:dashed;border-bottom-width:1px;}
+#back_paid {margin:0; padding:2px 15px;text-align:center;}
+#back_paid {margin:0; padding:2px 15px;text-align:center;}
