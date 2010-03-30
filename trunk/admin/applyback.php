@@ -71,15 +71,17 @@ while ($registroe = mysql_fetch_array($tablae)) { // comienza un bucle que leera
 }
 if ($option=="delete"){
 
+	$siteid = $_GET["siteid"];
     //Todo parece correcto procedemos con la inserccion
     $queryz = "DELETE FROM tb_back_common WHERE id='$id'";
     mysql_query($queryz) or die(mysql_error());
 
     echo "<font color=\"#cc0000\"><b>记录被删除.</b></font><br><br>";
     
-			$sql = mysql_query("select * from tb_back_site where id = '$id'");
+			$sql = mysql_query("select * from tb_back_site where site_id = '$siteid'");
 			$result = mysql_fetch_array($sql);
 			$refernumber = $result["now_refer_number"]-1;
+			
     $sql1 = "UPDATE tb_back_site SET now_refer_number = '$refernumber' where site_id='$siteid'";
     mysql_query($sql1) or die(mysql_error());
 }

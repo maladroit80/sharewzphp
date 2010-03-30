@@ -25,38 +25,38 @@ require ('config.php');
 					   <tr><td colspan="5">查看已经登记的站点</td></tr>
                         <tr style="background-color:#D9EDff;" align="center">
                             <td>
-                                站点ID
+                                	站点ID
                             </td>
                             <td>
-                                站点名
+                                	站点名
                             </td>
                             <td>
-                                点击值
+                                	点击值
                             </td>
                             <td>
-                                下线提成
+                                	下线提成
                             </td>
                             <td>
-                                返佣比例
+                                	返佣比例
                             </td>
                             <td>
-                                最低支付
+                               	 	最低支付
                             </td>
                             <td>
-                                收款工具
+                               	 	收款工具
                             </td>
                             <td>
-                                登记状态
+                                	登记状态
                             </td>
                             <td>
-                                下线数
+                                	下线数
                             </td>
                             <td>
-                                收款返佣详情
+                                	收款返佣详情
                             </td>
                         </tr> 			
 					<?php
-					$tabla = mysql_query("SELECT * FROM  tb_back_common,tb_back_site where tb_back_common.site_id = tb_back_site.site_id and site_status!='停止' and username='$user' ORDER BY site_time desc"); 
+					$tabla = mysql_query("SELECT * FROM  tb_back_common,tb_back_site where tb_back_common.site_id = tb_back_site.site_id and site_status!='停止' and username='$user' ORDER BY site_reg_status desc"); 
 					while ($registro = mysql_fetch_array($tabla)) { 
 					echo "
 					<tr>

@@ -22,7 +22,7 @@ require ('config.php');
       </tr>
       <tr><td colspan="5">
       <table width="100%" border="0" cellspacing="1" cellpadding="5" style="border:1px solid #FFCC00;">
-					   <tr><td colspan="5">查看可做站点</td></tr>
+					   <tr><td colspan="5">查看所有国内点击网赚站点</td></tr>
                         <tr style="background-color:#D9EDff;" align="center">
                             <td>
                                 站点ID
@@ -40,13 +40,13 @@ require ('config.php');
                                 返佣比例
                             </td>
                             <td>
-                                最低支付
-                            </td>
-                            <td>
-                                收款工具
+                                起付/收款
                             </td>
                             <td>
                                 下线数
+                            </td>
+                            <td>
+                                站点状态
                             </td>
                             <td>
                                 注册
@@ -59,7 +59,7 @@ require ('config.php');
                             </td>
                         </tr> 			
 					<?php
-					$tabla = mysql_query("SELECT * FROM  tb_back_site where site_status!='停止' and now_refer_number!=max_refer_number and site_id not in (select site_id from tb_back_common where username='$user') ORDER BY site_time desc"); 
+					$tabla = mysql_query("SELECT * FROM  tb_back_site where site_category='国内点击' and site_status!='停止' ORDER BY site_time desc"); 
 					while ($registro = mysql_fetch_array($tabla)) { 
 					echo "
 					<tr>
@@ -68,10 +68,10 @@ require ('config.php');
 					<td style='background-color: #FAFAFA;text-align:center;'>". $registro["site_money_unit"] ."". $registro["click_value"] ."</td>
 					<td style='background-color: #FAFAFA;text-align:center;'>". $registro["refer_earn_per"]*100 ."%</td>
 					<td style='background-color: #FAFAFA;text-align:center;'>". $registro["back_percent"]*100 ."%</td>
-					<td style='background-color: #FAFAFA;text-align:center;'>". $registro["site_money_unit"] ."". $registro["min_pay"] ."</td>
-					<td style='background-color: #FAFAFA;text-align:center;'>". $registro["site_pay_method"] ."</td>
+					<td style='background-color: #FAFAFA;text-align:center;'>". $registro["site_money_unit"] ."". $registro["min_pay"] ."/". $registro["site_pay_method"] ."</td>
+					
 					<td style='background-color: #FAFAFA;text-align:center;'><font color='red'>". $registro["now_refer_number"] ."</font>/". $registro["max_refer_number"] ."</td>
-					";
+					<td style='background-color: #FAFAFA;text-align:center;'>". $registro["site_status"] ."</td>";
 					?>
 					  <td>
 					  <a target="_blank" href="back_site_register.php?id=<?php echo $registro["site_id"] ?>">注册</a>
