@@ -6,8 +6,9 @@ include ('header.php');
 <!-- Page -->
     <!-- Content -->
     <div class="box" style="margin-top:20px;">
-      <!-- col-1 -->
       <div style="float:left;width:700px;">
+      <div style="float:left;width:200px;">
+      <!-- col-1 -->
       <div class="tipblock" style="float:left;width:200px;">
         <h3>最近推荐</h3>
         <div style="padding:5px 5px" id="format">
@@ -69,8 +70,53 @@ include ('header.php');
         </div>
 		</div>
       </div>
-		<div style="float:right;width:460px;margin-right:20px;">
-			<!--左上left table head-->      	
+      <!-- /col-1 -->
+       <!-- col-2 -->
+      <div class="tipblock" style="float:left;width:200px;margin-top:15px;">
+        <h3>一周人气</h3>
+        <div style="padding:5px 5px" id="format">
+        <div>
+        <?php
+        require('config.php');
+    	$articles=mysql_query("SELECT * FROM tb_news order by date desc LIMIT 0 , 10");
+    	if ($myrow = mysql_fetch_array($articles))
+    	{
+    		do {
+    			$a=$myrow['title'];
+    			$a=cut_str($a,11);
+    			echo '<li style="list-style-type:none;"><a title="'.$myrow['title'].'" target="_blank" href="./article/'.$myrow["url"].'.html">'.$a.'</a></li>';
+    		}
+    		while($myrow = mysql_fetch_array($articles));
+    	}
+        ?>
+        </div>
+		</div>
+      </div>
+      <!-- /col-2 -->
+       <!-- col-3 -->
+      <div class="tipblock" style="float:left;width:200px;margin-top:15px;">
+        <h3>随机文章</h3>
+        <div style="padding:5px 5px" id="format">
+        <div>
+        <?php
+        require('config.php');
+    	$articles=mysql_query("SELECT * FROM tb_news order by date desc LIMIT 0 , 10");
+    	if ($myrow = mysql_fetch_array($articles))
+    	{
+    		do {
+    			$a=$myrow['title'];
+    			$a=cut_str($a,11);
+    			echo '<li style="list-style-type:none;"><a title="'.$myrow['title'].'" target="_blank" href="./article/'.$myrow["url"].'.html">'.$a.'</a></li>';
+    		}
+    		while($myrow = mysql_fetch_array($articles));
+    	}
+        ?>
+        </div>
+		</div>
+      </div>
+      <!-- /col-3 -->
+      </div>
+		<div style="float:right;width:460px;margin-right:20px;">    	
           <div class="title01460-top"></div>
 		    <div class="title01460">
 		      <div class="title01460-in">
@@ -79,8 +125,6 @@ include ('header.php');
 		    </div>
 		  <div class="title01460-bottom">
 		  </div>
-		  <!--/左上left table head-->  
-		  <!--左上left table content-->  
 		  <div class="articlecontent">
         <?php
         require('config.php');
@@ -93,7 +137,34 @@ include ('header.php');
     			$content=cut_str(strip_tags($myart['content']),100);
 ?>
 		<div>
- 		<h3><a target="_blank" href="./article/<?=$myart["url"] ?>.html" title="<?=$myart['title'] ?>"><?=$mytitle ?></a></h3>               	
+ 		<h3><a href="./article/<?=$myart["url"] ?>.html" title="<?=$myart['title'] ?>">
+ 		<?php 
+ 		 $boardTypes=array(
+				"experience"=>"经验心得",
+				"freetalk"=>"家常闲话",
+				"recommend"=>"站点推荐",
+				"CHM"=>"网赚教程"
+		);
+		if($myart['origin']=='1') 
+		echo '[原创]'; 
+		else if($myart['origin']=='0') 
+		echo '[转贴]';
+		$flag=true; 
+		foreach($boardTypes as $key=>$boardType)
+		{
+			if($key==$myart['type'])
+			{
+				$flag=false;
+				echo "[".$boardType."]";
+				break;
+			}
+		}
+		if($flag)
+		{
+			echo "[".$myart['type']."]";
+		}
+?>
+<?=$mytitle ?></a></h3>               	
 		<p><?=$content ?></p>                   
 		<div>                    
 		<span style="color:#0067E6"><?php if($myart['author']=='admin') echo 'march-autumn'; else echo $myart['author']; ?></span> 
