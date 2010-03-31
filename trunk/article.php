@@ -124,7 +124,7 @@ include ('header.php');
 		      </div>
 		    </div>
 		  <div class="title01460-bottom"></div>
-		  <span style="margin-top:5px;margin-right:10px;float:right;font-size:120%"><a href="./addboard.php" title="<?=$myart['title'] ?>">我要发布</a></span>
+		  <div style="width:100%;margin-top:5px;font-size:120%;text-align:right;"><a href="./addboard.php" title="<?=$myart['title'] ?>">我要发布</a>&nbsp;&nbsp;</div>
 		  <div class="articlecontent">
         <?php
         require('config.php');
@@ -192,7 +192,7 @@ include ('header.php');
     </div>    
     <!-- Content -->
   <!-- footer -->
-  <?php include("footer.php") ?>;
+<?php include("footer.php"); ?>
   <!-- /footer -->
 <?php
 }
@@ -212,6 +212,7 @@ else
     }
     else
     {
+    	//add by user
     	require('config.php');
     	$htmlarticles=mysql_query("SELECT * FROM tb_news WHERE url='$node'");
     	if(mysql_num_rows($htmlarticles)>0)
@@ -225,6 +226,7 @@ else
     		if ($fp = fopen("article/usertemp.html", "r")) {
 			$page=fread ($fp,filesize ("article/usertemp.html"));
 			fclose($fp);
+    		$page=str_replace ("{titleinhead}","易网赚-".$title,$page);
 			$page=str_replace ("{newstitle}",$title,$page);
 			$page=str_replace ("{newsdatefrom}",$author.'('.$date.')',$page);
 			$page=str_replace ("{newscontents}",$content,$page);
