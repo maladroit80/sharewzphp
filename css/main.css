@@ -450,6 +450,13 @@ words styles by Timorning
 /*-----------------------------------------------------------------------------------
 back.php styles by hilary
 -------------------------------------------------------------------------------------*/
+.width4{width:4%}
+.width6{width:6%}
+.width8{width:8%}
+.width10{width:10%}
+.width12{width:12%}
+.width15{width:15%}
+.width20{width:20%}
 #sitemenu td{width:20%;text-align:center;border:1px solid #FFCC00;}
 
 #sitemenu td a { background:url(../images/arrow2.gif) no-repeat left; padding-left:10px; color:#457a8b; font-size:14px; font-weight:bold; }

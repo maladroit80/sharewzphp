@@ -22,7 +22,7 @@ require ('config.php');
       </tr>
       <tr><td colspan="5">
       <table width="100%" border="0" cellspacing="1" cellpadding="5" style="border:1px solid #FFCC00;">
-					   <tr align="center"><td colspan="11"><?php echo date('Y') ?>年最佳国内点击网赚站点</td></tr>
+					   <tr align="center"><td colspan="11"><?php echo date('Y') ?>年最佳国内注册网赚站点</td></tr>
                         <tr style="background-color:#D9EDff;" align="center">
                             <td class="width8">
                                 站点ID
@@ -59,7 +59,7 @@ require ('config.php');
                             </td>
                         </tr> 		
 					<?php
-					$tabla = mysql_query("SELECT * FROM  tb_back_site where site_category='国内点击' and site_status!='停止' ORDER BY site_time desc"); 
+					$tabla = mysql_query("SELECT * FROM  tb_back_site where site_category='注册' and site_status!='停止' ORDER BY site_time desc"); 
 					while ($registro = mysql_fetch_array($tabla)) { 
 					echo "
 					<tr>

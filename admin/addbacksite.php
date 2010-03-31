@@ -109,11 +109,26 @@ echo $row[0]+ 1;
 <option value="银钻推荐">银钻推荐</option>
 <option value="铜钻推荐">铜钻推荐</option>
 <option value="推荐">推荐</option>
+<option value="停止">停止</option>
 </select>
 </td></tr>
 <tr>
   <th width="150">站点类别:</th>
-  <td><input type="text" size="25" maxlength="100" name="sitecategory" autocomplete="off"></td></tr>
+  <td>
+  
+<select name='sitecategory'>
+<option value="国内点击">国内点击</option>
+<option value="国外点击">国外点击</option>
+<option value="注册">注册赚钱</option>
+<option value="调查">调查赚钱</option>
+<option value="投票">投票赚钱</option>
+<option value="冲浪">冲浪赚钱</option>
+<option value="投资">投资赚钱</option>
+<option value="威客">威客赚钱</option>
+<option value="购物返利">购物返利</option>
+<option value="另类">另类赚钱</option>
+</select>
+  </td></tr>
 <tr>
   <th width="150">下线链接:</th>
   <td><input type="text" size="25" maxlength="100" name="referlink" autocomplete="off" value="http://"></td></tr>
