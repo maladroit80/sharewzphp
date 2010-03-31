@@ -32,15 +32,39 @@ $lafecha=date("Y-n-d H:i");
 
 
 echo "<font color=\"green\"><b>成功支付</b></font><br><br>";
-
+	
 }
 
+}
+if($option=="leastpay"){
+	$leastpay = $_POST["leastpay"];
+    $query = "UPDATE tb_common SET value='$leastpay' where itemid='leastpay'";
+    mysql_query($query) or die(mysql_error());
+	echo "<font color=\"green\"><b>修改最低支付成功</b></font><br><br>";
 }
 
 }
 
 ?>
-
+<table style="width:500px;">
+<tr>
+<th>提示</th>
+<th>用户名</th>
+</tr>
+<tr><td>
+当前最低支付额为<font color="red">￥<?php 
+$sql = mysql_query("select * from tb_common where itemid='leastpay'");
+$row = mysql_fetch_array($sql);
+echo $row["value"];
+?></font>，如需修改请输入更改
+</td>
+<td>
+<form method="post" action="index.php?op=60&id=<?php echo "edit" ?>&option=leastpay">
+<input type="text" name="leastpay" >
+<input type="submit" value="修改" class="button">
+</form>
+</td>
+</tr>
 点击支付按钮支付.
 <br>
 <br>
@@ -57,7 +81,10 @@ echo "<font color=\"green\"><b>成功支付</b></font><br><br>";
 
 <?php
 
-$tabla = mysql_query("SELECT * FROM tb_back_account where now_back_sum>0.1 ORDER BY id ASC"); // selecciono todos los registros de la tabla usuarios, ordenado por nombre
+$sql = mysql_query("select * from tb_common where itemid='leastpay'");
+$row = mysql_fetch_array($sql);
+$nowsum = $row["value"];
+$tabla = mysql_query("SELECT * FROM tb_back_account where now_back_sum>'$nowsum' ORDER BY id ASC"); // selecciono todos los registros de la tabla usuarios, ordenado por nombre
 
 while ($registro = mysql_fetch_array($tabla)) { // comienza un bucle que leera todos los registros y ejecutara las ordenes que siguen
 
