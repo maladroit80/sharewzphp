@@ -32,7 +32,11 @@ $lafecha=date("Y-n-d H:i");
 
 
 echo "<font color=\"green\"><b>成功支付</b></font><br><br>";
-	
+
+//增加支付记录
+$sql = mysql_query("select * from tb_backpay_history");
+
+echo "<font color=\"green\"><b>成功添加一条新支付记录</b></font><br><br>";
 }
 
 }
