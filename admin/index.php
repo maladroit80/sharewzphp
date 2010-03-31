@@ -547,7 +547,9 @@ break;
     case(62):
    	include("editbackaccount.php");
    	break;
-   	
+   	case(431):
+   	include("allarticles.php");
+   	break;
 
 
 

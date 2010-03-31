@@ -1,9 +1,6 @@
 		<div id="footer">
-
-
-			<a href="index.php">Home</a>&nbsp;|&nbsp;
-   		<a href="privacy.php">Privacy</a>&nbsp;|&nbsp;
-	   	<a href="tos.php">TOS</a>
+		<a href="../index.php">返回主页</a>&nbsp;|&nbsp;
+   		<a href="../msgboard.php">留言板</a>
    		</p>
 
 		</div>

@@ -123,8 +123,8 @@ include ('header.php');
 		        <h3 class="ico-info">文章</h3>
 		      </div>
 		    </div>
-		  <div class="title01460-bottom">
-		  </div>
+		  <div class="title01460-bottom"></div>
+		  <span style="margin-top:5px;margin-right:10px;float:right;font-size:120%"><a href="./addboard.php" title="<?=$myart['title'] ?>">我要发布</a></span>
 		  <div class="articlecontent">
         <?php
         require('config.php');
