@@ -84,6 +84,7 @@ while ($registroe = mysql_fetch_array($tablae)) { // comienza un bucle que leera
 <option value="银钻推荐">银钻推荐</option>
 <option value="铜钻推荐">铜钻推荐</option>
 <option value="推荐">推荐</option>
+<option value="停止">停止</option>
 </select><br>
 站点类别: 
 <input type="text" name="sitecategory" value="<?php echo $registroe["site_category"] ?>"><br>
