@@ -22,44 +22,44 @@ require ('config.php');
       </tr>
       <tr><td colspan="5">
       <table width="100%" border="0" cellspacing="1" cellpadding="5" style="border:1px solid #FFCC00;">
-					   <tr><td colspan="5">查看可做站点</td></tr>
+					   <tr align="center"><td colspan="11">查看可做站点</td></tr>
                         <tr style="background-color:#D9EDff;" align="center">
-                            <td>
+                            <td class="width6">
                                 站点ID
                             </td>
-                            <td>
+                            <td class="width10">
                                 站点名
                             </td>
-                            <td>
+                            <td class="width6">
                                 点击值
                             </td>
-                            <td>
+                            <td class="width4">
                                 下线提成
                             </td>
-                            <td>
+                            <td class="width4">
                                 返佣比例
                             </td>
-                            <td>
-                                最低支付
+                            <td class="width10">
+                                起付/收款
                             </td>
-                            <td>
-                                收款工具
-                            </td>
-                            <td>
+                            <td class="width4">
                                 下线数
                             </td>
-                            <td>
+                            <td class="width10">
+                                站点状态
+                            </td>
+                            <td class="width6">
                                 注册
                             </td>
-                            <td>
+                            <td class="width6">
                                 登记
                             </td>
-                            <td>
+                            <td class="width12">
                                 收款返佣详情
                             </td>
-                        </tr> 			
+                        </tr> 		
 					<?php
-					$tabla = mysql_query("SELECT * FROM  tb_back_site where site_status!='停止' and now_refer_number!=max_refer_number and site_id not in (select site_id from tb_back_common where username='$user') ORDER BY site_time desc"); 
+					$tabla = mysql_query("SELECT * FROM  tb_back_site where site_status!='停止' and now_refer_number!=max_refer_number and site_id not in (select site_id from tb_back_common where username='$user') and site_category='国内点击' or site_category='国外点击' or site_category='注册' ORDER BY site_time desc"); 
 					while ($registro = mysql_fetch_array($tabla)) { 
 					echo "
 					<tr>
@@ -68,10 +68,27 @@ require ('config.php');
 					<td style='background-color: #FAFAFA;text-align:center;'>". $registro["site_money_unit"] ."". $registro["click_value"] ."</td>
 					<td style='background-color: #FAFAFA;text-align:center;'>". $registro["refer_earn_per"]*100 ."%</td>
 					<td style='background-color: #FAFAFA;text-align:center;'>". $registro["back_percent"]*100 ."%</td>
-					<td style='background-color: #FAFAFA;text-align:center;'>". $registro["site_money_unit"] ."". $registro["min_pay"] ."</td>
-					<td style='background-color: #FAFAFA;text-align:center;'>". $registro["site_pay_method"] ."</td>
-					<td style='background-color: #FAFAFA;text-align:center;'><font color='red'>". $registro["now_refer_number"] ."</font>/". $registro["max_refer_number"] ."</td>
-					";
+					<td style='background-color: #FAFAFA;text-align:center;'>". $registro["site_money_unit"] ."". $registro["min_pay"] ."/". $registro["site_pay_method"] ."</td>
+					
+					<td style='background-color: #FAFAFA;text-align:center;'><font color='red'>". $registro["now_refer_number"] ."</font>/". $registro["max_refer_number"] ."</td>";
+					?>	
+					<?php
+					if($registro["site_status"]=='金钻推荐')
+					{
+					echo "
+					<td style='background-color: #FAFAFA;text-align:center;color:red;'>". $registro["site_status"] ."</td>";}
+					elseif($registro["site_status"]=='银钻推荐')
+					{
+					echo "
+					<td style='background-color: #FAFAFA;text-align:center;color:#ff00ff;'>". $registro["site_status"] ."</td>";}
+					elseif($registro["site_status"]=='铜钻推荐')
+					{
+					echo "
+					<td style='background-color: #FAFAFA;text-align:center;color:#5f3300;'>". $registro["site_status"] ."</td>";}
+					elseif($registro["site_status"]=='推荐')
+					{
+					echo "
+					<td style='background-color: #FAFAFA;text-align:center;color:gray;'>". $registro["site_status"] ."</td>";}
 					?>
 					  <td>
 					  <a target="_blank" href="back_site_register.php?id=<?php echo $registro["site_id"] ?>">注册</a>

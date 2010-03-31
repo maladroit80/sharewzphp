@@ -22,28 +22,19 @@ require ('config.php');
       </tr>
       <tr><td colspan="5">
       <table width="100%" border="0" cellspacing="1" cellpadding="5" style="border:1px solid #FFCC00;">
-					   <tr align="center"><td colspan="11"><?php echo date('Y') ?>年最佳国内点击网赚站点</td></tr>
+					   <tr align="center" style="border-bottom:1px solid rgb(255, 204, 0);"><td colspan="11"><?php echo date('Y') ?>年最佳调查网赚站点</td></tr>
                         <tr style="background-color:#D9EDff;" align="center">
                             <td class="width8">
                                 站点ID
                             </td>
-                            <td class="width12">
+                            <td class="width10">
                                 站点名
-                            </td>
-                            <td class="width8">
-                                点击值
                             </td>
                             <td class="width4">
                                 下线提成
                             </td>
-                            <td class="width4">
-                                返佣比例
-                            </td>
-                            <td class="width12">
-                                起付/收款
-                            </td>
-                            <td class="width6">
-                                下线数
+                            <td class="width20">
+                                站点介绍
                             </td>
                             <td class="width10">
                                 站点状态
@@ -51,26 +42,33 @@ require ('config.php');
                             <td class="width6">
                                 注册
                             </td>
-                            <td class="width6">
-                                登记
+                            <td class="width8">
+                                教程
                             </td>
-                            <td class="width12">
-                                收款返佣详情
+                            <td class="width10">
+                                收款详情
                             </td>
-                        </tr> 		
+                        </tr> 			
 					<?php
-					$tabla = mysql_query("SELECT * FROM  tb_back_site where site_category='国内点击' and site_status!='停止' ORDER BY site_time desc"); 
+					$tabla = mysql_query("SELECT * FROM  tb_back_site where site_category='调查' and site_status!='停止' ORDER BY site_time desc"); 
 					while ($registro = mysql_fetch_array($tabla)) { 
 					echo "
 					<tr>
-					<td style='background-color: #FAFAFA;text-align:center;height:30px;'>". $registro["site_id"] ."</td>
-					<td style='background-color: #FAFAFA;text-align:center;'><a target='_blank' href='". $registro["refer_link"] ."'>". $registro["site_name"] ."</a></td>
-					<td style='background-color: #FAFAFA;text-align:center;'>". $registro["site_money_unit"] ."". $registro["click_value"] ."</td>
+					<td style='background-color: #FAFAFA;text-align:center;'>". $registro["site_id"] ."</td>"		
+					?>		
+					<?php
+					if($registro["help_link"] !=null)
+					echo "
+					<td style='background-color: #FAFAFA;text-align:center;height:30px;'><a target='_blank' href='". $registro["help_link"] ."'>". $registro["site_name"] ."</a></td>";
+					else
+					echo "
+					<td style='background-color: #FAFAFA;text-align:center;height:30px;'><a target='_blank' href='". $registro["refer_link"] ."'>". $registro["site_name"] ."</a></td>";
+					?>
+					<?php
+					echo "
 					<td style='background-color: #FAFAFA;text-align:center;'>". $registro["refer_earn_per"]*100 ."%</td>
-					<td style='background-color: #FAFAFA;text-align:center;'>". $registro["back_percent"]*100 ."%</td>
-					<td style='background-color: #FAFAFA;text-align:center;'>". $registro["site_money_unit"] ."". $registro["min_pay"] ."/". $registro["site_pay_method"] ."</td>
 					
-					<td style='background-color: #FAFAFA;text-align:center;'><font color='red'>". $registro["now_refer_number"] ."</font>/". $registro["max_refer_number"] ."</td>";
+					<td style='background-color: #FAFAFA;text-align:center;'>". $registro["site_comment"] ."</td>";
 					?>	
 					<?php
 					if($registro["site_status"]=='金钻推荐')
@@ -90,14 +88,19 @@ require ('config.php');
 					echo "
 					<td style='background-color: #FAFAFA;text-align:center;color:gray;'>". $registro["site_status"] ."</td>";}
 					?>
-					  <td>
-					  <a target="_blank" href="back_site_register.php?id=<?php echo $registro["site_id"] ?>">注册</a>
-					  </td>
-					  <td>
-					  <a target="_blank" href="back_site_apply.php?id=<?php echo $registro["site_id"] ?>">登记</a>
-					  </td>
-					  <td>
-					  <a target="_blank" href="site_payback_detail.php?id=<?php echo $registro["site_id"] ?>">收款返佣详情</a>
+					  <td style="background-color: #FAFAFA;text-align:center;">
+					  <a target="_blank" href="<?php echo $registro["refer_link"] ?>">注册</a>
+					  </td>	
+					<?php
+					if($registro["help_link"] !=null)
+					echo "
+					<td style='background-color: #FAFAFA;text-align:center;height:30px;'><a target='_blank' href='". $registro["help_link"] ."'>操作教程</a></td>";
+					else
+					echo "
+					<td style='background-color: #FAFAFA;text-align:center;height:30px;'>暂无</td>";
+					?>
+					  <td style="background-color: #FAFAFA;text-align:center;">
+					  <a target="_blank" href="site_payback_detail.php?id=<?php echo $registro["site_id"] ?>">收款详情</a>
 					  </td>
 					</tr>
 					<?php

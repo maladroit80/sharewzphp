@@ -74,6 +74,8 @@ $nowbacksum = $row1["now_back_sum"]+ $payback;
     echo "<font color=\"green\"><b>返佣计算成功.</b></font><br><br>";
     echo "结果由来：本期点击数*下线提成*返佣比例*点击值*汇率<br>";
     echo "$payclick*$backper*$referper*$clickvalue*$payunit";
+    
+    
 }
 ?>
 <table style="width:50%;">

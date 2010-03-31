@@ -22,12 +22,12 @@ require ('config.php');
       </tr>
       <tr><td colspan="5">
       <table width="100%" border="0" cellspacing="1" cellpadding="5" style="border:1px solid #FFCC00;">
-					   <tr align="center"><td colspan="11"><?php echo date('Y') ?>年最佳国内点击网赚站点</td></tr>
+					   <tr align="center" style="border-bottom:1px solid rgb(255, 204, 0);"><td colspan="11"><?php echo date('Y') ?>年最佳国外点击网赚站点</td></tr>
                         <tr style="background-color:#D9EDff;" align="center">
                             <td class="width8">
                                 站点ID
                             </td>
-                            <td class="width12">
+                            <td class="width10">
                                 站点名
                             </td>
                             <td class="width8">
@@ -42,7 +42,7 @@ require ('config.php');
                             <td class="width12">
                                 起付/收款
                             </td>
-                            <td class="width6">
+                            <td class="width4">
                                 下线数
                             </td>
                             <td class="width10">
@@ -57,9 +57,9 @@ require ('config.php');
                             <td class="width12">
                                 收款返佣详情
                             </td>
-                        </tr> 		
+                        </tr> 			
 					<?php
-					$tabla = mysql_query("SELECT * FROM  tb_back_site where site_category='国内点击' and site_status!='停止' ORDER BY site_time desc"); 
+					$tabla = mysql_query("SELECT * FROM  tb_back_site where site_category='国外点击' and site_status!='停止' ORDER BY site_time desc"); 
 					while ($registro = mysql_fetch_array($tabla)) { 
 					echo "
 					<tr>

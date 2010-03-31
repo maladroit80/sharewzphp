@@ -86,8 +86,20 @@ while ($registroe = mysql_fetch_array($tablae)) { // comienza un bucle que leera
 <option value="推荐">推荐</option>
 <option value="停止">停止</option>
 </select><br>
-站点类别: 
-<input type="text" name="sitecategory" value="<?php echo $registroe["site_category"] ?>"><br>
+站点类别: [<?php echo $registroe["site_category"] ?>]
+<select name='sitecategory'>
+<option value="国内点击">国内点击</option>
+<option value="国外点击">国外点击</option>
+<option value="注册">注册赚钱</option>
+<option value="调查">调查赚钱</option>
+<option value="投票">投票赚钱</option>
+<option value="冲浪">冲浪赚钱</option>
+<option value="投资">投资赚钱</option>
+<option value="威客">威客赚钱</option>
+<option value="购物返利">购物返利</option>
+<option value="另类">另类赚钱</option>
+</select>
+<br>
 下线链接: 
 <input type="text" name="referlink" value="<?php echo $registroe["refer_link"] ?>"><br>
 教程链接: 
