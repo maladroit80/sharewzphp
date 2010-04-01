@@ -11,20 +11,20 @@ $querystr=$status["全部"];
 if($_SERVER['REQUEST_METHOD']=='POST') 
 {
 	$url=$_GET['name'];
-	$thestatus=$_POST['status'];
+	$thestatus=$_POST['thestatus'];
 	$theorigin=$_POST['origin'];
 	require('config.php');
 	if(isset($_POST['commend']))
 	{
 		if($thestatus=='c')
-		mysql_query("update tb_news set status='' where url='$url'") or die(mysql_error());
+		mysql_query("update tb_news set status=null where url='$url'") or die(mysql_error());
 		else if($thestatus!='t')
 		mysql_query("update tb_news set status='c' where url='$url'") or die(mysql_error());
 	}
 	if(isset($_POST['top']))
 	{
 		if($thestatus=='t')
-		mysql_query("update tb_news set status='' where url='$url'") or die(mysql_error());
+		mysql_query("update tb_news set status=null where url='$url'") or die(mysql_error());
 		else
 		mysql_query("update tb_news set status='t' where url='$url'") or die(mysql_error());
 	}
@@ -83,11 +83,11 @@ if($_SERVER['REQUEST_METHOD']=='POST')
 </form>
   
 <?php
-require_once("config.php");
+include("config.php");
 $pagesize=50;
 //取得记录总数$rs，计算总页数用
 $rs=mysql_query("select count(*) from tb_news");
-$myrow = mysql_fetch_array($rs);
+$myrow = @mysql_fetch_array($rs);
 $numrows=$myrow[0];
 //计算总页数
 
@@ -109,9 +109,11 @@ $offset=$pagesize*($page - 1);
 //读取指定记录数
 $querystr=$querystr.$offset.','.$pagesize;
 $rs=mysql_query($querystr);
+$num = mysql_num_rows($rs);
 if ($myrow = @mysql_fetch_array($rs))
 {
 $i=0;
+echo "本类共有".$num."篇";
 ?>
 <table border="0" >
 　　<tr>
@@ -155,7 +157,7 @@ $i++;
 <form action="index.php?op=431&page=<?php echo $page ?>&name=<?php echo $myrow["url"]?>" method="post">
 <td>
 <nobr>
-  <input type="hidden" name="status" value="<?=$myrow["status"] ?>"/>
+  <input type="hidden" name="thestatus" value="<?=$myrow["status"] ?>"/>
   <input type="hidden" name="origin" value="<?=$myrow["origin"] ?>"/>  
   <input name='commend' type="submit" value="推荐"/>
   <input name='top' type="submit" value="置顶"/>
