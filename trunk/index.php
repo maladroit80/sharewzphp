@@ -21,49 +21,15 @@
 		  <!--左上left table content-->  
 		  <div class="topleftcontent">
 		 
-  <table>
-    <tr>
-      <td>
-      <table>	
-    <tr>
+  <table id="hp_dailytable" width="100%">
+    <tr align="center">
       <td>最新收款站点</td>
-    </tr>
-  
-			<?php
-			require('config.php');
-			$tabla = mysql_query("SELECT * FROM tb_back_site where site_id in (select site_id from tb_payproof order by pay_time desc) limit 5"); 
-			mysql_close($con);
-			while ($row = mysql_fetch_array($tabla)) {
-			echo "<tr><td>";
-			echo "<a href='".$row["refer_link"]."' target='_blank'>".$row["site_name"]."</a>";
-			echo "</td></tr>";
-			}?>
-  </table>
-      </td>
-      <td>
-      
-      <table>	
-    <tr>
       <td>最新返佣站点</td>
-    </tr>
-  
-			<?php
-			require('config.php');
-			$tabla = mysql_query("SELECT * FROM tb_back_site where site_id in (select site_id from tb_payproof order by pay_time desc) limit 5"); 
-			mysql_close($con);
-			while ($row = mysql_fetch_array($tabla)) {
-			echo "<tr><td>";
-			echo "<a href='".$row["refer_link"]."' target='_blank'>".$row["site_name"]."</a>";
-			echo "</td></tr>";
-			}?>
-  </table>
-      </td>
-      <td>
-      
-      <table>	
-    <tr>
       <td>今日推荐站点</td>
     </tr>
+    <tr>
+      <td align="center" style="border-right:1px solid #FFCC00;">
+      <table>	
   
 			<?php
 			require('config.php');
@@ -74,6 +40,32 @@
 			echo "<a href='".$row["refer_link"]."' target='_blank'>".$row["site_name"]."</a>";
 			echo "</td></tr>";
 			}?>
+  </table>
+      </td>
+      <td align="center" style="border-right:1px solid #FFCC00;">
+      
+      <table>	
+  
+			<?php
+			require('config.php');
+			$tabla = mysql_query("SELECT * FROM tb_back_site where site_id in (select site_id from tb_back_history order by time desc) limit 5"); 
+			mysql_close($con);
+			while ($row = mysql_fetch_array($tabla)) {
+			echo "<tr><td>";
+			echo "<a href='".$row["refer_link"]."' target='_blank'>".$row["site_name"]."</a>";
+			echo "</td></tr>";
+			}?>
+  </table>
+      </td>
+      <td align="center">
+      
+      <table>	
+  <tr><td><a target="_blank" href="http://www.sharewz.com/">快乐转转</a></td></tr>
+  <tr><td><a target="_blank" href="http://www.sharewz.com/">快转</a></td></tr>
+  <tr><td><a target="_blank" href="http://www.sharewz.com/">乐转转</a></td></tr>
+  <tr><td><a target="_blank" href="http://www.sharewz.com/">123快乐转转</a></td></tr>
+  <tr><td><a target="_blank" href="http://www.sharewz.com/">快</a></td></tr>
+  <tr><td><a target="_blank" href="http://www.sharewz.com/">快</a></td></tr>
   </table>
       </td>
     </tr>
@@ -97,7 +89,7 @@
 		  <!--/左上right table head-->  
 		  <!--左上left table content-->  
 		  <div class="toprightcontent">
-		  <div class="content">
+		  <div class="content" style="font-size: 12px;">
 		  <span class="words">
 		  <font>◆<span style="font-size:1.2em;">我们保证来自易网赚的点击是<strong>100%真实有效的</strong>:</span></font><br/>
 		  <li><span>同用户同IP一天仅有一次有效点击</span></li>
@@ -158,7 +150,7 @@
 								mysql_close($con); ?>元</strong>提成，同时赠送5个下线并优先支付。</p>
 		<p>五、独创的会员<a href="addlink.php">链接收藏系统</a>，省去您频繁输入网址的烦恼，<a href="addlink.php">详情</a>。</p>
 		<p>六、完善强大的<strong>返佣系统</strong>，优化返佣流程(<a href="#">说明</a>)，记录返佣历史，安全可靠。<a href="back.php">详情</a></p>
-		<p>七、轻松点击，完成任务，发布您的<a href="adver.php">注册广告</a>，免费发布您自己的推荐链接，轻松发展下线，<?php include('sitename.php'); ?>给您多样的赚钱模式。<a href="register.php">马上加入吧!</a></p>
+		<p>七、轻松点击，完成任务，发布您的<a href="adver.php">注册广告</a>，免费发布您自己的推荐链接，<?php include('sitename.php'); ?>给您多样的赚钱模式。<a href="register.php">马上加入吧!</a></p>
         </div>
         <!-- /middle left table content -->
         <hr class="noscreen" />
