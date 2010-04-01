@@ -14,7 +14,7 @@ if ($option=="paid")
 
 $username=$_POST["username"];
 $paynumber=$_POST["backpaynumber"];
-$username=$_POST["username"];
+$nowbacksum=$_GET["nowbacksum"];
 
 
 $tablae = mysql_query("SELECT * FROM tb_back_account where username='$username'"); // selecciono todos los registros de la tabla usuarios, ordenado por nombre
@@ -34,17 +34,36 @@ $lafecha=date("Y-n-d H:i");
 echo "<font color=\"green\"><b>成功支付</b></font><br><br>";
 
 //增加支付记录
-$sql = mysql_query("select * from tb_backpay_history");
+$sql = mysql_query("select * from tb_backpay_history where username='$username'");
+$rownumber = mysql_num_rows($sql);
+$sql1 = mysql_query("select max(pay_number) from tb_backpay_history where username='$username'");
+$row = mysql_fetch_array($sql1);
+if($rownumber==0)
+{
+	$back_number = 1;
+}else
+{
+	$back_number = $row[0]+1;
+}
 
+	$query1 = "INSERT INTO tb_backpay_history (username, pay_number, pay_sum," .
+		"pay_time) VALUES(" .
+		"'$username', '$back_number', '$nowbacksum', '$lafecha')";
+	 mysql_query($query1) or die(mysql_error());
 echo "<font color=\"green\"><b>成功添加一条新支付记录</b></font><br><br>";
 }
 
 }
 if($option=="leastpay"){
 	$leastpay = $_POST["leastpay"];
+	if($leastpay==0)
+	{
+		echo "<font color=\"green\"><b>输入有误！请确保输入的数值大于零</b></font><br><br>";
+	}else 
+	{
     $query = "UPDATE tb_common SET value='$leastpay' where itemid='leastpay'";
     mysql_query($query) or die(mysql_error());
-	echo "<font color=\"green\"><b>修改最低支付成功</b></font><br><br>";
+	echo "<font color=\"green\"><b>修改最低支付成功</b></font><br><br>";}
 }
 
 }
@@ -104,7 +123,7 @@ echo "
 ?>
 
 <td>
-<form method="post" action="index.php?op=60&id=<?php echo $registro["id"] ?>&option=paid">
+<form method="post" action="index.php?op=60&id=<?php echo $registro["id"] ?>&nowbacksum=<?php echo $registro["now_back_sum"] ?>&option=paid">
 <input type="hidden" name="allbacksum" value="<?php echo $registro["all_back_sum"] ?>">
 <input type="hidden" name="backpaynumber" value="<?php echo $registro["back_pay_number"] ?>">
 <input type="hidden" name="username" value="<?php echo $registro["username"] ?>">
