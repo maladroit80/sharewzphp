@@ -19,8 +19,8 @@ require("config.php");
   
 	<ul>
 	<li><a href="back_payinfo.php" >查看自己最近支付信息</a></li>
-	<li><a href="backinfo.php" >查看自己最近返佣信息</a></li>
-	<li><a href="leavemsg.php" >有问题 请在线留言</a></li>
+	<li><a href="back_info.php" >查看自己最近返佣信息</a></li>
+	<li><a href="msgboard.php" >有问题 请在线留言</a></li>
 	<li><a href="logout.php" >退出</a></li>
 	</ul>
 	</div>

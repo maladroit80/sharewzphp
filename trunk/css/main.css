@@ -1,6 +1,16 @@
 * {margin:0; padding:0;}
 body, div, span, p, a, img, ul, ol, li, table, caption, tbody, tfoot, tr, th, td, form, fieldset, legend, label, dl, dt, dd, blockquote, applet, object, h1, h2, h3, h4, h5 {border:0;}
-body {padding:35px 0; background:#FFF; font:0.8em/1.5 "arial",sans-serif; color:#2F2F2F; text-align:center;}
+body {padding:35px 0; background:#FFF; font:0.8em/1.5 "arial",sans-serif; color:#2F2F2F; text-align:center;font-family:Verdana,Geneva,sans-serif;}
+
+.content
+{
+    color:#2D2D2D;
+    font-size:10pt;
+    line-height:22px;
+    margin:5px 5px 5px 5px;
+    text-align:left;
+    text-indent:2em;
+    }
 
 a {color:#0067E6;}
 a:hover {color:#F60;}
@@ -15,7 +25,7 @@ p {margin:15px 0;}
 
 
 
-table {margin:15px 0; border-collapse:collapse; border-spacing:0; font-size:100%;}
+table {margin:5px 0; border-collapse:collapse; border-spacing:0; font-size:100%;}
 table.width100 {width:100%;}
 th {text-align:center; font-weight:bold;}
 th, td {padding:3px 5px;}
@@ -434,7 +444,7 @@ words styles by Timorning
 -------------------------------------------------------------------------------------*/
 .words {margin-left:20px;}
 .words font{float:left;color:#FF0000;font-size:8pt;padding-left:5px;}
-.words li{margin-left:25px;color:#0067E6;}
+.words li{margin-left:20px;list-style-type: none;}
 .words span{color:#2F2F2F;}
 
 /*-----------------------------------------------------------------------------------
@@ -476,3 +486,11 @@ back.php styles by hilary
 #back_sitestatus table tr{border-bottom-color:#999999;border-bottom-style:dashed;border-bottom-width:1px;}
 #back_paid {margin:0; padding:2px 15px;text-align:center;}
 #back_paid {margin:0; padding:2px 15px;text-align:center;}
+
+/*-----------------------------------------------------------------------------------
+index.php styles by hilary
+-------------------------------------------------------------------------------------*/
+.fontsize12px
+{
+font-size:12px;
+}

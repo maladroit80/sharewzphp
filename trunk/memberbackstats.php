@@ -31,7 +31,9 @@ echo $row["now_back_sum"]; ?>&nbsp;元&nbsp;</td>
 <img border="0" src="images/bullet2.gif" width="7" height="7"  align="absmiddle" > 总返佣金额</td>
 <td align="left"><?php include('config.php');
 								$result =mysql_query("SELECT sum(all_back_sum) FROM tb_back_account WHERE username='$user'");
-								$row = mysql_fetch_array($result); echo $row[0];
+								$row = mysql_fetch_array($result); 
+								//取小数点后两位
+								echo number_format($row[0],2);
 								?>&nbsp;元&nbsp;</td>
 </tr>
 

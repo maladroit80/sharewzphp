@@ -22,30 +22,34 @@ require ('config.php');
       </tr>
       <tr><td colspan="5">
       <table width="100%" border="0" cellspacing="1" cellpadding="5" style="border:1px solid #FFCC00;">
-					   <tr align="center"><td colspan="5">最近支付信息</td></tr>
+					   <tr align="center"><td colspan="5">最近返佣信息</td></tr>
                         <tr style="background-color:#D9EDff;" align="center">
                             <td>
                                编号
                             </td>
                             <td>
-                                第几次返佣支付
+                            	站点名
                             </td>
                             <td>
-                                本次返佣支付金额
+                                第几次返佣
+                            </td>
+                            <td>
+                                本次返佣金额
                             </td>
                             <td>
                                 时间
                             </td>
                         </tr> 		
 					<?php
-					$tabla = mysql_query("SELECT * FROM  tb_backpay_history where username='$user' ORDER BY pay_time desc"); 
+					$tabla = mysql_query("SELECT * FROM  tb_back_history where username='$user' ORDER BY time desc"); 
 					while ($registro = mysql_fetch_array($tabla)) { 
 					echo "
 					<tr>
 					<td style='background-color: #FAFAFA;text-align:center;height:30px;'>". $registro["id"] ."</td>
-					<td style='background-color: #FAFAFA;text-align:center;'>". $registro["pay_number"] ."</td>
+					<td style='background-color: #FAFAFA;text-align:center;'>". $registro["site_name"] ."</td>
+					<td style='background-color: #FAFAFA;text-align:center;'>". $registro["back_number"] ."</td>
 					<td style='background-color: #FAFAFA;text-align:center;'>￥". $registro["pay_sum"] ."</td>
-					<td style='background-color: #FAFAFA;text-align:center;'>". $registro["pay_time"] ."</td>";
+					<td style='background-color: #FAFAFA;text-align:center;'>". $registro["time"] ."</td>";
 					?>	
 					</tr>
 					<?php
