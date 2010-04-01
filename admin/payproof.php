@@ -11,10 +11,6 @@ $nowpaysum = $_POST["nowpaysum"];
 $allpaysum = $_POST["allpaysum"];
 $paytime = $_POST["paytime"];
 
-$sql_backnumber = mysql_query("SELECT max(back_number) FROM tb_payproof where site_id='$siteid' ");
-
-$row_backnumber = mysql_fetch_array($sql_backnumber);
-
 
 if($nowpaysum== NULL) {
 }else{

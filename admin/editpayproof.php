@@ -48,7 +48,7 @@ id: <input type="hidden" name="id" value="<?php echo $registroe["id"]+1 ?>"><?ph
 <br>
 本次收款额:
 <input type="text" name="nowpaysum" ><br>
-总收款额:
+总收款额（不包含本次）:
 <input type="text" name="allpaysum" value="<?php echo $row[0] ?>"><br>
 收款时间： 
 <input type="text" name="paytime" value="<?php echo date("y-m-d H:i"); ?>"><br>
