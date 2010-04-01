@@ -56,7 +56,7 @@ include ('header.php');
    		 return $returnstr;
 	
 		}
-    	$articles=mysql_query("SELECT * FROM tb_news order by date desc LIMIT 0 , 20");
+    	$articles=mysql_query("SELECT * FROM tb_news where status='c' order by date desc LIMIT 0 , 10");
     	if ($myrow = mysql_fetch_array($articles))
     	{
     		do {
@@ -100,7 +100,7 @@ include ('header.php');
         <div>
         <?php
         require('config.php');
-    	$articles=mysql_query("SELECT * FROM tb_news order by date desc LIMIT 0 , 10");
+    	$articles=mysql_query("SELECT t1.id as id,title,url FROM tb_news AS t1 JOIN (SELECT ROUND(RAND() * ((SELECT MAX(id) FROM tb_news)-(SELECT MIN(id) FROM tb_news))+(SELECT MIN(id) FROM tb_news)) AS id) AS t2 WHERE t1.id >= t2.id ORDER BY t1.id LIMIT 10");
     	if ($myrow = mysql_fetch_array($articles))
     	{
     		do {
@@ -127,17 +127,34 @@ include ('header.php');
 		  <div style="width:100%;margin-top:5px;font-size:120%;text-align:right;"><a href="./addboard.php" title="<?=$myart['title'] ?>">我要发布</a>&nbsp;&nbsp;</div>
 		  <div class="articlecontent">
         <?php
+        $myarts=array();
         require('config.php');
-    	$articles=mysql_query("SELECT * FROM tb_news order by date desc LIMIT 0 , 10");
+    	$articles=mysql_query("SELECT * FROM tb_news where status='t' order by date desc LIMIT 0 , 3");
     	if ($myart = mysql_fetch_array($articles))
     	{
-    		do {
-    			$mytitle=$myart['title'];
-    			$mytitle=cut_str($mytitle,50);
-    			$content=cut_str(strip_tags($myart['content']),100);
-?>
+    		do{
+    			$myarts[]=$myart;
+    		}
+    		while($myart = mysql_fetch_array($articles));
+    	}
+    	$articles=mysql_query("SELECT * FROM tb_news where url<>'".$myarts[0]['url']."' and url<>'".$myarts[1]['url']."' and url<>'".$myarts[2]['url']."' order by date desc LIMIT 0 , 10");
+		if ($myart = mysql_fetch_array($articles))
+    	{
+    		do{
+    			$myarts[]=$myart;
+    		}
+    		while($myart = mysql_fetch_array($articles));
+    	}
+    	foreach($myarts as $key=>$myart)
+    	{
+    		$mytitle=$myart['title'];
+    		$mytitle=cut_str($mytitle,50);
+    		$content=cut_str(strip_tags($myart['content']),100);
+		?>
 		<div>
- 		<h3><a href="./article/<?=$myart["url"] ?>.html" title="<?=$myart['title'] ?>">
+ 		<h3><?php if($key<3) echo '<img alt="置顶" src="./images/top.gif" />';
+ 		if($myart['status']=='c'||$myart['status']=='t') echo '<img alt="推荐" src="./images/cool.gif" />';
+ 		?><a href="./article/<?=$myart["url"] ?>.html" title="<?=$myart['title'] ?>">
  		<?php 
  		 $boardTypes=array(
 				"experience"=>"经验心得",
@@ -175,8 +192,6 @@ include ('header.php');
 		<hr style="border:1px dotted #0067E6;">
 <?php
     		}
-    		while($myart = mysql_fetch_array($articles));
-    	}
        ?>
 		 </div>
 		  <!--/左上left table content-->  		  
