@@ -73,10 +73,28 @@ $nowbacksum = $row1["now_back_sum"]+ $payback;
 
     echo "<font color=\"green\"><b>返佣计算成功.</b></font><br><br>";
     echo "结果由来：本期点击数*下线提成*返佣比例*点击值*汇率<br>";
-    echo "$payclick*$backper*$referper*$clickvalue*$payunit";
+    echo "$payclick*$backper*$referper*$clickvalue*$payunit<br>";
     
-    
+//增加返佣记录
+$sql2 = mysql_query("select * from tb_back_history where username='$username'");
+$rownumber = mysql_num_rows($sql2);
+$sql3 = mysql_query("select max(back_number) from tb_back_history where username='$username'");
+$row3 = mysql_fetch_array($sql3);
+if($rownumber==0)
+{
+	$back_number = 1;
+}else
+{
+	$back_number = $row3[0]+1;
 }
+
+	$query1 = "INSERT INTO tb_back_history (username,site_id,site_name, pay_sum,back_number," .
+		"time) VALUES(" .
+		"'$username', '$siteid', '$sitename','$payback','$back_number', '$backtime')";
+	 mysql_query($query1) or die(mysql_error());
+echo "<font color=\"green\"><b>成功添加一条新返佣记录</b></font><br><br>";
+}
+    
 ?>
 <table style="width:50%;">
 <tr>
@@ -88,7 +106,7 @@ $nowbacksum = $row1["now_back_sum"]+ $payback;
 </th>
 </tr>
 <tr>
-<td>返佣完毕请点击此按钮确认</td>
+<td>当返佣完毕请务必点击此按钮确认</td>
 <td style="text-align:center;">
 <form method="post" action="index.php?op=591&siteid=<?php echo $siteid ?>&sitename=<?php echo $sitename ?>">
 <input type="submit" value="点击完成此站本次返佣" class="button" />
