@@ -7,7 +7,9 @@ $title=$_POST["title"];
 $author=$_POST["author"];
 $content=stripslashes($_POST["adminfck"]);
 $type=$_POST["type"];
-$filename=$_GET["name"].".php";
+if($_POST["origin"]=='3')
+{
+	$filename=$_GET["name"].".php";
 if(file_exists("../news/".$filename))
 {
 	if(!unlink("../news/".$filename))
@@ -25,7 +27,7 @@ if ($fp = fopen("../news/temp/newstemplate.php", "r")) {
 }
 file_put_contents("../news/".$filename,$page);
 include('config.php');
- function cut_str($sourcestr,$cutlength)
+function cut_str($sourcestr,$cutlength)
 		{
   			$returnstr='';
   			$i=0;
@@ -67,33 +69,61 @@ include('config.php');
 	
 		}
 $content=cut_str(strip_tags($content),110);
-$query ="update tb_news set title='".$title."',author='".$author."',date='".date("y-m-d H:i")."',type='".$type."',content='".$content."' where url='".$_GET["name"]."'";
+$query ="update tb_news set title='".$title."',author='".$author."',date='".date("y-m-d H:i")."',type='".$type."',content='".mysql_escape_string($content)."' where url='".$_GET["name"]."'";
 mysql_query($query) or die(mysql_error());
 echo "编辑成功";
+}
+else
+{
+	include('config.php');
+	$query ="update tb_news set title='".$title."',author='".$author."',type='".$type."',content='".mysql_escape_string($content)."' where url='".$_GET["name"]."'";
+	mysql_query($query) or die(mysql_error());
+	echo "编辑成功";
+}
+
+
 }
 }
 else if(isset($_GET["name"]))
 {
-$filename=$_GET["name"].".php";
-if ($fp = fopen("../news/".$filename, "r"))
+if(isset($_GET["origin"])&&$_GET["origin"]!='3')
 {
-	$fcontent=fread ($fp,filesize ("../news/".$filename));
-	preg_match("/<!-- rc -->.*<!-- \/rc -->/si",$fcontent, $matches);
-	$matches[0]=substr($matches[0],14,strlen($matches[0])-30);
 	require_once("config.php");
 	$rs=mysql_query("select * from tb_news where url='".$_GET["name"]."'");
 	$data=mysql_fetch_array($rs);
 	mysql_close($con);
-	
-	//$pageno=explode('.',$filename);
-	// echo "<script>window.open('../article.php?no=".$pageno[0]."','');</script>";
+	$boardTypes=array(
+				"experience"=>"经验心得",
+				"freetalk"=>"家常闲话",
+				"recommend"=>"站点推荐",
+				"CHM"=>"网赚教程"
+		);
 }
-else{echo "网页不存在！"; 
-exit();
+else
+{
+	$filename=$_GET["name"].".php";
+	if ($fp = fopen("../news/".$filename, "r"))
+	{
+		$fcontent=fread ($fp,filesize ("../news/".$filename));
+		preg_match("/<!-- rc -->.*<!-- \/rc -->/si",$fcontent, $matches);
+		$matches[0]=substr($matches[0],14,strlen($matches[0])-30);
+		require_once("config.php");
+		$rs=mysql_query("select * from tb_news where url='".$_GET["name"]."'");
+		$data=mysql_fetch_array($rs);
+		mysql_close($con);
+	}
+	else
+	{
+		echo "网页不存在！"; 
+		exit();
+	}
 }
 include_once("../fckeditor/fckeditor.php");
 ?>
-<form action='index.php?op=45&&page=<?php echo $_GET["page"]?>&&name=<?php echo $_GET["name"]?>' method='POST'>
+<lable>文章ID：<?=$_GET["name"]?></lable>
+<br/>
+<br/>
+<form action='index.php?op=45&&name=<?php echo $_GET["name"]?>' method='POST'>
 <div>
 <lable>标题：</lable><input type="text" name="title" style="width:500px;" value="<?php echo $data["title"]?>"></input><br/>
 <lable>作者：</lable><input type="text" name="author" style="width:200px;" value="<?php echo $data["author"]?>"></input><br/>
@@ -102,14 +132,28 @@ $oFCKeditor = new FCKeditor('adminfck') ;
 $oFCKeditor->BasePath = '../fckeditor/' ;
 $oFCKeditor->Height='500';
 //$oFCKeditor->ToolbarSet = 'MySetting';
-$oFCKeditor->Value = $matches[0];
+$oFCKeditor->Value = isset($matches)?$matches[0]:$data["content"];
 $oFCKeditor->Create() ;
 ?>
-</br>
+<br/>
+<?php
+if(!isset($boardTypes))
+{
+?>
 <input type=radio name="type" CHECKED value="经验心得">经验心得</input>
 <input type=radio name="type" value="建站交流">建站交流</input>
 <input type=radio name="type" value="通告">通告</input>
-
+<?php
+}
+else
+foreach($boardTypes as $key=>$boardType)
+{
+?>
+<input type=radio name="type" <?php if($key==$data["type"]) echo "CHECKED"; ?> value="<?=$key ?>"><?=$boardType ?></input>
+<?php
+}
+?>
+<input type="hidden" name="origin" value="<?=$data["origin"] ?>"/> 
 <input type="submit" value="确定" onclick="javascript:Submit();"/>
 </div>
 </form>

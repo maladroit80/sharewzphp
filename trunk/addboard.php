@@ -47,7 +47,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 				}
 				if(x==0){
 				x="Done";
-				location.href="members.php";
+				location.href="article.php";
 				}}
 				window.onload=startClock();
 				</script>';
