@@ -1,6 +1,6 @@
 <div id="footer">
 <p>&copy; 2008 <a href="index.php"><?php include('sitename.php');?>
-有限公司</a> 版权所有<a href="tos.php"></a> | <a href="privacy.php">隐私</a> | <a href="tos.php">条款</a> | <a href="faq.php">帮助</a> | <a href="payment_proof.php">付款证明</a>  | <a href="contact.php">联系我们</a> 客服邮箱<span style="font-family: Geneva, Arial, Helvetica, sans-serif">:<span style="font-family: Arial, Helvetica, sans-serif; color: #FF0000">masteradsnet@gmail.com</span></span>
+有限公司</a> 版权所有<a href="tos.php"></a> | <a href="privacy.php">隐私</a> | <a href="tos.php">条款</a> | <a href="faq.php">帮助</a> | <a href="payment_proof.php">付款证明</a>  | <a href="contact.php">联系我们</a> 客服邮箱<span style="font-family: Geneva, Arial, Helvetica, sans-serif">:<span style="font-family: Arial, Helvetica, sans-serif; color: #FF0000">easywzw@gmail.com</span></span>
 <table align="center" width="100%" cellpadding="0">
   <tr bgcolor="#dcebff">
     <td height="5" colspan="8"><div align="left"></div></td>

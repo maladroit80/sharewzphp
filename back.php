@@ -86,7 +86,7 @@ require ('config.php');
 		    <!--bot1 table head-->
 		        <div class="title01225">
 		          <div class="title01225-in">
-		          <p class="f-right noprint"><strong><a href="#" class="add">更多</a></strong></p>
+		          <p class="f-right noprint"><strong><a href="backpay_all.php" class="add">更多</a></strong></p>
 		           <h2 class="ico-list">最新支付</h2>
 		          </div>
 		        </div>
@@ -125,7 +125,7 @@ require ('config.php');
 		    <!--bot1 table head-->
 		        <div class="title01225">
 		          <div class="title01225-in">
-		          <p class="f-right noprint"><strong><a href="#" class="add">更多</a></strong></p>
+		          <p class="f-right noprint"><strong><a href="back_all.php" class="add">更多</a></strong></p>
 		           <h2 class="ico-list">最新返佣</h2>
 		          </div>
 		        </div>
@@ -163,14 +163,14 @@ require ('config.php');
       <tr bgcolor="#FFFFFF">
         <td height="28" colspan="5"><div align="center"><a href="contact.php">黄金广告位50元/月</a></div></td>
       </tr>
-      <tr><td colspan="5">
+      <!--<tr><td colspan="5">
       <table style="width:100%;">
       <tr bgcolor="#FFFFFF" id="sitemenu">
-		<td><a href="sites_notavailable.php" >累计点击排名</a></td>
-		<td><a href="sites_notavailable.php" >累计返佣排名</a></td>
-		<td colspan="2"><a href="sites_notavailable.php" >登记返佣站点数量排名</a></td>
+		<td><a href="sites_click_rank.php" >累计点击排名</a></td>
+		<td><a href="sites_bac_krank.php" >累计返佣排名</a></td>
+		<td colspan="2"><a href="sites_number_rank.php" >登记返佣站点数量排名</a></td>
       </tr></table>
-      </td></tr>
+      </td></tr>-->
       <tr bgcolor="#FFFFFF">
         <td height="28">&nbsp;</td>
         <td height="28">&nbsp;</td>
