@@ -10,7 +10,7 @@
           <div class="title01338-top"></div>
 		    <div class="title01338">
 		      <div class="title01338-in">
-		      	<p class="f-right noprint"><strong><a href="#" class="add">更多...</a></strong></p>
+		      	<p class="f-right noprint"><strong><a href="back.php" class="add">更多...</a></strong></p>
 		        <h3 class="ico-info">每日必做项目</h3>
 		      </div>
 		    </div>
