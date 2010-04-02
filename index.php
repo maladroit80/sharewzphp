@@ -179,10 +179,8 @@
     <!--/middle left table head-->
     <!--middle left table content-->
     	<div style="height:95%;">
-    	<ul>
-		  <li>test</li>
-		  <li>test</li>
-		  </ul>
+    	
+  
     	</div>
     <!--/middle left table content-->
     </div>
@@ -205,7 +203,7 @@
 			<th class="fontsize12px" width="50%"><b>支付时间</b></th></tr>
 			<?php
 			require('config.php');
-			$tabla = mysql_query("SELECT * FROM tb_history ORDER BY id ASC limit 6"); 
+			$tabla = mysql_query("SELECT * FROM tb_history ORDER BY id ASC limit 10"); 
 			mysql_close($con);
 			while ($row = mysql_fetch_array($tabla)) {
 						
@@ -219,7 +217,7 @@
 			
 			echo "</td><td align='center'>";
 			
-			echo substr($row["date"],2);
+			echo substr($row["date"],1,6);
 						
 			echo "</td></tr>";
 			
