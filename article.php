@@ -215,9 +215,9 @@ include ('header.php');
 <?php
     		}
     	echo '<div class="pages">';
+    	$allpage=$pages;
     	if($pages>10)
     	{
-    		$allpage=$pages;
     		$pages=10;
     		$hasall=true;
     	}
@@ -230,6 +230,7 @@ include ('header.php');
 		}
 		if($hasall)
 			echo "...<a href='article.php?page=".$allpage."'>".$allpage ."</a>";
+		if($page!=$allpage)
 		echo "<a href='article.php?page=".($page+1)."'>NEXT></a>";
 		echo "</div>";
        ?>

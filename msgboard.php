@@ -7,13 +7,39 @@ if(isset($_COOKIE["usNick"]) && isset($_COOKIE["usPass"]))
 	$result = mysql_query($sql);        
 	$row = mysql_fetch_array($result);
 	$status = $row['user_status'];
-	mysql_close();	
+	mysql_close();
+	if($status=="admin")
+	{
+?>
+<script LANGUAGE="JavaScript">
+function addreply(id)
+{
+	//var event = arguments[0]||window.event;       
+	//var eventTarget = window.event.srcElement||eventTag.target;
+	var eleId="bbs"+id;
+	var parentEle = document.getElementById(eleId);
+	var newNode = document.createElement("div");
+	newNode.id="replydiv"+id;
+	newNode.innerHTML = "<div style=\"margin:10px 20px; \"><form action=\"msgboard.php\" name=\"reply\" method=\"post\"><textarea style=\"height:200px;width:300px;\" name=\"replyBody\"></textarea><p><input type=\"submit\" value=\"提交回复\" name=\"btn_reply_submit\" /><input type=\"button\" value=\"取消\" onclick=\"closediv("+id+")\" /><input type=\"hidden\" value=\""+id+"\" name=\"btn_reply_hidden\" /></p></form></div>";
+	parentEle.insertBefore(newNode,parentEle.childNodes[4]); 
+}
+function closediv(id)
+{
+	var eleId="replydiv"+id;
+	var ele = document.getElementById(eleId);
+	ele.parentNode.removeChild(ele);
+}
+</script>
+<?php
+	}	
 }
 else
 {
 	$status="passby";
 }
 if($_SERVER['REQUEST_METHOD']=='POST')
+{
+if(isset($_POST["btn_comment_submit"]))
 {
 $yz=trim($_POST["securecode"]);
 $yzma=trim($_POST["gencode"]);
@@ -72,6 +98,18 @@ else
     mysql_query($sql) or die(mysql_error());
     mysql_close();
     echo "<script>location.href='msgboard.php';</script>";
+}
+}
+else if(isset($_POST["btn_reply_submit"]))
+{
+	include('config.php');
+	$replycontent = strip_tags($_POST['replyBody']);
+	$id=$_POST['btn_reply_hidden'];
+	$replytime=date("y-m-d H:i");
+	$sql = "UPDATE tb_msgboard SET reply='".mysql_escape_string($replycontent)."',replytime='$replytime' WHERE id='$id'";
+	mysql_query($sql) or die(mysql_error());
+	mysql_close();
+	echo "<script>location.href='msgboard.php';</script>";
 }
 }
 ?>
@@ -185,10 +223,10 @@ function inputcheck()
     	{
     		do {
 ?>
-	<div style="border:1px solid #E8E7D0;margin-bottom:10px;width:99.5%;">
+	<div id="bbs<?=$myrow['id'] ?>" style="border:1px solid #E8E7D0;margin-bottom:10px;width:99.5%;">
 		<div style="border-bottom:1px dashed #E8E7D0;color:#666666;height:30px;line-height:30px;padding-left:10px;padding-right:15px;">
 			<div style="float:right;text-align:right;width:160px;">
-			<?php if($status=="admin") echo '<a href="#">回复</a>';?>
+			<?php if($status=="admin") echo '<a href="javascript:addreply('.$myrow['id'].')">回复</a>';?>
 			<a href="#">引用</a>
 			<a target="_blank" href="./msgboard.php?getname=<?php echo urlencode($myrow['name']);?>" title="查看该昵称发表过的留言">查看</a>
 			</div>
@@ -197,7 +235,15 @@ function inputcheck()
 			<span <?php if($myrow["user_status"]=="admin") echo 'style="color:red;"'; elseif ($myrow["user_status"]=="user") echo 'style="color:#0067E6;"';?>><?php if($myrow["user_status"]=="admin") echo "[管理员]";else if($myrow["user_status"]=="user") echo "[注册用户]";else echo "[游客]";?></span>
 		</div>
 		<div style="border-bottom:1px solid #E8E7D0;line-height:1.5em;min-height:35px;padding:15px 18px 15px 18px;">
-		<span><?php echo nl2br($myrow['content']); ?></span>
+		<p><?php echo nl2br($myrow['content']); ?></p>
+		<?php if($myrow['reply']!='')
+		{
+		?>
+		<br/>
+		<p style="margin-left:200px;color:red;">管理员回复[<?=$myrow["replytime"] ?>]:<br/><?php echo nl2br($myrow['reply']); ?></p>
+		<?php 
+		}
+		?>
 		</div>
 		<div style="text-align:right;border-bottom:0 solid #CCCCCC;height:30px;line-height:30px;padding-left:10px;padding-right:15px;">
 		<img height="13" width="13" src="images/mail.gif" title="<?=$myrow["email"] ?>"/><span>邮件&nbsp;|&nbsp;</span> 
