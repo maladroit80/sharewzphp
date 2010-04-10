@@ -4,15 +4,14 @@ if (!isset($_GET["no"]))
 include ('header.php');
 ?>
 <!-- Page -->
-    <!-- Content -->
-    <div class="box" style="margin-top:20px;">
-      <div style="float:left;width:700px;">
-      <div style="float:left;width:200px;">
-      <!-- col-1 -->
-      <div class="tipblock" style="float:left;width:200px;">
-        <h3>最近推荐</h3>
-        <div style="padding:5px 5px" id="format">
-        <div>
+<!-- Content -->
+<div class="box" style="margin-top: 20px;">
+<div style="float: left; width: 700px;">
+<div style="float: left; width: 200px;"><!-- col-1 -->
+<div class="tipblock" style="float: left; width: 200px;">
+<h3>最近推荐</h3>
+<div style="padding: 5px 5px" id="format">
+<div>
         <?php
         require('config.php');
         function cut_str($sourcestr,$cutlength)
@@ -68,14 +67,14 @@ include ('header.php');
     	}
         ?>
         </div>
-		</div>
-      </div>
-      <!-- /col-1 -->
-       <!-- col-2 -->
-      <div class="tipblock" style="float:left;width:200px;margin-top:15px;">
-        <h3>一周人气</h3>
-        <div style="padding:5px 5px" id="format">
-        <div>
+</div>
+</div>
+<!-- /col-1 --> <!-- col-2 -->
+<div class="tipblock"
+	style="float: left; width: 200px; margin-top: 15px;">
+<h3>一周人气</h3>
+<div style="padding: 5px 5px" id="format">
+<div>
         <?php
         require('config.php');
     	$articles=mysql_query("SELECT * FROM tb_news order by date desc LIMIT 0 , 10");
@@ -90,14 +89,14 @@ include ('header.php');
     	}
         ?>
         </div>
-		</div>
-      </div>
-      <!-- /col-2 -->
-       <!-- col-3 -->
-      <div class="tipblock" style="float:left;width:200px;margin-top:15px;">
-        <h3>随机文章</h3>
-        <div style="padding:5px 5px" id="format">
-        <div>
+</div>
+</div>
+<!-- /col-2 --> <!-- col-3 -->
+<div class="tipblock"
+	style="float: left; width: 200px; margin-top: 15px;">
+<h3>随机文章</h3>
+<div style="padding: 5px 5px" id="format">
+<div>
         <?php
         require('config.php');
     	$articles=mysql_query("SELECT t1.id as id,title,url FROM tb_news AS t1 JOIN (SELECT ROUND(RAND() * ((SELECT MAX(id) FROM tb_news)-(SELECT MIN(id) FROM tb_news))+(SELECT MIN(id) FROM tb_news)) AS id) AS t2 WHERE t1.id >= t2.id ORDER BY t1.id LIMIT 10");
@@ -112,23 +111,46 @@ include ('header.php');
     	}
         ?>
         </div>
-		</div>
-      </div>
-      <!-- /col-3 -->
-      </div>
-		<div style="float:right;width:460px;margin-right:20px;">    	
-          <div class="title01460-top"></div>
-		    <div class="title01460">
-		      <div class="title01460-in">
-		        <h3 class="ico-info">文章</h3>
-		      </div>
-		    </div>
-		  <div class="title01460-bottom"></div>
-		  <div style="width:100%;margin-top:5px;font-size:120%;text-align:right;"><a href="./addboard.php" title="<?=$myart['title'] ?>">我要发布</a>&nbsp;&nbsp;</div>
-		  <div class="articlecontent">
+</div>
+</div>
+<!-- /col-3 --></div>
+<div style="float: right; width: 460px; margin-right: 20px;">
+<div class="title01460-top"></div>
+<div class="title01460">
+<div class="title01460-in">
+<h3 class="ico-info">文章</h3>
+</div>
+</div>
+<div class="title01460-bottom"></div>
+<div
+	style="width: 100%; margin-top: 5px; font-size: 120%; text-align: right;"><a
+	href="./addboard.php" title="<?=$myart['title'] ?>">我要发布</a>&nbsp;&nbsp;</div>
+<div class="articlecontent">
         <?php
         $myarts=array();
         require('config.php');
+        $pagesize=10;
+		//取得记录总数$rs，计算总页数用
+		$rs=mysql_query("select count(*) from tb_news");
+		$myrow = @mysql_fetch_array($rs);
+		$numrows=$myrow[0];
+		//计算总页数
+		$numrows=$numrows-3>0?$numrows-3:3;
+		$pages=intval($numrows/$pagesize);
+		if ($numrows%$pagesize)
+		$pages++;
+		//设置页数
+		//设置为第一页
+		if (isset($_GET['page'])){
+		$page=intval($_GET['page']);
+		}
+		else{
+		//设置为第一页
+		$page=1;
+		}
+
+		//计算记录偏移量
+		$offset=$pagesize*($page - 1);
     	$articles=mysql_query("SELECT * FROM tb_news where status='t' order by date desc LIMIT 0 , 3");
     	if ($myart = mysql_fetch_array($articles))
     	{
@@ -137,7 +159,7 @@ include ('header.php');
     		}
     		while($myart = mysql_fetch_array($articles));
     	}
-    	$articles=mysql_query("SELECT * FROM tb_news where url<>'".$myarts[0]['url']."' and url<>'".$myarts[1]['url']."' and url<>'".$myarts[2]['url']."' order by date desc LIMIT 0 , 10");
+    	$articles=mysql_query("SELECT * FROM tb_news where url<>'".$myarts[0]['url']."' and url<>'".$myarts[1]['url']."' and url<>'".$myarts[2]['url']."' order by date desc LIMIT $offset , $pagesize");
 		if ($myart = mysql_fetch_array($articles))
     	{
     		do{
@@ -152,9 +174,10 @@ include ('header.php');
     		$content=cut_str(strip_tags($myart['content']),100);
 		?>
 		<div>
- 		<h3><?php if($key<3) echo '<img alt="置顶" src="./images/top.gif" />';
- 		if($myart['status']=='c'||$myart['status']=='t') echo '<img alt="推荐" src="./images/cool.gif" />';
- 		?><a href="./article/<?=$myart["url"] ?>.html" title="<?=$myart['title'] ?>">
+<h3><?php if($key<3) echo '<img alt="置顶" src="./images/top.gif" />';
+ 		else if($myart['status']=='c'||$myart['status']=='t') echo '<img alt="推荐" src="./images/cool.gif" />';
+ 		?><a style="TEXT-DECORATION: none"
+	href="./article/<?=$myart["url"] ?>.html" title="<?=$myart['title'] ?>">
  		<?php 
  		 $boardTypes=array(
 				"experience"=>"经验心得",
@@ -181,34 +204,48 @@ include ('header.php');
 			echo "[".$myart['type']."]";
 		}
 ?>
-<?=$mytitle ?></a></h3>               	
-		<p><?=$content ?></p>                   
-		<div>                    
-		<span style="color:#0067E6"><?php if($myart['author']=='admin') echo 'march-autumn'; else echo $myart['author']; ?></span> 
+<?=$mytitle ?></a></h3>
+<p><?=$content ?></p>
+<div><span style="color: #0067E6"><?php if($myart['author']=='admin') echo 'march-autumn'; else echo $myart['author']; ?></span> 
 		发布于 <?=$myart['date'] ?> 
 		<span>&nbsp;</span> <span><a href="./article/<?=$myart["url"] ?>.html">
-		阅读(<span><?=$myart['counts'] ?></span>)</a></span></div>
-		</div>
-		<hr style="border:1px dotted #0067E6;">
+阅读(<span><?=$myart['counts'] ?></span>)</a></span></div>
+</div>
+<hr style="border: 1px dotted #0067E6;">
 <?php
     		}
+    	echo '<div class="pages">';
+    	if($pages>10)
+    	{
+    		$allpage=$pages;
+    		$pages=10;
+    		$hasall=true;
+    	}
+		for($i=1;$i<=$pages;$i++)
+		{
+			if($page==$i)
+			echo '<span>'.$i.'</span>';
+			else
+			echo "<a href='article.php?page=".$i."'>".$i."</a>";
+		}
+		if($hasall)
+			echo "...<a href='article.php?page=".$allpage."'>".$allpage ."</a>";
+		echo "<a href='article.php?page=".($page+1)."'>NEXT></a>";
+		echo "</div>";
        ?>
 		 </div>
-		  <!--/左上left table content-->  		  
-      	</div>
-      </div>
-      <!-- /col-1 -->
-      <!-- col-signip --> 
-      <div id="col-signup">
+<!--/左上left table content--></div>
+</div>
+<!-- /col-1 --> <!-- col-signip -->
+<div id="col-signup">
 	    <?php include ('signup.php')?>
         <hr class="noscreen" />
-    </div>
-    <!-- /col-signip -->
-    </div>    
-    <!-- Content -->
-  <!-- footer -->
+</div>
+<!-- /col-signip --></div>
+<!-- Content -->
+<!-- footer -->
 <?php include("footer.php"); ?>
-  <!-- /footer -->
+<!-- /footer -->
 <?php
 }
 else
