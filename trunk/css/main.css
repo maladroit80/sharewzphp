@@ -494,3 +494,32 @@ index.php styles by hilary
 {
 font-size:12px;
 }
+
+/*-----------------------------------------------------------------------------------
+·ÖÒ³ styles by timorning
+-------------------------------------------------------------------------------------*/
+.pages
+{
+	color:#2E6AB1;
+	font-size:12px;
+	line-height:200%;
+	margin:25px 0;
+	text-align:center;
+}
+.pages a
+{
+	border:1px solid #9AAFE5;
+	color:#2E6AB1;
+	margin-right:4px;
+	padding:2px 5px;
+	text-decoration:none;
+}
+.pages span
+{
+	background-color:#2E6AB1;
+	border:1px solid navy;
+	color:#FFFFFF;
+	font-weight:bold;
+	margin-right:4px;
+	padding:2px 5px;
+}
