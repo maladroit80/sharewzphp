@@ -64,7 +64,7 @@ $elref=limpiar($_GET["r"]);
   </div> 
   </div>
   <div id="row-bottom"></div>
-  <script type="text/javascript">
+  <script language="JavaScript">
     var getUL=document.getElementById("Tablistdetail");
     var Tabs=getUL.getElementsByTagName("a");
     var url=window.location.toString();
