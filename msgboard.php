@@ -2,6 +2,7 @@
 include ('header.php');
 if(isset($_COOKIE["usNick"]) && isset($_COOKIE["usPass"]))
 {
+	include('config.php');
 	$user=$_COOKIE["usNick"];
 	$sql = "SELECT * FROM tb_users WHERE username='$user'";
 	$result = mysql_query($sql);        
@@ -11,7 +12,7 @@ if(isset($_COOKIE["usNick"]) && isset($_COOKIE["usPass"]))
 	if($status=="admin")
 	{
 ?>
-<script LANGUAGE="JavaScript">
+<script language="JavaScript">
 function addreply(id)
 {
 	//var event = arguments[0]||window.event;       
@@ -102,6 +103,8 @@ else
 }
 else if(isset($_POST["btn_reply_submit"]))
 {
+	if($status=="admin")
+	{
 	include('config.php');
 	$replycontent = strip_tags($_POST['replyBody']);
 	$id=$_POST['btn_reply_hidden'];
@@ -110,10 +113,11 @@ else if(isset($_POST["btn_reply_submit"]))
 	mysql_query($sql) or die(mysql_error());
 	mysql_close();
 	echo "<script>location.href='msgboard.php';</script>";
+	}
 }
 }
 ?>
-<script type="text/javascript">
+<script type="text/javascript" language="JavaScript">
 function clt_enter(event) {
     if (event.ctrlKey && event.keyCode == 17) {
     	document.getElementById("commentform").onsubmit();
@@ -181,6 +185,18 @@ function inputcheck()
 	}
 	return true;
 }
+function quotecomment(id)
+{
+	var name=document.getElementById("name"+id).innerHTML;
+	var time=document.getElementById("time"+id).innerHTML;
+	time=time.replace("留言于：","");
+	var comment=document.getElementById("comment"+id).innerHTML;
+	comment=name+" "+time+" :"+comment;
+	var textarea=document.getElementById("tbCommentBody");
+	textarea.value="[Quote]"+comment+"[/Quote]"+"\r\n";
+	textarea.focus();
+	textarea.collapse();
+}
 </script>
 <div class="box" style="margin-top:20px;">
 <!-- left col -->
@@ -222,20 +238,33 @@ function inputcheck()
     if ($myrow = mysql_fetch_array($message))
     	{
     		do {
+    			$quote="";
+    			$content=$myrow['content'];
+    			preg_match("/\[Quote\].*\[\/Quote\]/si",$content, $matches);
+    			if($matches[0]!="")
+    			{
+    				$quote=$matches[0];
+    				$quote=str_replace("[Quote]","",$quote);
+    				$quote=str_replace("[/Quote]","",$quote);
+    				$content=str_replace("[Quote]".$quote."[/Quote]","",$content);
+    			}
 ?>
 	<div id="bbs<?=$myrow['id'] ?>" style="border:1px solid #E8E7D0;margin-bottom:10px;width:99.5%;">
 		<div style="border-bottom:1px dashed #E8E7D0;color:#666666;height:30px;line-height:30px;padding-left:10px;padding-right:15px;">
 			<div style="float:right;text-align:right;width:160px;">
 			<?php if($status=="admin") echo '<a href="javascript:addreply('.$myrow['id'].')">回复</a>';?>
-			<a href="#">引用</a>
+			<a href="javascript:quotecomment(<?=$myrow['id']?>)">引用</a>
 			<a target="_blank" href="./msgboard.php?getname=<?php echo urlencode($myrow['name']);?>" title="查看该昵称发表过的留言">查看</a>
 			</div>
-			<span style="color:#0067E6"><?=$myrow['name'] ?></span>			
-			留言于：<?=$myrow['posttime'] ?> |
+			<span style="color:#0067E6" id="name<?=$myrow['id'] ?>"><?=$myrow['name'] ?></span>			
+			<span id="time<?=$myrow['id']?>">留言于：<?=$myrow['posttime'] ?></span> |
 			<span <?php if($myrow["user_status"]=="admin") echo 'style="color:red;"'; elseif ($myrow["user_status"]=="user") echo 'style="color:#0067E6;"';?>><?php if($myrow["user_status"]=="admin") echo "[管理员]";else if($myrow["user_status"]=="user") echo "[注册用户]";else echo "[游客]";?></span>
 		</div>
 		<div style="border-bottom:1px solid #E8E7D0;line-height:1.5em;min-height:35px;padding:15px 18px 15px 18px;">
-		<p><?php echo nl2br($myrow['content']); ?></p>
+		<p id="comment<?=$myrow['id']?>"><?php 
+		if($quote!="")
+		echo '<fieldset style="border:1px solid #CCCCCC;padding:5px;"><legend>引用</legend><br>'.$quote.'</fieldset>';
+		echo nl2br($content); ?></p>
 		<?php if($myrow['reply']!='')
 		{
 		?>

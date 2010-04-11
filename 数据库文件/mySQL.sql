@@ -1,7 +1,26 @@
 --
+-- create on 2010.4.11 by Timorning
+--
+DROP TABLE IF EXISTS `tb_msgboard`;
+CREATE TABLE IF NOT EXISTS `tb_msgboard` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `belong` varchar(30) NOT NULL,
+  `user_status` varchar(15) DEFAULT NULL,
+  `name` varchar(20) NOT NULL,
+  `images` varchar(20) DEFAULT NULL,
+  `qq` varchar(10) DEFAULT NULL,
+  `email` varchar(50) DEFAULT NULL,
+  `ip` varchar(20) DEFAULT NULL,
+  `content` mediumtext NOT NULL,
+  `posttime` varchar(50) DEFAULT NULL,
+  `reply` mediumtext,
+  `replytime` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8
+
+--
 -- create on 2010.3.31 by Timorning
 --
-
 CREATE TABLE IF NOT EXISTS `tb_news` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `title` char(100) NOT NULL,
@@ -15,22 +34,7 @@ CREATE TABLE IF NOT EXISTS `tb_news` (
   `status` varchar(2) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8
---
--- create on 2010.3.25 by Timorning
---
 
-CREATE TABLE IF NOT EXISTS `tb_news` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `title` char(100) NOT NULL,
-  `url` char(100) DEFAULT NULL,
-  `author` char(20) DEFAULT NULL,
-  `date` char(150) NOT NULL,
-  `counts` int(11) DEFAULT '1',
-  `type` char(20) DEFAULT NULL,
-  `origin` varchar(11) NOT NULL,
-  `content` blob NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='Column information for phpMyAdmin' AUTO_INCREMENT=36 ;
 --
 -- create on 2009.12.26 by Timorning
 --
