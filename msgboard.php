@@ -44,8 +44,8 @@ if(isset($_POST["btn_comment_submit"]))
 {
 $yz=trim($_POST["securecode"]);
 $yzma=trim($_POST["gencode"]);
-$nickname=$_POST["nickname"];
-$qq = $_POST['qq'];
+$nickname=trim($_POST["nickname"]);
+$qq = trim($_POST['qq']);
 $qq = strip_tags($qq);
 $email = trim($_POST['mailbox']);
 $email = strip_tags($email);
@@ -115,11 +115,32 @@ else if(isset($_POST["btn_reply_submit"]))
 	echo "<script>location.href='msgboard.php';</script>";
 	}
 }
+else if(isset($_POST["bbsid"]))
+{
+	$bbsid=$_POST["bbsid"];
+	include('config.php');
+	$msgdels=mysql_query("SELECT * FROM tb_msgboard where id='$bbsid'");
+	if ($msgdel = mysql_fetch_array($msgdels))
+	{
+		if($msgdel['name']==$_COOKIE["usNick"]||$status=="admin")
+		{
+			$query ="delete from tb_msgboard where id='$bbsid'";
+			mysql_query($query) or die(mysql_error());
+			echo "<script>location.href='msgboard.php';</script>";
+		}
+		else
+		{
+			echo "<script>alert('无权删除留言');location.href='msgboard.php';</script>";
+		}
+	}
+	
 }
+}
+
 ?>
 <script type="text/javascript" language="JavaScript">
 function clt_enter(event) {
-    if (event.ctrlKey && event.keyCode == 17) {
+    if (event.keyCode == 13&&event.ctrlKey) {
     	document.getElementById("commentform").onsubmit();
         return false;
     }
@@ -247,28 +268,49 @@ function quotecomment(id)
     				$quote=str_replace("[Quote]","",$quote);
     				$quote=str_replace("[/Quote]","",$quote);
     				$content=str_replace("[Quote]".$quote."[/Quote]","",$content);
+    				$temp=split(' ',$quote,2);
+    				if($temp[1])
+    				{
+    					$tempstr='<a target="_blank" style="text-decoration:none;" href="./msgboard.php?getname='.$temp[0].'" title="查看全部留言">'.$temp[0].'</a>';
+    					$quote=$tempstr." ".$temp[1];
+    				}
     			}
+    			$quote=trim($quote);
+    			$content=trim($content);
 ?>
 	<div id="bbs<?=$myrow['id'] ?>" style="border:1px solid #E8E7D0;margin-bottom:10px;width:99.5%;">
 		<div style="border-bottom:1px dashed #E8E7D0;color:#666666;height:30px;line-height:30px;padding-left:10px;padding-right:15px;">
 			<div style="float:right;text-align:right;width:160px;">
 			<?php if($status=="admin") echo '<a href="javascript:addreply('.$myrow['id'].')">回复</a>';?>
+			<?php
+			if($status=="admin"||$_COOKIE["usNick"]==$myrow['name'])
+			{
+				echo '<form style="display:inline" name="form'.$myrow['id'].'" action="msgboard.php" method="post">'; 
+				echo '<input name="bbsid" type="hidden" value="'.$myrow['id'].'" />'; 
+				echo '<a title="删除留言 " name="delete" href="javascript:document.form'.$myrow['id'].'.submit();">删除</a>';
+				echo '</form>';
+			}
+			?>
 			<a href="javascript:quotecomment(<?=$myrow['id']?>)">引用</a>
-			<a target="_blank" href="./msgboard.php?getname=<?php echo urlencode($myrow['name']);?>" title="查看该昵称发表过的留言">查看</a>
 			</div>
-			<span style="color:#0067E6" id="name<?=$myrow['id'] ?>"><?=$myrow['name'] ?></span>			
+			<span style="color:#0067E6" ><a id="name<?=$myrow['id'] ?>" target="_blank" style="text-decoration:none;" href="./msgboard.php?getname=<?php echo urlencode($myrow['name']);?>" title="查看该昵称发表过的留言"><?=$myrow['name'] ?></a></span>			
 			<span id="time<?=$myrow['id']?>">留言于：<?=$myrow['posttime'] ?></span> |
 			<span <?php if($myrow["user_status"]=="admin") echo 'style="color:red;"'; elseif ($myrow["user_status"]=="user") echo 'style="color:#0067E6;"';?>><?php if($myrow["user_status"]=="admin") echo "[管理员]";else if($myrow["user_status"]=="user") echo "[注册用户]";else echo "[游客]";?></span>
 		</div>
 		<div style="border-bottom:1px solid #E8E7D0;line-height:1.5em;min-height:35px;padding:15px 18px 15px 18px;">
-		<p id="comment<?=$myrow['id']?>"><?php 
+		<?php 
 		if($quote!="")
-		echo '<fieldset style="border:1px solid #CCCCCC;padding:5px;"><legend>引用</legend><br>'.$quote.'</fieldset>';
-		echo nl2br($content); ?></p>
+		{
+			echo '<fieldset style="border:1px solid #CCCCCC;margin:0px 0px 15px 0px;"><legend style="background:none repeat scroll 0 0 #FFFFFF;font-weight:normal;';
+			if(strpos($_SERVER["HTTP_USER_AGENT"],"Firefox/3"))
+			echo 'position:relative;';
+			echo 'color:#ff6900;">引用</legend>'.nl2br($quote).'</fieldset>';
+		}
+		?>
+		<p id="comment<?=$myrow['id']?>"><?php echo nl2br($content);?></p>
 		<?php if($myrow['reply']!='')
 		{
 		?>
-		<br/>
 		<p style="margin-left:200px;color:red;">管理员回复[<?=$myrow["replytime"] ?>]:<br/><?php echo nl2br($myrow['reply']); ?></p>
 		<?php 
 		}
