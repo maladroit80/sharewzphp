@@ -286,6 +286,8 @@ function quotecomment(id)
     	}
     	echo '<div class="pages">';
     	$allpage=$pages;
+    	if($page>1)
+		echo "<a href='article.php?page=".($page-1)."'>&lt;LAST</a>";
     	if($pages>10)
     	{
     		$pages=10;
@@ -300,7 +302,7 @@ function quotecomment(id)
 		}
 		if($hasall)
 		echo "...<a href='article.php?page=".$allpage."'>".$allpage ."</a>";
-		if($page!=$allpage)
+		if($page!=$allpage&&$allpage!=0)
 		echo "<a href='article.php?page=".($page+1)."'>NEXT></a>";
 		echo "</div>";
 ?>
@@ -310,7 +312,7 @@ function quotecomment(id)
 	<div>
 	<form action="msgboard.php" id="commentform" name="commentform" method="post" onsubmit="return inputcheck();">
 	<p>
-	昵称:<input name="nickname" id="nickname" maxlength="15" type="text" <?php echo isset($_COOKIE["usNick"])&&$_COOKIE["usNick"]!="admin"?'value="'.$_COOKIE["usNick"].'" readonly="true"':'value=""'; ?> style="font-size:12px;border:1px solid #CCCCCC;padding:2px 2px 2px 10px;width:150px;height:15px;margin-left:10px; "><span style="color: red">*</span>
+	昵称:<input name="nickname" id="nickname" maxlength="15" type="text" <?php echo isset($_COOKIE["usNick"])&&$_COOKIE["usNick"]!="admin"?'value="'.$_COOKIE["usNick"].'" readonly="true"':'value=""'; ?> style="<?php echo isset($_COOKIE["usNick"])&&$_COOKIE["usNick"]!="admin"?'background-color:#CCCCCC;':''; ?>font-size:12px;border:1px solid #CCCCCC;padding:2px 2px 2px 10px;width:150px;height:15px;margin-left:10px; "><span style="color: red">*</span>
 	</p>
 	<p style="margin-top:5px;">
 	邮箱:<input name="mailbox" id="mailbox" type="text" maxlength="15" autocomplete="on" value="" style="font-size:12px;border:1px solid #CCCCCC;padding:2px 2px 2px 10px;width:150px;height:15px;margin-left:10px; ">
