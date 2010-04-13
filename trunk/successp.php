@@ -1,4 +1,6 @@
+
 <?php
+
 session_start();
 
 if(!isset($_GET['verify'])){ 
@@ -38,12 +40,9 @@ $row = mysql_fetch_array($result);
 $wask = uc($_COOKIE["usNick"]);
 
 
-// Se define $wesk como el nombre de usuario de la tabla tb_users
+//验证用户名是否一致
 
 $wesk = $row['username'];
-
-
-
 
 $prem = $row['account'];
 
@@ -63,16 +62,15 @@ echo "登录错误.";
 exit();
 }
 
-// Se sanitiza la cookie usPass
+// 得到session的密码
 
 $wazk = uc($_COOKIE["usPass"]);
 
-// Se define $wezk como el nombre de usuario de la tabla tb_users
+// 得到对应数据库的密码
 
 $wezk = $row['password'];
 
-// Se comprueba que el dato de la cookie sea el mismo que el de la tabla, de lo contrario se muestra error, se termina
-// el script y se borra la cookie.
+//验证是否一致，否则报错，账户不增加金额
 
 if(strtolower($wezk) != strtolower($wazk)) {
 echo "登录错误.";
@@ -127,15 +125,17 @@ if ($referer_visit>0) {
       $resultz = mysql_query($sqlz);        
       $myrowz = mysql_fetch_array($resultz);
 
+//获取当前改广告的会员已点击数
 $numero=$myrowz["members"];
 
 
-// si se termino el plan terminamos el script
+//获取当前广告点击数上限
 $jo=$myrowz["plan"];
 
+//判断点击数是否已经满额
 if ($numero >= $jo)
 {
-echo "<script>alert('El link ya no esta disponible')</script>";
+echo "<script>alert('该广告已经无效！')</script>";
 exit();
 }
 
@@ -147,16 +147,11 @@ exit();
 
 
 
-// En caso de ya existir una tabla solamente la editamos
+//设置数据库，使该广告的状态为‘visit’
 
 
     $queryzx = "UPDATE tb_ads SET visitime='$crok1' WHERE user='$usere' and ident='$adse' and tipo='visit'";
     mysql_query($queryzx) or die(mysql_error());
-
-
-
-
-
 
 
 
@@ -174,21 +169,21 @@ if ($juaz!=""){
 $juaze=$myrowzde["referalvisits"];
 $billetes=$myrowzde["money"];
 
-
+	//统计高级会员点击广告的价值
       $sqlzdu = "SELECT * FROM tb_config WHERE item='premiumreferalc' and howmany='1'";
       $resultzdu = mysql_query($sqlzdu);        
       $myrowzdu = mysql_fetch_array($resultzdu);
 
 $elprecio=$myrowzdu["price"];
 
-
+	//统计高级会员下线点击广告的价值
       $sqlexd = "UPDATE tb_users SET referalvisits='$juaze' +1, money='$billetes' +'$elprecio' WHERE username='$juaz'";
       $resultexd = mysql_query($sqlexd);
 }
 
 
 
-
+	//设置数据库增加改广告的广告数量
       $sqlex = "UPDATE tb_ads SET members='$numero' +1 WHERE id='$adse'";
       $resultex = mysql_query($sqlex);
 

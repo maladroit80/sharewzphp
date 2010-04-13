@@ -1,4 +1,6 @@
 <?php
+
+//高级会员浏览页面
 session_start();
 
 

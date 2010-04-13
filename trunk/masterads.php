@@ -9,31 +9,6 @@
 </div>
 <div class="title600px-bottom"></div>
 </div>
-<table width="94%" border="0" align="center" cellpadding="0" cellspacing="1" bordercolor="#FFCC00" bgcolor="#FFCC00">
-  <tr bordercolor="#00CC00" bgcolor="#FFFFFF">
-    <td  height="80px" colspan="4"><div align="center" style="color: #CC0066; font-size: 24px"  >
-      此处放您的广告代码
-    </div></td>
-    </tr>
-  <tr bordercolor="#00CC00" bgcolor="#FFFFFF">
-    <td><div align="center"><a href="contact.php">广告位招租</a></div></td>
-    <td><div align="center"><a href="contact.php">广告位招租</a></div></td>
-    <td><div align="center"><a href="contact.php">广告位招租</a></div></td>
-    <td><div align="center"><a href="contact.php">广告位招租</a></div></td>
-    </tr>
-  <tr bordercolor="#00CC00" bgcolor="#FFFFFF">
-    <td width="666"><div align="center"><a href="contact.php">广告位招租</a></div></td>
-  <td width="666"><div align="center"><a href="contact.php">广告位招租</a></div></td>
-    <td width="666"><div align="center"><a href="contact.php">广告位招租</a></div></td>
-    <td width="666"><div align="center"><a href="contact.php">广告位招租</a></div></td>
-    </tr>
-  <tr bordercolor="#00CC00" bgcolor="#FFFFFF">
-    <td><div align="center"><a href="contact.php">广告位招租</a></div></td>
-  <td><div align="center"><a href="contact.php">广告位招租</a></div></td>
-    <td><div align="center"><a href="contact.php">广告位招租</a></div></td>
-    <td><div align="center"><a href="contact.php">广告位招租</a></div></td>
-    </tr>
-</table>
 <div> 
 <?php
 require('config.php');
