@@ -1,8 +1,9 @@
+<link rel="stylesheet" media="screen,projection" type="text/css" href="../css/main.css" />
+<link rel="stylesheet" media="print" type="text/css" href="../css/print.css" />
 <?php
-include ('header.php');
 if(isset($_COOKIE["usNick"]) && isset($_COOKIE["usPass"]))
 {
-	include('config.php');
+	include('../config.php');
 	$user=$_COOKIE["usNick"];
 	$sql = "SELECT * FROM tb_users WHERE username='$user'";
 	$result = mysql_query($sql);        
@@ -37,6 +38,10 @@ function closediv(id)
 else
 {
 	$status="passby";
+}
+if(isset($_GET["q"]))
+{
+	$articleid=$_GET["q"];
 }
 if($_SERVER['REQUEST_METHOD']=='POST')
 {
@@ -87,7 +92,7 @@ else if ($yz <> $yzma)
 else
 {    
     $ip = getRealIP();//获取客户端IP地址
-    include('config.php');
+    include('../config.php');
     $sql = "SELECT * FROM tb_msgboard WHERE ip = '$ip'";
     $result=mysql_query($sql);
     $hasip = mysql_fetch_row($result);
@@ -105,7 +110,7 @@ else if(isset($_POST["btn_reply_submit"]))
 {
 	if($status=="admin")
 	{
-	include('config.php');
+	include('../config.php');
 	$replycontent = strip_tags($_POST['replyBody']);
 	$id=$_POST['btn_reply_hidden'];
 	$replytime=date("y-m-d H:i");
@@ -118,7 +123,7 @@ else if(isset($_POST["btn_reply_submit"]))
 else if(isset($_POST["bbsid"]))
 {
 	$bbsid=$_POST["bbsid"];
-	include('config.php');
+	include('../config.php');
 	$msgdels=mysql_query("SELECT * FROM tb_msgboard where id='$bbsid'");
 	if ($msgdel = mysql_fetch_array($msgdels))
 	{
@@ -219,12 +224,11 @@ function quotecomment(id)
 	textarea.collapse();
 }
 </script>
-<div class="box" style="margin-top:20px;">
-<!-- left col -->
-	<div style="float:left;width:655px;border:1px solid #FFCC00;padding:10px;">
+<body style="padding:0px">
+	<div style="width:800px;background-color:#f7fcff;margin-left:auto;margin-right:auto;text-align:left;">
 	<!-- bbs -->
 <?php 
-	include('config.php');
+	include('../config.php');
 	 $pagesize=20;
 		//取得记录总数$rs，计算总页数用
 		$rs=mysql_query("select count(*) from tb_msgboard");
@@ -301,7 +305,7 @@ function quotecomment(id)
 		<?php 
 		if($quote!="")
 		{
-			echo '<fieldset style="border:1px solid #CCCCCC;margin:0px 0px 15px 0px;"><legend style="background:none repeat scroll 0 0 #FFFFFF;font-weight:normal;';
+			echo '<fieldset style="border:1px solid #CCCCCC;margin:0px 0px 15px 0px;"><legend style="background:none repeat scroll 0 0 #f7fcff;font-weight:normal;';
 			if(strpos($_SERVER["HTTP_USER_AGENT"],"Firefox/3"))
 			echo 'position:relative;';
 			echo 'color:#ff6900;">引用</legend>'.nl2br($quote).'</fieldset>';
@@ -317,9 +321,9 @@ function quotecomment(id)
 		?>
 		</div>
 		<div style="text-align:right;border-bottom:0 solid #CCCCCC;height:30px;line-height:30px;padding-left:10px;padding-right:15px;">
-		<img height="13" width="13" src="images/mail.gif" title="<?=$myrow["email"] ?>"/><span>邮件&nbsp;|&nbsp;</span> 
-		<img height="13" width="13" src="images/qq.gif" title="<?=$myrow["qq"] ?>"/><span>QQ&nbsp;|&nbsp;</span>
-		<img height="13" width="13" src="images/ip.gif" title="<?=$myrow["ip"] ?>"/>IP</span>
+		<img height="13" width="13" src="../images/mail.gif" title="<?=$myrow["email"] ?>"/><span>邮件&nbsp;|&nbsp;</span> 
+		<img height="13" width="13" src="../images/qq.gif" title="<?=$myrow["qq"] ?>"/><span>QQ&nbsp;|&nbsp;</span>
+		<img height="13" width="13" src="../images/ip.gif" title="<?=$myrow["ip"] ?>"/>IP</span>
 		</div>
 	</div>
 <?php
@@ -352,7 +356,7 @@ function quotecomment(id)
 	<!-- /bbs -->
 	<!-- textarea -->
 	<div>
-	<form action="msgboard.php" id="commentform" name="commentform" method="post" onsubmit="return inputcheck();">
+	<form action="article_reply.php" id="commentform" name="commentform" method="post" onsubmit="return inputcheck();">
 	<p>
 	昵称:<input name="nickname" id="nickname" maxlength="30" type="text" <?php echo isset($_COOKIE["usNick"])&&$_COOKIE["usNick"]!="admin"?'value="'.$_COOKIE["usNick"].'" readonly="true"':'value=""'; ?> style="<?php echo isset($_COOKIE["usNick"])&&$_COOKIE["usNick"]!="admin"?'background-color:#CCCCCC;':''; ?>font-size:12px;border:1px solid #CCCCCC;padding:2px 2px 2px 10px;width:150px;height:15px;margin-left:10px; "><span style="color: red">*</span>
 	</p>
@@ -387,11 +391,4 @@ echo "<span style=\"color:#0067E6;margin-left:10px; \">".$random."</span>";
 	</div>
 	<!-- /textarea -->
 	</div>
-<!-- /left col -->
-    <div id="col-signup">
-	<?php include ('signup.php')?>
-    <hr class="noscreen" />
-   	</div>
-</div>
-
-<?php include("footer.php"); ?>
+</body>
