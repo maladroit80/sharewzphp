@@ -1,4 +1,5 @@
 <?php
+//普通会员浏览页面
 session_start();
 
 

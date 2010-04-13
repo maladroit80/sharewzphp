@@ -23,44 +23,32 @@ if(isset($_COOKIE["usNick"]) && isset($_COOKIE["usPass"]))
 require('config.php');
 require('funciones.php');
 
-// Se sanitizan los datos de las cokies
 
+//获取cookie的name
 $user=uc($_COOKIE["usNick"]);
-
-// Se selecciona la tabla tb_users donde el usuario es el que se provee en la cookie
-
+//获取数据库的username
 $sql = "SELECT * FROM tb_users WHERE username='$user'";
 $result = mysql_query($sql);        
 $row = mysql_fetch_array($result);
 
-// Se sanitiza de nuevo la cookie
-
 $wask = uc($_COOKIE["usNick"]);
-
-// Se define $wesk como el nombre de usuario de la tabla tb_users
 
 $wesk = $row['username'];
 
-// Se comprueba que el dato de la cookie sea el mismo que el de la tabla, de lo contrario se muestra error, se termina
-// el script y se borra la cookie.
-
+//判断两者是否一致
 if("$wesk" != "$wask") {
 echo "$wesk,$wask";
 echo "登录错误.";
 exit();
 }
 
-// Se sanitiza la cookie usPass
-
+//cookie密码
 $wazk = uc($_COOKIE["usPass"]);
 
-// Se define $wezk como el nombre de usuario de la tabla tb_users
-
+// 数据库密码
 $wezk = $row['password'];
 
-// Se comprueba que el dato de la cookie sea el mismo que el de la tabla, de lo contrario se muestra error, se termina
-// el script y se borra la cookie.
-
+//判断两者密码是否一致
 if(strtolower($wezk) != strtolower($wazk)) {
 echo "$wezk,$wazk";
 echo "登陆错误.";
@@ -164,11 +152,11 @@ $juaze=$myrowzde["referalvisits"];
 $billetes=$myrowzde["money"];
 $premium=$myrowzde["account"];
 
-
+	//统计下线点击广告的点击值
       $sqlzdu = "SELECT * FROM tb_config WHERE item='referalclick' and howmany='1'";
       $resultzdu = mysql_query($sqlzdu);        
       $myrowzdu = mysql_fetch_array($resultzdu);
-
+	//统计高级会员点击广告的广告值
       $sqlzduz = "SELECT * FROM tb_config WHERE item='premiumreferalc' and howmany='1'";
       $resultzduz = mysql_query($sqlzduz);        
       $myrowzduz = mysql_fetch_array($resultzduz);
