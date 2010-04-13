@@ -547,7 +547,7 @@ CREATE TABLE IF NOT EXISTS `tb_back_common` (
 
 -- ---------------add by hilary(2010/03/18)-----------------
 --
--- Table structure for table `tb_site`
+-- Table structure for table `tb_back_site`
 --
 
 CREATE TABLE IF NOT EXISTS `tb_back_site` (
@@ -589,7 +589,7 @@ CREATE TABLE IF NOT EXISTS `tb_payproof` (
 
 -- ---------------add by hilary(2010/03/24)-----------------
 --
--- Table structure for table `tb_payproof`
+-- Table structure for table `tb_back_account`
 --
 
 CREATE TABLE IF NOT EXISTS `tb_back_account` (
@@ -602,3 +602,90 @@ CREATE TABLE IF NOT EXISTS `tb_back_account` (
   `back_pay_time` varchar(35),
   KEY `id` (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+
+
+-- ---------------add by hilary(2010/04/13)-----------------
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `tb_backpay_history`
+--
+
+CREATE TABLE IF NOT EXISTS `tb_backpay_history` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(50) DEFAULT NULL,
+  `pay_number` int(50) DEFAULT NULL,
+  `pay_sum` double DEFAULT NULL,
+  `pay_time` varchar(35) DEFAULT NULL,
+  KEY `id` (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=30 ;
+
+--
+-- 导出表中的数据 `tb_backpay_history`
+--
+
+INSERT INTO `tb_backpay_history` (`id`, `username`, `pay_number`, `pay_sum`, `pay_time`) VALUES
+(29, 'admin', 1, 0.3, '2010-4-01 03:59'),
+(28, 'hilary3210', 1, 0.9, '2010-4-01 03:58');
+
+
+
+-- ---------------add by hilary(2010/04/13)-----------------
+--
+-- 表的结构 `tb_back_history`
+--
+
+CREATE TABLE IF NOT EXISTS `tb_back_history` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(11) DEFAULT NULL,
+  `site_id` int(11) DEFAULT NULL,
+  `site_name` varchar(50) DEFAULT NULL,
+  `pay_sum` float DEFAULT NULL,
+  `back_number` int(10) DEFAULT NULL,
+  `time` varchar(35) DEFAULT NULL,
+  KEY `id` (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=16 ;
+
+--
+-- 导出表中的数据 `tb_back_history`
+--
+
+INSERT INTO `tb_back_history` (`id`, `username`, `site_id`, `site_name`, `pay_sum`, `back_number`, `time`) VALUES
+(15, 'admin', 1, '快乐转转', 0.1, 2, '10-04-01 04:08'),
+(14, 'admin', 1, '快乐转转', 0.3, 1, '10-04-01 03:59'),
+(13, 'hilary3210', 1, '快乐转转', 0.1, 2, '10-04-01 03:57'),
+(12, 'hilary3210', 1, '快乐转转', 0.1, 1, '10-04-01 03:56');
+
+
+
+-- ---------------add by hilary(2010/04/13)-----------------
+
+--
+-- 表的结构 `tb_ads_categories`
+--
+
+CREATE TABLE IF NOT EXISTS `tb_ads_categories` (
+  `id` int(11) NOT NULL DEFAULT '0',
+  `catname` varchar(50) NOT NULL DEFAULT '',
+  `click` float DEFAULT NULL,
+  `referalclick` float DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- 导出表中的数据 `tb_ads_categories`
+--
+
+INSERT INTO `tb_ads_categories` (`id`, `catname`, `click`, `referalclick`) VALUES
+(1, '本站广告区', 0.005, 0.001),
+(2, '包月广告区（20元/10秒）', 0.001, 0.0002),
+(9, '20秒自助广告区（6元/1000ip）', 0.003, 0.0006),
+(8, '25秒自助广告区（8元/1000ip）', 0.004, 0.0008),
+(7, '30秒自助广告区（10元/1000ip）', 0.005, 0.0001),
+(3, '包月广告区（25元/15秒）', 0.002, 0.0004),
+(4, '包月广告区（30元/20秒）', 0.003, 0.0006),
+(5, '包月广告区（35元/25秒）', 0.004, 0.0008),
+(6, '包月广告区（40元/30秒）', 0.005, 0.001),
+(10, '15秒自助广告区（4元/1000ip）', 0.002, 0.0004),
+(11, '8秒自助广告区（2元/1000ip）', 0.001, 0.0002);
