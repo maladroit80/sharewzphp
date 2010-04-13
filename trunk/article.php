@@ -285,6 +285,7 @@ else
 			$page=str_replace ("{newstitle}",$title,$page);
 			$page=str_replace ("{newsdatefrom}",$author.'('.$date.')',$page);
 			$page=str_replace ("{newscontents}",$content,$page);
+			$page=str_replace ("{articleid}",$node,$page);
 			if(isset($_COOKIE["usNick"]) && isset($_COOKIE["usPass"]))
 			$page=str_replace ("<a href='../login.php'>登陆</a>","<span>欢迎回来，</span><a href='../members.php'>".$_COOKIE["usNick"]."</a>",$page);
 			if(strpos($_SERVER["HTTP_USER_AGENT"],"Chrome")) 
