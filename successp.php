@@ -23,7 +23,7 @@ if(isset($_COOKIE["usNick"]) && isset($_COOKIE["usPass"]))
 // Se incluyen los archivos necesarios
 
 require('config.php');
-require('funciones.php');
+require('functions.php');
 
 // Se sanitizan los datos de las cokies
 

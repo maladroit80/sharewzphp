@@ -30,7 +30,7 @@ if(isset($_COOKIE["usNick"]) && isset($_COOKIE["usPass"]))
 // incluimos archivos necesarios
 
 require('config.php');
-//require('admin/funciones.php');
+//require('admin/functions.php');
 
 if (isset($_POST["username"])) {
 

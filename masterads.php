@@ -172,7 +172,7 @@ $row["id"]="";
 }else{
 
 require('config.php');
-//require('funciones.php');
+//require('functions.php');
 
 $sqlr = "SELECT * ";
 $sqlr.= "FROM tb_ads WHERE tipo='ads' and category='$indice' ORDER BY fechainicia DESC";

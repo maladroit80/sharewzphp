@@ -21,7 +21,7 @@ if(isset($_COOKIE["usNick"]) && isset($_COOKIE["usPass"]))
 // Se incluyen los archivos necesarios
 
 require('config.php');
-require('funciones.php');
+require('functions.php');
 
 
 //获取cookie的name
