@@ -1,7 +1,7 @@
 <link rel="stylesheet" media="screen,projection" type="text/css" href="../css/main.css" />
 <link rel="stylesheet" media="print" type="text/css" href="../css/print.css" />
 <?php
-include_once '../functiones.php';
+include_once '../functions.php';
 if(isset($_COOKIE["usNick"]) && isset($_COOKIE["usPass"]))
 {
 	include('../config.php');
@@ -104,7 +104,7 @@ else
 	$sql = "insert into tb_msgboard (name,qq,email,ip,content,posttime,belong,user_status) values ('$nickname','$qq','$email','$ip','".mysql_escape_string($content)."','$posttime','msgboard','$status')";
     mysql_query($sql) or die(mysql_error());
     mysql_close();
-    echo "<script>location.href='msgboard.php';</script>";
+    echo "<meta http-equiv = \"refresh\" content = \"0\" />";
 }
 }
 else if(isset($_POST["btn_reply_submit"]))
@@ -357,7 +357,7 @@ function quotecomment(id)
 	<!-- /bbs -->
 	<!-- textarea -->
 	<div>
-	<form action="article_reply.php" id="commentform" name="commentform" method="post" onsubmit="return inputcheck();">
+	<form action="./article_reply.php" id="commentform" name="commentform" method="post" onsubmit="return inputcheck();">
 	<p>
 	昵称:<input name="nickname" id="nickname" maxlength="30" type="text" <?php echo isset($_COOKIE["usNick"])&&$_COOKIE["usNick"]!="admin"?'value="'.$_COOKIE["usNick"].'" readonly="true"':'value=""'; ?> style="<?php echo isset($_COOKIE["usNick"])&&$_COOKIE["usNick"]!="admin"?'background-color:#CCCCCC;':''; ?>font-size:12px;border:1px solid #CCCCCC;padding:2px 2px 2px 10px;width:150px;height:15px;margin-left:10px; "><span style="color: red">*</span>
 	</p>
