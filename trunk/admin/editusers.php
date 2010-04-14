@@ -1,7 +1,7 @@
 <b>编辑用户</b>
 
 
-<?php include('funciones.php')?>
+<?php include('functions.php')?>
 <?php include('config.php')?>
 
 <?php

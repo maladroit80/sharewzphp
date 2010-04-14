@@ -23,7 +23,7 @@
 </head>
 <body style="margin-top:0px; padding-top:0px;">
 <div id="main">
-<?php include('funciones.php'); 
+<?php include('functions.php'); 
 $elref=limpiar($_GET["r"]);
 ?>
   <div id="header">

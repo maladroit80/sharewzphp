@@ -74,7 +74,7 @@ if(strtolower($code)!= strtolower($_SESSION['texto']))
 	echo "2";
 	exit();
 } 
-require('funciones.php');
+require('functions.php');
 $username=uc($username);
 $password=uc($password);
 

@@ -1,6 +1,7 @@
 <link rel="stylesheet" media="screen,projection" type="text/css" href="../css/main.css" />
 <link rel="stylesheet" media="print" type="text/css" href="../css/print.css" />
 <?php
+include_once '../functiones.php';
 if(isset($_COOKIE["usNick"]) && isset($_COOKIE["usPass"]))
 {
 	include('../config.php');

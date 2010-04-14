@@ -7,7 +7,7 @@ if(!isset($_COOKIE["usNick"]) && !isset($_COOKIE["usPass"]))
 exit();
 }
 require('config.php');
-require('funciones.php');
+require('functions.php');
 
 $user=uc($_COOKIE["usNick"]);
 

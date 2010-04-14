@@ -4,7 +4,7 @@
       else 
             $pagelink='index.php?op=37';
       ?>
-<?php include_once('funciones.php')?>
+<?php include_once('functions.php')?>
 <?php include('config.php')?>
 <?php
 
