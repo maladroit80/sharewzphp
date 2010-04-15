@@ -90,14 +90,13 @@
 		  <!--左上left table content-->  
 		  <div class="toprightcontent">
 		  <div class="content" style="font-size: 12px;">
-		  <span class="words">
-		  <font>◆<span style="font-size:1.2em;">我们保证来自易网赚的点击是<strong>100%真实有效的</strong>:</span></font><br/>
-		  <li><span>同用户同IP一天仅有一次有效点击</span></li>
-		  <li><span>同IP只能注册一次，您可以<a href="register.php">亲自尝试</a></span></li>
-		  <li><span>每次浏览停留30秒，只允许一个有效窗口</span></li>
-		  <li><span>目前最完善的防作弊机制</span></li>
-          <font>◆<span style="font-size:1.2em;">拥有<strong>点击，注册，页面广告</strong>等多种广告模式，无需注册，多种广告价位便于您的选择，合理的页面广告布局使您的利益最大化
-          <?php echo "<a href=\"adver.php?r=".$elref."\">";?>详细...</a></span></font></span>
+		  <p><span style="color:red;">◆</span>我们保证来自易网赚的点击是<strong>100%真实有效的</strong>:</p>
+		  <p><span style="font-weight">●</span>同用户同IP一天仅有一次有效点击</p>
+		  <p><span style="font-weight">●</span>同IP只能注册一次，您可以<a href="register.php">亲自尝试</a></p>
+		  <p><span style="font-weight">●</span>每次浏览停留30秒，只允许一个有效窗口</p>
+		  <p><span style="font-weight">●</span>目前最完善的防作弊机制</p>
+          <p><span style="color:red;">◆</span>拥有<strong>点击，注册，页面广告</strong>等多种广告模式，无需注册，多种广告价位便于您的选择，合理的页面广告布局使您的利益最大化
+          <a href="adver.php">详细...</a></p>
           </div>
 		  </div>
 		  <!--/左上left table content--> 
