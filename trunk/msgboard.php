@@ -193,6 +193,16 @@ function inputcheck()
 		alert("留言最多300个汉字600个字母！");
 		return false;
 	}
+	if(verifystr.split("[Quote]").length-1>1)
+	{
+		alert("只允许引用一组留言！");
+		return false;
+	}
+	if(verifystr.split("[/Quote]").length-1>1)
+	{
+		alert("只允许引用一组留言！");
+		return false;
+	}
 	verifystr=document.getElementById("securecode").value;
 	if(verifystr=="")
 	{
@@ -261,13 +271,15 @@ function quotecomment(id)
     		do {
     			$quote="";
     			$content=$myrow['content'];
-    			preg_match("/\[Quote\].*\[\/Quote\]/si",$content, $matches);
+    			preg_match("/\[Quote\].*\[\/Quote\].?/si",$content, $matches);
     			if($matches[0]!="")
     			{
     				$quote=$matches[0];
     				$quote=str_replace("[Quote]","",$quote);
     				$quote=str_replace("[/Quote]","",$quote);
     				$content=str_replace("[Quote]".$quote."[/Quote]","",$content);
+    				$content=str_replace("[Quote]","",$content);
+    				$quote=str_replace("[/Quote]","",$content);
     				$temp=split(' ',$quote,2);
     				if($temp[1])
     				{
