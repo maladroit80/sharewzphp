@@ -205,6 +205,16 @@ function inputcheck()
 		alert("留言最多300个汉字600个字母！");
 		return false;
 	}
+	if(verifystr.split("[Quote]").length-1>1)
+	{
+		alert("只允许引用一组留言！");
+		return false;
+	}
+	if(verifystr.split("[/Quote]").length-1>1)
+	{
+		alert("只允许引用一组留言！");
+		return false;
+	}
 	verifystr=document.getElementById("securecode").value;
 	if(verifystr=="")
 	{

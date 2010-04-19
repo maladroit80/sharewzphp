@@ -1,5 +1,5 @@
 <div id="Tablist" class="box" 
-<?php if(strpos($_SERVER["HTTP_USER_AGENT"],"Chrome")) echo "style='bottom:-6px'";
+<?php if(strpos($_SERVER["HTTP_USER_AGENT"],"Chrome")) echo "style='bottom:-2px'";
       else if(strpos($_SERVER["HTTP_USER_AGENT"],"MSIE 7.0")) echo "style='bottom:-1.5px'";
       else if(strpos($_SERVER["HTTP_USER_AGENT"],"MSIE 6.0")) echo "style='bottom:-10px'";
 ?>>  
@@ -80,6 +80,7 @@ echo"            <li><a href=\"regads.php\"><span>注册赚钱</span></a></li>
 				<li><a href=\"adver.php\"><span>发布广告</span></a></li>
 				<li><a href=\"article.php\"><span>经验心得</span></a></li>
 				<li><a href=\"contact.php\"><span>联系我们</span></a></li>
+				<li><a href=\"msgboard.php\"><span>留言板</span></a></li>
 				<li><a href=\"back.php\"><span>返佣项目</span></a></li>
 			</ul>	
 			";
@@ -112,6 +113,7 @@ echo "
 				<li><a href=\"adver.php\"><span>发布广告</span></a></li>
 				<li><a href=\"article.php\"><span>经验心得</span></a></li>
 				<li><a href=\"contact.php\"><span>联系我们</span></a></li>
+				<li><a href=\"msgboard.php\"><span>留言板</span></a></li>
 				<li><a href=\"back.php\"><span>返佣项目</span></a></li>
 			</ul>
 ";
