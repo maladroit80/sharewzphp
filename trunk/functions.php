@@ -95,18 +95,12 @@ exit();
 function uc($mensaje)
 {
 
-   if (ereg("^[a-zA-Z0-9\-_]{3,20}$", $mensaje)) {
-//      echo "El campo $mensaje es correcto<br>";
+//echo "El campo $mensaje es correcto<br>";
 $mensaje = htmlentities(stripslashes(strtolower(trim($mensaje))));
 $mensaje = str_replace("'"," ",$mensaje);
 $mensaje = str_replace(";"," ",$mensaje);
 $mensaje = str_replace("$"," ",$mensaje);
 return $mensaje;
-   } else {
-       echo "$mensaje 是不合法的<br>";include('footer.php');
-exit();
-   }
-
 }
 
 
