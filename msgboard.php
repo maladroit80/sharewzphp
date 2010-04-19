@@ -227,7 +227,7 @@ function quotecomment(id)
 	include('config.php');
 	 $pagesize=20;
 		//取得记录总数$rs，计算总页数用
-		$rs=mysql_query("select count(*) from tb_msgboard");
+		$rs=mysql_query("select count(*) from tb_msgboard where belong='msgboard'");
 		$myrow = @mysql_fetch_array($rs);
 		$numrows=$myrow[0];
 		//计算总页数
@@ -281,13 +281,13 @@ function quotecomment(id)
 	<div id="bbs<?=$myrow['id'] ?>" style="border:1px solid #E8E7D0;margin-bottom:10px;width:99.5%;">
 		<div style="border-bottom:1px dashed #E8E7D0;color:#666666;height:30px;line-height:30px;padding-left:10px;padding-right:15px;">
 			<div style="float:right;text-align:right;width:160px;">
-			<?php if($status=="admin") echo '<a href="javascript:addreply('.$myrow['id'].')">回复</a>';?>
+			<?php if($status=="admin") echo '<a href="javascript:addreply('.$myrow['id'].')">回复</a>&nbsp;';?>
 			<?php
 			if($status=="admin"||$_COOKIE["usNick"]==$myrow['name'])
 			{
 				echo '<form style="display:inline" name="form'.$myrow['id'].'" action="msgboard.php" method="post">'; 
 				echo '<input name="bbsid" type="hidden" value="'.$myrow['id'].'" />'; 
-				echo '<a title="删除留言 " name="delete" href="javascript:document.form'.$myrow['id'].'.submit();">删除</a>';
+				echo '<a title="删除留言 " name="delete" href="javascript:document.form'.$myrow['id'].'.submit();">删除</a>&nbsp;';
 				echo '</form>';
 			}
 			?>
@@ -329,7 +329,7 @@ function quotecomment(id)
     	echo '<div class="pages">';
     	$allpage=$pages;
     	if($page>1)
-		echo "<a href='article.php?page=".($page-1)."'>&lt;LAST</a>";
+		echo "<a href='msgboard.php?page=".($page-1)."'>&lt;LAST</a>";
     	if($pages>10)
     	{
     		$pages=10;
@@ -340,12 +340,12 @@ function quotecomment(id)
 			if($page==$i)
 			echo '<span>'.$i.'</span>';
 			else
-			echo "<a href='article.php?page=".$i."'>".$i."</a>";
+			echo "<a href='msgboard.php?page=".$i."'>".$i."</a>";
 		}
 		if($hasall)
-		echo "...<a href='article.php?page=".$allpage."'>".$allpage ."</a>";
+		echo "...<a href='msgboard.php?page=".$allpage."'>".$allpage ."</a>";
 		if($page!=$allpage&&$allpage!=0)
-		echo "<a href='article.php?page=".($page+1)."'>NEXT></a>";
+		echo "<a href='msgboard.php?page=".($page+1)."'>NEXT></a>";
 		echo "</div>";
 ?>
 

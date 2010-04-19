@@ -2,6 +2,10 @@
 <link rel="stylesheet" media="print" type="text/css" href="../css/print.css" />
 <?php
 include_once '../functions.php';
+if(isset($_GET["q"]))
+{
+	$articleid=$_GET["q"];
+}
 if(isset($_COOKIE["usNick"]) && isset($_COOKIE["usPass"]))
 {
 	include('../config.php');
@@ -23,7 +27,7 @@ function addreply(id)
 	var parentEle = document.getElementById(eleId);
 	var newNode = document.createElement("div");
 	newNode.id="replydiv"+id;
-	newNode.innerHTML = "<div style=\"margin:10px 20px; \"><form action=\"msgboard.php\" name=\"reply\" method=\"post\"><textarea style=\"height:200px;width:300px;\" name=\"replyBody\"></textarea><p><input type=\"submit\" value=\"提交回复\" name=\"btn_reply_submit\" /><input type=\"button\" value=\"取消\" onclick=\"closediv("+id+")\" /><input type=\"hidden\" value=\""+id+"\" name=\"btn_reply_hidden\" /></p></form></div>";
+	newNode.innerHTML = "<div style=\"margin:10px 20px; \"><form action=\"article_reply.php?q=<?=$articleid ?>\" name=\"reply\" method=\"post\"><textarea style=\"height:200px;width:300px;\" name=\"replyBody\"></textarea><p><input type=\"submit\" value=\"提交回复\" name=\"btn_reply_submit\" /><input type=\"button\" value=\"取消\" onclick=\"closediv("+id+")\" /><input type=\"hidden\" value=\""+id+"\" name=\"btn_reply_hidden\" /></p></form></div>";
 	parentEle.insertBefore(newNode,parentEle.childNodes[4]); 
 }
 function closediv(id)
@@ -39,10 +43,6 @@ function closediv(id)
 else
 {
 	$status="passby";
-}
-if(isset($_GET["q"]))
-{
-	$articleid=$_GET["q"];
 }
 if($_SERVER['REQUEST_METHOD']=='POST')
 {
@@ -61,32 +61,37 @@ $posttime=date("y-m-d H:i");
 
 if (strrpos($nickname,"<")!==false || strrpos($nickname,">")!==false||strrpos($nickname,"@")!==false||strrpos($nickname,"\"")!==false||strrpos($nickname,"'")!==false||strrpos($nickname,"_")!==false)
 {
-    echo "<script>alert('昵称中不能包含特殊字符！');location.href='msgboard.php';</script>";
+    echo "<script>alert('昵称中不能包含特殊字符！');</script>";
+    echo "<meta http-equiv = \"refresh\" content = \"0\" />";
     exit();
 }
 
 if($nickname=="admin"&&$nickname=="管理员")
 {
-    echo "<script>alert('请输入合理的昵称');location.href='msgboard.php';</script>";
+    echo "<script>alert('请输入合理的昵称');</script>";
+    echo "<meta http-equiv = \"refresh\" content = \"0\" />";
     exit();
 }
 
 if(empty($nickname))
 {
-    echo "<script>alert('昵称不能为空！必填项');location.href='msgboard.php';</script>";
+    echo "<script>alert('昵称不能为空！必填项');</script>";
+    echo "<meta http-equiv = \"refresh\" content = \"0\" />";
     exit();
 }
 
 
 if(empty($content))
 {
-    echo "<script>alert('留言不能为空哦！必填项');location.href='msgboard.php';</script>";
+    echo "<script>alert('留言不能为空哦！必填项');</script>";
+    echo "<meta http-equiv = \"refresh\" content = \"0\" />";
     exit();
 }
 
 else if ($yz <> $yzma)
 {
-  echo "<script>alert('验证码输入错误,请准确输入!');location.href='msgboard.php';</script>";
+  echo "<script>alert('验证码输入错误,请准确输入!');</script>";
+  echo "<meta http-equiv = \"refresh\" content = \"0\" />";
     exit();
 }
 
@@ -101,7 +106,7 @@ else
     {
     	
     }   
-	$sql = "insert into tb_msgboard (name,qq,email,ip,content,posttime,belong,user_status) values ('$nickname','$qq','$email','$ip','".mysql_escape_string($content)."','$posttime','msgboard','$status')";
+	$sql = "insert into tb_msgboard (name,qq,email,ip,content,posttime,belong,user_status) values ('$nickname','$qq','$email','$ip','".mysql_escape_string($content)."','$posttime','$articleid','$status')";
     mysql_query($sql) or die(mysql_error());
     mysql_close();
     echo "<meta http-equiv = \"refresh\" content = \"0\" />";
@@ -118,25 +123,26 @@ else if(isset($_POST["btn_reply_submit"]))
 	$sql = "UPDATE tb_msgboard SET reply='".mysql_escape_string($replycontent)."',replytime='$replytime' WHERE id='$id'";
 	mysql_query($sql) or die(mysql_error());
 	mysql_close();
-	echo "<script>location.href='msgboard.php';</script>";
+	echo "<meta http-equiv = \"refresh\" content = \"0\" />";
 	}
 }
 else if(isset($_POST["bbsid"]))
 {
 	$bbsid=$_POST["bbsid"];
 	include('../config.php');
-	$msgdels=mysql_query("SELECT * FROM tb_msgboard where id='$bbsid'");
+	$msgdels=mysql_query("SELECT * FROM tb_msgboard where id='$bbsid' and belong='$articleid'");
 	if ($msgdel = mysql_fetch_array($msgdels))
 	{
 		if($msgdel['name']==$_COOKIE["usNick"]||$status=="admin")
 		{
 			$query ="delete from tb_msgboard where id='$bbsid'";
 			mysql_query($query) or die(mysql_error());
-			echo "<script>location.href='msgboard.php';</script>";
+			echo "<meta http-equiv = \"refresh\" content = \"0\" />";
 		}
 		else
 		{
-			echo "<script>alert('无权删除留言');location.href='msgboard.php';</script>";
+			echo "<script>alert('无权删除留言');</script>";
+			echo "<meta http-equiv = \"refresh\" content = \"0\" />";
 		}
 	}
 	
@@ -226,13 +232,13 @@ function quotecomment(id)
 }
 </script>
 <body style="padding:0px">
-	<div style="width:800px;background-color:#f7fcff;margin-left:auto;margin-right:auto;text-align:left;">
+	<div style="width:100%;background-color:#f7fcff;margin-left:auto;margin-right:auto;text-align:left;">
 	<!-- bbs -->
 <?php 
 	include('../config.php');
-	 $pagesize=20;
+	 $pagesize=10;
 		//取得记录总数$rs，计算总页数用
-		$rs=mysql_query("select count(*) from tb_msgboard");
+		$rs=mysql_query("select count(*) from tb_msgboard where belong='$articleid'");
 		$myrow = @mysql_fetch_array($rs);
 		$numrows=$myrow[0];
 		//计算总页数
@@ -260,7 +266,7 @@ function quotecomment(id)
 		{
 			$condition='';
 		}
-    $message=mysql_query("SELECT * FROM tb_msgboard where belong='msgboard' $condition order by posttime desc LIMIT $offset , $pagesize");
+    $message=mysql_query("SELECT * FROM tb_msgboard where belong='$articleid' $condition order by posttime desc LIMIT $offset , $pagesize");
     if ($myrow = mysql_fetch_array($message))
     	{
     		do {
@@ -276,7 +282,7 @@ function quotecomment(id)
     				$temp=split(' ',$quote,2);
     				if($temp[1])
     				{
-    					$tempstr='<a target="_blank" style="text-decoration:none;" href="./msgboard.php?getname='.$temp[0].'" title="查看全部留言">'.$temp[0].'</a>';
+    					$tempstr='<a target="_blank" style="text-decoration:none;" href="./article_reply.php?q='.$articleid.'&getname='.$temp[0].'" title="查看全部留言">'.$temp[0].'</a>';
     					$quote=$tempstr." ".$temp[1];
     				}
     			}
@@ -286,19 +292,19 @@ function quotecomment(id)
 	<div id="bbs<?=$myrow['id'] ?>" style="border:1px solid #E8E7D0;margin-bottom:10px;width:99.5%;">
 		<div style="border-bottom:1px dashed #E8E7D0;color:#666666;height:30px;line-height:30px;padding-left:10px;padding-right:15px;">
 			<div style="float:right;text-align:right;width:160px;">
-			<?php if($status=="admin") echo '<a href="javascript:addreply('.$myrow['id'].')">回复</a>';?>
+			<?php if($status=="admin") echo '<a href="javascript:addreply('.$myrow['id'].')">回复</a>&nbsp;';?>
 			<?php
 			if($status=="admin"||$_COOKIE["usNick"]==$myrow['name'])
 			{
-				echo '<form style="display:inline" name="form'.$myrow['id'].'" action="msgboard.php" method="post">'; 
+				echo '<form style="display:inline" name="form'.$myrow['id'].'" action="article_reply.php?q='.$articleid.'" method="post">'; 
 				echo '<input name="bbsid" type="hidden" value="'.$myrow['id'].'" />'; 
-				echo '<a title="删除留言 " name="delete" href="javascript:document.form'.$myrow['id'].'.submit();">删除</a>';
+				echo '<a title="删除留言 " name="delete" href="javascript:document.form'.$myrow['id'].'.submit();">删除</a>&nbsp;';
 				echo '</form>';
 			}
 			?>
 			<a href="javascript:quotecomment(<?=$myrow['id']?>)">引用</a>
 			</div>
-			<span style="color:#0067E6" ><a id="name<?=$myrow['id'] ?>" target="_blank" style="text-decoration:none;" href="./msgboard.php?getname=<?php echo urlencode($myrow['name']);?>" title="查看该昵称发表过的留言"><?=$myrow['name'] ?></a></span>			
+			<span style="color:#0067E6" ><a id="name<?=$myrow['id'] ?>" target="_blank" style="text-decoration:none;" href="./article_reply.php?q=<?=$articleid ?>&getname=<?php echo urlencode($myrow['name']);?>" title="查看该昵称发表过的留言"><?=$myrow['name'] ?></a></span>			
 			<span id="time<?=$myrow['id']?>">留言于：<?=$myrow['posttime'] ?></span> |
 			<span <?php if($myrow["user_status"]=="admin") echo 'style="color:red;"'; elseif ($myrow["user_status"]=="user") echo 'style="color:#0067E6;"';?>><?php if($myrow["user_status"]=="admin") echo "[管理员]";else if($myrow["user_status"]=="user") echo "[注册用户]";else echo "[游客]";?></span>
 		</div>
@@ -334,7 +340,7 @@ function quotecomment(id)
     	echo '<div class="pages">';
     	$allpage=$pages;
     	if($page>1)
-		echo "<a href='article.php?page=".($page-1)."'>&lt;LAST</a>";
+		echo "<a href='article_reply.php?q=$articleid&page=".($page-1)."'>&lt;LAST</a>";
     	if($pages>10)
     	{
     		$pages=10;
@@ -345,32 +351,32 @@ function quotecomment(id)
 			if($page==$i)
 			echo '<span>'.$i.'</span>';
 			else
-			echo "<a href='article.php?page=".$i."'>".$i."</a>";
+			echo "<a href='article_reply.php?q=$articleid&page=".$i."'>".$i."</a>";
 		}
 		if($hasall)
-		echo "...<a href='article.php?page=".$allpage."'>".$allpage ."</a>";
+		echo "...<a href='article_reply.php?q=$articleid&page=".$allpage."'>".$allpage ."</a>";
 		if($page!=$allpage&&$allpage!=0)
-		echo "<a href='article.php?page=".($page+1)."'>NEXT></a>";
+		echo "<a href='article_reply.php?q=$articleid&page=".($page+1)."'>NEXT></a>";
 		echo "</div>";
 ?>
 
 	<!-- /bbs -->
 	<!-- textarea -->
 	<div>
-	<form action="./article_reply.php" id="commentform" name="commentform" method="post" onsubmit="return inputcheck();">
+	<form action="./article_reply.php?q=<?=$articleid ?>" id="commentform" name="commentform" method="post" onsubmit="return inputcheck();">
 	<p>
-	昵称:<input name="nickname" id="nickname" maxlength="30" type="text" <?php echo isset($_COOKIE["usNick"])&&$_COOKIE["usNick"]!="admin"?'value="'.$_COOKIE["usNick"].'" readonly="true"':'value=""'; ?> style="<?php echo isset($_COOKIE["usNick"])&&$_COOKIE["usNick"]!="admin"?'background-color:#CCCCCC;':''; ?>font-size:12px;border:1px solid #CCCCCC;padding:2px 2px 2px 10px;width:150px;height:15px;margin-left:10px; "><span style="color: red">*</span>
+	昵称:<input name="nickname" id="nickname" maxlength="30" type="text" <?php echo isset($_COOKIE["usNick"])&&$_COOKIE["usNick"]!="admin"?'value="'.$_COOKIE["usNick"].'" readonly="true"':'value=""'; ?> style="<?php echo isset($_COOKIE["usNick"])&&$_COOKIE["usNick"]!="admin"?'background-color:#CCCCCC;':''; ?>font-size:12px;border:1px solid #CCCCCC;padding:2px 2px 2px 10px;width:150px;height:20px;margin-left:10px; "><span style="color: red">*</span>
 	</p>
 	<p style="margin-top:5px;">
-	邮箱:<input name="mailbox" id="mailbox" type="text" maxlength="30" autocomplete="on" value="" style="font-size:12px;border:1px solid #CCCCCC;padding:2px 2px 2px 10px;width:150px;height:15px;margin-left:10px; ">
-	&nbsp;&nbsp;&nbsp;&nbsp;QQ :<input name="qq" id="qq"  maxlength="15" type="text"  autocomplete="on" value="" style="font-size:12px;border:1px solid #CCCCCC;padding:2px 2px 2px 10px;width:150px;height:15px;margin-left:10px; ">
+	邮箱:<input name="mailbox" id="mailbox" type="text" maxlength="30" autocomplete="on" value="" style="font-size:12px;border:1px solid #CCCCCC;padding:2px 2px 2px 10px;width:150px;height:20px;margin-left:10px; ">
+	&nbsp;&nbsp;&nbsp;&nbsp;QQ :<input name="qq" id="qq"  maxlength="15" type="text"  autocomplete="on" value="" style="font-size:12px;border:1px solid #CCCCCC;padding:2px 2px 2px 10px;width:150px;height:20px;margin-left:10px; ">
 	</p>
 	<p style="margin-top:5px;">
 	发表留言：
 	</p>
 	<textarea onkeydown="return clt_enter(event)" style="height:300px;width:450px;" name="tbCommentBody" id="tbCommentBody"></textarea>
 	<p style="margin-top:5px;">
-	验证码：<input id="securecode" name="securecode"  maxlength="4" type="text" style="font-size:12px;border:1px solid #CCCCCC;padding:2px 2px 2px 10px;width:50px;height:15px;margin-left:10px; ">
+	验证码：<input id="securecode" name="securecode"  maxlength="4" type="text" style="font-size:12px;border:1px solid #CCCCCC;padding:2px 2px 2px 10px;width:50px;height:20px;margin-left:10px; ">
 <?php
 $seedarray =microtime();
 $seedstr =split(" ",$seedarray,5);

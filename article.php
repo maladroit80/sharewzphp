@@ -260,11 +260,6 @@ else
     	mysql_query("update tb_news set counts=counts+1 where url='$node'") or die(mysql_error());
     	include("./news/".$node.".php");
     }
-    else if(file_exists("./news/".$node.".html"))
-    {
-    	mysql_query("update tb_news set counts=counts+1 where url='$node'") or die(mysql_error());
-    	include("./news/".$node.".html");
-    }
     else
     {
     	//add by user

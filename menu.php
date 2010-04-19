@@ -6,7 +6,6 @@
 <?php 
 // Si estan definidas las variables de las cookies se procede a mostrar el menu pero no sin antes comprobar que los
 // datos de las cookies verdaderamete son del usuario en cuestion.
-
 if(isset($_COOKIE["usNick"]) && isset($_COOKIE["usPass"]))
 {
 
@@ -43,15 +42,12 @@ echo "登陆有误.";
 <?php
 exit();
 }
-
 // Se sanitiza la cookie usPass
-
 $wazk = uc($_COOKIE["usPass"]);
 
 // Se define $wezk como el nombre de usuario de la tabla tb_users
 
 $wezk = $row['password'];
-
 // Se comprueba que el dato de la cookie sea el mismo que el de la tabla, de lo contrario se muestra error, se termina
 // el script y se borra la cookie.
 
@@ -62,7 +58,6 @@ echo "登陆错误.";
 <?php
 exit();
 }
-
 echo"
 			<ul id='Tablistdetail'>
 				<li><a href=\"index.php\"><span>首页</span></a></li>
