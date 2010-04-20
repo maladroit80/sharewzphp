@@ -57,7 +57,7 @@ $email = trim($_POST['mailbox']);
 $email = strip_tags($email);
 $content = $_POST['tbCommentBody'];
 $content = strip_tags($content);
-$posttime=date("y-m-d H:i");
+$posttime=date("y-m-d H:i:s");
 
 if (strrpos($nickname,"<")!==false || strrpos($nickname,">")!==false||strrpos($nickname,"@")!==false||strrpos($nickname,"\"")!==false||strrpos($nickname,"'")!==false||strrpos($nickname,"_")!==false)
 {
@@ -94,7 +94,7 @@ else if ($yz <> $yzma)
   echo "<meta http-equiv = \"refresh\" content = \"0\" />";
     exit();
 }
-else if(count(split("[Quote]",$content))-1>1||count(split("[/Quote]",$content))-1>1)
+if(count(explode("[Quote]",$content))-1>1||count(explode("[/Quote]",$content))-1>1)
 {
 	echo "<script>alert('只允许引用一组留言！');</script>";
   	echo "<meta http-equiv = \"refresh\" content = \"0\" />";
@@ -104,13 +104,18 @@ else
 {    
     $ip = getRealIP();//获取客户端IP地址
     include('../config.php');
-    $sql = "SELECT * FROM tb_msgboard WHERE ip = '$ip'";
+    $sql = "SELECT * FROM tb_msgboard WHERE ip = '$ip' order by posttime DESC LIMIT 0 , 1";
     $result=mysql_query($sql);
-    $hasip = mysql_fetch_row($result);
-    if($hasip&&$status!="admin")
+    $hasip=mysql_fetch_array($result);
+    if(!empty($hasip)&&$status!="admin")
     {
-    	
-    }   
+    	if(strtotime($posttime)-strtotime($hasip["posttime"])<30)
+    	{
+    		echo "<script>alert('发言间隔过短！');</script>";
+    		echo "<meta http-equiv = \"refresh\" content = \"0\" />";
+    		exit();
+    	}
+    }  
 	$sql = "insert into tb_msgboard (name,qq,email,ip,content,posttime,belong,user_status) values ('$nickname','$qq','$email','$ip','".mysql_escape_string($content)."','$posttime','$articleid','$status')";
     mysql_query($sql) or die(mysql_error());
     mysql_close();
