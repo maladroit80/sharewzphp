@@ -689,3 +689,23 @@ INSERT INTO `tb_ads_categories` (`id`, `catname`, `click`, `referalclick`) VALUE
 (6, '包月广告区（40元/30秒）', 0.005, 0.001),
 (10, '15秒自助广告区（4元/1000ip）', 0.002, 0.0004),
 (11, '8秒自助广告区（2元/1000ip）', 0.001, 0.0002);
+
+-- ---------------add by hilary(2010/04/19)-----------------
+
+--
+-- 表的结构 `tb_common`
+--
+CREATE TABLE IF NOT EXISTS `tb_common` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `itemid` varchar(50) DEFAULT NULL,
+  `value` varchar(150) DEFAULT NULL,
+  `time` varchar(35) DEFAULT NULL,
+  KEY `id` (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `tb_common`
+--
+
+INSERT INTO `tb_common` (`id`, `itemid`, `value`, `time`) VALUES
+(1, 'leastpay', '0.1', '2010-3-26 03:49');
