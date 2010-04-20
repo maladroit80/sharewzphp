@@ -360,7 +360,7 @@ function quotecomment(id)
     	echo '<div class="pages">';
     	$allpage=$pages;
     	if($page>1)
-		echo "<a href='article_reply.php?q=$articleid&page=".($page-1)."'>&lt;LAST</a>";
+		echo "<a href='article_reply.php?q=$articleid&page=".($page-1)."'>&lt; 上页</a>";
     	if($pages>10)
     	{
     		$pages=10;
@@ -376,7 +376,7 @@ function quotecomment(id)
 		if($hasall)
 		echo "...<a href='article_reply.php?q=$articleid&page=".$allpage."'>".$allpage ."</a>";
 		if($page!=$allpage&&$allpage!=0)
-		echo "<a href='article_reply.php?q=$articleid&page=".($page+1)."'>NEXT></a>";
+		echo "<a href='article_reply.php?q=$articleid&page=".($page+1)."'>下页 ></a>";
 		echo "</div>";
 ?>
 
