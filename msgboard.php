@@ -83,7 +83,12 @@ else if ($yz <> $yzma)
   echo "<script>alert('验证码输入错误,请准确输入!');location.href='msgboard.php';</script>";
     exit();
 }
-
+else if(count(split("[Quote]",$content))-1>1||count(split("[/Quote]",$content))-1>1)
+{
+	echo "<script>alert('只允许引用一组留言！');</script>";
+  	echo "<meta http-equiv = \"refresh\" content = \"0\" />";
+    exit();
+}
 else
 {    
     $ip = getRealIP();//获取客户端IP地址
