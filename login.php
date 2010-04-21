@@ -86,7 +86,9 @@ function change()
   </tr>
 
   <tr align="center">
-    <td width="250" colspan="2" align="center">
+  <td><input type="checkbox" name="inp-remember" id="inp-remember" />
+    <label for="inp-remember" title="保存14天">记住登录</label></td>
+    <td align="center">
   <input type="image" src="./images/submit-button.gif" onclick="signinAjax();return false;"/>  
        <a href="recoverpwd.php">» 忘记密码?</a> 
 	</td>

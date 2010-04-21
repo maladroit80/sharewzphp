@@ -400,8 +400,8 @@ index.php styles by hilary
 /*-----------------------------------------------------------------------------
 register.php styles by hilary
 ----------------------------------------------------------------------------*/
-.reg_left{margin-top:14px;float:left;width:265px; height:540px; border-bottom:solid 1px lightsteelblue;border-right:solid 1px lightsteelblue;border-top:solid 1px lightsteelblue;border-left:solid 1px lightsteelblue;}
-.reg_right{margin-top:14px;float:right;width:270px; height:540px; border-bottom:solid 1px lightsteelblue;border-right:solid 1px lightsteelblue;border-top:solid 1px lightsteelblue;border-left:solid 1px lightsteelblue;}
+.reg_left{margin-top:15px;float:left;width:265px; height:540px; border-bottom:solid 1px lightsteelblue;border-right:solid 1px lightsteelblue;border-top:solid 1px lightsteelblue;border-left:solid 1px lightsteelblue;}
+.reg_right{margin-top:15px;float:right;width:270px; height:540px; border-bottom:solid 1px lightsteelblue;border-right:solid 1px lightsteelblue;border-top:solid 1px lightsteelblue;border-left:solid 1px lightsteelblue;}
 .reg_table{color:#0067E6;font-weight:bold; font-size:large;text-align:center;height:20px;}
 .reg_bot{clear:both;width:900px;height:120px;border-bottom:solid 1px blue;border-right:solid 1px blue;border-top:solid 1px blue;border-left:solid 1px blue;}
 .text_reg{width:150px;height:50px;text-align:left;}

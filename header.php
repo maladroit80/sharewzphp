@@ -23,8 +23,11 @@
 </head>
 <body style="margin-top:0px; padding-top:0px;">
 <div id="main">
-<?php include('functions.php'); 
-$elref=limpiar($_GET["r"]);
+<?php include('functions.php');
+if(isset($_GET['referer']))
+{
+	$_SESSION["referer"]=limpiar($_GET['referer']);
+}
 ?>
   <div id="header">
     <h1 id="logo"><a href="#"><img src="images/logo.gif" alt="" /></a></h1>

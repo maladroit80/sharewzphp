@@ -8,16 +8,16 @@ $key = array(
 'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',
 'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z');
 $string = null;
-$char_X = 15;
+$char_X = 10;
 $char_Y = 3;
 for($i=0;$i<3;$i++)
 {
-$char_Y = mt_rand(0,12);
+$char_Y = mt_rand(3,12);
 $char = $key[mt_rand(0,61)];
 $string .= $char;
-$color_Char = imagecolorallocate($image,mt_rand(0,230),mt_rand(0,230),mt_rand(0,230));
+$color_Char = imagecolorallocate($image,mt_rand(0,100),mt_rand(0,100),mt_rand(0,100));
 imagechar($image,5,$char_X,$char_Y,$char,$color_Char);
-$char_X = $char_X + mt_rand(8,17);
+$char_X = $char_X + mt_rand(8,23);
 }
 $line_X1 = 0;
 $line_Y1 = 0;

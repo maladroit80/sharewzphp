@@ -17,7 +17,7 @@ if($_GET["regpage"])
 		$checkuser = mysql_query("SELECT username FROM tb_users WHERE username='$username'");
         $username_exist = mysql_num_rows($checkuser);
 	if ($username_exist>0) {
-     echo "该用户名已存在.";
+     echo "该用户名已存在!";
      }
 	}
 	if($_GET["email"])
@@ -27,7 +27,7 @@ if($_GET["regpage"])
 		$checkemail = mysql_query("SELECT email FROM tb_users WHERE email='$email'");
         $email_exist = mysql_num_rows($checkemail);
 	if ($email_exist>0) {
-     echo "该E-mail地址已存在.";
+     echo "该E-mail地址已存在!";
      }
 	}
 	if($_GET["pemail"])
@@ -37,7 +37,7 @@ if($_GET["regpage"])
 		$checkpemail = mysql_query("SELECT pemail FROM tb_users WHERE pemail='$pemail'");
         $pemail_exist = mysql_num_rows($checkpemail);
 	if ($pemail_exist>0) {
-     echo "该支付宝已使用，请核实.";
+     echo "该支付宝已使用，请核实!";
      }
 	}
 	if($_GET["referer"])
@@ -47,14 +47,15 @@ if($_GET["regpage"])
 		$checkref = mysql_query("SELECT username FROM tb_users WHERE username='$referer'");
         $referer_exist = mysql_num_rows($checkref);
 	if ($referer_exist<1) {
-     echo "该推荐人不存在，请核实或不填.";
+     echo "该推荐人不存在，请核实或不填!";
      }
 	}
     if($_GET["code"])
 	{
+		session_start();
 		if(strtolower($_GET["code"])!= strtolower($_SESSION['texto']))
 		{
-			echo "验证码错误.";
+			echo "验证码错误!";
 		}
 	}
 }
@@ -90,10 +91,17 @@ $row = mysql_fetch_array($query);
 mysql_close($con);
 $nicke=$row['username'];
 $passe=$row['password'];
-
-//90 dias dura la cookie
-setcookie("usNick",$nicke,time()+7776000);
-setcookie("usPass",$passe,time()+7776000);
+if(isset($_GET['remember']))
+{
+	setcookie("usNick",$nicke,time()+1209600);
+	setcookie("usPass",$passe,time()+1209600);
+}
+//14 dias dura la cookie
+else
+{
+	setcookie("usNick",$nicke);
+	setcookie("usPass",$passe);
+}
 
 
 $lastlogdate=time();
