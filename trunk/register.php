@@ -6,7 +6,6 @@ session_start();
 
 
 <?php
-
 if(isset($_COOKIE["usNick"]) && isset($_COOKIE["usPass"]))
 {
 
@@ -25,7 +24,11 @@ if(isset($_COOKIE["usNick"]) && isset($_COOKIE["usPass"]))
 
 <?php
 
-
+if(isset($_SESSION["register_info"]))
+{
+	$userinfo=$_SESSION["register_info"];
+	session_unregister("register_info");
+}
 
 // incluimos archivos necesarios
 
@@ -34,9 +37,11 @@ require('config.php');
 
 if (isset($_POST["username"])) {
 
+$_SESSION["register_info"]=$_POST;
+
 if( strtolower($_POST['code'])!= strtolower($_SESSION['texto'])){
 
-echo "<br><br>验证码错误... ";
+echo "<div style=\"margin-top:15px;text-align:center\"><span style=\"font-size:1.2em\">验证码错误，请<a title=\"返回易网赚注册\" href=\"register.php\">返回</a>继续</span></div>";
 
 include('footer.php'); exit();
 }
@@ -55,7 +60,7 @@ $pemail = $_POST["pemail"];
 // comprobamos que no haya campos en blanco
 
 if($username==NULL|$password==NULL|$cpassword==NULL|$email==NULL|$cemail==NULL|$pemail==NULL) {
-echo "填写不完整";
+echo "<div style=\"margin-top:15px;text-align:center\"><span style=\"font-size:1.2em\">填写不完整，请<a title=\"返回易网赚注册\" href=\"register.php\">返回</a>继续</span></div>";
 }else{
 
 
@@ -89,13 +94,13 @@ minimopass($password);
 
 // ¿Coinciden las contraseñas?
 if($password!=$cpassword) {
-echo "密码不正确";
+echo "<div style=\"margin-top:15px;text-align:center\"><span style=\"font-size:1.2em\">密码不正确，请<a title=\"返回易网赚注册\" href=\"register.php\">返回</a>继续</span></div>";
 }else{
 
 
 // ¿Coinciden los emails?
 if($email!=$cemail) {
-echo "电子邮件有误";
+echo "<div style=\"margin-top:15px;text-align:center\"><span style=\"font-size:1.2em\">电子邮件有误，请<a title=\"返回易网赚注册\" href=\"register.php\">返回</a>继续</span></div>";
 }else{
 
 
@@ -120,11 +125,11 @@ if($laip!="127.0.0.1")
 }
 
 if ($ip_exist>0) {
-echo "错误: 你已经创建了一个账户.";
+echo "<div style=\"margin-top:15px;text-align:center\"><span style=\"font-size:1.2em\">错误: 你已经创建了一个账户，请<a title=\"返回易网赚注册\" href=\"register.php\">返回</a>继续</span></div>";
 }else{
 
 
-// Comprobamos que el nombre de usuario, email y el email de paypal no existan
+// Comprobamos que el nombre de usuario， email y el email de paypal no existan
 
 $checkuser = mysql_query("SELECT username FROM tb_users WHERE username='$username'");
 $username_exist = mysql_num_rows($checkuser);
@@ -136,11 +141,11 @@ $checkpemail = mysql_query("SELECT pemail FROM tb_users WHERE pemail='$pemail'")
 $pemail_exist = mysql_num_rows($checkpemail);
 
 if ($email_exist>0|$username_exist>0) {
-echo "用户名或者电子邮件地址已存在.";
+echo "<div style=\"margin-top:15px;text-align:center\"><span style=\"font-size:1.2em\">用户名或者电子邮件地址已存在，请<a title=\"返回易网赚注册\" href=\"register.php\">返回</a>继续</span></div>";
 }else{
 
 if ($pemail_exist>0) {
-echo "你的支付宝已经存在.";
+echo "<div style=\"margin-top:15px;text-align:center\"><span style=\"font-size:1.2em\">你的支付宝已经存在，请<a title=\"返回易网赚注册\" href=\"register.php\">返回</a>继续</span></div>";
 }else{
 
 
@@ -158,7 +163,8 @@ $referer_exist = mysql_num_rows($checkref);
 
 if ($referer_exist<1) {
 // En caso de no existir el referer damos un mensaje de error
-echo "错误，您的推荐人不存在"; include('footer.php');exit();
+echo "<div style=\"margin-top:15px;text-align:center\"><span style=\"font-size:1.2em\">错误:您的推荐人不存在，请<a title=\"返回易网赚注册\" href=\"register.php\">返回</a>继续</span></div>"; 
+include('footer.php');exit();
 }else{
 // Si todo parece correcto procedemos con la inserccion
       $sqlz = "SELECT * FROM tb_users WHERE username='$referer'";
@@ -181,7 +187,7 @@ $password=passport_encrypt($password,$encryptkey);
 $query = "INSERT INTO tb_users (username, password, ip, email, pemail, referer, joindate) VALUES('$username','$password','$laip','$email','$pemail','$referer','$joindate')";
 mysql_query($query) or die(mysql_error());
 
-echo "您已经正确注册 <b>$username</b>. 现在您可以 <a href=\"login.php\">登录</a>.";
+echo "<div style=\"margin-top:15px;text-align:center\"><span style=\"font-size:1.2em\">您已经正确注册 <b>$username</b>. ，现在您可以<a title=\"返回易网赚注册\" href=\"login.php\">登录</a>本站</span></div>";
 
 
 }
@@ -252,6 +258,7 @@ previous=eventobj
 
 function verify(evt)
 {
+	document.getElementById("regtip").innerHTML="";
 	var xmlHttp;
 	xmlHttp=GetXmlHttpObject();
 	if (xmlHttp==null)
@@ -273,7 +280,7 @@ function verify(evt)
 		if(element.value.length<6)
 		{
 			var tip=document.getElementById("regtip");
-			tip.innerHTML="密码长度不够，请加强.";
+			tip.innerHTML="密码长度不够，请加强!";
 			tip.style.display="inline";
 		}
 		else
@@ -287,7 +294,7 @@ function verify(evt)
 		if(element.value!=document.getElementsByName("password")[0].value)
 		{
 			var tip=document.getElementById("regtip");
-			tip.innerHTML="两次密码不一致.";
+			tip.innerHTML="两次密码不一致!.";
 		}
 		else
 		{
@@ -308,7 +315,7 @@ function verify(evt)
 		if(element.value!=document.getElementsByName("email")[0].value)
 		{
 			var tip=document.getElementById("regtip");
-			tip.innerHTML="请填写正确的邮箱.";
+			tip.innerHTML="请填写正确的邮箱!";
 		}
 		else
 		{
@@ -327,6 +334,14 @@ function verify(evt)
 	else if(element.name=="referer"&&element.value!="")
 	{
 		var url="verify.php?regpage=true&referer="+element.value;
+		xmlHttp.open("POST",url,true);
+		xmlHttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+		xmlHttp.onreadystatechange=stateChanged;
+		xmlHttp.send(url);
+	}
+	else if(element.name=="code"&&element.value!="")
+	{
+		var url="verify.php?regpage=true&code="+element.value;
 		xmlHttp.open("POST",url,true);
 		xmlHttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 		xmlHttp.onreadystatechange=stateChanged;
@@ -383,11 +398,9 @@ function change()
 <div class="reg_left">
 265*540广告位
 </div>
-<div id="form" style="width:350px;float:left;margin-left:5px;">
+<div id="form" style="width:350px;float:left;margin-left:5px;margin-top:15px;">
 <form action="register.php" method="POST" onKeyUp="highlight(event)" onClick="highlight(event)" id="registerform">
-
-
-<table id="reg" width="350" border="0" align="left" style="border-bottom:solid 1px lightsteelblue;border-right:solid 1px lightsteelblue;border-top:solid 1px lightsteelblue;border-left:solid 1px lightsteelblue;">
+<table id="reg" width="350" border="0" align="left">
   <tr>
     <td colspan="2" class="reg_table">欢迎注册易网赚</td>
   </tr>
@@ -399,7 +412,7 @@ function change()
   </tr>
   <tr>
     <td width="100" align="right"><p><label>用户名 »</label></p></td>
-    <td width="80" align="left"><input type='text' maxlength='25' name='username' tooltipText="在本站独一无二的用户名" autocomplete="off" value="" tabindex="1" onblur="verify(event)" /></td>
+    <td width="80" align="left"><input type='text' maxlength='25' name='username' tooltipText="在本站独一无二的用户名" autocomplete="off" value="<?=$userinfo["username"] ?>" tabindex="1" onblur="verify(event)" /></td>
   </tr>
   <tr>
     <td align="right"><p><label>密码 »</label></p></td>
@@ -411,19 +424,19 @@ function change()
   </tr>
   <tr>
     <td  align="right"><p><label>电子邮件 »</label></p></td>
-	<td  align="left"><input type="text"  maxlength="100" name="email" tooltipText=" 输入一个有效的电子邮件地址. " autocomplete="off" class="field" value="" tabindex="1" onblur="verify(event)" /></td>
+	<td  align="left"><input type="text"  maxlength="100" name="email" tooltipText=" 输入一个有效的电子邮件地址. " autocomplete="off" class="field" value="<?=$userinfo["email"] ?>" tabindex="1" onblur="verify(event)" /></td>
   </tr>
   <tr>
     <td  align="right"><p><label>重复电子邮件 »</label></p></td>
-	<td  align="left"><input type="text"  maxlength="100" name="cemail" tooltipText=" 重复你的电子邮件" autocomplete="off" class="field" value="" tabindex="1" onblur="verify(event)" /></td>
+	<td  align="left"><input type="text"  maxlength="100" name="cemail" tooltipText=" 重复你的电子邮件" autocomplete="off" class="field" value="<?=$userinfo["cemail"] ?>" tabindex="1" onblur="verify(event)" /></td>
   </tr>
   <tr>
     <td align="right"><p><label>支付宝帐号 »</label></p></td>
-	<td  align="left"><input type="text"  maxlength="100" name="pemail" tooltipText="你收款的支付宝帐号" autocomplete="off" class="field" value="" tabindex="1" onblur="verify(event)"/></td>
+	<td  align="left"><input type="text"  maxlength="100" name="pemail" tooltipText="你收款的支付宝帐号" autocomplete="off" class="field" value="<?=$userinfo["pemail"] ?>" tabindex="1" onblur="verify(event)"/></td>
   </tr>
   <tr>
     <td  align="right"><p><label>推荐人 »</label></p></td>
-	<td  align="left"><input type="text"  tooltipText="推荐你的会员 " maxlength="15" name="referer" value="<?php echo limpiar($_GET["r"]); ?>" autocomplete="off" class="field" value="" tabindex="1" onblur="verify(event)" /></td>
+	<td  align="left"><input type="text"  tooltipText="推荐你的会员 " maxlength="15" name="referer" value="<?php echo isset($_SESSION["referer"])?$_SESSION["referer"]:$userinfo["referer"]; ?>" autocomplete="off" class="field" value="" tabindex="1" onblur="verify(event)" /></td>
   </tr>
   <tr>
     <td align="right"><p><label>服务条款 »</label></p></td>

@@ -29,8 +29,7 @@
     </tr>
     <tr>
       <td align="center" style="border-right:1px solid #FFCC00;">
-      <table>	
-  
+      <table>	 
 			<?php
 			require('config.php');
 			$tabla = mysql_query("SELECT * FROM tb_back_site where site_id in (select site_id from tb_payproof order by pay_time desc) limit 5"); 

@@ -49,7 +49,7 @@ function glimmer(id)
     return;
  }
 
- var xmlHttp;
+var xmlHttp;
 xmlHttp=GetXmlHttpObject();
 if (xmlHttp==null)
   {
@@ -57,6 +57,10 @@ if (xmlHttp==null)
    return;
   }
 var url="verify.php?name="+name+"&psw="+psw+"&code="+code;
+if(document.getElementById("inp-remember").checked==true)
+{
+	url=url+"&remember=1";
+}
 xmlHttp.open("POST",url,true);
 xmlHttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 xmlHttp.onreadystatechange=stateChanged; 

@@ -15,7 +15,7 @@ setcookie(visitas,"x",time() - 7776000);
 
 ?>
 
-<META HTTP-EQUIV="REFRESH" CONTENT="0;URL=index.php?action=logout">
+<META HTTP-EQUIV="REFRESH" CONTENT="0;URL=index.php">
 
 
 

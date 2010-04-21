@@ -139,7 +139,7 @@ function change()
 				  <td align="center" colspan='2'><img id="securitycode" src="image.php" /><a id="changimg" href="javascript:change()">看不清？</a></td>
 				  </tr>
                 <tr>
-                  <td align="center" class="smaller"><input type="checkbox" name="" id="inp-remember" />
+                  <td align="center" class="smaller"><input type="checkbox" name="inp-remember" id="inp-remember" />
                     <label for="inp-remember" title="保存14天" class="help">记住登录</label></td>
                   <td class="t-right"><input type="image" src="./images/signup-button.gif" onclick="signinAjax();return false;"/></td>
                 </tr>
