@@ -24,6 +24,7 @@
 <body style="margin-top:0px; padding-top:0px;">
 <div id="main">
 <?php include('functions.php');
+@session_start();
 if(isset($_GET['referer']))
 {
 	$_SESSION["referer"]=limpiar($_GET['referer']);

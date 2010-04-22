@@ -9,8 +9,12 @@ mysql_close($con);
 <div class="mem_left">
 <?php include('memberleft.php')?>
 </div>
-<div align="center">
+<div align="center" style="margin-top:15px;">
     <table width="564" style="border-collapse: collapse" bordercolor="#111111" cellpadding="0" cellspacing="0">
+      <tr bgcolor="#FFFFFF">
+        <td colspan="3">
+        <div id="divreferer" align="center" style="font-weight:bold;font-size:1.3em;">点击复制您的推广链接：http://www.easywz.com/register.php?referer=<?=$_COOKIE["usNick"] ?><br/><br/></div></td>
+        </tr>
       <tr bgcolor="#FFFFFF">
         <td colspan="3">
         <div align="center"><a href="http://www.sharewz.com/" target="_blank"><img src="images/yuming.gif" width="468" height="60" border="0" /></a></div></td>
@@ -60,9 +64,8 @@ mysql_close($con);
       </tr>
     </table>
 </div>
-
-
-
-
 </div>
+<script type="text/javascript">
+document.body.onload=glimmer('divreferer');
+</script>
 <?php include('footer.php'); ?>

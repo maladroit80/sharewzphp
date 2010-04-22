@@ -246,15 +246,6 @@ previous=eventobj
 }
 }
 
-//var name=document.getElementsByName("username")[0].value;
-//var psw=document.getElementsByName("password")[0].value;
-//var cpsw=document.getElementsByName("seccode")[0].value;
-//var mail=document.getElementsByName("username")[0].value;
-//var cmail=document.getElementsByName("password")[0].value;
-//var paynum=document.getElementsByName("seccode")[0].value;
-//var area=document.getElementsByName("username")[0].value;
-//var psw=document.getElementsByName("password")[0].value;
-//var code=document.getElementsByName("seccode")[0].value;
 
 function verify(evt)
 {
