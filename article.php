@@ -77,7 +77,7 @@ include ('header.php');
 <div>
         <?php
         require('config.php');
-    	$articles=mysql_query("SELECT * FROM tb_news order by date desc LIMIT 0 , 10");
+    	$articles=mysql_query("SELECT * FROM tb_news WHERE TO_DAYS(NOW()) - TO_DAYS(DATE) <7 ORDER BY counts DESC LIMIT 0 , 10");
     	if ($myrow = mysql_fetch_array($articles))
     	{
     		do {
@@ -174,7 +174,7 @@ include ('header.php');
     		$content=cut_str(strip_tags($myart['content']),100);
 		?>
 		<div>
-<h3><?php if($key<3) echo '<img alt="置顶" src="./images/top.gif" />';
+<h3><?php if($key<3&&$myart['status']=='t') echo '<img alt="置顶" src="./images/top.gif" />';
  		else if($myart['status']=='c'||$myart['status']=='t') echo '<img alt="推荐" src="./images/cool.gif" />';
  		?><a style="TEXT-DECORATION: none"
 	href="./article/<?=$myart["url"] ?>.html" title="<?=$myart['title'] ?>">

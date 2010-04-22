@@ -13,7 +13,7 @@ mysql_close($con);
     <table width="564" style="border-collapse: collapse" bordercolor="#111111" cellpadding="0" cellspacing="0">
       <tr bgcolor="#FFFFFF">
         <td colspan="3">
-        <div id="divreferer" align="center" style="font-weight:bold;font-size:1.3em;">点击复制您的推广链接：http://www.easywz.com/register.php?referer=<?=$_COOKIE["usNick"] ?><br/><br/></div></td>
+        <div id="divreferer" align="center" style="font-weight:bold;font-size:1.3em;" onclick="copyreferer()">点击复制您的推广链接：http://www.easywz.com/register.php?referer=<?=$_COOKIE["usNick"] ?><br/><br/></div></td>
         </tr>
       <tr bgcolor="#FFFFFF">
         <td colspan="3">
@@ -67,5 +67,10 @@ mysql_close($con);
 </div>
 <script type="text/javascript">
 document.body.onload=glimmer('divreferer');
+function copyreferer()
+{
+	window.clipboardData.setData("Text","http://www.easywz.com/register.php?referer=<?=$_COOKIE["usNick"] ?>");
+	alert("复制成功，请粘贴推荐易网赚给好友")
+}
 </script>
 <?php include('footer.php'); ?>
