@@ -721,7 +721,7 @@ CREATE TABLE IF NOT EXISTS `p2c` (
   `P2CName` varchar(200),
   `P2CLink` varchar(50),
   `P2CImg` varchar(200),
-  `PP2CText` varchar(200),
+  `P2CText` varchar(200),
   `P2CType` varchar(50),
   `P2CTime` int(11),
   `P2CValuation` float,
