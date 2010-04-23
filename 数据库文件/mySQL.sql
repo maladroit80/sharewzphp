@@ -709,3 +709,48 @@ CREATE TABLE IF NOT EXISTS `tb_common` (
 
 INSERT INTO `tb_common` (`id`, `itemid`, `value`, `time`) VALUES
 (1, 'leastpay', '0.1', '2010-3-26 03:49');
+
+
+-- ---------------add by hilary(2010/04/22)-----------------
+
+--
+-- 表的结构 `p2c`
+--
+CREATE TABLE IF NOT EXISTS `p2c` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `P2CName` varchar(200),
+  `P2CLink` varchar(50),
+  `P2CImg` varchar(200),
+  `PP2CText` varchar(200),
+  `P2CType` varchar(50),
+  `P2CTime` int(11),
+  `P2CValuation` float,
+  `P2CVisit` int(11),
+  `P2CLimit` int(11),
+  `P2CTarget` varchar(150),
+  `P2COwner` varchar(150),
+  `P2CValid` bool DEFAULT true,
+  `NeedClick` int(11),
+  `P2CClick` int(11),
+  `P2CRate` double,
+  `P2CGroup` varchar(100),
+  `P2CTotalVisit` int(11),
+  `P2CTotalClick` int(11),
+  `MemberPriority` int(11),
+  KEY `id` (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+
+-- ---------------add by hilary(2010/04/22)-----------------
+
+--
+-- 表的结构 `memberp2c`
+--
+CREATE TABLE IF NOT EXISTS `memberp2c` (
+  `UserName` varchar(200),
+  `P2CID` int(11),
+  `P2CDate` varchar(200),
+  `P2CScreen` varchar(200),
+  `P2CIP` varchar(50),
+  `Status` int(11)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
