@@ -25,7 +25,13 @@ mysql_close($con);
         <td height="28">&nbsp;</td>
       </tr>
       <tr bgcolor="#FFFFFF">
-        <td height="28" colspan="3"><div align="center"><a href="contact.php">黄金广告位50元/月</a></div></td>
+        <td height="28" colspan="3">
+        <div id="myaccount">
+
+<p class="reflink" align="center">
+<img border="0" src="images/payment_history.gif" width="32" height="32"  align="absmiddle" >推荐他人，使用: <span class="textblue">
+												   <? require("config.php"); echo $link; ?>/register.php?r=<? echo $row["username"]; ?>      </span></p>
+</div></td>
         </tr>
       <tr bgcolor="#FFFFFF">
         <td height="28">&nbsp;</td>
