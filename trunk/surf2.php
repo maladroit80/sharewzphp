@@ -1,102 +1,63 @@
-<?php include('header.php');
-?>
-<div style="margin:15px auto 0 auto;width:600px;">
-<div class="title600px-top"></div>
-<div class="title600px">
-<div class="title600px-in">
-<h2 align="center"><a href="advertise.php">浏览广告</a></h2>
-</div>
-</div>
-<div class="title600px-bottom"></div>
-</div>
-<div> 
 <?php
+//普通会员浏览页面
+session_start();
+
 require('config.php');
-$UserName=$_COOKIE["usNick"];
+  $P2CName = $_GET["P2CName"];
+  $P2CLink = $_GET["P2CLink"];
+
+  $sqlg = mysql_query("Select * From p2c Where P2CName = '$P2CName'");
+  $resultg = mysql_fetch_array($sqlg);
+  $ID = $resultg["id"];
+  $P2CLink = $resultg["P2CLink"];
+  $P2CVisit = $resultg["P2CVisit"];
+  $P2CClick = $resultg["P2CClick"];
+  $P2CRate = $resultg["P2CRate"];
+
+
 ?>
-<table width="100%" bordercolorlight="#C0C0C0" bordercolordark="#FFFFFF" border="1" cellspacing="0">
-<tr>
-<th width="50%" background="images/fh/nav_lift.jpg">
-<b>广告名称（本站公告区）</b></th>
-<th width="12%" background="images/fh/nav_lift.jpg">
-<div align="center">
-<b>可点次数</b></div>
-</th>
-<th width="12%" background="images/fh/nav_lift.jpg">
-<div align="center">
-<b>已点次数</b></div>
-</th>
-<th width="12%" background="images/fh/nav_lift.jpg">
-<div align="center">
-<b>广告价值</b></div>
-</th>
-<th width="14%" background="images/fh/nav_lift.jpg">
-<div align="center">
-<b>非会员浏览</b></div>
-</th>
-</tr>
-<?php 
 
-$ads_number = mysql_query("Select * From p2c Where P2CGroup like '%公告%' and P2CValid = '1' And P2CClick <= P2CLimit Order by P2CType, P2CValuation DESC"); // selecciono todos los registros de la tabla usuarios, ordenado por nombre
-while($ads = mysql_fetch_array($ads_number)){
-$P2CID = $ads["ID"];
-$P2CName = $ads["P2CName"];
-$P2CLink = $ads["P2CLink"];
-$P2CImg = $ads["P2CImg"];
-$P2CText = $ads["P2CText"];
-$P2CValuation = $ads["P2CValuation"];
-$P2CType_C = "元";
-$P2CClick = $ads["P2CClick"];
-$P2CLimit = $ads["P2CLimit"];
-$MemberPriority = $ads["MemberPriority"];
-echo "<tr><th><div align='left'>";
 
-$dt = date("y-m-d H:i");
-$adsinfo_number = mysql_query("Select * From memberp2c Where UserName = '$UserName ' And P2CID = '$P2CID' And P2CDate = '$dt'"); // selecciono todos los registros de la tabla usuarios, ordenado por nombre
-$adsinfo = mysql_fetch_array($adsinfo_number);
+<html>
 
-$adsinfo_records = mysql_num_rows($adsinfo_number);
-//echo "$adsinfo_records";
-$ClickFlag=true;
-if($adsinfo_records>0){
-	$status = $adsinfo["Status"];
-	if($status!='Finish')
-	{
-		$ClickFlag=false;
-	}
+<head>
+
+<meta http-equiv="Pragma" content="no-cache">
+
+<meta http-equiv="Expires" content="-1">
+
+<link rel="stylesheet" type="text/css" href="css.css"><title><?php include('sitename.php'); ?> | .浏览赚钱中</title>
+</head>
+<script language="javascript">
+kstatus();
+function kstatus(){
+  self.status="请将本站添加到收藏夹以便下次访问！";
+  setTimeout("kstatus()",0);
 }
-else{
-	$ClickFlag = false;
-}
-if($ClickFlag==false)
+</script>
+
+<frameset rows="75,20,94%,*" framespacing="0" border="0" frameborder="0">
+<?php
+if ($P2CVisit * $P2CRate >= $P2CClick)
 {
-	if($P2CImg != ""){
-		echo "<a href='surf2.asp?P2CName=".$P2CName."&P2CLink=".$P2CLink."' target='". $DomainName ."'><img src='".$P2CImg ."' width='400' height='60' border='0'></a><br />".$P2CText."";
-	}
-	else{
-		echo "<a href='surf2.asp?P2CName=".$P2CName."&P2CLink=".$P2CLink."' target='". $DomainName ."'>".$P2CText."</a>";
-	}
-}  
-else{
-	if($P2CImg != ""){
-		echo "<img src='".$P2CImg ."' width='400' height='60' border='0'><br /><font style='text-decoration:line-through'>". $P2CText ."</font>";
-	}
-	else{
-		echo "<font style='text-decoration:line-through'>".$P2CText."</font>";
-	}
+?>
+<frame name="header" src=surf3.php?P2CName=<? $P2CName ?> scrolling="no" noresize>
+<?php
 }
-echo "</div></th>";
-
-echo "<th>". $P2CLimit ."</th>";
-echo "<th>". $P2CClick ."</th>";
-echo "<th>". $P2CValuation ."</th>";
-echo "<th>". $P2CType_C ."</th>";
-echo "<th><a href='". $P2CLink ."' target='_blank'>非会员浏览</a></th>";
-echo "</tr>";
+else
+{?>
+<frame name="header" src=surf32.php?P2CName=<? $P2CName ?> scrolling="no" noresize>
+<?php
 }
 ?>
+  <frame name="121" src="IP.asp" target="_self" scrolling="no" noresize marginwidth="1" marginheight="1">
+  <frame name="main" src=<% = P2CLink %> scrolling="auto" noresize style="mso-linked-frame:auto" marginwidth="0" marginheight="0">
+  <noframes>
+  <body>
 
+  <p>此网页使用了框架，但您的浏览器不支持框架。</p>
 
-
-<!--footer starts here-->
-<?php include('footer.php'); ?>
+  </body>
+  </noframes>
+</frameset>
+</html>
