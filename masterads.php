@@ -1,4 +1,9 @@
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <?php include('header.php');
+$sql_DomainName = mysql_query("select * from tb_common where itemid='DomainName'");
+$result_DomainName = mysql_fetch_array($sql_DomainName);
+$DomainName = $result_DomainName["value"];
 ?>
 <div style="margin:15px auto 0 auto;width:600px;">
 <div class="title600px-top"></div>
@@ -71,10 +76,10 @@ else{
 if($ClickFlag==false)
 {
 	if($P2CImg != ""){
-		echo "<a href='surf2.asp?P2CName=".$P2CName."&P2CLink=".$P2CLink."' target='". $DomainName ."'><img src='".$P2CImg ."' width='400' height='60' border='0'></a><br />".$P2CText."";
+		echo "<a href='surf2.php?P2CName=".$P2CName."&P2CLink=".$P2CLink."' target='". $DomainName ."'><img src='".$P2CImg ."' width='400' height='60' border='0'></a><br />".$P2CText."";
 	}
 	else{
-		echo "<a href='surf2.asp?P2CName=".$P2CName."&P2CLink=".$P2CLink."' target='". $DomainName ."'>".$P2CText."</a>";
+		echo "<a href='surf2.php?P2CName=".$P2CName."&P2CLink=".$P2CLink."' target='". $DomainName ."'>".$P2CText."</a>";
 	}
 }  
 else{
