@@ -21,14 +21,44 @@ if(isset($_COOKIE["usNick"]) && isset($_COOKIE["usPass"]))
 <script language="JavaScript">
 function addreply(id)
 {
-	//var event = arguments[0]||window.event;       
-	//var eventTarget = window.event.srcElement||eventTag.target;
+	if(document.getElementById("replydiv"+id))
+	{
+		return;
+	}
 	var eleId="bbs"+id;
 	var parentEle = document.getElementById(eleId);
 	var newNode = document.createElement("div");
 	newNode.id="replydiv"+id;
-	newNode.innerHTML = "<div style=\"margin:10px 20px; \"><form action=\"article_reply.php?q=<?=$articleid ?>\" name=\"reply\" method=\"post\"><textarea style=\"height:200px;width:300px;\" name=\"replyBody\"></textarea><p><input type=\"submit\" value=\"提交回复\" name=\"btn_reply_submit\" /><input type=\"button\" value=\"取消\" onclick=\"closediv("+id+")\" /><input type=\"hidden\" value=\""+id+"\" name=\"btn_reply_hidden\" /></p></form></div>";
-	parentEle.insertBefore(newNode,parentEle.childNodes[4]); 
+	var inNodeDiv=document.createElement("div");
+	var inNodeForm=document.createElement("form");
+	inNodeForm.setAttribute("action","msgboard.php");
+	inNodeForm.setAttribute("name","reply");
+	inNodeForm.setAttribute("method","post");
+	var inNodeText=document.createElement("textarea");
+	inNodeText.style.height="200px";
+	inNodeText.style.width="300px";
+	inNodeText.setAttribute("name","replyBody"); 
+	var inNodeSubmit=document.createElement("input");
+	inNodeSubmit.setAttribute("type","submit");
+	inNodeSubmit.setAttribute("value","提交回复");
+	inNodeSubmit.setAttribute("name","btn_reply_submit");
+	var inNodeButton=document.createElement("input");
+	inNodeButton.setAttribute("type","button");
+	inNodeButton.setAttribute("value","取消");
+	inNodeButton.setAttribute("onclick","closediv("+id+")");
+	var inNodeHidden=document.createElement("input");
+	inNodeHidden.setAttribute("type","hidden");
+	inNodeHidden.setAttribute("value",id);
+	inNodeHidden.setAttribute("name","btn_reply_hidden");
+	inNodeForm.appendChild(inNodeText);
+	var inNodeBr=document.createElement("br");
+	inNodeForm.appendChild(inNodeBr);
+	inNodeForm.appendChild(inNodeSubmit);
+	inNodeForm.appendChild(inNodeButton);
+	inNodeForm.appendChild(inNodeHidden);
+	inNodeDiv.appendChild(inNodeForm);
+	newNode.appendChild(inNodeDiv);
+	parentEle.insertBefore(newNode,parentEle.childNodes[4]);
 }
 function closediv(id)
 {
